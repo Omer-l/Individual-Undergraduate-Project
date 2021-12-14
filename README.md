@@ -7,5 +7,3 @@
 <img src="README_Images/ProjectProposalPage3.png">
 <img src="README_Images/ProjectProposalPage4.png">
 <img src="README_Images/ProjectProposalPage5.png">
-<img src="README_Images/ProjectProposalPage6.png">
-<img src="README_Images/ProjectProposalPage7.png">
