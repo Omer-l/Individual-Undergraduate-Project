@@ -72,9 +72,25 @@ $(document).ready(function () {
     content = content.split(/\r?\n/);
     let linesPerPage = 5;
     let currentLineStart = 0;
-    let numberOfLinesInPage = 8;
+    let numberOfLinesInPage = 7;
     loadNextPage(currentLineStart, content,  numberOfLinesInPage);
 
+    $(document).ready(function(){
+        $(document).mousemove(function(event){
+            var heightOfDocument = $( document ).height() - 50; //subtracted with 10 just to be safe with checking the condition below
+
+            if(event.pageY > heightOfDocument){
+                alert("Opened next page");
+                loadNextPage(currentLineStart, content,  numberOfLinesInPage);
+                currentLineStart = (currentLineStart + numberOfLinesInPage >= content.length ? content.length : currentLineStart + numberOfLinesInPage);
+            }
+
+        });
+    });
+
+});
+
+function addHighlightingToWords() {
     var words=$("#pdfContent").text().split(' ');
     $("#pdfContent").html("");
 
@@ -106,24 +122,9 @@ $(document).ready(function () {
         }
 
         var text = $(this).text();
-        //alert("You just selected "+text); testing purposes delete.
 
     });
-    $(document).ready(function(){
-        $(document).mousemove(function(event){
-            var docheight = $( document ).height() - 50; //subtracted with 10 just to be safe with checking the condition below
-
-            if(event.pageY > docheight){
-                alert("you have reached socument bottom");
-                //write your code here
-                loadNextPage(currentLineStart, content,  numberOfLinesInPage);
-                currentLineStart = (currentLineStart + numberOfLinesInPage >= content.length ? content.length : currentLineStart + numberOfLinesInPage);
-            }
-
-        });
-    });
-});
-
+}
 function loadNextPage(currentLineStart, content, numberOfLinesInPage) {
     let pageContent = "";
 
@@ -133,9 +134,10 @@ function loadNextPage(currentLineStart, content, numberOfLinesInPage) {
         for (currentLineStart; currentLineStart < upToLine; currentLineStart++)
             pageContent += content[currentLineStart];
 
-        console.log(pageContent + " ADDED FROM LINE: " + currentLineStart);
         document.getElementById("pdfContent").innerHTML = pageContent;
     }
+
+    addHighlightingToWords();
 }
 
 function completedTask(taskID) {
