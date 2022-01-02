@@ -1,7 +1,7 @@
 //Points to a div element where task combo will be inserted.
 let taskDiv;
 let addTaskResultDiv;
-
+var numberOfWordsRead = 0;
 //Set up page when window has loaded
 window.onload = init;
 
@@ -90,6 +90,21 @@ $(document).ready(function () {
 
 });
 
+function loadNextPage(currentLineStart, content, numberOfLinesInPage) {
+    let pageContent = "";
+
+    let upToLine = (currentLineStart + numberOfLinesInPage >= content.length ? content.length : currentLineStart + numberOfLinesInPage);
+
+    if(currentLineStart <= content.length-1) {
+        for (currentLineStart; currentLineStart < upToLine; currentLineStart++)
+            pageContent += content[currentLineStart];
+
+        document.getElementById("pdfContent").innerHTML = pageContent;
+    }
+
+    addHighlightingToWords();
+}
+
 function addHighlightingToWords() {
     var words=$("#pdfContent").text().split(' ');
     $("#pdfContent").html("");
@@ -102,6 +117,10 @@ function addHighlightingToWords() {
     $("#pdfContent").on("mouseover", 'span',function(){
 //highlight a word when hovered
 
+        if($(this).css("background-color") !="rgb(255, 255, 255)") //doesn't color in a highlighted color
+        {
+            console.log(numberOfWordsRead++);
+        }
         $(this).css("background-color","yellow");
     });
     $("#pdfContent").on("mouseout", 'span',function(){
@@ -124,20 +143,6 @@ function addHighlightingToWords() {
         var text = $(this).text();
 
     });
-}
-function loadNextPage(currentLineStart, content, numberOfLinesInPage) {
-    let pageContent = "";
-
-    let upToLine = (currentLineStart + numberOfLinesInPage >= content.length ? content.length : currentLineStart + numberOfLinesInPage);
-
-    if(currentLineStart <= content.length-1) {
-        for (currentLineStart; currentLineStart < upToLine; currentLineStart++)
-            pageContent += content[currentLineStart];
-
-        document.getElementById("pdfContent").innerHTML = pageContent;
-    }
-
-    addHighlightingToWords();
 }
 
 function completedTask(taskID) {
