@@ -13,10 +13,13 @@ app.get("/generate-pdf", (req, res) => {
   const fs = require("fs");
   const path = require("path");
   const filePath = path.join(require.main.path, "pdfs", "a.pdf");
-  pdfDoc.pipe(fs.createWriteStream(filePath));
+  pdfDoc.pipe(fs.createWrite  Stream(filePath));
 
   pdfDoc.pipe(res);
-  pdfDoc.fontSize(26).fillColor("blue").text("Hello", { underline: true });
+  pdfDoc.fontSize(26).fillColor("blue").text("Hello", {
+    underline: true,
+    onmouseclick: ''
+  });
   pdfDoc.end();
 });
 
