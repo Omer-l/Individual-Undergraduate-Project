@@ -72,19 +72,18 @@ $(document).ready(function () {
     content = content.split(/\r?\n/);
     let linesPerPage = 5;
     let currentLineStart = 0;
-    let numberOfLinesInPage = 7;
-    loadNextPage(currentLineStart, content,  numberOfLinesInPage);
+    let numberOfLinesInPage = 2;
+    loadNextPage(currentLineStart, content, numberOfLinesInPage);
 
-    $(document).ready(function(){
-        $(document).mousemove(function(event){
-            var heightOfDocument = $( document ).height() - 50; //subtracted with 10 just to be safe with checking the condition below
+    $(document).ready(function () {
+        $(document).mousemove(function (event) {
+            var heightOfDocument = $(document).height() - 50; //subtracted with 50 just to be safe with checking the condition below
 
-            if(event.pageY > heightOfDocument){
+            if (event.pageY > heightOfDocument) {
                 alert("Opened next page");
-                loadNextPage(currentLineStart, content,  numberOfLinesInPage);
+                loadNextPage(currentLineStart, content, numberOfLinesInPage);
                 currentLineStart = (currentLineStart + numberOfLinesInPage >= content.length ? content.length : currentLineStart + numberOfLinesInPage);
             }
-
         });
     });
 
@@ -95,7 +94,7 @@ function loadNextPage(currentLineStart, content, numberOfLinesInPage) {
 
     let upToLine = (currentLineStart + numberOfLinesInPage >= content.length ? content.length : currentLineStart + numberOfLinesInPage);
 
-    if(currentLineStart <= content.length-1) {
+    if (currentLineStart <= content.length - 1) {
         for (currentLineStart; currentLineStart < upToLine; currentLineStart++)
             pageContent += content[currentLineStart];
 
@@ -106,43 +105,67 @@ function loadNextPage(currentLineStart, content, numberOfLinesInPage) {
 }
 
 function addHighlightingToWords() {
-    var words=$("#pdfContent").text().split(' ');
+    var words = $("#pdfContent").text().split(' ');
     $("#pdfContent").html("");
-
-    $.each(words, function(i,val){
+    let count = 1;
+    $.each(words, function (i, val) {
 //wrap each word in a span tag
-        $('<span/>').text(val +" ").appendTo("#pdfContent");
+        let word = $('<span/>').text(val + " ");
+        word.addClass("" + count++);
+        word.appendTo("#pdfContent");
 
     });
-    $("#pdfContent").on("mouseover", 'span',function(){
+    $("#pdfContent").on("mouseover", 'span', function () {
 //highlight a word when hovered
 
-        if($(this).css("background-color") !="rgb(255, 255, 255)") //doesn't color in a highlighted color
+        if ($(this).css("background-color") != "rgb(255, 255, 255)") //ensures a word already visited is not applied to speed metric
         {
-            console.log(numberOfWordsRead++);
+            let wordRead = $(this).attr("class");
+
+            $('span').each(function(i, word) { //ensures words read are highlighted
+                let iteratedWord = $(word).attr("class");
+                if(parseInt(iteratedWord) <= parseInt(wordRead) + 3) {
+                    $(word).css("background-color", "white");
+                }
+                    console.log(wordRead + ' : ' + iteratedWord);
+            });
+
+            calculateSpeedMetric(wordRead);
         }
-        $(this).css("background-color","yellow");
+        $(this).css("background-color", "yellow");
     });
-    $("#pdfContent").on("mouseout", 'span',function(){
+    $("#pdfContent").on("mouseout", 'span', function () {
 //highlight a word when hovered
 
-        if($(this).css("background-color") !="rgb(0, 0, 255)") //doesn't color in a highlighted color
+        if ($(this).css("background-color") != "rgb(0, 0, 255)") //doesn't color in a highlighted color
         {
-            $(this).css("background-color","white");
+            $(this).css("background-color", "white");
         }
     });
-    $("#pdfContent").on("click", 'span', function(event){event.stopPropagation();
-        $("#pdfContent span").css("background-color","white");
+    $("#pdfContent").on("click", 'span', function (event) {
+        event.stopPropagation();
+        $("#pdfContent span").css("background-color", "white");
         let highlight = "blue";
 
         $(this).css("background-color", highlight);
-        if($(this).css("background-color", highlight) == "rgb(0, 0, 255)") {
+        if ($(this).css("background-color", highlight) == "rgb(0, 0, 255)") {
             $(this).css("background-color", "white");
         }
 
         var text = $(this).text();
 
     });
+}
+
+//calculates speed metric and highlights all words from before
+function calculateSpeedMetric(wordCount) {
+
+    console.log(wordCount);
+}
+
+//highlights all words from before
+function highlightPreviousWords(wordCount) {
+
 }
 
 function completedTask(taskID) {
@@ -161,8 +184,7 @@ function completedTask(taskID) {
 
             //Refresh list of tasks 
             loadTasks();
-        }
-        else {
+        } else {
             addTaskResultDiv.innerHTML = "<span style='color: red'>Error adding task</span>.";
         }
 
@@ -235,8 +257,7 @@ function addTask() {
                 addTaskResultDiv.innerHTML = "Task added successfully";
                 //Refresh list of tasks 
                 loadTasks();
-            }
-            else {
+            } else {
                 addTaskResultDiv.innerHTML = "<span style='color: red'>Error adding task</span>.";
             }
 
