@@ -1,7 +1,5 @@
 /*!
 	*speedometer.js
-	*author: Manivannan R
-	*project: Speedometer
 */
 $.fn.speedometer = function (userPref) {
   var self = this;
