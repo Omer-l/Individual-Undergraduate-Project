@@ -15,7 +15,7 @@
     <form>
         <input id="signInUsername" type="username" placeholder="username">
         <input id="signInPassword" type="password" placeholder="password">
-        <button class="btn btn-outline-success">Sign In</button>
+        <button id="signInButton" type="button" class="btn btn-outline-success">Sign In</button>
         <br>
         <p id="signInResults"/>
     </form>
@@ -23,7 +23,7 @@
     <form>
         <input id="signUpUsername" type="username" placeholder="username">
         <input id="signUpPassword" type="password" placeholder="password">
-        <button id="signUpButton" class="btn btn-outline-success">Sign Up</button>
+        <button id="signUpButton" type="button" class="btn btn-outline-success">Sign Up</button>
         <br>
         <p id="signUpResults"/>
     </form>
@@ -68,14 +68,60 @@
                 }
             });
         });
-        // to handle button clicks
+        // to handle sign in button
+        $("#signInButton").click(function () {
+            signInUser();
+        });
+
+        // to handle sign up button
         $("#signUpButton").click(function () {
-            addUser();
+            signUpUser();
         });
     });
 
-    /* Posts a new task to the server. */
-    function addUser() {
+    /* Gets a user from the server. */
+    function signInUser() {
+        //Set up XMLHttpRequest
+        let xhttp = new XMLHttpRequest();
+
+        if (document.getElementById("signInUsername").value != "" && document.getElementById("signInUsername").value != "") {
+            //Extract input data
+            let username = document.getElementById("signInUsername").value;
+            let password = document.getElementById("signInPassword").value;
+
+            //Create object with task data
+            let userObj = {
+                username: username,
+                password: password
+            };
+
+            //Set up function that is called when reply received from server
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //Convert JSON to a JavaScript object
+                    let user = JSON.parse(xhttp.responseText);
+                    document.getElementById('signInResults').innerHTML = "User successfully found: " + user[0].username;
+                }
+                else {
+                    document.getElementById('signInResults').innerHTML = "<span style='color: red'>Error adding user</span>.";
+                }
+
+            };
+            //Send new task data to server
+            xhttp.open("GET", "/signin?username='" + username + "'&password='" + password + "'", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(userObj));
+
+            //empties input field
+            document.getElementById('signInUsername').value = '';
+            document.getElementById('signInPassword').value = '';
+        } else {
+            document.getElementById('signInResults').innerHTML = "Please enter something!";
+        }
+    }
+
+    /* Posts a new user to the server. */
+    function signUpUser() {
         //Set up XMLHttpRequest
         let xhttp = new XMLHttpRequest();
 
@@ -100,9 +146,8 @@
                 }
 
             };
-            let request = "/register/username='" + username + "'password='" + password + "'";
             //Send new task data to server
-            xhttp.open("POST", request, true);
+            xhttp.open("POST", "/signup", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(JSON.stringify(userObj));
 
