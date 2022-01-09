@@ -19,7 +19,8 @@ let todoArray = [];
 //Set up application to handle GET requests sent to the task path
 // app.get('/todo/*', handleGetRequest);//Returns task with specified ID
 // app.get('/todo', handleGetRequest);//Returns all tasks
-
+// to get registration form
+app.post('/register/*', registerUser);
 //set up application to handle DELETE requests sent to the task path
 // app.delete('/todo', handleDeleteRequest);
 //
@@ -35,19 +36,37 @@ const connectionPool = mysql.createPool({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "password",
-    database: "todo",
+    password: "root",
+    database: "eye_tracking_pdf_reader",
     debug: false
 });
 
-const fs = require('fs'),
-    PDFParser = require("pdf2json");
+//Handles POST requests to our web service
+function registerUser(request, response) {
 
-const pdfParser = new PDFParser(this,1);
+    //Output the data sent to the server
+    let details = request.body
+    console.log("Data received: " + JSON.stringify(details));
 
-pdfParser.on("pdfParser_dataError", errData => console.error(errData.parserError) );
-pdfParser.on("pdfParser_dataReady", pdfData => {
-    fs.writeFile("text.txt", pdfParser.getRawTextContent(), ()=>{console.log("Done.");});
-});
+    //Finish off the interaction.
+    response.send("User added successfully.");
 
-pdfParser.loadPDF("C:\\Users\\omerk\\University\\Individual-Undergraduate-Project\\public\\sample.pdf");
+    console.log("username: " + details.username + " ... password: " + details.password);
+    //Build query
+    let sql = "INSERT INTO user_details (username, password) "
+        + " VALUES ("//unique id for task
+        + "\"" + details.username //task details
+        + "\", \"" + details.password + "\"" //date
+        + ");";
+    console.log(sql);
+    // Execute query and output results
+    connectionPool.query(sql, (err, result) => {
+        if (err) {//Check for errors
+            console.error("Error executing query: " + JSON.stringify(err));
+        }
+        else {
+            console.log(JSON.stringify(result));
+        }
+    });
+
+}

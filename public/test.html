@@ -12,22 +12,27 @@
 <nav class="navbar navbar-light bg-light">
     <button class="btn-info" href="#">High<br>Scores</button>
     <!--sign up-->
-        <form>
-            <input type="username" placeholder="username">
-            <input type="password" placeholder="password">
-            <button class="btn btn-outline-success">Sign in</button>
-        </form>
-        <!--registration-->
-        <form>
-            <input type="username" placeholder="username">
-            <input type="password" placeholder="password">
-            <button class="btn btn-outline-success">Sign up</button>
-        </form>
+    <form>
+        <input id="signInUsername" type="username" placeholder="username">
+        <input id="signInPassword" type="password" placeholder="password">
+        <button class="btn btn-outline-success">Sign In</button>
+        <br>
+        <p id="signInResults"/>
+    </form>
+    <!--registration-->
+    <form>
+        <input id="signUpUsername" type="username" placeholder="username">
+        <input id="signUpPassword" type="password" placeholder="password">
+        <button id="signUpButton" class="btn btn-outline-success">Sign Up</button>
+        <br>
+        <p id="signUpResults"/>
+    </form>
     <!--speedometer-->
     <div>
-    <canvas style="height: 50px" id="speedometer"></canvas>
+        <p id="wpmCounter">500 wpm</p>
+        <canvas style="height: 50px" id="speedometer"></canvas>
     </div>
-</div>
+    </div>
 </nav>
 
 <!--input file-->
@@ -36,16 +41,16 @@
 <div id="output"></div>
 
 <script>
-    var datass = '';
     var pages = [];
     PDFJS.workerSrc = '';
     //Set up page when window has loaded
     window.onload = init;
+    var startTime;
+    var wordsPerMinute = 0;
+    var wordsReadSoFar = 0;
 
     //Get pointers to parts of the DOM after the page has loaded.
     function init() {
-        taskDiv = document.getElementById("TaskDiv");
-        addTaskResultDiv = document.getElementById("AddTaskResult");
         loadSpeedoMeter();
     }
 
@@ -63,8 +68,51 @@
                 }
             });
         });
-
+        // to handle button clicks
+        $("#signUpButton").click(function () {
+            addUser();
+        });
     });
+
+    /* Posts a new task to the server. */
+    function addUser() {
+        //Set up XMLHttpRequest
+        let xhttp = new XMLHttpRequest();
+
+        if (document.getElementById("signUpUsername").value != "" && document.getElementById("signUpPassword").value != "") {
+            //Extract input data
+            let username = document.getElementById("signUpUsername").value;
+            let password = document.getElementById("signUpPassword").value;
+
+            //Create object with task data
+            let userObj = {
+                username: username,
+                password: password
+            };
+
+            //Set up function that is called when reply received from server
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('signUpResults').innerHTML = "User added successfully";
+                }
+                else {
+                    document.getElementById('signUpResults').innerHTML = "<span style='color: red'>Error adding user</span>.";
+                }
+
+            };
+            let request = "/register/username='" + username + "'password='" + password + "'";
+            //Send new task data to server
+            xhttp.open("POST", request, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(userObj));
+
+            //empties input field
+            document.getElementById('signUpUsername').value = '';
+            document.getElementById('signUpPassword').value = '';
+        } else {
+            document.getElementById('signUpResults').innerHTML = "Please enter something!";
+        }
+    }
 
     function ExtractText() {
         var input = document.getElementById("file-id");
@@ -73,6 +121,8 @@
         fReader.onloadend = function (event) {
             convertDataURIToBinary(event.target.result);
         }
+        startTime = new Date().getTime(); //begin timer
+        console.log(startTime);
     }
 
     var BASE64_MARKER = ';base64,';
@@ -90,29 +140,6 @@
         }
         pdfAsArray(array)
 
-    }
-
-    function getPageText(pageNum, PDFDocumentInstance) {
-        // Return a Promise that is solved once the text of the page is retrieved
-        return new Promise(function (resolve, reject) {
-            PDFDocumentInstance.getPage(pageNum).then(function (pdfPage) {
-                // The main trick to obtain the text of the PDF page, use the getTextContent method
-                pdfPage.getTextContent().then(function (textContent) {
-                    var textItems = textContent.items;
-                    var finalString = "";
-
-                    // Concatenate the string of the item to the final string
-                    for (var i = 0; i < textItems.length; i++) {
-                        var item = textItems[i];
-
-                        finalString += item.str + " ";
-                    }
-
-                    // Solve promise with the text retrieven from the page
-                    resolve(finalString);
-                });
-            });
-        });
     }
 
     function pdfAsArray(pdfAsArray) {
@@ -142,6 +169,29 @@
         });
     }
 
+    function getPageText(pageNum, PDFDocumentInstance) {
+        // Return a Promise that is solved once the text of the page is retrieved
+        return new Promise(function (resolve, reject) {
+            PDFDocumentInstance.getPage(pageNum).then(function (pdfPage) {
+                // The main trick to obtain the text of the PDF page, use the getTextContent method
+                pdfPage.getTextContent().then(function (textContent) {
+                    var textItems = textContent.items;
+                    var finalString = "";
+
+                    // Concatenate the string of the item to the final string
+                    for (var i = 0; i < textItems.length; i++) {
+                        var item = textItems[i];
+
+                        finalString += item.str + " ";
+                    }
+
+                    // Solve promise with the text retrieven from the page
+                    resolve(finalString);
+                });
+            });
+        });
+    }
+
 
     function loadNextPage(pageContent) {
         document.getElementById("output").innerHTML = pageContent;
@@ -149,7 +199,7 @@
     }
 
     function addHighlightingToWords() {
-        var words = $("#output").text().split(' ');
+        var words = $("#output").text().trim().split(" ");
         $("#output").html("");
         let count = 1;
         $.each(words, function (i, val) {
