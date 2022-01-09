@@ -1,0 +1,2849 @@
+BSc Computer Science 2019-20   
+Page | 1  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+BSc Computer Science Programme 
+Handbook 2019/20 
+The Faculty of Science and Technology 
+ 
+ 
+ 
+ 
+ 
+Programme Leader: Florian Kammueller 
+ 
+ 
+Student Name:    
+ 
+----------------Page (0) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 2 
+ 
+ 
+ 
+Contents 
+Your Programme Handbook ..................................................................................................... 4 
+Information in Alternative Formats ........................................................................................... 4 
+The Student Welcome Guide .................................................................................................... 4 
+MyUniHub ............................................................................................................................... 4 
+MDXapp ................................................................................................................................... 4 
+Welcome to Middlesex! ............................................................................................................ 6 
+Welcome from the Executive Dean ........................................................................................... 6 
+Academic Calendar ................................................................................................................... 7 
+Part One - Programme Details ........................................................................................... 8 
+Your Programme Team ............................................................................................................. 8 
+Personal Tutor ............................................................................................................................... 10 
+Your Programme .................................................................................................................... 11 
+Programme Specification ................................................................................................. 12 
+Your Module .......................................................................................................................... 12 
+Optional modules ................................................................................................................... 12 
+Programme costs ................................................................................................................... 12 
+Your Feedback Opportunities ................................................................................................. 12 
+How your Programme is Quality Assured ................................................................................ 13 
+Part Two - Resources and Support Available to You ..................................................... 14 
+Programme Level Resources ................................................................................................... 14 
+Library Resources ................................................................................................................... 14 
+IT Facilities .................................................................................................................................. 14 
+Student Support at Programme Level ..................................................................................... 14 
+Student Support Services ........................................................................................................ 14 
+MDXworks Careers & Employability Service ............................................................................ 15 
+Studying or Placement Abroad ............................................................................................... 15 
+Middlesex Student’s Union (MDXSU) ...................................................................................... 16 
+Part Three - University Policies You Should Know ........................................................ 17 
+Programme Regulations ......................................................................................................... 17 
+Research Ethics ...................................................................................................................... 17 
+Assessment ............................................................................................................................ 18 
+Submission and receipt of assessment ......................................................................................... 21 
+Exams ............................................................................................................................................ 21 
+Marking, second marking and moderation ................................................................................... 21 
+----------------Page (1) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 3 
+ 
+ 
+Return of coursework ................................................................................................................... 22 
+External Examiners ........................................................................................................................ 22 
+Feedback on coursework .............................................................................................................. 23 
+Feedback on examinations ........................................................................................................... 23 
+Viewing scripts .............................................................................................................................. 23 
+Dissertations/projects ................................................................................................................... 23 
+Progressing on your Programme .................................................................................... 24 
+Results Confirmation .............................................................................................................. 24 
+Academic Misconduct ............................................................................................................ 24 
+Extenuating Circumstances ..................................................................................................... 25 
+Attendance ............................................................................................................................ 25 
+Things you should know about attendance ................................................................... 25 
+Late arrival ................................................................................................................................... 26 
+Health and Safety ................................................................................................................... 27 
+Appendix 1: Curriculum Map ........................................................................................... 28 
+Curriculum map for BSc (Hons) Computer Science ................................................................... 28 
+Appendix 2: Module Narratives ........................................................................................ 31 
+ 
+  
+----------------Page (2) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 4 
+ 
+ 
+Introduction 
+Your Programme Handbook 
+The purpose of this Handbook is to introduce you to your programme of study and to direct 
+you to other general information about studying at Middlesex University. The material in this 
+document is as accurate as possible at the date of production; however, you will be informed 
+of any major changes in a timely manner. 
+Your  comments  on  any  improvements  to  this  handbook  are  welcome.  Please  put  them  in 
+writing (an email will suffice) with the name of the Programme Handbook to the Programme 
+Leader, Florian Kammueller at f.kammuellwe@mdx.ac.uk 
+Information in Alternative Formats 
+This handbook can be found online at: https://myunihub.mdx.ac.uk/ 
+If you have a disability which makes navigating the website difficult and you would like 
+to receive information in an alternative format, please contact Disability Support Service 
+disability@mdx.ac.uk 
+We can supply sections from this publication as: 
+ a Word document with enlarged type — sent by email or supplied on a CD or 
+memory stick 
+ printed copy with enlarged type 
+ printed copy on non-white paper 
+ as Braille 
+ 
+Other formats may be possible. We will do our best to respond promptly. To help us, please 
+be  as  specific  as  you  can  about  the  information  you  require  and  include  details  of  your 
+disability. 
+The Student Welcome Guide 
+Before reading this Programme Handbook you should read the Student Welcome Guide 
+this guide contains information on more general university services and facilities, such as 
+UniHub,  UniHelp  and  the  Library.  It  is  important  that  you  familiarise  yourself  with  this 
+information to get the most from your handbook. 
+MyUniHub 
+All  information  that  you  require  to  support  your  learning  at  Middlesex  is  available  on 
+MyUniHub. This document highlights key elements that you should be aware of and should 
+be your first point of call, however all information in this document is available on MyUniHub. 
+ 
+MDXapp 
+MDXapp is Middlesex University's official and free student mobile application that allows you 
+to manage your day-to-day student life on and off campus. The app was developed in 
+----------------Page (3) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 5 
+ 
+ 
+collaboration with your Students' Union (MDXSU) to make sure every student gets the most 
+out of their time here. 
+Key features  
+ Student timetable – find out when your next lecture, seminar or practical session is 
+in an instant 
+ Library account – search the University’s extensive library catalogue and check on 
+your loans, renewals ad reservations 
+ Campus map – take the stress out of searching for a room with a detailed room-level 
+campus map 
+ Email – your University e-mail inbox in one centralised and convenient place 
+ PC availability – save time by checking out where there are free computers on 
+campus 
+ Transport – identify the most convenient local transport routes with live updates from 
+TFL 
+ MyLearning – access your personal learning portal with information about your 
+course, modules and upcoming assignments 
+ News and events – get the whole university experience with the latest updates and 
+news from across campus 
+Getting MDXapp is easy 
+Go to your app store >> Search for ‘MDXapp’ >> Install (accept T&C’s) >> Log in with your 
+Middlesex University Student IT User ID and Password. 
+Web app users can download MDXapp here: https://app.mdx.ac.uk/get 
+Available on iPhone and Android software and as a Web App 
+ 
+ 
+ 
+----------------Page (4) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 6 
+ 
+ 
+Welcome to Middlesex! 
+Welcome from the Executive Dean 
+ 
+Welcome  to  Middlesex  University  and  to  The  Faculty  of  Science  and  Technology.  This 
+programme handbook contains an overview of your programme and its modules – keep it safe 
+so that you may refer to it throughout your time on the programme. 
+Your  programme  handbook  along  with  other  key  documents,  such  as  the  Academic 
+Regulations and the University Guide, sets out what you can expect from your experience at 
+Middlesex University but also what is expected from you.  From our side we will aim to deliver 
+the best student experience we can so that you can build on your skills and knowledge and 
+achieve your full potential.  In return we expect you to engage actively in the learning process, 
+to be fully committed to your studies and determined to succeed. 
+To read more about what your responsibilities may be you should refer to the full University 
+Regulations and in particular ‘University Membership’ (mdx.ac.uk/regulations).  
+In your early weeks you are not expected to absorb everything in detail but to be aware of key 
+documents and their content.  If you have not already done so, have a look at the University 
+Guide  and  explore UniHub (unihub.mdx.ac.uk) the student  website  which  contains  detailed 
+advice and support to assist you further. 
+We know it takes time to settle in to University life.  If you have questions to ask your first port 
+of  call  should  be https://unihub.mdx.ac.uk/support which  offers  face-to-face,  email  and 
+telephone information and advice seven days a week.  The UniHelp desk is located on the 
+Ground Floor of the Sheppard Library and the advisors there will be pleased to help and direct 
+you. 
+Here at Middlesex we are very proud of our academic programmes and students and we look 
+forward to working with you. 
+Professor Sean Wellington 
+Pro Vice-Chancellor, Executive Dean - Faculty of Science and Technology 
+Town Hall - T114 
+020 8411 5344 
+s.wellington@mdx.ac.uk 
+ 
+ 
+ 
+ 
+----------------Page (5) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 7 
+ 
+ 
+Academic Calendar 
+Academic Calendars can be found at:  
+https://unihub.mdx.ac.uk/your-middlesex/academic-calendars 
+ 
+----------------Page (6) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 8 
+ 
+ 
+Part One - Programme Details 
+Your Programme Team 
+ 
+Staff Name Contact Details 
+Florian Kammueller Programme Leader 
+Town Hall, 
+Room: TG03 Ext: 
+14930 
+Email: F.Kammueller@mdx.ac.uk 
+Kelly Androutsopoulos Senior Lecturer in Computer Science 
+Room: TG02 
+Ext: 15131 
+Email: kelly12@mdx.ac.uk 
+Franco Raimondi Professor of Computer Science 
+Room: TG04 
+Ext: 16338 
+Email: F.Raimondi@mdx.ac.uk 
+Carl Evans Associate Professor 
+Room: TG10 
+Ext: 16201 
+Email: C.Evans@mdx.ac.uk 
+David Gamez Lecturer in Computer Science 
+Room: T112 
+Ext: 10935 
+Email: D.Gamez@mdx.ac.uk 
+Suiping Zhou Professor in Distributed Systems & Networking 
+Room: T113 
+Ext: 12902 
+Email: S.Zhou@mdx.ac.uk 
+Peter Passmore Senior Lecturer in Computing Science 
+Room: TG10 
+Ext: 16428 
+Email: P.Passmore@mdx.ac.uk 
+Bob Fields Associate Professor 
+Room: TG07 
+Ext: 12272 
+Email:bob12@mdx.ac.uk 
+Raja Nagarajan Professor, Foundations of Computing 
+Room: T126 
+Ext: 13620 
+Email: R.Nagarajan@mdx.ac.uk 
+Ian Mitchell Associate Professor 
+Room: T129 
+Ext: 16014 
+Email: I.Mitchell@mdx.ac.uk 
+Gill Whitney Associate Professor 
+Room: T108 
+Ext: 16351 
+Email: G.Whitney@mdx.ac.uk 
+----------------Page (7) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 9 
+ 
+ 
+Mark Springett Senior Lecturer 
+Room: TG07 Ext: 
+15015 
+Email: M.Springett@mdx.ac.uk 
+Chris Huyck Professor of Artificial Intelligence Room: 
+T127 
+Ext: 15412 
+Email: C.Huyck@mdx.ac.uk 
+Aleksandar Zivanovic Technical Tutor 
+Room: R303 Ext: 
+15324 
+Email: A/Zivanovic@mdx.ac.uk 
+Xiaohong Gao Professor of Vision Imaging 
+Room: T125 
+Ext: 12252 
+Email: X.Gao@mdx.ac.uk 
+Clifford Sule SL in Network Operating Systems & Network Programming 
+Room: T116 
+Ext: 15185 
+Email: C.Sule@mdx.ac.uk 
+Catherine Walsh Senior Lecturer in ICT Secondary PGCE & CPD 
+Ext: 13716 
+Email: C.Walsh@mdx.ac.uk 
+Michael Heeney Technical Tutor Engineering and Computer Science 
+Ext: 14525 
+Email: michael69@mdx.ac.uk 
+ 
+Professor Sean Wellington PVC, Executive Dean - Faculty of Science and Technology 
+Town Hall - T114 
+020 8411 5344 
+  
+----------------Page (8) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 10 
+ 
+ 
+ 
+Personal Tutor  
+You will be assigned a member of the programme team as your personal tutor. They will 
+contact you via email and introduce themselves to you in person at the beginning of Term. 
+Your personal tutor will normally meet you once each Term during your programme and 
+you can make further appointments or contact them if you have any concerns about your 
+course.  
+ 
+Graduate Academic Assistants (GAAs)  
+There are a number of GAAs who work with the BSc Computer Science programme. GAAs 
+are recent Middlesex graduates who work with your tutors to assist in both  teaching  and 
+supporting you. For example they may run drop in session to give advice on your assignments 
+and revision as well as providing technical support during project work or tutorials. They do 
+not mark your assessment or provide you with feedback on your progress. 
+Student Learning Assistants (SLAs) 
+You also have access to the BSc Computer Science  SLAs who are experienced and capable 
+second  and  third  year  students  who  have  ‘been  there’  and  know  the  typical  academic 
+problems new students face. You will not be taught by an SLA but they will work with your 
+lecturers to support you both in the classroom and outside and in small groups or one to one 
+sessions. You can find out who your SLAs are and information on becoming one on UniHub: 
+https://unihub.mdx.ac.uk/study/student-to-student-support 
+Subject Liaison Librarian 
+Vanessa Hill is your Liaison Librarian. They work closely with BSc Computer Science staff to 
+ensure the resources and support that you need is available and provides information and 
+research  skills  workshops  relevant  to  Computing  Science.  You  can  contact  them  if  you 
+require individual support or if you would like to suggest a book, DVD etc for the library. 
+ 
+Vanessa Hill Liaison Librarian 
+Staff Workroom Ext 6866 
+Email: v.hill@mdx.ac.uk 
+ 
+Academic Writing and Language Co-Ordinator 
+ 
+Dr. Paula Bernaschina is your Academic Writing & Language Coordinator. They will provide 
+academic support to you in areas such as writing essays and reports, giving presentations 
+and participating in academic discussions. They will work with you in seminars; you can also 
+contact them for individual support. 
+Dr. Paula Bernaschina Senior Lecturer 
+----------------Page (9) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 11 
+ 
+ 
+Sheppard Library Ext 5695 
+Email: p.bernaschina@medx.ac.uk 
+ 
+Progression and Support Advisors 
+Progression and Support Advisors work with Faculties to help students progress with their 
+studies. You may be referred to a Progression and Support Advisor by a member of 
+academic staff or other support service when appropriate, to support you through your 
+studies. Progression and Support Advisors are able to assist with: 
+ A change of personal circumstance (for example a period of illness or bereavement) 
+ Understanding your progression through the programme, within University and 
+programme regulations - Progression Enquiry Form 
+ Changing your programme - Request changes to studies form 
+ Withdrawing from studies (either temporarily or permanently) - Request to Withdraw 
+form 
+ Changing your mode of study - Request changes to studies form 
+ Navigating and accessing other support services where students’ have complex 
+and/or severe and ongoing support needs. 
+ 
+Your Programme 
+There are a number of activities built into the first year of your University experience to 
+enable you to focus upon and understand your own learning and development and help you 
+to progress to the second year and achieve good results.  
+  
+During week 4 you will participate in an activity we call ‘Progress Review’.  This focuses 
+on your initial few weeks at Middlesex and is an opportunity for all students on your 
+Programme to share these experiences and raise any questions or issues with the 
+programme team.   
+   
+By week 9 you will have settled into your programme of study and received some 
+assessment feedback.  At this point you will have a ‘Programme Progress Review’ which 
+will be a one-to-one discussion with a member of the programme team, to talk about your 
+progress and achievement to date, academic progress and future aims.  
+  
+A further opportunity for such a one-to-one discussion will be provided around week 18 
+when you will review your progression and achievement to date and identify and plan to 
+meet any specific needs and enable fulfilment of your future aims.  
+  
+It may be useful for you to familiarise yourself with the university’s academic calendar to see 
+where these activities fit in within the university year. The calendar can be accessed on the 
+My Middlesex pages of UniHub: http://unihub.mdx.ac.uk/mdx/calendar/index.aspx  
+  
+Please refer to the FIRST YEAR STUDENT HANDBOOK on myLearning for detailed 
+information on your first year of study.  
+----------------Page (10) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 12 
+ 
+ 
+Programme Specification 
+Your Programme Specification can be found at 
+https://www.mdx.ac.uk/courses/undergraduate/computer-science 
+Your Module 
+Modules  you  are  currently registered  for  are  listed  within  the  My  Learning  area  on  the My 
+Study page of myUniHub; https://myunihub.mdx.ac.uk/web/home-community/mystudy. 
+You can access associated learning materials (e.g. lecture notes), reading lists, information 
+on  the  learning  aims  and  outcomes  and  assessment  methods  as  well  the  schedule  for 
+assessment which will include submission deadlines. 
+Modules announcements will also appear in My Learning on myUniHub so log in and check 
+each module regularly 
+Optional modules 
+Optional modules are usually available at levels 5 and 6, although optional modules are not 
+offered on every course. Where optional modules are available, you  will be asked to make 
+your choice during the previous academic year. If we have insufficient numbers of students 
+interested in an optional module, or there are staffing changes which affect the teaching, it 
+may  not  be  offered. If  an  optional  module  will  not  run,  we  will  advise  you  after the  module 
+selection period when numbers are confirmed, or at the earliest time that the programme team 
+make the decision not to run the module, and help you choose an alternative module.  
+Programme costs 
+The following course-related costs are included in the fees: 
+ A free electronic core textbook for every module, 
+ All printing and copying required for your study, 
+ Self-service laptops available for loan for a maximum of 24 hours, 
+ Audio-visual equipment available for loan, including digital stills cameras, digital video 
+recorders, digital audio recorders. 
+  
+Further  details  on  specific  additional  equipment  required  which  is  not  included  in  your fees 
+can be requested from the Programme Leader. 
+Your Feedback Opportunities 
+Throughout your studies at Middlesex you will be given the opportunity to provide feedback 
+on your programme. Details of all the opportunities available can be found on MyUniHub.  
+The main way to provide feedback is through participating in surveys, and these can be at 
+module and programme level. Your feedback in surveys will be acted upon to improve your 
+experience and details of where student feedback has led to change can be found on the Your 
+Impact  page on MyUniHub.  
+Each year of every programme is represented by a Student Voice Leader – a student who is 
+elected to work with students and academics to get feedback on what is good and what needs 
+improving on your course. They represent you and make students’ voices heard, collaborating 
+with everyone at university to create the best possible student experience, and working with 
+----------------Page (11) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 13 
+ 
+ 
+MDXSU’s President and Vice Presidents to create changes that will improve Middlesex for 
+everyone. 
+Programme  Voice  Groups (PVG’s) are  one  of  the  main  formal  channels  of  communication 
+between staff and students.  They are a forum in which students (through the Student Voice 
+Leaders) and staff can constructively discuss areas of good practice as well as areas needing 
+improvement, with the collective aim of enhancing the student experience. Students and Staff 
+should both be given assurances they will not be penalised for raising issues at a PVG. Full 
+details can be found on MyUniHub.  
+The dates of the Programme Voice Groups for 2019/20 are: 
+ The Programme Voice Group meets twice each year between teaching weeks 6 and 
+8 and again between weeks 17 and 19. 
+Minutes and actions from previous PVG’s (formerly Boards of Study) should be made available 
+to   you   through   MyUniHub.   Further   guidance   on   the PVG’s can   be   found   here: 
+https://unihub.mdx.ac.uk/your-middlesex/student-feedback/  
+How your Programme is Quality Assured 
+You  may  have  not  heard  the  terms  'quality  assurance',  'academic  quality',  'academic 
+standards' before and now you have you may think they have nothing to do with you, however 
+these terms are important to you and your programme. Full details on how we do this can be 
+found here.  
+The Student Protection Plan 
+One of the Middlesex University core values is ‘We put students first’.  We have a regulatory 
+framework to support student continuation of study. The Student Protection Plan covers an 
+assessment  of  the  range  of  risks  to  the  continuation  of  study  for  our  students, and  the 
+measures put in place to mitigate those risks , arrangements for refund and compensation. 
+Full details of the Student Protection Plan are available here 
+ 
+----------------Page (12) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 14 
+ 
+ 
+Part Two - Resources and Support Available to You 
+The  university  has  extensive  resources  and  support available  to  all  students.  This  section 
+briefly lists the different resources and support services available to you and full details can 
+be found on MyUniHub.  
+Programme Level Resources 
+Library Resources 
+The University provides a range of support and resources to help you with your studies and 
+full  details  of the  services  can  be found here. As  a  Middlesex  student  you  can  access  and 
+expect the following from the Library; 
+ a free eTextbook for each module you study.  This is chosen by your module leader 
+and  can  be  read  online  or  downloaded  to  a  computer  of  handheld  device,  and  is 
+accessed via MyLearning. 
+ Access to  other  learning materials with  the most  important gathered  together  on  an 
+online reading list created by your module leader and Liaison Librarian. Your reading 
+list will be in your module area on MyLearning. 
+ a variety of ways that you can get help with your studies, including the Study Hub on 
+the first floor of the Sheppard Library is a drop-in centre for all your queries.  
+ Access  to  Librarians,  Academic  Writing  and  Maths  teachers  as  well  as  Student 
+Learning Assistants and IT experts available to help you and provide advice. If your 
+query  is  more  in  depth  you  can  make  an  appointment  with  your  Liaison  librarian  or 
+AWL teacher, and they will also be coming into your seminars during the year to teach 
+you skills which will help you succeed in your course. 
+ Finally, there are online resources which you can use in your own time to study where 
+and when you choose: 
+IT Facilities 
+Most of the campus is covered by the wireless network so you can use your own devices, but 
+there are also open access computers in the Sheppard library.   
+Student Support at Programme Level 
+Student Support Services  
+UniHelp is the University’s central service through which you can access a range of support 
+for the kinds of concerns that might arise throughout your study here, and details of all support 
+available to you can be found here. Some of the services include: 
+Counselling and Mental Health Team - providing mental wellbeing support and a confidential 
+individual counselling service to help you manage any challenges affecting you emotionally or 
+psychologically  that  you  might  face  while  you  study  with  us. This  service  also  provides  a 
+Monday to Friday drop-in session for which no appointment is needed; 
+Disability and Dyslexia Service – supporting an inclusive teaching and learning environment 
+which  caters  for  all  students. North  London  Regional  Access  Centre - offering  needs 
+assessments, assistive technology training, advice and support for disabled students; 
+----------------Page (13) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 15 
+ 
+ 
+Student  Welfare  Advice  Team – providing  information  and  advice  on  money  and  funding 
+matters, and housing; 
+International  Student  Advice  Team – providing  information  and  advice  on  visa  and 
+immigration concerns, for both international applicants and current international students; 
+Chinese Student Liaison Officer – providing assistance to Chinese-speaking students of our 
+community; 
+Student  Wellbeing  Coordinator – providing  information  about  and  support  with  health 
+matters. 
+MDXworks Careers & Employability Service 
+ 
+Middlesex University is committed to supporting you to develop your employability skills; we 
+do this by designing your programme – BSc MComp/Computer Science - so that you have the 
+opportunity  to  develop  a  key  set  of  employability  skills  including  team-working,  self- 
+management, business and customer awareness, communication, problem solving and the 
+application of literacy, numeracy and information technology.  We also offer extra-curricular 
+opportunities including: 
+ access  to  our  Service  that  will  help  you  plan  a  route  into  employment,  gain  skills  and 
+experience for the workplace and secure highly skilled graduate level employment  
+ a  range  of  services  through  our  Enterprise  Development  Hub  which  is  dedicated  to 
+nurturing  innovative  student  ideas  and  supporting  students  into  self-employment  and 
+entrepreneurship  
+ paid work at Middlesex via Unitemps while you study; part-time roles pay the London Living 
+Wage and provide work experience opportunities through our Student Ambassador and 
+Student  Learning  Assistant  schemes  as  well  as  our  Sport  &  Recreation  Service  (which 
+also offers volunteering opportunities).   
+ 
+Full details of opportunities available to you can be found here.  
+Studying or Placement Abroad 
+A  study  exchange  or  a  work  placement  abroad  is  a  great  way  to  enhance  your  university 
+experience  and  broaden  your  horizons.  Additionally,  taking  part  in  such  a  programme  or 
+opportunity  increases  your  employability  and  supplements  the  value  of  your  degree  by 
+exposing you to a new culture, different thinking and a different way of doing things.  A broad 
+world view demonstrates to potential employers your ability to understand other perspectives, 
+adapt to varying environments, work with diverse teams and bring an appreciation of insights 
+and practices outside of your own.  
+Middlesex University offers one of the most comprehensive exchange programmes in the UK.  
+We  have  over  100  different  partners  within  the  European  Union  and  the  rest  of  the  world. 
+Funding for some of these study and work placement opportunities may be available through 
+the Erasmus+ programme. Erasmus grants are always subject to availability and to the UK’s 
+ongoing participation in the Erasmus programme. 
+ 
+----------------Page (14) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 16 
+ 
+ 
+What are my exchange options? 
+Currently  there  are  both  funded  exchange  options - through  the  Erasmus+  Programme (if 
+available) - and  unfunded  exchange  options.  These  can  be  study  or  work  placement  (or  a 
+combination of both).  These are varied and depend on your programme and capacity. Discuss 
+with your Programme Leader and with the Student Exchanges Office.  
+Don’t hesitate - explore your options and details can be found here. 
+Middlesex Student’s Union (MDXSU) 
+Your Students' Union is here to support you throughout your studies and help you make the 
+most of your time at university. Powered by students, we represent student views in university 
+decisions and campaign on issues that students care about. We create lots of opportunities 
+for you to meet new people at a huge range of social events, develop your skills throughout 
+the year, campaign for change on campus and in the community - as well as even getting a 
+job with us and earning the London Living Wage! Everything we do is for students. 
+Find out more about your students’ union and get involved at www.mdxsu.com  
+----------------Page (15) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 17 
+ 
+ 
+Part Three - University Policies You Should Know 
+Programme Regulations 
+As a student of Middlesex University there are regulations and policies that you should make 
+yourself aware of before you commence with your studies. These regulations detail the rules 
+around  assessment,  how  grades  are  awarded,  and  how  assessment  is  conducted.  This 
+includes details on academic misconduct and what you should do if circumstances mean you 
+cannot complete an assessment. Full details of the regulations can be found here 
+Research Ethics 
+The following information should be made available to students, if relevant: 
+An  ethical  approach  to  the  undertaking  of  teaching,  learning,  assessments  and  research 
+activities is of central importance to Middlesex University. Due consideration should be given 
+to ethics in all aspects of your programme. Ethical process should be followed and/or ethical 
+approval sought, before you carry out any work involving human participants, human data, 
+animals, materials or systems. This applies to students at all levels of their degree.   
+Research ethics approval seek to ensure all work is designed and undertaken according to 
+certain principles of ethical research. These include:  
+1.  Primary  concern  must  be  given  to  the safety,  welfare  and  dignity of  participants, 
+researchers, colleagues, the environment and the wider community  
+2. Consideration of risks should be undertaken before research commences with the aim 
+of  minimising  risks  to  those  involved – i.e.  human  participants  or  animal  subjects, 
+colleagues, the environment and the wider community, as well as actual or potential risks 
+to those directly or indirectly affected by the research. 
+3. Informed consent should be freely given by participants, or by a trained person when 
+collecting or analysing human tissue (details on accessing and completing online training 
+for gaining informed consent for HTA purposes can be found below in Section 8). 
+4. Respect for the privacy, confidentiality and anonymity of participants  
+5. Consideration of the rights of people who may be vulnerable (by virtue of perceived or 
+actual differences in their social status, ethnic origin, gender, mental capacities, or other 
+such  characteristics) who  may  be  less  competent  or  able  to  refuse  to  give  consent  to 
+participate 
+ 
+6. Researchers have a responsibility to the general public and to their profession; as such 
+they  should  balance  the  anticipated  benefits  of  their  research  against potential  harm, 
+misuse or abuse which must be avoided  
+7. Researchers must demonstrate the highest standards of ethical conduct and research 
+integrity. They must work within the limits of their skills, training and experience, and refrain 
+from exploitation, dishonesty, plagiarism, infringement of intellectual property rights and the 
+----------------Page (16) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 18 
+ 
+ 
+fabrication  of  research  results.  They  should  declare  any  actual  or  potential  conflicts of 
+interest, and where necessary take steps to resolve them.  
+8. When using human tissues for research, Human  Tissue  Act  and  Human  Tissue 
+Authority  (HTA)  requirements must be met. Please contact the relevant designated 
+person  (DP)  in  your  department  or  the  HTA  Designated  Individual  (DI)  (Dr  Lucy  Ghali - 
+L.Ghali@mdx.ac.uk). Further information is provided below in the section: "Human Tissue 
+Authority Information", see 'Governance Structure" document and SOPs etc.   
+9. Research should not involve any illegal activity, and researchers must comply with all 
+relevant laws 
+Within taught degree programmes ethical approval may have been pre-sought for research 
+activities that form part of specific modules. Please check with your module tutor/your module 
+guide. Note however that all students completing a dissertation or independent project 
+will be required to undertake an ethical review process.   
+Data  MUST  not  be  collected  without  first  obtaining  ethics  approval  for  your  research  or 
+ascertaining if data gathering has been pre-approved for a module. If you submit work that 
+includes data gathered from or about people without ethical approval this may be treated as 
+academic misconduct and could lead to a fail grade being awarded. 
+You  can  apply  for  research  ethical  approval  using  the  Middlesex  Online  Research  Ethics 
+(MORE) system which has information and guidance to help you meet the highest standards 
+of ethical research using this link: https://MOREform.mdx.ac.uk  
+Information and further guidance on how to complete a research ethics application form 
+(e.g., video guides and templates) can be found on the MORE MyLearning site*: 
+http://mdx.mrooms.net/enrol/index.php?id=12277 (Log in required)  
+*Middlesex University Definition of Research document can be located on this site. 
+Assessment 
+Learning, Teaching and Assessment 
+The  learning,  teaching  and  assessment  approaches  used  throughout  your  programme  will 
+encourage you to be actively involved in your learning and to co-operate with other students. 
+We aim to give you prompt feedback on your learning as well as opportunities to reflect upon 
+and learn from that feedback.  
+Learning and teaching methods 
+You will be actively involved in a range of learning, teaching and assessment approaches as 
+part of programme.  Such active approaches aim to put you at the centre of your learning so 
+you  are  involved  and  engaged  in  all  aspects  of  your  assessment  and  learning.  Your 
+programme  will  require  your  active  participation  in  learning  activities  and  engagement  with 
+your  fellow  students  both  individually  and  collaboratively,  working  and  learning  with  other 
+students as part of a small group. Learning activities may also occur both within and outside 
+the classroom.  
+----------------Page (17) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 19 
+ 
+ 
+Your  learning  will  also  be  supported  by  technology.  Increasingly  your  tutors  will  be  using 
+existing  and  emerging  learning  technologies  to  engage  you  in  e-learning  activities.    Your 
+programme will be facilitated using a variety of media and online tools (My Learning on UniHub, 
+podcasts, wikis, etc.) which will allow you flexible access to a diverse range of online resources, 
+quizzes and learning materials as well as collaborative tools with which you can engage and 
+learn with your peers. Not confined by the time and space associated with traditional teaching 
+methods you may take part in online discussions and learning activities from wherever you 
+are studying.  
+Your  tutors  and  the  Web  Helpdesk  will  provide  any  support  you  may  need  whilst  learning 
+online.  
+By  engaging  with  e-learning  you  will  also  be  developing  skills  which  are  essential  for  your 
+learning and are also highly valued by employers.  These include but are not limited to: working 
+flexibly,   communication,   understanding   of   IT,   team   working   and   creating   shared 
+understandings based on quality resources and access to global expertise.  
+The  aims  and  objectives  of  biochemistry  modules  relate  to  developing  a  core  body  of 
+knowledge, the importance of using current research based information and the evolution of 
+critical and analytical skills and management of individual personal growth.  
+In  order  to  facilitate  these  aims  a  wide  range  of  teaching  and  learning  strategies  will  be 
+employed to meet the needs of the students.  The focus has been on encouraging students 
+to be responsible for their own learning and progress.  
+Lectures will be used primarily to introduce key information, concepts and theories. Seminar 
+presentations  and  discussions  will  increase  knowledge  and  enable  active  participation  in 
+learning.    Seminars  will  comprise  a  variety  of  formats  including  debates,  case  study  and 
+problem solving analysis, student led seminars, discussions of current topics, reviewing and 
+consolidating  learning  and  other  appropriate  student  activities.    Many  sessions  will  include 
+informal formative  assessment.   Interactive  computer  based  sessions,  laboratory  practicals 
+and workshops will be used to develop skills in hypothesis formation, data collection, analysis 
+and  interpretation. There  is  an  emphasis  on  problem  solving  and  case  studies  to  develop 
+analytical skills and to enhance integration and application of knowledge.  Research skills are 
+a thread running through the programme but taught formally in BIO2005 in year 2.  Students 
+are introduced to quantitative and qualitative research skills with an emphasis on data analysis 
+so that they can critically evaluate different types of data presented in journals and be prepared 
+for  the  dissertation  in  year  3. The  dissertation  module  affords  an  opportunity  to  develop  a 
+particular area of interest or expertise in more depth.  
+Individuals learn in different ways by providing a range of teaching and learning strategies we 
+hope to maximise student potential.  
+Autonomous  learning  means  that  students  have  responsibility  for  and  the  opportunity  to 
+manage and be more independent in their own learning.  Modules are designed so that they 
+provide a framework in the form of learning outcomes so that students are aware of what they 
+need  to  learn  and  by  what  stage  of  their  programme.    Appropriate  learning  materials  and 
+resource based materials will also support independent learning.  Students will be encouraged 
+to  complete  a  PDP  (Personal  Development  Portfolio).    This  has  been  designed  to  assist 
+students  to  take  responsibility  for  their  own  learning  and  to  act  as  a  record  of  continuing 
+----------------Page (18) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 20 
+ 
+ 
+personal and professional development which will be a useful adjunct to the final award. It also 
+provides the student with a convenient framework to record reflective observations.  
+Students will be allowed to develop as autonomous learners by the provision of self-directed 
+learning from year 1.  Self-directed learning will be introduced and overseen by programme 
+tutors to facilitate skills in student self-management, information retrieval and self-reflection.  
+The use of e-learning will be prominent in many taught modules and will often enable students 
+to carry out learning at a time which suits them. Online learning quizzes, data retrieval, use of 
+government  and  other  recognised  websites  are  all  examples  of  how  the  web  is  used  an 
+electronic resource.  Many text books are available online and students have access rights 
+through Middlesex Learning Resources and there are also a wide range of electronic journals. 
+UniHub  is  accessible from  outside the  University.   Electronic  discussion boards  will  enable 
+students to support each other on modules.   
+Your tutors and UniHelp advisors will provide any support you may need whilst learning online.  
+By  engaging  with  e-learning  you  will  also  be  developing  skills  which  are  essential  for  your 
+learning and are also highly valued by employers. These include but are not limited to: working 
+flexibly,   communication,   understanding   of IT,   team   working   and   creating   shared 
+understandings based on quality resources and access to global expertise.   
+Assessment methods  
+Assessment is an integral part of learning and you may hear it referred to as formative or 
+summative.  
+Formative assessment is designed to give you feedback on your performance and how it 
+can be improved.  As a result you will get detailed feedback on formative assessment but not 
+a grade.  Formative assessment is an important part of the learning process and has been 
+shown to help students improve both their grades and their learning style.  
+Summative assessment is designed to measure the extent to which you have achieved the 
+learning  outcomes  of  a  module  and  therefore  the  grade  you  will  be  awarded.    Learning 
+outcomes are the specific skills and knowledge that you are expected to demonstrate as a 
+result of taking a module.  Summative assessment should assess achievement of all learning 
+outcomes in a secure, fair and accurate manner.  
+Assessment may also involve self, peer or group approaches.  For example, you may be 
+asked to self-assess your own work, indicating where you feel you have clearly demonstrated 
+your  understanding  and  also  identifying  areas  where  can  see  you  have  room  to  improve.  
+Assessment  may  also  be  a  peer  process where  students,  individually  or  as  groups,  offer 
+feedback on one another’s work.  Group assessment may also be part of your programme 
+where part of the assessment requires you to demonstrate your ability to work as part of a 
+group and possibly receive a group mark.  
+Individual  modules  set assessment  deadlines different  to  all  other  modules  as  much  as 
+possible.  This is to enable the assessment load to be spread evenly across the academic 
+year.    Where  assessment  is  achieved  through  laboratory  reports,  reports  are  normally 
+submitted  two  weeks  after  the  completion  of  the  laboratory  and  the  grade  and  feedback 
+returned to students within three weeks of submission.  In all cases the assessment calendar 
+----------------Page (19) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 21 
+ 
+ 
+for  each  semester  will  be  available  at  the  start  of  the  semester  and  can  be  found  in  the 
+individual module handbooks and your yearly assessment map at the end of this programme 
+handbook.  An updated assessment map will be available on MyLearning.  
+ 
+It is up to each student to plan the management of their assessment to meet the deadlines.  
+Failure to complete assessment at Level 5 and Level 6 by the given deadline will result in a 
+penalty  for  that  piece  of  work  (a  maximum  of  40%,  grade  16).    If  you  have  extenuating 
+circumstances which have meant you cannot submit by the deadline, you can apply for an 
+extension and there are details about how to do this in myUnihub.  
+ 
+Please note that assessment deadlines do occasionally change and while every effort has 
+been made to ensure this is correct at the time of publishing you should check your email and 
+My Learning on UniHub so you are aware of any changes.  
+ 
+Please  see  the  module  narratives  at  the  end  of  this  handbook  or  your  module 
+handbooks  for  more  information  about  the  specific  learning  arrangements  for  your 
+modules. 
+Submission and receipt of assessment 
+You will find all the deadlines for your first year assessment (both formative and summative) 
+in  your  assessment schedule  given  to  you  during  induction  week  and  online  in  myUniHub.  
+Instructions on how to submit your assessment is given in each module handbook but this will 
+either be electronically via myUniHub or, for work which must be submitted in hard copy, in 
+person at UniHelp in the Sheppard Library.  
+Your module handbooks have the precise details of when and how to submit your coursework 
+(but  this  will  be  either  electronically  via  myUniHub  or  in  person  at  the  UniHelp  desk  in  the 
+Sheppard Library) and how you get a receipt confirming you have submitted it.  Please refer 
+to these and contact your module leader if you have any queries.  
+Exams 
+Information  about  exams,  including  the  timetable  and advice  on  preparing  and  revising  is 
+available on UniHub; unihub.mdx.ac.uk/study/exams  
+Past  exam  papers,  if  available,  can  be  accessed  via  the My  Study area  of  UniHub: 
+https://myunihub.mdx.ac.uk/web/home-community/mystudy  
+If you are concerned about your exams then please book an appointment via UniHub to speak 
+to a Student Achievement Officer: unihub.mdx.ac.uk/support/appointment or email your query 
+to stachievement@mdx.ac.uk.  
+Marking, second marking and moderation 
+A sample of examination papers and coursework assignments are moderated internally by the 
+module  tutors  with  the  programme  leader  and/or  Director  of  Programmes  (where  the 
+programme leader is part of the module team). 
+----------------Page (20) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 22 
+ 
+ 
+All coursework and examinations that do not meet the pass grade are moderated to ensure 
+that there is agreement on the grade.  After being marked all examination scripts are checked 
+to ensure that marks’ totals are correct and all sections have been marked.  
+ 
+A sample of coursework and examination scripts is available for moderation by the external 
+examiner(s).  This is usually 10% of the work for the module.  In addition all failed assessments 
+are seen by the external.  
+ 
+All dissertation projects are double marked.  As a final check, the overall profile of marks for 
+the module are examined internally and externally to ensure consistency of standards both 
+within and between subjects or programmed, and against national higher education standards.  
+ 
+Return of coursework 
+You  are  expected  to  keep  a  copy  of  all  your  coursework  and  it  should  be  kept 
+somewhere safe (for example on a memory stick).  As the marked copy of your work is not 
+normally returned to you it is important you keep a copy so you can understand the feedback 
+you get properly.  
+Exam scripts are not returned to any student however you can obtain feedback on exam 
+performance by contacting your module leader. 
+External Examiners 
+External Examiners are one way we assure the academic quality of your programme.  They 
+are subject experts who help assure that your Middlesex award is comparable to that at other 
+UK  universities  by  reviewing  the  programme  curriculum,  the  assessment  and  the  learning 
+resources.  Among other things they approve all exam papers before they are taken, attend 
+the assessment board and write a report at the end of the year.  You can obtain a copy of this 
+report by contacting programme leader. 
+IMPORTANT: It is inappropriate for you or any other student to make direct contact with 
+an External Examiner.  The appeal and complaints systems exist to allow you to express any 
+concerns you have, including the marks you have been given for your performance. 
+You can read more about the role of External Examiners on UniHub:  
+https://unihub.mdx.ac.uk/study/ensuring-quality/external-examiners  
+ 
+Assessment Feedback 
+Feedback on your assessment (both formative and summative) provides the opportunity for 
+you to reflect and to use the feedback as the basis for learning and to improve your work.   
+Feedback can take many forms and may be informal.  For example it may be given and 
+discussed orally in the classroom, or it may be more formal and delivered in written or audio 
+form from academic staff or fellow students.  Understanding your feedback is very important 
+and to achieve this you are encouraged to discuss feedback with your peers and academic 
+staff.  
+Receiving feedback  on your  work  is  an  essential  and  important  part  of  learning  and  so  we 
+provide  regular  opportunities  for formative  assessment,  the  purpose  of  which  is  to  get 
+----------------Page (21) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 23 
+ 
+ 
+detailed feedback on your performance so you get a regular update on how you are developing 
+and to prepare you for any summative assessment. 
+Feedback on summative assessment will be offered in a variety of forms and all your work will 
+be marked and moderated in line with the Code of Assessment Practice which can be found 
+in section M of the University Regulations: mdx.ac.uk/regulations 
+You will normally be provided with feedback within 15 working days of the published 
+submission date.  
+Feedback on coursework 
+Arrangements for feedback are made at a modular level but all students can expect to receive 
+effective and efficient feedback on work that is assessed formatively and summatively.  
+ 
+Once submitted and marked students receive feedback electronically via email or through their 
+learning space.  Feedback will normally consist of an assessment feedback sheet with written 
+comments  on  it  or  comments  associated  with  coursework  submitted  electronically  via 
+UniHub/Turnitin.    This  will  also  give  an  indication  of  how  you  performed  in  relation  to  the 
+assessment criteria. Students are therefore, reminded to read their feedback in order to help 
+them  with  further  assessments.    Tutors  are  available  for  support  to  help  students  clarify 
+feedback.   
+ 
+Feedback on examinations 
+Arrangements are made at a module level.  Once the examination is undertaken and marks 
+published,  students  can  collect  their  feedback  form.  This  will  in  general  be  an  individual 
+feedback sheet or generic feedback for example the module team may provide an example 
+written answer, tutorial or other information indicating expected answers for the examination.  
+ 
+Comments on examination scripts and marks can be made on the examination script to 
+facilitate marking of the paper and to assist the external examiner. 
+ 
+Viewing scripts 
+If you want to see your scripts you must arrange this through your tutor within 14 days of the 
+release  of  results.    Please  note  that  on  occasion  scripts  are  sent  to  the  external  examiner 
+during this period.  Alternative arrangements will be made in this instance.  
+Dissertations/projects 
+The   dissertation/project   supervisor   is   the   first   marker.      The   module   leader   for   the 
+dissertation/project module appoints a second marker usually but not always within the field 
+of expertise for the project work.   
+Projects are marked “blind” and therefore marking is independent.  The grades from the two 
+markers are moderated to finalise the overall grade. 
+ 
+ 
+ 
+----------------Page (22) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 24 
+ 
+ 
+Progressing on your Programme 
+ 
+Re-assessment 
+Although  no  one  anticipates  failing  a  module,  it  is  important  that  you  are  aware  of  what 
+happens if you do.  Normally you would be entitled to one re-assessment opportunity if you 
+don’t pass and there is no financial cost associated with this second attempt. You  should 
+however consult the Your Study area on UniHub for more information:  
+http://unihub.mdx.ac.uk/study/assess/progression.  
+ 
+Deferral of assessment 
+If there are exceptional circumstances which through no fault of your own are preventing you 
+from  completing  all  or  some  of  your  assessment  (e.g.  submitting  coursework  or  taking  an 
+exam)  you  may  seek  permission to  defer  the  relevant  assessment  to  the  next  available 
+opportunity.  If you think this applies to you then you should first read the full Deferral Policy 
+which  is  available  in  the  Assessment  and  Regulations  section  of  the  Your  Study  area  on 
+UniHub: http://unihub.mdx.ac.uk/study/assess/Deferral. 
+ 
+Deferral  requests  should  be  submitted  to  UniHelp  by  completing  the  relevant  form  and 
+attaching supporting documentation, e.g. medical certificates.  The final deadline for deferral 
+applications is 2 weeks after the end of the exam period (the dates of which are in the 
+academic  calendar  at  the  start  of  this  handbook).  The  deferral  form  is  available  from  the 
+Admin and Finances section of myUniHub:  
+https://myunihub.mdx.ac.uk/web/home-community/myadminandfinances.   
+ 
+If you have any questions about deferrals please contact UniHelp. 
+If  you  have  difficulties  accessing  resources  after  deferral  (e.g.  accessing  the  University 
+network  and UniHub)  then  contact UniHelp: http://unihub.mdx.ac.uk/unihelp by  phone  (+44 
+208 411 6060), in person at the Sheppard Library or by email (unihelp@live.mdx.ac.uk). 
+Results Confirmation 
+At  the  end  of  each  academic  year,  module  grades  are  considered  and  confirmed  by  an 
+Assessment Board. Following the Board, individual results and your progression status will be 
+released after the point, and will be made available in the My Study area on MyUniHub. 
+If any of your results are provisional they will be labelled as such. Further information on your 
+results and assessment can be found in the University Guide, under the Your Study area of 
+MyUniHub, or by seeking advice from your Progression and Support Team Officer. Further 
+details can also be found in the University regulations. 
+Academic Misconduct 
+You  should  be  aware  of  the  Universities  academic  misconduct  policies  and  procedures. 
+Taking unfair advantage over other students in assessment is considered a serious offence 
+by the University. Action will be taken against any student who contravenes the regulations 
+through negligence, foolishness or deliberate intent. Academic misconduct is a corrosive force 
+----------------Page (23) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 25 
+ 
+ 
+in the academic life of the University; it jeopardises the quality of education and devalues the 
+degrees  and  qualifications  of  the  University. Academic  misconduct  takes  several  forms,  in 
+particular: 
+ Plagiarism – using extensive unacknowledged quotations from, or direct copying of, 
+another person’s work and presenting it for assessment as if it were your own effort. 
+This includes the use of 3rd party essay writing services. 
+ Collusion – working together with other students (without the tutors permission), and 
+presenting similar or identical work for assessment. 
+ Infringement of Exam Room Rules – Communication with another candidate, taking 
+notes to your table in the exam room and/or referring to notes during the examination. 
+ Self-Plagiarism – including any material which is identical or substantially similar to 
+material  that  has  already  been  submitted  by  you  for  another  assessment  in  the 
+University or elsewhere. 
+ 
+Full details on academic misconduct and the support available can be found here.  
+Extenuating Circumstances 
+Extenuating   Circumstances   are   personal   circumstances   which   have   affected   your 
+performance in assessment and are brought to the attention of the Assessment Board when 
+considering your academic performance. 
+For  information  about  how  to  apply  for  Extenuating  Circumstances  please  see  information 
+available on MyUniHub. 
+Attendance 
+Middlesex  University  is  keen  to  support  all  students  to  help  enhance  their  academic 
+potential.  One of the ways we can do this is by monitoring attendance which will allow us to 
+work with you to resolve issues that may prevent you from attending.  
+Studies have shown that a good attendance record has a positive impact on performance and 
+therefore  is  an  important  factor  in  helping  you  to  fulfil  your  academic  potential. If  your 
+attendance is unsatisfactory, we will review your complete record.  
+If  you  experience  difficulties  beyond  your  control,  which  prevent  you  attending,  you  should 
+notify your tutor who may be able to offer support and guidance. The University Regulations 
+(C2.1)   state every student must attend those teaching sessions specified in the regulations 
+governing the module/programme.  In addition, Student Finance England and the Home Office 
+(in  the  case  of  international  students)  require  attendance  to  be  monitored.  Full  details  of 
+attendance monitoring policies can be found here . 
+Things you should know about attendance 
+Your punctuality and attendance are important, not just for you but for your cohort and peers. 
+If you are frequently late or your attendance falls below the required amount specified in your 
+module handbooks your record will be reviewed. 
+----------------Page (24) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 26 
+ 
+ 
+ It is your responsibility to ensure your attendance is recorded and as a professional 
+courtesy you should let your lecturer know if you are going to be, or have been 
+absent.  
+ If you consistently miss sessions you will be contacted by the Attendance Team or 
+your tutor. 
+ Students should therefore make sure they have their student card when attending 
+sessions. 
+You are expected to attend all timetabled teaching sessions and field trips.  If you fail to 
+meet the attendance requirements to meet the learning outcomes of the module, you may be 
+excluded from the assessment and be graded X (ineligible for assessment due to 
+unsatisfactory attendance/participation).  You may be able to take the module again with 
+permission from the Director of Programmes.  This would require you to pay the module 
+registration fee.  
+In some modules, especially those with seminars and laboratories, participation in the  
+sessions is essential in order to achieve the learning for the module. Students who do not 
+attend sufficiently may not be able to submit the relevant assessment for the module.  
+Where a practical session is not attended, students cannot submit a laboratory report 
+applicable to this session. A register of all laboratory sessions will be kept.  
+You will find specific information about attendance in each module handbook.   
+The full regulations regarding attendance are in Section C of the University Regulations: 
+www.mdx.ac.uk/regulations  
+For further guidance on attendance requirements please refer to the section on attendance 
+which is available on UniHub: unihub.mdx.ac.uk/study/attend and in the University Guide.  
+Late arrival 
+Whilst it is recognised that there are valid reasons for late arrival to classes, arriving late is 
+disadvantageous to yourself and other students:  
+• You may disrupt the learning experience of all students.  
+• You will miss the first part of the class when the learning outcomes of the class are 
+outlined.  
+• In case of practical classes, you will miss the health and safety instructions, so you 
+would endanger your health or other students if you were allowed into the class. 
+Consequently, a five minute limit is applied in laboratory-based practicals. Thus, if 
+you arrive later than five minutes late you will not be permitted to enter the laboratory 
+or to join the class.  
+Therefore, you are expected to be punctual, arrive in advance of and settle before the 
+schedule start of the class. If you arrive late for whatever reason and the classroom door is 
+shut or the lecturer has started the class, please do not enter the class. This policy has been 
+introduced at the request of both staff and students, and to protect the interest of the majority 
+of students who arrive on time. Please note if you try to enter the class, the tutor has the 
+right to ask you to leave. 
+ 
+----------------Page (25) Break----------------
+BSc MComp/Computer Science 2019/20 
+Page | 27 
+ 
+ 
+If you are late, you should go to library for private study and attend your next timetabled 
+class. You cannot attend a different seminar/lab as it may be full.  
+Health and Safety 
+ 
+Information and advice regarding health, safety and welfare is available on Your Support 
+Services page on UniHub: http://unihub.mdx.ac.uk/support/wellbeing/index.aspx  
+You are required to work safely in laboratories. Details of how to do so are given in the 
+Module Handbooks.  Assessments of risk are made for all schedule laboratory practical 
+sessions and are made prior to all research projects.  
+ 
+In practical classes, students must comply with laboratory rules and health and safety 
+policies.  These are normally outlined at the start of each module and students are required 
+to sign an agreement, confirming that they understand rules and policies and will comply 
+with these.  
+ 
+The Health and Safety Officer for the Faculty of Science and Technology is: Barry 
+Harte, Email: B.Harte@mdx.ac.uk  
+ 
+----------------Page (26) Break----------------
+ 
+ 
+Appendix 1: Curriculum Map  
+  
+In this section you will find details of all the learning outcomes for the programme, and the modules were you will achieve them.   
+  
+The curriculum map was correct at the time this handbook was published but details change over time and therefore you should always refer to the 
+latest version available on the My Study area of MyUniHub.  
+  
+Curriculum map for BSc (Hons) Computer Science 
+Programme learning outcomes 
+ 
+Knowledge and understanding 
+A1 A range of underlying theories relevant to computer science. 
+A2 The process of systems development. 
+A3 The interaction between technology and society and the role of computer professionals within this. 
+A4 A range of specialized topics within Computer 
+Science. 
+Skills 
+B1 Apply sound principles to the construction and maintenance of computer-related artifacts. 
+B2 Verify and validate computer-related systems. 
+B3 Apply appropriate theories to the design and evaluation of systems. 
+B4 Adapt and critically apply their knowledge and skills to mastering new technical areas. 
+ 
+ 
+----------------Page (27) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+Programme outcomes  
+A1 A2 A3 A4 A5 A6 A7 B1 B2 B3 B4 B5 B6 B7 B8 
+Highest level achieved by all graduates 
+6 6 6 6 - - - 6 6 6 6 - - - - 
+ 
+Module Title  Module Code 
+by Level A1 A2 A3 A4 A5 A6 A7 B1 B2 B3 B4 B5 B6 B7 B8 
+SMART SAT0100 - - - -    - - - -     
+Foundation Mathematics MSO0200 - - - -    - - - -     
+Computing and Digital Technology SAT0400 - - - -    - - - -     
+Foundation project SAT0300 - - - -    - - - -     
+Programming CST1110                
+First Year Project CST1120                
+Foundations of Computer Science CST1130                
+Systems and Architecture CST1140                
+Object-Oriented Programming CST2110                
+Web Applications and Databases CST2120                
+Software Engineering Management 
+and Development 
+CST2550                
+Operating Systems and Computer 
+Networks 
+CST2555                
+Industrial Placement (120 credits) CST2400                
+Testing and Verification CST3110                
+                 
+----------------Page (28) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+Teaching Computing in the 
+Secondary School 
+CST3120                
+Advanced Web Development with 
+Big Data 
+CST3130                
+Novel Interaction Technologies CST3140                
+Computer Graphics CST3150                
+Designing Secure Systems CST3160                
+Artificial Intelligence CST3170                
+UX Design CST3180                
+Open Source Software CST3185                
+Systems Engineering for Robotics PDE3413                
+Industrial Network Design and 
+Management 
+CST3555                
+Web-Based Mobile App 
+Development 
+CST3145                
+UG Individual Project CST3990                
+ 
+  
+----------------Page (29) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+ 
+Appendix 2: Module Narratives  
+ 
+In this section you will find details of all the modules associated with your programme so that you can see what is involved in your programme and make 
+any choices over option modules (if applicable). 
+ 
+The narratives were correct at the time this handbook went to print but details change over time and therefore you should always refer to the latest version 
+available on the My Study area of myUniHub:  
+https://myunihub.mdx.ac.uk/web/home-community/mystudy  
+ 
+Your online reading lists can be accessed from the My Study area of myUniHub. They highlight essential and recommended reading for all modules you 
+are registered on. 
+ 
+  
+  
+----------------Page (30) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+    
+  
+Module Code SAT0100(Published)  
+Module Title SMART (Students Mastering Academic writing, Research and Technology)  
+Credit 30  
+ 
+ 
+Aims 
+This module provides students with fundamental written and oral communication skills required to continue studying at degree level. 
+Students will develop analytical skills through a problem solving approach; build their confidence working individually and as a member of a 
+team, and gain appreciation of research techniques by using libraries and a range of e-learning resources. 
+Learning Outcomes 
+Knowledge 
+On completion of this module the successful student will be able to: 
+1. Identify and select appropriate materials for written work 
+2. Write for different purposes 
+3. Prepare and deliver effective verbal presentations 
+4. Work effectively as part of a team 
+5. Demonstrate good organisational and time management skills 
+Skills 
+This module will call for the successful students to demonstrate the ability to: 
+6. Use libraries and e-learning resources effectively 
+7. Conduct small scale research 
+8. Debate effectively with peers 
+ 
+----------------Page (31) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 9. Evaluate and provide feedback on work produced by peers 
+10. Reflect on their learning and practice 
+Syllabus 
+• Writing for different audiences 
+• Structuring reports, essays and other assignments 
+• Referencing 
+• Presentation and team working skills 
+• Conducting research; literature searches 
+• Strategies for studying and assessment 
+Learning, Teaching and Assessment Strategies 
+Weekly lectures will be used to provide core knowledge and skills. Students are expected to participate by working individually or in pairs in 
+lectures to solve problems and apply theory in practical activities. Weekly lab/workshop sessions will provide opportunities to work in small 
+self-organised groups to search, gather and analyse data by using e-learning resources and presenting findings to peers. 
+ 
+Assessment Scheme 
+Formative assessment consists of reflective writing exercises and presentations. Students receive electronic and/ or verbal feedback from 
+the tutor. 
+ 
+Summative assessment consist of: 
+Presentation (30%) in groups (3,4,5,7) 
+Written report (40%) individual (1,2,6) 
+Written exercises (30%) individual (9,10) 
+ 
+ 
+----------------Page (32) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+ 
+Assessment Weighting 
+Coursework: 100% 
+Learning Materials 
+Your online reading lists can be accessed from the My Study area of UniHub. They highlight essential and recommended reading for all 
+modules you are registered on. 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (33) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code SAT0300(Published)  
+Module Title Foundation Project  
+Credit 30  
+ 
+ 
+Aims 
+To provide students with experience of a range of projects that reinforce understanding of materials taught and provide opportunities to 
+apply the knowledge gained in other Foundation Year modules. 
+Learning Outcomes 
+Knowledge 
+On completion of this module the successful student will be able to: 
+1. Apply subject related concepts to projects 
+2. Evaluate the overall outcomes of the project 
+Skills 
+This module will call for the successful students to demonstrate the ability to: 
+3. Demonstrate how to plan and manage a project 
+4. Communicate effectively in writing and verbally the project development 
+5. Reflect on the process of the project 
+Syllabus 
+• Project management in student projects 
+• Effective project team work 
+• Presentation and documentation skills 
+----------------Page (34) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+• Requirements for subject specific projects 
+• Professional and ethical issues in projects 
+Learning, Teaching and Assessment Strategies 
+Weekly lab sessions provide opportunities to work in pairs or small self-organised groups to search, gather and analyse data by using e-
+learning resources. Students are expected to consolidate learning from all Foundation Year modules and their previous learning towards the 
+project outcome and documentation. 
+Formative assessment consists of demonstrations in labs. Feedback is provided verbally to students in labs. 
+Assessment Weighting 
+Coursework 100% Assessment comprises a series of tasks demonstrating skills and knowledge gained in a particular subject area. 
+Assessment details will be provided in the Module Handbook 
+Learning Materials 
+Your online reading lists can be accessed from the My Study area of UniHub. They highlight essential and recommended reading for all 
+modules you are registered on. 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (35) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code SAT0400(Published)  
+Module Title Computing and Digital Technology  
+Credit 30  
+ 
+ 
+Aims 
+The module provides an introduction to some of the fundamental concepts in computing, engineering and networks. Students will learn 
+about the latest developments within computing, both software and hardware, and gain basic understanding of the characteristics and 
+operational behaviour of computer systems and computer communications. The module will assist students in making their degree choice 
+for future careers. 
+Learning Outcomes 
+Knowledge 
+On completion of this module the successful student will be able to: 
+1. Discuss the basic hardware and structure of modern computer systems and data transmission 
+2. Demonstrate understanding of the basics of programmed systems such as languages 
+3. Discuss some simple systems in terms of the basic concepts in engineering and electronics, including ethical and professional issues 
+Skills 
+This module will call for the successful students to demonstrate the ability to: 
+4. Connect computers to communicate at both the hardware and software levels 
+5. Design and code simple programs 
+6. Develop skills in selecting and applying knowledge and techniques to given problems 
+7. Design simple databases using packages 
+ 
+----------------Page (36) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Syllabus 
+Indicative topics to be covered: 
+• Computer Architecture 
+• Networks and the Internet 
+• Network Addressing and Services and wireless Technologies 
+• Introduction to programming 
+• Basic data types, debug code, input and output 
+• Control structures, arrays 
+• Design code web pages 
+• Data management modelling 
+• Design and implement a database 
+• Ethical and Professional issues 
+• Electrical signals, measurement and simple digital systems 
+Learning, Teaching and Assessment Strategies 
+Weekly lab/workshop sessions will provide opportunities to work individually, in pairs and in small self-organised groups to discuss and 
+analyse case studies and use online materials. 
+Formative assessment consists of demonstrations in labs. 
+Students are encouraged to actively contribute to discussions and will receive written and /or verbal formative feedback in labs. 
+ 
+Assessment Scheme 
+Summative assessment consists of three components. Students must demonstrate all of the learning outcomes to pass. 
+The module is pass/fail only. 
+• Practical demonstrations (2, 3, 5) 
+• Logbook tasks with reflection on learning; (6, 7) 
+• Class Tests and Lab reports (1, 4) 
+----------------Page (37) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Assessment Weighting 
+Coursework (no examination): 100% 
+Learning Materials 
+Your online reading lists can be accessed from the My Study area of UniHub. They highlight essential and recommended reading for all 
+modules you are registered on. 
+Total Notional Learning Hours 
+300  
+  
+  
+  
+----------------Page (38) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Module Code  MSO0200 
+Module Title  Foundation Mathematics (Science and Technology)  
+Level 3  
+Credit  30  
+Owning Subject Mathematics, Statistics and Operational Research  
+Level Restrictions   
+ 
+ 
+Aims  
+This module introduces fundamental mathematical and statistical topics and concepts that are required in a range of subjects studied at 
+degree level. Students will begin to develop an appreciation of the importance of mathematics as an aid to understand and describe 
+abstract ideas. The module covers introductory areas of mathematics including numbers, algebra, data collection and statistics in a 
+structured and supportive environment. Software will be used to demonstrate and elucidate material and to motivate its use in real world 
+situations.  
+Learning Outcomes  
+Knowledge 
+On completion of this module the successful student will be able to: 
+1. demonstrate familiarity with the basics of numbers and algebra; 
+2. demonstrate an understanding of common algebraic operations; 
+3. identify and solve problems involving different types of functions; 
+4. understand the importance of good methodology when collecting data; 
+5. identify appropriate descriptive statistics for a simple data set. 
+ 
+Skills 
+This module will call for the successful student to: 
+ 
+----------------Page (39) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+6. work with numbers and algebraic expressions; 
+7. use algebra to solve problems in familiar settings; 
+8. use computer software to solve mathematical problems; 
+9. show efficient and correct use of Excel, including the production of graphs; 
+10. present mathematical results using appropriate typesetting. 
+ 
+Syllabus  
+The content of the module will include types of numbers, algebra and equations, and the use of simple functions. It will also include aspects 
+of data collection and basic statistics.  
+Learning, Teaching and Assessment Strategy  
+The nature of mathematics learning is that it is cumulative, and so in order to complete this module successfully, students are expected to 
+be actively and continuously involved in all the learning, teaching and assessment methods employed, to develop their appreciation of, and 
+skills in, the application of mathematics. 
+Each week a one-hour lecture will introduce key concepts. These will be developed in a two-hour workshop / lab session where practical 
+examples will be used to introduce and clarify subjects and software used to expand and analyse topics. Students will work individually or in 
+groups on given problems to develop a deep understanding of areas and their use in practice. 
+The lab time will introduce students to Excel and other suitable software to help them make practical use of the subjects covered in the 
+module, and also to enhance their computing skills. 
+ 
+Assessment Scheme 
+Formative assessment will be given in the form of problems at the end of the lectures which students will work on in preparation for the 
+workshop and laboratory session; students will be given immediate formative feedback on their work. 
+The summative assessment of this module is task based. The learning outcomes have been decomposed into numerous milestones which 
+are demonstrable during the lifetime of the module. 
+----------------Page (40) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Student progress on demonstrating these milestones will be continually assessed during all student contact opportunities. Full details of the 
+milestones and how they can be demonstrated will be given at the start of the module. Students and staff will be able to monitor progress of 
+the achievement of these throughout the year. 
+Summative assessment requires students to demonstrate that they have met all learning outcomes, and is entirely assessed by a series of 
+tasks completed during the taught sessions. The tasks are selected in order to ensure students demonstrate an overall understanding of 
+relevant concepts and techniques, and the ability to apply them. 
+Assessment Weighting  
+Coursework: 100%  
+Learning Materials  
+Your online reading lists can be accessed from the My Study area of UniHub. They highlight essential and recommended reading for all 
+modules you are registered on. 
+  
+----------------Page (41) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Module Code CST1110(Published)  
+Module Title Programming  
+Credit 30  
+ 
+ 
+Aims 
+To provide students with an understanding of the foundations of programming.  
+Learning Outcomes 
+Learning outcomes:  
+Knowledge  
+On completion of this module, the successful student will be able to:    
+1. Explain the key foundational concepts used to construct, analyse and debug programs.    
+Skills  
+This module will call for the successful student to demonstrate   
+2.  Construct, analyse and debug small-to medium sized programs     for a variety of computing applications 
+Syllabus 
+ Definitions, names, variables, interfaces.  
+ Data structures, lists, functions.  
+ Syntax, value, denotation.  
+ Recursive definitions, processing recursive data structures, control structures.  
+ Debugging, step-by-step execution 
+ 
+----------------Page (42) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+    
+Learning, Teaching and Assessment Strategies 
+Learning and teaching strategy: 
+This module is taught in an integrated fashion concurrently with all other first-year modules. Each first-year module contributes individual learning 
+outcomes that are demonstrated by students typically through practical sessions throughout the first-year. The opportunities for students to demonstrate 
+their learning for assessment purposes are continuous and integrated with all other first-year modules. There will be multiple opportunities for students to 
+demonstrate each learning outcome. Each new module cohort will provided with an assessment handbook detailing the specific requirements for that year. 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (43) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST1120(Published)  
+Module Title First Year Project  
+Credit 30  
+ 
+ 
+Aims 
+To provide students with experience of a range of Computer Science projects that reinforce First Year teaching and learning and provide 
+opportunities to apply this learning in a supported and structured environment.  
+Learning Outcomes 
+Knowledge 
+On completion of this module, the successful student will be able to: 
+  
+1. Explain how Computer Science concepts provide a framework for understanding real-world systems.  
+  
+Skills 
+On completion of this module, the successful student will be able to: 
+     2.  Successfully undertake simple development projects.  
+     3.  Successfully demonstrate appropriate information searching, critical evaluation, writing and communication skills necessary to enable 
+effective documentation and communication. 
+Syllabus  
+ Individual and group project management.  
+ Presentation and documentation skills.  
+ Professional and ethical responsibilities.  
+ Requirements, specification and verification. 
+ Design and computational thinking 
+ 
+ 
+ 
+----------------Page (44) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Learning, Teaching and Assessment Strategies 
+This module is taught in an integrated fashion concurrently with all other first-year modules. Each first-year module contributes individual 
+learning outcomes that are demonstrated by students typically through practical sessions throughout the first-year. The opportunities for 
+students to demonstrate their learning for assessment purposes are continuous and integrated with all other first-year modules. There will 
+be multiple opportunities for students to demonstrate each learning outcome. In this demonstration students should show an awareness of 
+the ethical/legal/professional issues that might be raised by the techniques or the context of the project.  
+Each new module cohort will be provided with an assessment handbook detailing the specific requirements for that year.   
+ 
+ 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (45) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+Module Code CST1130(Published)  
+Module Title Foundations of Computer Science  
+Credit 30  
+ 
+ 
+Aims 
+To provide students with an understanding of the foundations of Computer Science. 
+Learning Outcomes 
+Knowledge  
+On completion of this module, the successful student will be able to:  
+1. Explain the key concepts underpinning the discipline of Computer Science. 
+Skills 
+On completion of this module, the successful student will be able to:  
+2. Apply key concepts to computer systems development.  
+Syllabus 
+ Execution: state transitions; sequencing; recursion; concurrency.  
+ Algebraic structures: sets; graphs; sequences; trees; functions; relations.  
+ Logic: predicate logic; propositional logic; reasoning and proof.  
+ Languages: regular expressions; automata; syntax; semantics. 
+ Specification: ADT; invariants; pre-post conditions. 
+Learning, Teaching and Assessment Strategies 
+This module is taught in an integrated fashion concurrently with all other first-year modules. Each first-year module contributes individual learning 
+outcomes that are demonstrated by students typically through practical sessions throughout the first-year. The opportunities for students to demonstrate  
+----------------Page (46) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+their learning for assessment purposes are continuous and integrated with all other first-year modules. There will be multiple opportunities for students to 
+demonstrate each learning outcome.  
+Each new module cohort will provided with an assessment handbook detailing the specific requirements for that year. 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (47) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST1140(Published)  
+Module Title Systems and Architecture  
+Credit 30  
+ 
+ 
+Aims 
+To provide students with an understanding of the organization of computer-based systems from the small-scale (for example gates, 
+processors and memory), through the medium-scale (for example personal computer organization), to the large-scale (for example the 
+Internet).  
+Learning Outcomes 
+Knowledge  
+On completion of this module, the successful student will be able to:  
+1. Describe a range of typical computer based systems in terms of their internal organization of components and their system interfaces. 
+Skills 
+On completion of this module, the successful student will be able to:  
+2. Construct, test and analyse systems involving both hardware and software. 
+Syllabus 
+ Data representation: binary; structures.  
+ Circuits: logic gates; arithmetic.  
+ Machine organization: memory; registers.  
+ Programming: instructions; interrupts; low-level vs. high-level. I 
+ Input-output: devices; interfaces.  
+ Distributed Systems: networking; communication; concurrency.  
+----------------Page (48) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ Operating Systems. 
+Learning, Teaching and Assessment Strategies 
+This module is taught in an integrated fashion concurrently with all other first-year modules. Each first-year module contributes individual 
+learning outcomes that are demonstrated by students typically through practical sessions throughout the first-year. The opportunities for 
+students to demonstrate their learning for assessment purposes are continuous and integrated with all other first-year modules. There will 
+be multiple opportunities for students to demonstrate each learning outcome.  
+Each new module cohort will provided with an assessment handbook detailing the specific requirements for that year. 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (49) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST2110(Published)  
+Module Title Object-Oriented Programming  
+Credit 30  
+ 
+ 
+Aims 
+This module aims to provide the student with an understanding of the concepts involved with object-oriented programming. To this end, the 
+student will cover the fundamentals of objects, classes, inheritance, composition, encapsulation and polymorphism. In addition, the module 
+will expose the student to GUI frameworks, introduce some basic software engineering design principles and patterns, and provide a more 
+abstracted view of system design in terms of layered software architectures. It is expected that on completion of this module students will be 
+able to design, implement and test non-trivial object-oriented programs. 
+Learning Outcomes 
+Knowledge 
+On completion of this module, the successful student will be able to: 
+  
+1. Demonstrate an understanding of the fundamental concepts of object-orientation. 
+2. Apply object-oriented solutions to the analysis and design of software systems. 
+3. Know how to employ testing strategies to verify an object-oriented software system.  
+  
+ Skills 
+This module will call for the successful student to demonstrate: 
+  
+4. How to design an object-oriented system that is underpinned by good practise and object-oriented principles. 
+5. The production of relevant documentation using appropriate documentation tools. 
+6. Implementation of an object-oriented system using an industry standard programming language and API. 
+Syllabus 
+Review of procedural programming 
+----------------Page (50) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Introduction to objects and classes 
+Object principles and encapsulation 
+Object relationships: inheritance, composition, association 
+Abstraction and polymorphism 
+Working with a GUI framework 
+Introductory design patterns (Façade, Observer) 
+Core architectural patterns (MVC, Layering) 
+Introduction to testing strategies  
+Learning, Teaching and Assessment Strategies 
+Theoretical and practical examples will be presented in a weekly lecture. Practical skills and experience will be built up through weekly laboratories. 
+These will comprise a series of software design and development exercises that will both support the lecture material and serve as milestones for self-
+evaluation. A number of scheduled sessions in the computing laboratory will also be employed for formative assessment via online tests. The laboratory 
+sessions will also be used to support students in completion of their summative assessment (individual programming assignments). 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (51) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+Module Code CST2120(Published)  
+Module Title Web Applications and Databases  
+Credit 30  
+ 
+ 
+Aims 
+This module will give students practical experience with the development of dynamic websites using HTML, CSS, PHP and JavaScript. 
+They will learn how to store client-side data and get first-hand experience with the server-side storage of data using databases. Students 
+will also obtain a deeper understanding of the operation of large-scale websites, such as Facebook and Google, and the security, privacy 
+and legal issues that affect web applications. 
+Learning Outcomes 
+Knowledge 
+On completion of this module, the successful student will have knowledge of: 
+  
+1. Client and server technologies. 
+2. Commercial website development. 
+3. Data storage and retrieval. 
+4. Website testing and deployment. 
+5. Security, privacy and legal issues. 
+  
+ Skills 
+ On successful completion of this module, students will be able to: 
+  
+6. Design and develop a website. 
+7. Construct the front end of a website using HTML, CSS and JavaScript. 
+8. Develop the back end of a website using PHP and MongoDB. 
+9. Develop the back end of a website using Node.js and MySQL. 
+10. Test the front and back end of a website. 
+Syllabus 
+Website design 
+----------------Page (52) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+HTTP 
+HTML 
+CSS 
+JavaScript 
+JSON 
+PHP 
+AJAX 
+Node.js 
+Data storage and retrieval 
+Testing 
+Commercial website 
+Security, privacy and legal issues  
+Learning, Teaching and Assessment Strategies 
+Contact hours during teaching weeks:   
+Lecture: 1 hrs 
+Laboratory: 2 hrs 
+  
+The course is taught using the flipped classroom approach. The recorded lectures will provide the knowledge component of the course. The live lectures 
+will  give students  opportunities  to  ask  questions and  there  will  be  live  coding  and  technology  demonstrations.  The  laboratory  sessions  will  consolidate 
+students’ understanding of the lecture material and support their development of the technology skills. 
+ 
+----------------Page (53) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Assessment Weighting 
+Coursework 1: Game Website (50%) Coursework 2: E-commerce Website (30%) Coursework 3: Single Page Web Application (20%)  
+Total Notional Learning Hours 
+300  
+  
+----------------Page (54) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST2400(Published)  
+Module Title Industrial Placement  
+Credit 120  
+ 
+ 
+Aims 
+ 
+The module aims to develop the students’ employability skills by achieving the set of agreed learning outcomes using a Three Way 
+Negotiated Learning Agreement. The module develops a range of skills specific to the individual workplace. This practical experience 
+module provides the means for students to link academic work with the 'real world' situation. The module facilitates the embedding of 
+transferable and graduate skills necessary for future career paths and employment. It is envisaged the student will reflect upon areas of 
+knowledge relevant to the placement learning experience and develop personal knowledge through a review of their learning. The 
+placement learning experience provides students with the opportunity to enhance their skills of self-expression, communication, self-
+reliance and co-operation. 
+Learning Outcomes 
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+ 
+1. Explore how your subject theoretical breadth and knowledge may be integrated with the placement environment and applied to the workplace. 
+2. Develop a plan of learning outcomes and personal development goals to be achieved in the placement organisation. 
+3. Critically examine the organisational structures, policies and operational aspects of the placement organisation including risk management.   
+ 
+Skills 
+ 
+This module will call for the successful student to demonstrate: 
+  
+4. Develop and apply practical skills and competencies required for professional or other employment requirements.  This may include the 
+requirements of professional bodies associated with your programme.  
+ 
+----------------Page (55) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+5.  Critically reflect upon your personal growth, development and learning during the placement experience and relate them to your possible future 
+employment 
+ 
+6. Evaluate the acquisition and development of your transferable and graduate skills during the placement experience illustrating how these will 
+enhance your employability 
+ 
+ 
+ 
+Syllabus 
+No formal syllabus is specified but the module does foster integration of subject knowledge into the placement situation. 
+Learning, Teaching and Assessment Strategies 
+Learning and teaching strategy: 
+ 
+In  the  year  prior  to  the  industrial  placement  year,  students  will  be  introduced  to  the  aims  of  the  module  and  given  guidance  on  appropriate  placement 
+opportunities.  If a student decides to take a placement year, s/he must register with the designated placement officer and inform them the type of organisation 
+they are interested in. The registered student will also be introduced to the health and safety aspects of placements. 
+Students will book themselves for a CV workshop with the student development unit service, a preparation week prior to the placement starting. Students 
+will also meet with the module leader for preparation prior to the placement commencing. 
+Students are expected to apply reflective learning to their placement activities throughout the placement.   
+The student will undertake 1200 study hours over 32 weeks. This translates as 128 days within the placement organisation and 32 days for self-directed 
+research and writing up time.   
+Visiting placement tutor: 
+The visiting tutor will visit the workplace twice to check the student’s progress; one at the start and one towards the end of the placement. 
+Assessment Weighting 
+Coursework 100% 
+----------------Page (56) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Total Notional Learning Hours 
+1200   
+----------------Page (57) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST2550(Published)  
+Module Title Software Engineering Management and Development  
+Credit 30  
+ 
+ 
+Aims 
+This module builds on the programming fundamentals developed in the first year through the study of algorithm design and the properties of 
+several data structures; concurrent programming; networked programming and database design and implementation. This will enable 
+writing efficient concurrent and/or networked programs which store data efficiently and reliably in a well-designed database. Throughout the 
+course software engineering tools and techniques will be introduced and utilized in the design, management and testing of software being 
+developed  
+Learning Outcomes 
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+1. Have knowledge of a variety of algorithms and data structures and the impact of algorithm and data structure selection on software performance 
+2. Understand of the importance of correct database design 
+3. Have an understanding of the principles of concurrent and network programming 
+  
+Skills 
+ 
+This module will call for the successful student to demonstrate 
+ 
+   4.   A sophisticated application of information searching  
+   5. Implement and analyse algorithms  
+   6. Design and implement databases and interact with them through software 
+   7. Develop concurrent and networked programs 
+   8. Effectively present and communicate design concepts both orally and in writing 
+ 
+ 
+----------------Page (58) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Syllabus 
+• Algorithms and data structures: Analysis of algorithms; order of growth; asymptotic notation; implementation of 
+algorithms and data structures; selection of data structures 
+ 
+• Databases: The relational model; ER-modeling; SQL (DDL and DML); Normalization; interacting with database using a 
+programming language 
+ 
+• Concurrent programming: Threads; race conditions; locks; deadlocks; threadpools 
+ 
+• Network programming: Client/server computing; data transmission over TCP and/or UDP 
+ 
+   
+Learning, Teaching and Assessment Strategies 
+Learning and teaching strategy: 
+Support for achieving the module outcomes is provided by lectures and labs typically involving a focussed practical task. 
+Formal materials are introduced in weekly one-hour lectures; these outline key principles, concepts and considerations. The weekly two-
+hour lab sessions consolidate the lecture material and provide an opportunity to apply the material to practical problem solving tasks. 
+Assessment 
+Several in-class tests scheduled throughout the year. 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (59) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+Module Code CST2555(Published)  
+Module Title Operating Systems and Computer Networks  
+Credit 30  
+ 
+ 
+Aims 
+ 
+Computer systems have become pervasive and increasingly more powerful enabling users to run many different kinds of applications. The 
+power available on modern day computing devices and the ever increasing usage being found for them has led to the redefinition of the 
+roles, responsibilities and design of Operating Systems. The aim of this introductory course is to review the design principles, performance, 
+security and system management issues in Operating Systems design. It provides an understanding of the operation of the underlying 
+hardware and software and gives practical systems-level experience of client-server based applications. It lays the groundwork needed for 
+more advanced engineering applications in the area. The module will provide students with an opportunity to gain practical level experience 
+of Operating System management techniques in a realistic and flexible environment. Access is provided to a 64-bit Linux Enterprise system 
+to promote active learning and reinforce lecture material. This module lays the groundwork needed for more advanced engineering 
+applications in the area.  
+Learning Outcomes 
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+1. Describe, select and use appropriate Linux operating system commands to perform a range of tasks including those commonly required during 
+software installation 
+2. Explain and justify the way in which server applications need to be customised 
+3. Describe the architecture of major state-of-the-art applications  
+ 
+Skills 
+ 
+This module will call for the successful student to: 
+ 
+4. Successfully demonstrate a sophisticated application of information searching,  
+5. Classify and analyse the main security weaknesses in current operating systems and network architectures 
+6. Download, install and customise typical Internet client/server applications on different operating systems 
+7. Design, implement and evaluate programs to probe networks to which they are attached.  
+----------------Page (60) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+8. Deploy mathematical skills and understanding to system and problem analysis, and problem solutions  
+Syllabus 
+Types of O/S,  functions of operating systems and computer networks, system interfaces, process management, concurrency, low level IPC, high level 
+IPC, deadlock detection and recovery, security threats and provision, and distributed operating systems.  
+  
+Networking models of communication (ISO reference model), LANs, Wireless networks, client-server systems, socket programming, and network 
+management issues (FCAPS). 
+Learning, Teaching and Assessment Strategies 
+In-depth theoretical overview of Operating Systems and networking concepts will be delivered in the form of lectures. Students will gain significant 
+hands-on interaction with networking equipment in our CISCO specialist labs. Hands-on labs and case studies will help students apply what they learn 
+and to develop critical thinking and complex problem-solving skills. 
+Exam Duration  
+Examination, 2 hours 
+Learning Materials 
+Unseen examination 40% 
+Coursework 60% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (61) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3110(Published)  
+Module Title Testing and Verification  
+Credit 30  
+ 
+ 
+Aims 
+Computer systems are almost never perfect, exhibiting errors, crashes and hangs whose implications range from benign to fatal. This 
+module will examine the different notions of correctness relevant to computer systems, and how these are applied to the different parts of a 
+computer system. Automatic and user-guided methods that attempt to find possible problems within systems will be covered and 
+demonstrated on practical examples. Also, methods for ensuring that no problems can possibly exist within a system design will be 
+examined and applied.  
+ 
+Learning outcomes  
+  
+Knowledge 
+ 
+On completion of this module, the successful student will: 
+  
+1. Appraise different correctness conceptualisations including safety/liveness, functional correctness and temporal properties.  
+2. Be able to use different ways of specifying correctness including pre- and post-conditions, temporal logic properties, code contracts and unit tests.  
+3. Appraise the role of correctness in industry: safety-critical industries and certification/validation processes.  
+  
+Skills 
+ 
+On completion of this module, the successful student will be able to: 
+  
+4. Apply appropriately and evaluate open source industry-standard tools for finding bugs in software.  
+5. Abstract and model complex systems so as to make them amenable to analysis with tools such as model checkers.  
+6. Design unit test suites manually and automatically, using test generation tools.  
+7. Develop advanced debugging techniques and apply them to software systems.  
+8. Apply advanced code writing techniques aiming to reduce the incidence of bugs including defensive coding and coding-by-contract. 
+ 
+----------------Page (62) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Syllabus 
+ Logic as specification language: propositional, first-order, Hoare, temporal logics.  
+ States and traces as models of computations. 
+ Safety vs liveness, reachability vs termination and other correctness concepts. 
+ Absence of bugs vs presence, and techniques for proving those. 
+ Tests, code coverage and other code metrics. 
+ Code contracts. 
+Learning, Teaching and Assessment Strategies 
+The course will support a collaborative mode of learning combined with assessment of individual critical capacities. To this aim, students will 
+be required to show both individual work and group activities. The learning process will be based on a combination of theoretical knowledge 
+and practical skills. The student will be required to show knowledge of basic principles of Computation, Algorithms and Complexity  
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (63) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+Module Code CST3120(Published)  
+Module Title Teaching Computing in the Secondary School  
+Credit 30  
+ 
+ 
+Aims 
+ 
+The module will focus on the teaching of computer science within the secondary school (age 11-16) setting. You will observe, analyse and 
+prepare materials for teaching practice. You will start to apply your knowledge of computing to teaching practice. You will develop an 
+understanding of the Teachers’ standards, thus supporting your preparation for application of initial teacher training courses. You will 
+complete reading on education pedagogy to critically analyse practice. The module will also support your development of public speaking. 
+Learning Outcomes 
+Knowledge 
+ 
+On successful completion of this module, the student will be able to: 
+  
+1. Reflect upon school experience to prepare you for initial teaching training. 
+2. Analyse relevant computing pedagogy theory to support critical action research. 
+3. Analyse the teaching requirements of computer science in the national curriculum and awarding body syllabus. 
+  
+Skills 
+ 
+On completion of this module, the successful student will be able to: 
+  
+4. Create engaging teaching activities to support pupil progress. 
+5. Develop an understanding of the Teachers’ standard requirements and how you will start to meet them. 
+6. Develop professional relations with colleagues within school. 
+7. Gain confidence in public speaking. 
+ 
+ 
+----------------Page (64) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Syllabus 
+This module is designed to support the professional development of undergraduate students in understanding the requirements of teaching computer science 
+within a secondary school setting. Therefore, the module incorporates school experience with directed tasks to support students’ application for teaching 
+training courses. 
+Areas covered will include: 
+  
+1. You will complete school experience within partnership secondary school  
+2. Critically analyse up to date theory in teaching computer science 
+3. Plan and teach engaging teaching materials 
+4. Keep a reflective diary to support your understanding 
+Learning, Teaching and Assessment Strategies 
+Learning and teaching strategy 
+  
+This module is mainly delivered through workshops and school experience. These focus on good practice of teaching computer science, professionalism 
+and meeting of the Teacher’s Standards.  
+  
+Student engaging in school experience are analysed to ensure that support is given to strengthen areas for development and consolidate and share good and 
+outstanding practice. Tutors will visit students to discuss their progress. 
+  
+The module is supported through the VLE (Moodle) The Moodle area is listed on Unihub under MyLearning. All of these developments support the aim of 
+developing a reflective practitioner.  
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (65) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3130(Published)  
+Module Title Advanced Web Development with Big Data  
+Credit 30  
+ 
+ 
+Aims 
+ 
+Many modern websites store and process large amounts of data. Typical examples are property search websites, price comparison 
+websites and financial websites. This module aims to give students the ability to download, store and process large quantities of data and 
+build websites based on this data using advanced JavaScript frameworks. At the end of the module successful students will have gained 
+advanced skills with Java, JavaScript, web development and big data, which are highly sought after in industry. 
+Learning Outcomes 
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+  
+1. Choose a technology architecture for a website built around a large quantity of data. 
+2. Evaluate a design for a SQL database. 
+3. Critically assess and compare machine learning techniques and deploy in sentiment analysis. 
+4. Articulate website performance measurement and the role of caching. 
+  
+  
+Skills 
+ 
+On completion of this module, the successful student will be able to: 
+  
+5. Construct professional quality websites displaying data from large databases using Node.js and advanced JavaScript frameworks. 
+6. Design complex multi-threaded Java programs using Spring, Hibernate and Maven. 
+7. Plan and implement a real-time web application using WebSockets 
+8. Process data locally and in the cloud. 
+----------------Page (66) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+9. Measure and optimize the performance of the websites that they have built. 
+ 
+Syllabus 
+ Advanced Java (threads, Spring, Hibernate, Ant, Maven). 
+ Unit testing of Java and JavaScript.  
+ Downloading data from third party websites and web services. 
+ SQL databases. 
+ Advanced JavaScript (Node.js, ECMAScript 6, React.js, Vue.js). 
+ Cloud data storage. 
+ Data processing pipelines. 
+ WebSockets. 
+ Data visualization with JavaScript. 
+ Machine learning. 
+ Sentiment analysis 
+ Performance measurement and caching. 
+Learning, Teaching and Assessment Strategies 
+Learning and Teaching Strategy 
+  
+Contact hours during teaching weeks:   
+Lecture: 1 hrs 
+Laboratory: 2 hrs 
+  
+The course will be taught using the flipped classroom approach. The recorded lectures will provide the knowledge component of the course 
+(1-4). The live lectures will give students opportunities to ask questions and there will be live coding and technology demonstrations (1-9). 
+The laboratory sessions will consolidate students’ understanding of the lecture material and support their development of the technology skills 
+(5-9). 
+ 
+Assessment Scheme 
+ 
+ 
+ 
+----------------Page (67) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Formative Assessment Scheme 
+ 
+Students will be encouraged to submit drafts of summative assessments tasks for formative feedback. Formative feedback will also be given to students 
+as they work on their coursework in the labs. 
+ 
+ 
+ 
+Summative Assessment Scheme 
+ 
+Coursework 1: Price Comparison Website, Property Search Website, or Similar. 
+Students build a price comparison or property search website (other options are possible).  
+ 
+Coursework 2: Recommendation Website based on Machine Learning and Sentiment Analysis. 
+ 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (68) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3140(Published)  
+Module Title Novel Interaction Technologies  
+Credit 30  
+ 
+ 
+Aims 
+ 
+Interactive technologies are developing continually, and new devices that offer novel ways of interacting with computer-based systems are 
+constantly finding their way into our homes, workplaces and lives. Students on this module will encounter and study a range of innovative 
+and emerging interaction technologies. The module affords an opportunity to become familiar with the technologies and devices themselves 
+as well as ways of analysing their applicability for particular uses and situations, and approaches evaluating their use. By understanding 
+how computing devices and products are used and studying the ways that usage changes over time, students will gain a critical awareness 
+of the processes by which interactive products gain in popularity and become successful. After completing the module, students will 
+therefore be better equipped to anticipate and select the successful interaction technologies of the future, analyse situations of use and 
+potential users, design using the latest interaction technology, and evaluate novel and innovative designs.  
+Learning Outcomes 
+Learning outcomes  
+  
+Knowledge 
+On completion of this module, the successful student will be able to: 
+  
+1.      Describe the underpinning concepts and key features of a range of novel 
+and emerging interaction technologies  
+2.      Critically assess and compare such technologies  
+3.      Provide arguments for how such technologies challenge concepts of HCI 
+    
+Skills 
+On completion of this module, the successful student will be able to: 
+  
+4.      Analyse problem situations with regard to task, context and user needs  
+----------------Page (69) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+5.      Design and prototype solutions that harness the potential of novel 
+interaction devices and technologies to address specific problems  
+6.      Plan and conduct appropriate evaluations of designed artefacts, that can be 
+used in the iterative improvement of designs 
+  
+ 
+Syllabus  
+  
+ Fundamentals of HCI: Usability, User Experience, and the Evaluation of Interactive systems 
+ Theory: Reality-based interaction 
+ Tangible User Interfaces 
+ Augmented Reality & Virtual Reality 
+ Haptic Perception and Interaction 
+ Proxemic interaction 
+ Novel Assistive Technologies 
+ Pervasive and Ubiquitous Computing 
+Learning, Teaching and Assessment Strategies 
+Learning and Teaching Strategy 
+  
+A combination of weekly lectures and practical sessions will be used to deliver conceptual material and to allow students to develop 
+practical skills.  
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+ 
+ 
+  
+----------------Page (70) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+Module Code CST3145(Published)  
+Module Title Web-Based Mobile App Development  
+Credit 30  
+ 
+ 
+Aims 
+This module aims to develop a deep understanding of the latest web-based app programming techniques, frameworks, and methodologies 
+used by the industry to develop the next generation software that can be deployed on any mobile devices (both Android and iOS). The 
+module will investigate, develop, and deploy latest programming language standards that are fundamental to app development and 
+currently being widely employed in industry. Modern programming frameworks will be introduced to provide the essential software 
+architecture for large-scale software development and the ability to target either the Android or iOS platform. The module will cover the 
+three most important components of a complete mobile app: front end, back end, and system administration. 
+Learning Outcomes 
+  
+Knowledge 
+  
+On completion of this module, the successful student will be able to: 
+  
+1. Understand the latest programming standard required for advanced app development; 
+2. Utilise the latest software architecture frameworks and understand their strength and weakness; 
+3. Utilise of the latest serverless backend that provide app hosting and data storage; 
+4. Utilise essential tools required such as version control, dependency management, transpiling, and behaviour-driven development.  
+5. Understand the methodology of developing platform-independent mobile app and the strength and weakness of existing libraries. 
+  
+Skills 
+  
+This module will call for the successful student to demonstrate: 
+  
+6. Ability to develop efficient and robust app following the latest programming standard. 
+7. Ability to design and implement industry-scale app utilising the latest software frameworks. 
+8. Ability to host app online and design/manage serverless data storage; 
+ 
+ 
+----------------Page (71) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+9.  Ability to efficiently deploy, config, and administrate essential tools required for advanced web app development workflow such as version control,   
+dependency management, transpiling, and behaviour-driven development. 
+10. Ability to develop platform-independent mobile apps using Web-based technologies. 
+11.Ability to design and evaluate cross-platform mobile apps based on customer specifications. 
+Syllabus 
+  
+ Object-oriented programming in functional language such as JavaScript; 
+ Advanced features in the latest programming language standard such as ECMAScript 6; 
+ Version control and issue tracking with Git and Github.com; 
+ Software testing library such as Jest; 
+ Project dependency and compile tools such as NPM and Webpack. 
+ Full-stack software framework such as Vue.js: 
+o UI Component; 
+o User registration and authentication; 
+o Serverless data storage and sharing (such as Firebase); 
+o Messaging; 
+o Web APIs (such as Facebook and Google Maps); 
+o Hardware APIs (such as camera, gps, and other sensors); 
+ Platform-independent mobile app development with framework such as NativeScript; 
+Learning, Teaching and Assessment Strategies 
+Learning and Teaching Strategy 
+  
+Contact hours:   
+  
+ Lecture: 1.5 hrs 
+ Laboratory: 1.5 hrs 
+  
+The focus of teaching will be a mixture of lectures and lab-based practical work and discussions. Skills and experience are built up through 
+weekly lab sessions that progressively build up the knowledge and skills to complete a full-fledged web application. Various tools, such as 
+Git, NPM, and VSCode will be introduced throughout the module as they become necessary. The student will be expected to pursue the latest 
+progress in the Web app development through group discussions and self-study.  
+----------------Page (72) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (73) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3150(Published)  
+Module Title Computer Graphics  
+Credit 30  
+ 
+ 
+Aims 
+The aim of this module is to examine in depth the concepts and techniques needed in the construction of interactive graphics systems 
+covering advanced graphics programming techniques. It will cover theory and mathematics as required. It aims to provide students with 
+practical experience via significant individual project work developing computer graphics programs using an industry standard environment.  
+Learning Outcomes 
+  
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+  
+1. Demonstrate understanding of a wide range of techniques and algorithms used in implementation of graphics systems.  
+2. Demonstrate in depth knowledge of an industry standard development environment including the appropriate use of libraries.  
+3. Demonstrate understanding of mathematical methods used in the domain of graphics and visualisation including the use of vectors, matrices and 
+transformations.    
+  
+ Skills 
+ 
+On completion of this module, the successful student will be able to: 
+  
+4. Use an industry standard graphics and visualisation development library and tools to develop an individually researched and designed graphics and 
+visualisation application.  
+5. Manage resources and time in the design and development of a substantial individual coding project.  
+6. Document the design and implementation of a significant software development project. 
+ 
+ 
+----------------Page (74) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+ 
+Syllabus  
+  
+ graphics primitives 
+ transformations, vectors and matrices 
+ viewing systems 
+ animation techniques 
+ object modelling 
+ lighting and texturing 
+ virtual and augmented reality 
+Learning, Teaching and Assessment Strategies 
+Learning and Teaching Strategy 
+  
+A weekly lecture will be used to deliver theoretical material, cover the necessary mathematical background, to introduce the programming 
+environment and to discuss example programs. The laboratory time will be used for the development of course works and as an opportunity 
+for students to get continual formative feedback on their work. Due to the development focus of the course it is assessed by 100% 
+coursework, over one formative and two summative coursework assessments.  
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (75) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3160(Published)  
+Module Title Designing Secure Systems  
+Credit 30  
+ 
+ 
+Aims 
+Designing secure computer systems is a cross cutting discipline: from organisational policies, via programming languages and network 
+protocols all the way down to physical layers, security controls need to be installed at all levels of a computer system. This course aims at 
+giving students an overall appreciation of the meaning of security and privacy, teaching them standard techniques of designing, developing 
+and assessing secure computer systems. At the end of the module, participants will have acquired skills and knowledge in basic cryptology, 
+security protocol design, threat analysis, security models and security engineering techniques.  
+Learning Outcomes 
+ 
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+  
+1. Explain the notions of security, privacy and socio-technical security problems, like insider threat 
+2. Apply basic concepts of cryptography and use them in secure communications,  
+3. Identify protection goals and quantify the attacker to build appropriate security models, 
+4. Understand policies addressing socio-technical security. 
+  
+Skills 
+ 
+On completion of this module, the successful student will be able to: 
+  
+5. Identify security and privacy goals in application scenarios. 
+6. Apply and implement standard cryptographic algorithms like RSA and Diffie-Hellman, 
+7. Assess and design simple secure communication protocols following given examples using standard software (Modelcheckers), 
+ 
+----------------Page (76) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+8. Model security policies for infrastructures with human actors. 
+  
+ 
+Syllabus 
+Introduction to cryptography and cryptanalysis, 
+Principles of cryptography, 
+Security engineering principles, security perimeter, physical security 
+Security models: multi-level and multi-lateral security 
+Protection goals,  
+Misuse cases and attack trees: quantifying the attacker 
+Access control, 
+Authentication protocols, 
+Model checking security protocols, 
+Secure programming with information flow control, 
+Socio-technical aspects of security (insider threats), 
+Blockchain 
+Case studies:  
+Privacy and the GDPR, 
+----------------Page (77) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ Security and Privacy in the Internet of Things (EU project  SUCCESS iot-success.eu),  
+ Cloud Security.  
+ 
+Learning, Teaching and Assessment Strategies 
+Learning and teaching strategy: 
+  
+Contact hours during teaching weeks:   
+Lecture: 1 hrs 
+Laboratory: 2 hrs 
+  
+The course will be taught using the flipped classroom approach.  Lectures will give students opportunities to ask questions and there will be live 
+demonstrations. The seminar and laboratory sessions will consolidate students’ understanding of the lecture material and support their development of 
+application, design and verification skills. 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (78) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3170(Published)  
+Module Title Artificial Intelligence  
+Credit 30  
+Other Restrictions and Requirements None  
+ 
+ 
+Aims 
+ 
+The aim of the module is to introduce students to a range of AI theories and techniques, including the most commonly used. This will extend 
+to the ability to implement these techniques, and the students will extend their own development skills. 
+Learning Outcomes 
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+1. Show understanding of common knowledge representation mechanisms. 
+2. Demonstrate an understanding of common machine learning mechanisms 
+ 
+Skills 
+ 
+This module will call for the successful student to:  
+3. Successfully demonstrate a sophisticated application of information searching,  
+4. Ability to implement knowledge bases in common knowledge representation formats.  
+5. Ability to implement machine learning algorithms for particular applications. 
+     6. Ability to use common AI development techniques and languages. 
+ 
+Syllabus: 
+ 
+ First Order Predicate Logic 
+ Semantic Nets 
+ XML 
+----------------Page (79) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ Statistical techniques including linear approximation. 
+ 
+ Multi-layer perceptrons 
+ Self-organising maps 
+ 
+ Genetic algorithms 
+ Rule based systems 
+ 
+ Case base reasoning 
+ Search mechanisms 
+ Algorithms for large data sets 
+AI areas including language, vision and robotics 
+Learning, Teaching and Assessment Strategies 
+Learning and teaching strategy: 
+In-depth theoretical overview of machine learning concepts will be delivered in the form of lectures. Students will gain significant hands-on interaction 
+with particular algorithms and representation techniques. Hands-on labs and case studies will help students apply what they learn and to develop critical 
+thinking and complex problem-solving skills. 
+ 
+Assessment scheme: 
+(a)  Formative assessment scheme 
+The workshops will be used as platforms to discuss various aspects of machine learning 
+and algorithms and representation techniques. Feedback will be given by workshop 
+tutors. 
+(b)  Summative assessment scheme 
+-          The module is assessed by coursework and examination. 
+-          50% coursework will be based on hands-on lab exercises. (Learning outcome 1 to 
+3). A Lab book will be submitted with completed labs and a coursework that is 
+based on “Skills-Based Assessments”. (Learning outcome 4 to 5) 
+ 
+ 
+----------------Page (80) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Assessment Weighting 
+- The module is assessed by coursework and examination. - 50% coursework will be based on hands-on lab exercises.  
+Exam Duration  
+Examination, 3 hours 
+ 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (81) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3180(Published)  
+Module Title User Experience (UX) Design  
+Credit 30  
+ 
+ 
+Aims 
+Students of this module will gain understanding of underpinning concepts and practical techniques relevant when considering humans, both 
+in the organisation of design and design processes, and as a way of incorporating a user perspective in the design of products and 
+services. The module also includes analysis of user experience, the characteristics of users and their tasks, and the technical, 
+organisational and physical environment in which products or systems may operate. 
+Learning Outcomes 
+Knowledge  
+On completion of this module, the successful student will be able to:  
+1. Explain key theories and concepts that underpin our understanding of human roles in the design process, both as design participants, and as other        
+stakeholders (e.g. users of designed artefacts). 
+ 2. Select and use appropriate tools and methods to analyse all aspects of interaction between users and deployed technology.  
+ 3. Advise  on usability (including safety and accessibility) for products and services.  
+ 4.. Plan and perform appropriate evaluation methods and, interpret and present the results of evaluation.  
+Skills  
+On completion of this module, the successful student will be able to:  
+5. Select and apply appropriate techniques, methods, and tools to research and understand human stakeholders in design, and deploy 
+the knowledge gained to achieve positive user experiences and construct prototypes.  
+----------------Page (82) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+ 
+ 
+Syllabus 
+ • Understanding the user in design  
+• User research  
+• Design and prototyping  
+• User experience analysis  
+• User experience evaluation  
+• Human behaviour, perception and cognition  
+ • Refine the design solutions in response to evaluation  
+ • Communicate design solutions for implementation  
+Learning, Teaching and Assessment Strategies 
+A combination of weekly lectures and practical sessions will be used to deliver conceptual material and to allow students to develop 
+practical skills.  
+(a) Formative Assessment Scheme  
+Students’ knowledge and skills will be assessed across a range of team and individual work and, written work based on practical work 
+undertaken. To achieve this, a formative assessment strategy will be utilised to provide continuous feedback to students on their individual 
+learning and progress. The process of formative assessment will lead to summative assessment, which will have two components.  
+ 
+ 
+----------------Page (83) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+(b) Summative Assessment Scheme 
+For this module, there is a single summative coursework with three phases. CW Phase 1: User Research (LO 1, 2 and 4) CW Phase 2: 
+Design & prototyping (LO 2,3 and 5) CW Phase 3: Evaluation (LO 3 and 4) Each phase is assessed by a group presentation AND an 
+individually written report. In each written report, the student should identify their group members with an estimate of each contribution. This 
+may be considered in the marking process. Note that each phase builds on the one before, so students who do not complete earlier phases 
+will find it difficult to complete later ones. Formative assessment will be by tutor feedback on assessed components and by tracking 
+progress in class.  
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+  
+----------------Page (84) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+  
+  
+Module Code CST3185(Published)  
+Module Title Open Source Software  
+Credit 30  
+ 
+ 
+Aims 
+The module aims to give students an introduction into the Open Source software ecosystem. A range of issues involving Open Source will 
+be discussed, both technical (the Open Source development model) and non-technical (legal, ethical and political issues). In order to gain 
+hands-on experience, students will also participate in an existing Open Source project.  
+Learning Outcomes 
+  
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+  
+1. Demonstrate a sound understanding of the Open Source paradigm, its difference from traditional software development practices and its strengths 
+and weaknesses.  
+2. Demonstrate an understanding of concepts important in Open Source concepts such as licensing, community management and collaborative work.  
+3. Understand and discuss the ethical, political and economical issues involving Open Source software.  
+  
+Skills 
+ 
+On completion of this module, the successful student will be able to: 
+  
+4. Actively participate in or set up an Open Source project and use the Open Source development model. 
+ 
+ 
+ 
+----------------Page (85) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Syllabus  
+  
+ History of Open Source  
+ Definitions of Open Source  
+ Collaborative development model (source code management, bug tracking, communication methods)  
+ Licensing and legal issues  
+ Open Source business models  
+ Ethical considerations  
+ Open Source and politics 
+ Active Development 
+Learning, Teaching and Assessment Strategies  
+The topics enumerated above will be discussed in a weekly lecture.  
+Students will be required to participate in an existing project. Since the focus is not specifically on the quality of the end product, but on the 
+interaction with the project community, this does not necessarily involve programming, but can also take the form of advocacy, adding to 
+documentation, translation, etc. Creativity is encouraged.    
+In order to encourage students to work on the project participation during the entire module run, they will be required to submit a blog about 
+their progress each week. 
+Knowledge of the Open Source background will be assessed using quizzes. 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300  
+ 
+  
+   
+----------------Page (86) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Module Code CST3555(Published)  
+Module Title Industrial Network Design and Management  
+Credit 30  
+ 
+ 
+Aims 
+ 
+An important criterion for the implementation of Industry 4.0 is the amalgamation of machines and industrial components in a network 
+infrastructure, to support operational communication amongst machines and other applicable IT systems in an automated network. This will 
+enable the optimization of conventional industrial processes in many facets. The central theme of this module is to equip students with the 
+skills necessary to design and implement network infrastructures to support industrial communication and to integrate Industry 4.0 enabled 
+machines to facilitate a Cyber-Physical Factory. In doing so, students will embrace the practice of setting up TCP/IP communication 
+between modules, IP-address design and allocation, secure wireless LAN communication, switching and routing services to support 
+communication, deploy VPN for remote services, and to explore the integration of the CP Factory with the Internet of Things.  
+Learning Outcomes 
+  
+Knowledge 
+ 
+On completion of this module, the successful student will be able to: 
+ 
+1. Understand the importance of integrating factory floor industrial networks and process plant floor networks with company enterprise networks.  
+2. Familiarise with the basics of Ethernet networks.  
+3. Develop a clear understanding of the technology required for interconnecting LAN segments. 
+  
+Skills 
+ 
+This module will call for the successful student to: 
+ 
+4. Successfully demonstrate a sophisticated application of information searching,  
+      5.   Design, Implement and maintain Ethernet networks  
+      6.  Configure and secure, suitable LAN/WLANs for factory environments.  
+      7. Embrace Ethernet and networking technologies applicable to industrial network environments. 
+----------------Page (87) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+ 
+Syllabus: 
+ Layer 1: Physical Layer & Communications Media  
+ Layer 2: Data Link Layer & Switches  
+ Layer 3: Network Layer & Routers  
+ 
+ Layer 2/3 Plus: Advanced Networking  
+ Layer 4: The Transport Layer 
+ Layer 5 – 7: Applications Layer 
+Learning, Teaching and Assessment Strategies 
+In-depth theoretical overview of networking concepts will be delivered in the form of lectures. Students will gain significant hands-on interaction with 
+networking equipment in our CISCO specialist labs. Hands-on labs and case studies will help students apply what they learn and to develop critical 
+thinking and complex problem-solving skills. 
+Assessment Weighting 
+Coursework 100% 
+Total Notional Learning Hours 
+300 
+  
+----------------Page (88) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Module Code  PDE3413 
+Module Title  Systems Engineering for Robotics 
+Level 6  
+Credit  30  
+Owning Subject Product Design & Engineering  
+Level Restrictions   
+ 
+ 
+Aims  
+ 
+This module aims to develop understanding of the integration of modular robotic and sensor systems. It will enable students to acquire 
+practical skills of robotic software/hardware integration and validation. In addition it aims to develop understanding of human robot 
+interaction.  
+Learning Outcomes  
+Knowledge  
+On completion of this module the successful student will be able to demonstrate: 
+1. Knowledge of multisensory signal processing and fusion techniques. 
+2. In depth knowledge and understanding of human robot interaction in a social context 
+3. Advanced knowledge of robot architectures 
+Skills  
+This module will call for the successful student to: 
+4. Select, apply and justify the appropriate use of signal processing and fusion techniques to solve specific challenges in robotics 
+5. Develop suitable robot control techniques in response to human input 
+6. Devise a systems architecture for complex robot operations 
+ 
+----------------Page (89) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Syllabus  
+Indicative topics that may be covered: 
+ Robotic systems architectures and programming 
+ Appropriate signal processing techniques e.g. Kalman filtering 
+ Multi-sensor data fusion techniques, e.g. occupancy grids 
+ Mobile robot locomotion and navigation systems. Mapping and localisation techniques e.g. SLAM 
+ Interactive robotics in social contexts (interfacing, interaction and ethics) 
+ Physical human robot interaction (haptics and appropriate control techniques e.g. force, admittance, hybrid, impedance 
+ Teleoperation/telepresence, master/slave manipulators 
+ Distributed and swarm robotics 
+ Artificial Intelligence reasoning methods for robotics 
+Learning, Teaching and Assessment Strategy  
+The module will be taught in a laboratory environment with hands-on activities, supported by lab demonstration, tutorial input and guided 
+study.  
+Assessment will be entirely by coursework assessing all learning outcomes  in the form undertaken as part of a team project, undertaken in 
+ways that support the development of good practice and employability skills.  
+Formative assessment will be embedded in this approach. For example, students will present, discuss and critique design ideas, and staff 
+will contribute to this process. Formal and informal code reviews will provide feedback to students, but also require them to reflect on their 
+systems in ways that are both deep and useful. Students will be required to justify design decisions prior to implementation, illustrating, for 
+example, that systems are safe, live and fair in their behaviour. This embedding of professional methods of systems review into the learning 
+process will also serve to ensure that each individual contributes to the development, and potential problems (such as plagiarism or poor 
+participation) are identified and discussed with individuals as the projects develop.  
+Summative assessment consists of a number of tasks and projects. The projects are designed so that students are required to demonstrate 
+all 6 learning outcomes for successful completion. The precise details of the project will vary from year to year taking into account factors 
+such as the students’ interests, the research specialisms of the staff involved and possible industrial involvement. Consequently the 
+deliverables used as the basis for assessment will also change, but will be made explicit to students prior to the start of the module. For  
+----------------Page (90) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+example, a large, complex system-of-systems project undertaken by the whole cohort as one group would not be assessed in the same way 
+as a challenge to propose a solution to a specific problem undertaken by small groups who “pitch” to a company.  
+Typical elements of the assessment would include: 
+ A presentation of the working system either in person or as a recorded artefact. 
+ A presentation of the system design, including discussion of the key decisions taken and the rationale behind these. 
+ A record of the details of the implementation, including code, plans, data sheets etc. 
+ A personal submission by each student that is designed to enable individual grades to be decided. This might take the form of a 
+reflective log, incorporating aspects of the design process monitoring above. It might also include a viva voce examination based 
+upon other submitted items, to ensure that individual students understand, and contributed to, the work done. 
+Assessment Weighting  
+Coursework (No examination) 100%  
+Learning Materials  
+Your online reading lists can be accessed from the My Study area of UniHub. They highlight essential and recommended reading for all 
+modules you are registered on.   
+ 
+  
+----------------Page (91) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Module Code  CST3990 
+Module Title  Undergraduate Individual Project  
+Level 6  
+Credit  30  
+Owning Subject Computer Science Technology  
+Level Restrictions   
+ 
+ 
+Aims  
+ 
+This module provides you with the opportunity of choosing and working on a project that reflects your interests and aims and outcomes of 
+your programme. It should constitute a practical problem-solving project relevant to your programme of study. The primary aim of the 
+module is to consolidate and deepen your understanding of material taught on your programme, to exercise professional judgement, to 
+undertake individual research and to conduct an investigation and/or develop a product, process or application relevant to the focus of your 
+programme. It provides you with the opportunity of engaging in significant system development, the typical output of which represents the 
+solution of a problem akin to those that you as a fledgling professional practitioner are likely to encounter in future employment. The module 
+intends that your choice of individual project will provide you with a significant opportunity to reflect on your learning progress and to 
+develop your learning for life-long and career development.  
+Learning Outcomes  
+Knowledge  
+On completion of this module, the successful student will be able to: 
+ Apply and integrate a range of computer science and engineering, technologies, information systems, theories, research, design and 
+evaluation techniques to the solution of a specific and substantial problem and recognise the professional, legal and ethical issues 
+involved.    
+ Demonstrate a comprehensive and detailed understanding of professional standards and the life-cycle of the object of your work 
+(product, process or application), and show a critical appreciation of the selection of the tools used in its development.    
+ 
+----------------Page (92) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Skills  
+This module will call for the successful student to demonstrate that they can:  
+ Address a complex problem with a spirit of critical enquiry, successfully demonstrating a sophisticated application of information 
+searching, analytical competency, critical evaluation, writing and communication skills to enable effective documentation and 
+communication for the final year project, as well as life-long personal and career development.     
+ Reflect on the process of learning and personal development.  
+ Demonstrate creative thinking competencies – the ability to be original or inventive and to apply lateral thinking. 
+Syllabus  
+There is no taught syllabus and students are expected to work autonomously. Some timetabled support workshops on the various stages of 
+the project will be provided as necessary throughout the year, on topics such as plagiarism, evaluation and testing, literature review, 
+referencing and citations, dissertation structure and research methodologies.  
+  Students will:      
+   Develop a project proposal  
+   Liaise with your supervisor regularly throughout the year  
+   Prepare and submit a system analysis or literature review as appropriate to the proposed project  
+   Complete an ethics approval application if appropriate  
+   Design and develop an artefact  
+   Design and implement a test plan and evaluation  
+   Submit a final report  
+   Give a demonstration of the finished software artefact  
+----------------Page (93) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+Learning, Teaching and Assessment Strategy  
+ Supervisors will confirm the following:  
+ 
+Agreed project proposal  
+Student attended supervisory meetings  
+Project delivery plan  
+Suitability for BCS accreditation  
+Guidelines, including submission deadlines, for each of these components of assessment will be detailed in the module handbook.      
+Coursework 100%, with the following four deliverable components:  
+Project proposal - 10%  
+ Review/analysis/agreed work chapter - 20%  
+ Final report - 45% 
+Oral exam/demonstration - 25% 
+Guidelines, including submission deadlines, for each of these components of assessment will be detailed in the module handbook.  
+Students are expected to produce an artefact. The nature of this artefact will be determined by the programme of study and the supervisor 
+with moderation from the module leader. For example, in programmes where software development plays a significant role, the artefact 
+might be expected to be a piece of software. It might be the evaluation and modelling of a network or a novel visualisation of data. Extended 
+literature reviews are not acceptable as student projects, however, they might form a significant part of some projects where analysis of 
+literature leads to a set of heuristics or new ways of modelling data. The project work should not be an extension of student’s existing or 
+previous coursework.  
+----------------Page (94) Break----------------
+BSc MComp/Computer Science 2019/20  
+ 
+ 
+  Attendance at the viva presentation is compulsory.    
+ 
+Assessment scheme 
+Formative assessment scheme  
+Formative feedback is given in meetings with the supervisor. Students should receive an average of 20 minutes a week supervision. It is the 
+responsibility of the student to send details of any work completed to the supervisor prior to meetings, in order to use the time 
+constructively.    
+ 
+Summative assessment scheme Indicate tasks and weightings and which tasks assess which learning outcomes    
+Assessment Weighting  
+Coursework 100%  
+Learning Materials  
+All reading lists should now be available online via the My Study area of MyUniHub. Please discuss with your liaison librarian if you require 
+assistance with your reading list or advice on supported referencing styles for your Faculty.  
+ 
+----------------Page (95) Break----------------

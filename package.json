@@ -17,12 +17,15 @@
   },
   "homepage": "https://github.com/Omer-l/cw3node-master#readme",
   "dependencies": {
+    "ajax": "^0.0.4",
     "bootstrap": "^4.6.0",
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "express": "^4.17.1",
+    "jquery": "^3.6.0",
     "mocha": "^8.3.2",
     "mysql": "^2.18.1",
-    "jquery": "^3.6.0"
+    "pdf2json": "^2.0.0",
+    "pdfreader": "^1.2.14"
   }
 }
