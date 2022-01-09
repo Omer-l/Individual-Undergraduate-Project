@@ -8,10 +8,31 @@
         integrity="sha512-LrSWivv1Yo93OJi0/tkrnlOtUgbfsYQjesymbzJc7lCswZ2QItytB4A2ZBhhopPPshtqMhCyfPj3P9APi11hpw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.worker.min.js"></script>
-<input type="file" id="file-id" name="file_name" onchange="ExtractText();">
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+    <button class="btn-info" href="#">High<br>Scores</button>
+    <!--sign up-->
+        <form>
+            <input type="username" placeholder="username">
+            <input type="password" placeholder="password">
+            <button class="btn btn-outline-success">Sign in</button>
+        </form>
+        <!--registration-->
+        <form>
+            <input type="username" placeholder="username">
+            <input type="password" placeholder="password">
+            <button class="btn btn-outline-success">Sign up</button>
+        </form>
+    <!--speedometer-->
+    <div>
+    <canvas style="height: 50px" id="speedometer"></canvas>
+    </div>
+</div>
+</nav>
 
-<!-- a container for the output -->
-<canvas id="speedometer"> </canvas>
+<!--input file-->
+<input type="file" id="file-id" name="file_name" onchange="ExtractText();">
+<!--output-->
 <div id="output"></div>
 
 <script>
@@ -182,7 +203,6 @@
 
     //calculates speed metric and highlights all words from before
     function calculateSpeedMetric(wordCount) {
-        console.log(wordCount);
         this.gauge.set(parseInt(wordCount));
     }
 
@@ -216,10 +236,10 @@
 
     };
     var target;
-    var gauge ;
+    var gauge;
 
     function loadSpeedoMeter() {
-        this.target =  document.getElementById('speedometer'); // your canvas element
+        this.target = document.getElementById('speedometer'); // your canvas element
         this.gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
         gauge.maxValue = 500; // set max gauge value
         gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
