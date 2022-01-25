@@ -8,48 +8,72 @@
         integrity="sha512-LrSWivv1Yo93OJi0/tkrnlOtUgbfsYQjesymbzJc7lCswZ2QItytB4A2ZBhhopPPshtqMhCyfPj3P9APi11hpw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.worker.min.js"></script>
-<!--&lt;!&ndash; As a link &ndash;&gt;-->
-<!--<nav class="navbar navbar-light bg-light">-->
-<!--    <button class="btn-info" href="#">High<br>Scores</button>-->
+<h1>Dashboard</h1>
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+    <button class="btn-info" href="#">High<br>Scores</button>
 
-<!--        &lt;!&ndash;sign up&ndash;&gt;-->
-<!--        <form id="signInForm">-->
-<!--            <input id="signInUsername" type="username" placeholder="username">-->
-<!--            <input id="signInPassword" type="password" placeholder="password">-->
-<!--            <button id="signInButton" type="button" class="btn btn-outline-success">Sign In</button>-->
-<!--            <br>-->
-<!--            <p id="signInResults"/>-->
-<!--        </form>-->
-<!--        &lt;!&ndash;registration&ndash;&gt;-->
-<!--        <form id="signUpForm">-->
-<!--            <input id="signUpUsername" type="username" placeholder="username">-->
-<!--            <input id="signUpPassword" type="password" placeholder="password">-->
-<!--            <button id="signUpButton" type="button" class="btn btn-outline-success">Sign Up</button>-->
-<!--            <br>-->
-<!--            <p id="signUpResults"/>-->
-<!--        </form>-->
-    <!--speedometer-->
-<!--    <div>-->
-<!--        <p id="wpmCounter">500 wpm</p>-->
-<!--        <canvas style="height: 50px" id="speedometer"></canvas>-->
-<!--    </div>-->
-<!--    </div>-->
-<!--</nav>-->
+        <!--sign up-->
+        <form id="signInForm">
+            <input id="signInUsername" type="username" placeholder="username">
+            <input id="signInPassword" type="password" placeholder="password">
+            <button id="signInButton" type="button" class="btn btn-outline-success">Sign In</button>
+            <br>
+            <p id="signInResults"/>
+        </form>
+        <!--registration-->
+        <form id="signUpForm">
+            <input id="signUpUsername" type="username" placeholder="username">
+            <input id="signUpPassword" type="password" placeholder="password">
+            <button id="signUpButton" type="button" class="btn btn-outline-success">Sign Up</button>
+            <br>
+            <p id="signUpResults"/>
+        </form>
+    speedometer
+    <div>
+        <p id="wpmCounter">500 wpm</p>
+        <canvas style="height: 50px" id="speedometer"></canvas>
+    </div>
+    </div>
 
-<!--input file-->
-<input type="file" id="file-id" name="file_name" onchange="ExtractText();">
+    <!--input file-->
+    <input type="file" id="file-id" name="file_name" onchange="ExtractText();">
+</nav>
+
 <!--output-->
-<!--<div id="output"></div>-->
+<div id="output"></div>
 <!--    PDF READER APPLICATION-->
-<svg id="output" height="210" width="500">
-    <polygon points="200,10 250,50 160,50" style="fill:lime;stroke:purple;stroke-width:1" />
-    <text x="30" y="120" style="fill:red;">Several lines:
-        <tspan x="30" y="145">First line.</tspan>
-        <tspan x="30" y="170">Second line.</tspan>
-    </text>
-    Sorry, your browser does not support inline SVG.
-</svg>
-    <script src="pdfReader.js"> </script>
+<button>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" cursor="default" style="zoom: 1;" height="300px" id="svg_document" width="700px" baseProfile="full" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 700 300">
+        <!-- Created with macSVG - https://macsvg.org/ - https://github.com/dsward2/macsvg/ -->
+        <title id="svg_document_title">Untitled.svg</title>
+        <defs id="svg_document_defs"></defs>
+        <g id="main_group">
+            <rect x="119.333344px" height="300" y="360.333282px" id="background_rect" width="700" fill="#90ee90"></rect>
+        </g>
+        <rect stroke="black" height="291.48" x="3px" y="4px" id="rect1" stroke-width="20px" width="694" fill="bisque" transform=""></rect>
+        <text stroke="none" style="outline-style: none;" id="text1" stroke-width="1px" x="350px" text-rendering="geometricPrecision" font-family="Helvetica" fill="#000000" font-size="32px" y="147px" transform="" text-anchor="middle">Visual</text>
+        <text stroke="none" style="outline-style: none;" id="text2" stroke-width="1px" x="250px" text-rendering="geometricPrecision" font-family="Helvetica" fill="#000000" font-size="32px" y="147px" transform="" text-anchor="middle">Serial</text>
+        <text stroke="none" style="outline-style: none;" id="text3" stroke-width="1px" x="149px" text-rendering="geometricPrecision" font-family="Helvetica" fill="#000000" font-size="32px" y="147px" transform="" text-anchor="middle">Rapid
+        </text>
+        <text stroke="none" style="outline-style: none;" id="text4" stroke-width="1px" x="500px" text-rendering="geometricPrecision" font-family="Helvetica" fill="#000000" font-size="32px" y="147px" transform="" text-anchor="middle">Presentation
+        </text>
+    </svg>
+</button>
+
+<button>
+    <svg xmlns="http://www.w3.org/2000/svg" cursor="default" style="zoom: 1;" height="300px" id="svg_document" width="700px" baseProfile="full" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 700 300">
+        <!-- Created with macSVG - https://macsvg.org/ - https://github.com/dsward2/macsvg/ -->
+        <title id="svg_document_title">Untitled.svg</title>
+        <defs id="svg_document_defs"></defs>
+        <g id="main_group">
+            <rect x="119.333344px" height="300" y="360.333282px" id="background_rect" width="700" fill="#90ee90"></rect>
+        </g>
+        <rect stroke="black" height="291.48" x="3px" y="5px" id="rect1" stroke-width="20px" width="694" fill="bisque" transform=""></rect>
+        <text stroke="none" style="outline-style: none;" id="text1" stroke-width="1px" x="338px" text-rendering="geometricPrecision" font-family="Helvetica" fill="#000000" font-size="32px" y="153px" transform="" text-anchor="middle">Paragraph Read</text>
+    </svg>
+</button>
+    <script src="pdfReader.js"/>
 <script>
     var pages = [];
     PDFJS.workerSrc = '';

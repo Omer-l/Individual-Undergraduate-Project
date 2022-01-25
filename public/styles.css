@@ -22,9 +22,12 @@ html {
 {
     border-radius: 50%;
 }
+
 #plusButton
 {
     border-radius: 50%;
 }
 
-
+    #text1:hover {
+        fill: #DDADCCBC;
+}
