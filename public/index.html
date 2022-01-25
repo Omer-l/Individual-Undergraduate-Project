@@ -8,38 +8,48 @@
         integrity="sha512-LrSWivv1Yo93OJi0/tkrnlOtUgbfsYQjesymbzJc7lCswZ2QItytB4A2ZBhhopPPshtqMhCyfPj3P9APi11hpw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.worker.min.js"></script>
-<!-- As a link -->
-<nav class="navbar navbar-light bg-light">
-    <button class="btn-info" href="#">High<br>Scores</button>
-    <!--sign up-->
-    <form>
-        <input id="signInUsername" type="username" placeholder="username">
-        <input id="signInPassword" type="password" placeholder="password">
-        <button id="signInButton" type="button" class="btn btn-outline-success">Sign In</button>
-        <br>
-        <p id="signInResults"/>
-    </form>
-    <!--registration-->
-    <form>
-        <input id="signUpUsername" type="username" placeholder="username">
-        <input id="signUpPassword" type="password" placeholder="password">
-        <button id="signUpButton" type="button" class="btn btn-outline-success">Sign Up</button>
-        <br>
-        <p id="signUpResults"/>
-    </form>
+<!--&lt;!&ndash; As a link &ndash;&gt;-->
+<!--<nav class="navbar navbar-light bg-light">-->
+<!--    <button class="btn-info" href="#">High<br>Scores</button>-->
+
+<!--        &lt;!&ndash;sign up&ndash;&gt;-->
+<!--        <form id="signInForm">-->
+<!--            <input id="signInUsername" type="username" placeholder="username">-->
+<!--            <input id="signInPassword" type="password" placeholder="password">-->
+<!--            <button id="signInButton" type="button" class="btn btn-outline-success">Sign In</button>-->
+<!--            <br>-->
+<!--            <p id="signInResults"/>-->
+<!--        </form>-->
+<!--        &lt;!&ndash;registration&ndash;&gt;-->
+<!--        <form id="signUpForm">-->
+<!--            <input id="signUpUsername" type="username" placeholder="username">-->
+<!--            <input id="signUpPassword" type="password" placeholder="password">-->
+<!--            <button id="signUpButton" type="button" class="btn btn-outline-success">Sign Up</button>-->
+<!--            <br>-->
+<!--            <p id="signUpResults"/>-->
+<!--        </form>-->
     <!--speedometer-->
-    <div>
-        <p id="wpmCounter">500 wpm</p>
-        <canvas style="height: 50px" id="speedometer"></canvas>
-    </div>
-    </div>
-</nav>
+<!--    <div>-->
+<!--        <p id="wpmCounter">500 wpm</p>-->
+<!--        <canvas style="height: 50px" id="speedometer"></canvas>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 <!--input file-->
 <input type="file" id="file-id" name="file_name" onchange="ExtractText();">
 <!--output-->
-<div id="output"></div>
-
+<!--<div id="output"></div>-->
+<!--    PDF READER APPLICATION-->
+<svg id="output" height="210" width="500">
+    <polygon points="200,10 250,50 160,50" style="fill:lime;stroke:purple;stroke-width:1" />
+    <text x="30" y="120" style="fill:red;">Several lines:
+        <tspan x="30" y="145">First line.</tspan>
+        <tspan x="30" y="170">Second line.</tspan>
+    </text>
+    Sorry, your browser does not support inline SVG.
+</svg>
+    <script src="pdfReader.js"> </script>
 <script>
     var pages = [];
     PDFJS.workerSrc = '';
@@ -56,15 +66,16 @@
 
     $(document).ready(function () {
         let pageNumber = 0;
-        loadNextPage(pages[pageNumber++]);
-
+        // loadNextPage(pages[pageNumber++]);
+        loadNextPage(pages[3]);
+        console.log(pages[3]);
         $(document).ready(function () {
             $(document).mousemove(function (event) {
                 var heightOfDocument = $(document).height() - 50; //subtracted with 50 just to be safe with checking the condition below
 
                 if (event.pageY > heightOfDocument) {
                     alert("Opened next page");
-                    loadNextPage(pages[pageNumber++]);
+                    loadNextPage(pages[pageNumber+2]);
                 }
             });
         });
@@ -101,9 +112,11 @@
                     //Convert JSON to a JavaScript object
                     let user = JSON.parse(xhttp.responseText);
                     document.getElementById('signInResults').innerHTML = "User successfully found: " + user[0].username;
+                    document.getElementById('signInForm').style.setProperty('display', 'none', 'important');
+                    document.getElementById('signUpForm').style.setProperty('display', 'none', 'important');
                 }
                 else {
-                    document.getElementById('signInResults').innerHTML = "<span style='color: red'>Error adding user</span>.";
+                    document.getElementById('signInResults').innerHTML = "<span style='color: red'>Error finding user</span>.";
                 }
 
             };
@@ -163,6 +176,7 @@
         var input = document.getElementById("file-id");
         var fReader = new FileReader();
         fReader.readAsDataURL(input.files[0]);
+
         fReader.onloadend = function (event) {
             convertDataURIToBinary(event.target.result);
         }
@@ -239,8 +253,9 @@
 
 
     function loadNextPage(pageContent) {
-        document.getElementById("output").innerHTML = pageContent;
-        addHighlightingToWords();
+        // document.getElementById("output").innerHTML = pageContent;
+        // addHighlightingToWords();
+        console.log(pageContent)
     }
 
     function addHighlightingToWords() {
