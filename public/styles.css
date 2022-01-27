@@ -31,3 +31,12 @@ html {
 #text1:hover {
     fill: #DDADCCBC;
 }
+
+#uploadFileDiv {
+    width: 600px;
+    height: 300px;
+    background-color: gray;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
