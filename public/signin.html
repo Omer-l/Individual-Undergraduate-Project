@@ -17,17 +17,17 @@
 
 <!-- Navigation Bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="EyeDoc.png" width="30" height="30">
-    <a class="navbar-brand" href="#">EyeDoc</a>
+    <a href="index.html"><img href="index.html" src="EyeDoc.png" width="30" height="30"></a>
+    <a class="navbar-brand" href="index.html">EyeDoc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="#">Scores <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="#">Files</a>
             </li>
             <li class="nav-item active">
@@ -39,6 +39,7 @@
 
 <div id="signInAndRegistration">
     <!--sign up-->
+    <br>
     <form>
         <input id="signInUsername" type="username" placeholder="username">
         <input id="signInPassword" type="password" placeholder="password">
@@ -59,5 +60,88 @@
         <p id="signUpResults"/>
     </form>
 </div>
+
+<script>
+    /* Gets a user from the server. */
+    function signInUser() {
+        //Set up XMLHttpRequest
+        let xhttp = new XMLHttpRequest();
+
+        if (document.getElementById("signInUsername").value != "" && document.getElementById("signInUsername").value != "") {
+            //Extract input data
+            let username = document.getElementById("signInUsername").value;
+            let password = document.getElementById("signInPassword").value;
+
+            //Create object with task data
+            let userObj = {
+                username: username,
+                password: password
+            };
+
+            //Set up function that is called when reply received from server
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //Convert JSON to a JavaScript object
+                    let user = JSON.parse(xhttp.responseText);
+                    document.getElementById('signInResults').innerHTML = "User successfully found: " + user[0].username;
+                }
+                else {
+                    document.getElementById('signInResults').innerHTML = "<span style='color: red'>Error adding user</span>.";
+                }
+
+            };
+            //Send new task data to server
+            xhttp.open("GET", "/signin?username='" + username + "'&password='" + password + "'", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(userObj));
+
+            //empties input field
+            document.getElementById('signInUsername').value = '';
+            document.getElementById('signInPassword').value = '';
+        } else {
+            document.getElementById('signInResults').innerHTML = "Please enter something!";
+        }
+    }
+
+    /* Posts a new user to the server. */
+    function signUpUser() {
+        //Set up XMLHttpRequest
+        let xhttp = new XMLHttpRequest();
+
+        if (document.getElementById("signUpUsername").value != "" && document.getElementById("signUpPassword").value != "") {
+            //Extract input data
+            let username = document.getElementById("signUpUsername").value;
+            let password = document.getElementById("signUpPassword").value;
+
+            //Create object with task data
+            let userObj = {
+                username: username,
+                password: password
+            };
+
+            //Set up function that is called when reply received from server
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('signUpResults').innerHTML = "User added successfully";
+                }
+                else {
+                    document.getElementById('signUpResults').innerHTML = "<span style='color: red'>Error adding user</span>.";
+                }
+
+            };
+            //Send new task data to server
+            xhttp.open("POST", "/signup", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify(userObj));
+
+            //empties input field
+            document.getElementById('signUpUsername').value = '';
+            document.getElementById('signUpPassword').value = '';
+        } else {
+            document.getElementById('signUpResults').innerHTML = "Please enter something!";
+        }
+    }
+
+</script>
 </body>
 </html>
