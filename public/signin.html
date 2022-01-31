@@ -62,6 +62,18 @@
 </div>
 
 <script>
+    $(document).ready(function () {
+        // to handle sign in button
+        $("#signInButton").click(function () {
+            signInUser();
+        });
+
+        // to handle sign up button
+        $("#signUpButton").click(function () {
+            signUpUser();
+        });
+    });
+
     /* Gets a user from the server. */
     function signInUser() {
         //Set up XMLHttpRequest
