@@ -53,7 +53,7 @@ html {
 #myBtnDiv {
     width: 600px;
     height: 300px;
-    background-color: gray;
+    background-color: dodgerblue;
     text-align: center;
     justify-content: center;
     margin: auto;
@@ -145,11 +145,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
     text-align: center;
 }
 
+#outputDiv {
+    width: 80%;
+    height: 75%;
+    background-color: #5cb85c;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
 #output {
-    font-size: large;
-    width: 50%;
-    height: 70%;
-    background-color: gray;
+    font-size: 45px;
+    /*width: 50%;*/
+    /*height: 70%;*/
+    background-color: #5cb85c;
     text-align: center;
     justify-content: center;
     margin: auto;
