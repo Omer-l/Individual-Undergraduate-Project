@@ -1,5 +1,5 @@
 <html>
-<body class="bg-info">
+<body class="bg-light">
 <link href="styles.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <!--jQuery-->
@@ -36,13 +36,6 @@
 <!--Page up bar-->
 <div id="pageUpBarDiv" onmouseover="previousPage()"></div>
 <!-- Trigger/Open The Modal -->
-<div id="myBtnDiv">
-  <br>
-  <br>
-  <br>
-  <br>
-  <button id="myBtn" class="btn btn-lg btn-outline-light">Click to start application</button>
-</div>
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
@@ -71,7 +64,10 @@
   </div>
 </div>
 <!--output-->
-<div id="output"></div>
+<div id="outputDiv">
+  <button id="myBtn" class="btn btn-lg btn-outline-light">Click to start application</button>
+  <div id="output"></div>
+</div>
 <!--    PDF READER APPLICATION-->
 
 
@@ -117,7 +113,7 @@
    * Hides modal
    */
   function hideModal() {
-    var model = document.getElementById("myBtnDiv");
+    var model = document.getElementById("myBtn");
     if (model.style.display === "none") {
       model.style.display = "block";
     } else {
@@ -130,7 +126,7 @@
    */
   function previousPage() {
     let previousPageContent = getPreviousPageWords();
-    loadNextPage();
+    // loadNextPage();
     console.log("previous page");
   }
 
@@ -153,9 +149,6 @@
    * Gets next page's words
    */
   function getNextPageWords() {
-    if ($('#output')[0].scrollWidth >  $('#output').innerWidth()) {
-      //Text has over-flown
-    }
   }
 
   $(document).ready(function () {
@@ -269,34 +262,59 @@
             finalString += item.str + " ";
           }
 
-          // Solve promise with the text retrieven from the page
+          // Solve promise with the text retrieve from the page
           resolve(finalString);
         });
       });
     });
   }
-
   /**
    * Puts next page into div element of website
    */
-  function loadNextPage(pageContent) {
-    document.getElementById("output").innerHTML = pageContent;
+  function loadNextPage() {
+    // document.getElementById("output").innerHTML = pageContent;
     addHighlightingToWords();
+  }
+
+  /**
+   * True if element is overflowing its parent element
+   */
+  function checkOverflow(elem) {
+    const elemWidth = elem.getBoundingClientRect().height
+    const parentWidth = elem.parentElement.getBoundingClientRect().height
+
+    return elemWidth > parentWidth;
   }
 
   /**
    * Wraps each word into a span adds a hover highlight feature, and puts into div element of website
    */
   function addHighlightingToWords() {
+    let previouslyReadWordNumber = wordNumber;
+    let highlightOffset = 3;
+
+    let outputDiv = document.getElementById("output");
     $("#output").html("");
     let count = 1;
-    $.each(this.words, function (i, val) {
-//wrap each word in a span tag
-      let word = $('<span/>').text(val + " ");
-      word.addClass("" + count++);
-      word.appendTo("#output");
-      index++;
-    });
+    if(0 <= wordNumber && wordNumber < words.length) {
+      for (let i = 0; i < words.length; i++) {
+        //wrap each word in a span tag
+        let word = $('<span/>').text(words[wordNumber] + " ");
+
+        if (checkOverflow(outputDiv)) {
+          //Text has over-flown
+          console.log("end");
+          wordNumber++;
+          break;
+        } else {
+          if (words[wordNumber] != undefined) {
+            word.addClass("" + count++);
+            word.appendTo("#output");
+          }
+        }
+        wordNumber++;
+      }
+    }
     $("#output").on("mouseover", 'span', function () {
 //highlight a word when hovered
 
@@ -310,8 +328,9 @@
             $(word).css("background-color", "white");
           }
         });
-
-        calculateSpeedMetric(wordRead);
+        for(let highlightIndex = wordNumber - highlightOffset; highlightIndex <= wordNumber + highlightOffset; highlightIndex++) {
+            $(word).css("background-color", "white");
+        }
       }
       $(this).css("background-color", "yellow");
     });
@@ -362,12 +381,6 @@
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  }
-
-
-  //calculates speed metric and highlights all words from before
-  function calculateSpeedMetric(wordCount) {
-    this.gauge.set(parseInt(wordCount));
   }
 
   var opts = {
