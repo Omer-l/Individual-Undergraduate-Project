@@ -93,6 +93,9 @@
     loadSpeedoMeter();
   }
 
+  /**
+   * When options in the modal are submitted.
+   */
   function selectOption() {
     var optionsElement = document.getElementById("mySelect").options;
     var selectedOptionIndex = optionsElement.selectedIndex;
@@ -105,10 +108,13 @@
       paragraphMode = false;
     }
     document.getElementById("demo").innerHTML = "Selected " + chosen + " Click out of this popup to resume.";
-    hideModel();
+    hideModal();
   }
 
-  function hideModel() {
+  /**
+   * Hides modal
+   */
+  function hideModal() {
     var model = document.getElementById("myBtnDiv");
     if (model.style.display === "none") {
       model.style.display = "block";
@@ -116,10 +122,17 @@
       model.style.display = "none";
     }
   }
+
+  /**
+   * Loads previous page
+   */
   function previousPage() {
     console.log("previous page");
   }
 
+  /**
+   * Loads next page
+   */
   function nextPage() {
     console.log("next page");
   }
@@ -140,6 +153,9 @@
     });
   });
 
+  /**
+   * Gets all text from the specified PDF file
+   */
   function ExtractText() {
     var input = document.getElementById("file-id");
     var fReader = new FileReader();
@@ -153,6 +169,9 @@
 
   var BASE64_MARKER = ';base64,';
 
+  /**
+   * converts text to binary for processing the words.
+   */
   function convertDataURIToBinary(dataURI) {
 
     var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
@@ -168,6 +187,10 @@
 
   }
 
+  /**
+   * Turns PDF into an array of pages
+   * @param pdfAsArray
+   */
   function pdfAsArray(pdfAsArray) {
 
     PDFJS.getDocument(pdfAsArray).then(function (pdf) {
@@ -195,6 +218,9 @@
     });
   }
 
+  /**
+   * Turns text in page to strings
+   */
   function getPageText(pageNum, PDFDocumentInstance) {
     // Return a Promise that is solved once the text of the page is retrieved
     return new Promise(function (resolve, reject) {
@@ -218,7 +244,10 @@
     });
   }
 
-
+  /**
+   * Puts next page into div element of website
+   * @param pageContent
+   */
   function loadNextPage(pageContent) {
     document.getElementById("output").innerHTML = pageContent;
     addHighlightingToWords();
