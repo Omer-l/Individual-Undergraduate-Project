@@ -1,5 +1,6 @@
 <html>
-<body class="bg-info">
+<body class="bg-
+info>
 <link href="styles.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <!--jQuery-->
@@ -31,18 +32,19 @@
       </li>
     </ul>
   </div>
-  <!--input file-->
-  <input type="file" id="file-id" name="file_name" onchange="ExtractText();">
   <a class="nav-link text-danger" href="signin.html">My Account</a>
 </nav>
+<!--Page up bar-->
+<div id="pageUpBarDiv"></div>
 <!-- Trigger/Open The Modal -->
 <div id="myBtnDiv">
   <br>
   <br>
   <br>
   <br>
-  <button id="myBtn" class="btn btn-lg btn-outline-light">Click to open application</button>
+  <button id="myBtn" class="btn btn-lg btn-outline-light">Click to start application</button>
 </div>
+    4 567890
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
@@ -53,13 +55,15 @@
     </div>
     <div class="modal-body">
       <form>
+        <!--input file-->
+        <input type="file" id="file-id" name="file_name" onchange="ExtractText();"> <br><br>
         <b>Choose Mode</b> <br>
         <select id="mySelect" size="4">
           <option>Rapid Serial Visual Presentation</option>
           <option>Paragraph Mode</option>
         </select>
       </form>
-      <button onclick="selectOption()">Try it</button>
+      <button onclick="selectOption()">Save Options</button>
 
       <p id="demo"></p>
     </div>
@@ -71,6 +75,10 @@
 <!--output-->
 <div id="output"></div>
 <!--    PDF READER APPLICATION-->
+
+
+<!--Page down bar-->
+<div id="pageDownBarDiv"></div>
 <script>
   var pages = [];
   PDFJS.workerSrc = '';
@@ -94,12 +102,21 @@
     if(chosen == "Paragraph Mode") {
       paragraphMode = true;
       rsvp = false;
-    }
-    else {
+    } else {
       rsvp = true;
       paragraphMode = false;
     }
     document.getElementById("demo").innerHTML = "Selected " + chosen + " Click out of this popup to resume.";
+    hideModel();
+  }
+
+  function hideModel() {
+    var model = document.getElementById("myBtnDiv");
+    if (model.style.display === "none") {
+      model.style.display = "block";
+    } else {
+      model.style.display = "none";
+    }
   }
 
   $(document).ready(function () {
