@@ -1,6 +1,5 @@
 <html>
-<body class="bg-
-info>
+<body class="bg-info">
 <link href="styles.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <!--jQuery-->
@@ -35,7 +34,7 @@ info>
   <a class="nav-link text-danger" href="signin.html">My Account</a>
 </nav>
 <!--Page up bar-->
-<div id="pageUpBarDiv"></div>
+<div id="pageUpBarDiv" onmouseover="previousPage()"></div>
 <!-- Trigger/Open The Modal -->
 <div id="myBtnDiv">
   <br>
@@ -44,7 +43,6 @@ info>
   <br>
   <button id="myBtn" class="btn btn-lg btn-outline-light">Click to start application</button>
 </div>
-    4 567890
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
@@ -78,7 +76,7 @@ info>
 
 
 <!--Page down bar-->
-<div id="pageDownBarDiv"></div>
+<div id="pageDownBarDiv" onmouseover="nextPage()"></div>
 <script>
   var pages = [];
   PDFJS.workerSrc = '';
@@ -118,6 +116,13 @@ info>
       model.style.display = "none";
     }
   }
+  function previousPage() {
+    console.log("previous page");
+  }
+
+  function nextPage() {
+    console.log("next page");
+  }
 
   $(document).ready(function () {
     let pageNumber = 0;
@@ -132,15 +137,6 @@ info>
           loadNextPage(pages[pageNumber++]);
         }
       });
-    });
-    // to handle sign in button
-    $("#signInButton").click(function () {
-      signInUser();
-    });
-
-    // to handle sign up button
-    $("#signUpButton").click(function () {
-      signUpUser();
     });
   });
 
