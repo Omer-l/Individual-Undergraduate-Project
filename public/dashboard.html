@@ -78,7 +78,7 @@
 <!--Page down bar-->
 <div id="pageDownBarDiv" onmouseover="nextPage()"></div>
 <script>
-  var pages = [];
+  var words = [];
   PDFJS.workerSrc = '';
   //Set up page when window has loaded
   window.onload = init;
@@ -87,6 +87,8 @@
   var wordsReadSoFar = 0;
   let rsvp = false;
   let paragraphMode = false;
+  let pageNumber = 0;
+  let wordNumber = 0;
 
   //Get pointers to parts of the DOM after the page has loaded.
   function init() {
@@ -127,6 +129,8 @@
    * Loads previous page
    */
   function previousPage() {
+    let previousPageContent = getPreviousPageWords();
+    loadNextPage();
     console.log("previous page");
   }
 
@@ -134,23 +138,39 @@
    * Loads next page
    */
   function nextPage() {
+    let nextPageContent = getNextPageWords();
+    loadNextPage();
     console.log("next page");
   }
 
+  /**
+   * Gets previous page's words
+   */
+  function getPreviousPageWords() {
+  }
+
+  /**
+   * Gets next page's words
+   */
+  function getNextPageWords() {
+    if ($('#output')[0].scrollWidth >  $('#output').innerWidth()) {
+      //Text has over-flown
+    }
+  }
+
   $(document).ready(function () {
-    let pageNumber = 0;
-    loadNextPage(pages[pageNumber++]);
+    // loadNextPage(pages[pageNumber++]);
 
-    $(document).ready(function () {
-      $(document).mousemove(function (event) {
-        var heightOfDocument = $(document).height() - 50; //subtracted with 50 just to be safe with checking the condition below
-
-        if (event.pageY > heightOfDocument) {
-          alert("Opened next page");
-          loadNextPage(pages[pageNumber++]);
-        }
-      });
-    });
+    // $(document).ready(function () {
+    //   $(document).mousemove(function (event) {
+    //     var heightOfDocument = $(document).height() - 50; //subtracted with 50 just to be safe with checking the condition below
+    //
+    //     if (event.pageY > heightOfDocument) {
+    //       alert("Opened next page");
+    //       loadNextPage(pages[pageNumber++]);
+    //     }
+    //   });
+    // });
   });
 
   /**
@@ -209,7 +229,19 @@
 
       // Execute all the promises
       Promise.all(pagesPromises).then(function (pagesText) {
-        this.pages = pagesText; //save all the pages from the promise.
+        let words = [];
+        let wordIndex = 0;
+        for(let pageNumber = 0; pageNumber < pagesText.length; pageNumber++) {
+          let page = pagesText[pageNumber];
+          let wordsInPage = page.split(' ');
+          for(let wordNumber = 0; wordNumber < wordsInPage.length; wordNumber++) {
+            let word = wordsInPage[wordNumber].trim();
+            if(word.length != 0) {
+              words[wordIndex++] = word;
+            }
+          }
+        }
+        this.words = words; //save all the pages from the promise.
       });
 
     }, function (reason) {
@@ -246,23 +278,24 @@
 
   /**
    * Puts next page into div element of website
-   * @param pageContent
    */
   function loadNextPage(pageContent) {
     document.getElementById("output").innerHTML = pageContent;
     addHighlightingToWords();
   }
 
+  /**
+   * Wraps each word into a span adds a hover highlight feature, and puts into div element of website
+   */
   function addHighlightingToWords() {
-    var words = $("#output").text().trim().split(" ");
     $("#output").html("");
     let count = 1;
-    $.each(words, function (i, val) {
+    $.each(this.words, function (i, val) {
 //wrap each word in a span tag
       let word = $('<span/>').text(val + " ");
       word.addClass("" + count++);
       word.appendTo("#output");
-
+      index++;
     });
     $("#output").on("mouseover", 'span', function () {
 //highlight a word when hovered
