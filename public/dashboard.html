@@ -310,9 +310,52 @@
           if (words[wordNumber] != undefined) {
             word.addClass("" + count++);
             word.appendTo("#output");
+<<<<<<< HEAD
           }
         }
         wordNumber++;
+=======
+          }
+        }
+        wordNumber++;
+      }
+    }
+    $("#output").on("mouseover", 'span', function () {
+//highlight a word when hovered
+
+      if ($(this).css("background-color") != "rgb(255, 255, 255)") //ensures a word already visited is not applied to speed metric
+      {
+        let wordRead = $(this).attr("class");
+
+        $('span').each(function (i, word) { //ensures words read are highlighted
+          let iteratedWord = $(word).attr("class");
+          if (parseInt(iteratedWord) <= parseInt(wordRead) + 3) {
+            $(word).css("background-color", "white");
+          }
+        });
+        for(let highlightIndex = wordNumber - highlightOffset; highlightIndex <= wordNumber + highlightOffset; highlightIndex++) {
+            $(word).css("background-color", "white");
+        }
+      }
+      $(this).css("background-color", "yellow");
+    });
+    $("#output").on("mouseout", 'span', function () {
+//highlight a word when hovered
+
+      if ($(this).css("background-color") != "rgb(0, 0, 255)") //doesn't color in a highlighted color
+      {
+        $(this).css("background-color", "white");
+      }
+    });
+    $("#output").on("click", 'span', function (event) {
+      event.stopPropagation();
+      $("#output span").css("background-color", "white");
+      let highlight = "blue";
+
+      $(this).css("background-color", highlight);
+      if ($(this).css("background-color", highlight) == "rgb(0, 0, 255)") {
+        $(this).css("background-color", "white");
+>>>>>>> dfeb1a683b68754e1903ed9ab552c6b02bab45fd
       }
     }
 //     $("#output").on("mouseover", 'span', function () {
