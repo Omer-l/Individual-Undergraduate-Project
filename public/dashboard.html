@@ -87,6 +87,9 @@
   let wordNumber = 0;
   let previouslyWordReadIndex = 0;
   let maxWordJump = 20;
+  let numberOfWordsCurrentlyDisplayed = 0;
+  let numberOfWordsToHighlight = 3;
+
   //Get pointers to parts of the DOM after the page has loaded.
   function init() {
     loadSpeedoMeter();
@@ -137,7 +140,6 @@
   function nextPage() {
     let nextPageContent = getNextPageWords();
     loadNextPage();
-    console.log("next page");
   }
 
   /**
@@ -304,7 +306,6 @@
         let word = wordDiv.text();
 
         if (checkOverflow(outputDiv) || (word.includes(".") && rsvp)) {
-            console.log("WORD: " + wordDiv + " -> contains '.'");
           //Text has over-flown
           console.log("end");
           wordNumber++;
@@ -327,10 +328,14 @@
         let wordReadIndex = parseInt($(this).attr("class"));
         console.log(wordReadIndex + " ... prev: " + previouslyWordReadIndex);
         if(wordReadIndex <= previouslyWordReadIndex + maxWordJump) {
+          if(wordReadIndex >= numberOfWordsCurrentlyDisplayed - numberOfWordsToHighlight) {
+            addHighlightingToWords();
+            return;
+          }
           previouslyWordReadIndex = wordReadIndex;
           $('span').each(function (i, word) { //ensures words read are highlighted
             let iteratedWordIndex = parseInt($(word).attr("class"));
-            if (iteratedWordIndex <= (previouslyWordReadIndex + 3)) {
+            if (iteratedWordIndex <= (previouslyWordReadIndex + numberOfWordsToHighlight)) {
               $(word).css("background-color", "white");
             }
           });
@@ -362,6 +367,8 @@
       var text = $(this).text();
 
     });
+    numberOfWordsCurrentlyDisplayed = $("#output span").length;
+    console.log("NO OF WORDS: " + numberOfWordsCurrentlyDisplayed);
   }
 
   // Get the modal
