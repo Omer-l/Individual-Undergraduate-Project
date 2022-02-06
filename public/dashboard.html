@@ -315,7 +315,7 @@
             wordDiv.appendTo("#output");
           }
         }
-        previouslyWordReadIndex = wordNumber;
+        previouslyWordReadIndex = 0;
         wordNumber++;
       }
     }
@@ -330,7 +330,7 @@
           previouslyWordReadIndex = wordReadIndex;
           $('span').each(function (i, word) { //ensures words read are highlighted
             let iteratedWordIndex = parseInt($(word).attr("class"));
-            if (iteratedWordIndex <= (wordReadIndex + 3)) {
+            if (iteratedWordIndex <= (previouslyWordReadIndex + 3)) {
               $(word).css("background-color", "white");
             }
           });
