@@ -299,20 +299,23 @@
     let count = 1;
     if(0 <= wordNumber && wordNumber < words.length) {
       for (let i = 0; i < words.length; i++) {
-        //wrap each word in a span tag
-        let word = $('<span/>').text(words[wordNumber] + " ");
-console.log(word);
-        if (checkOverflow(outputDiv) || JSON.stringify(word).includes(".")) {
+        //wrap each wordDiv in a span tag
+        let wordDiv = $('<span/>').text(words[wordNumber] + " ");
+        let word = wordDiv.text();
+
+        if (checkOverflow(outputDiv) || word.includes(".")) {
+            console.log("WORD: " + wordDiv + " -> contains '.'");
           //Text has over-flown
           console.log("end");
           wordNumber++;
           break;
         } else {
           if (words[wordNumber] != undefined) {
-            word.addClass("" + count++);
-            word.appendTo("#output");
+            wordDiv.addClass("" + count++);
+            wordDiv.appendTo("#output");
           }
         }
+        previouslyWordReadIndex = wordNumber;
         wordNumber++;
       }
     }
@@ -322,6 +325,7 @@ console.log(word);
       if ($(this).css("background-color") != "rgb(255, 255, 255)") //ensures a word already visited is not applied to speed metric
       {
         let wordReadIndex = parseInt($(this).attr("class"));
+        console.log(wordReadIndex + " ... prev: " + previouslyWordReadIndex);
         if(wordReadIndex <= previouslyWordReadIndex + maxWordJump) {
           previouslyWordReadIndex = wordReadIndex;
           $('span').each(function (i, word) { //ensures words read are highlighted
