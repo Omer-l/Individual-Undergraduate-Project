@@ -303,7 +303,7 @@
         let wordDiv = $('<span/>').text(words[wordNumber] + " ");
         let word = wordDiv.text();
 
-        if (checkOverflow(outputDiv) || word.includes(".")) {
+        if (checkOverflow(outputDiv) || (word.includes(".") && rsvp)) {
             console.log("WORD: " + wordDiv + " -> contains '.'");
           //Text has over-flown
           console.log("end");
