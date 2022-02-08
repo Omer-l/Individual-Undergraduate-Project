@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const url = require('url');
+const AWS = require('aws-sdk');
+const comprehend = AWS.Comprehend;
 
 //Create express app and configure it with body-parser
 const app = express();

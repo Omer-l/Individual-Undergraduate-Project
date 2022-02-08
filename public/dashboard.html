@@ -107,7 +107,9 @@
       rsvp = false;
     } else {
       rsvp = true;
+    maxWordJump = 10;
       paragraphMode = false;
+      loadNextPage();
     }
     document.getElementById("demo").innerHTML = "Selected " + chosen + " Click out of this popup to resume.";
     hideModal();
@@ -323,8 +325,7 @@
     $("#output").on("mouseover", 'span', function () {
 //highlight a word when hovered
 
-      if ($(this).css("background-color") != "rgb(255, 255, 255)") //ensures a word already visited is not applied to speed metric
-      {
+      if ($(this).css("background-color") != "rgb(255, 255, 255)") {
         let wordReadIndex = parseInt($(this).attr("class"));
         console.log(wordReadIndex + " ... prev: " + previouslyWordReadIndex);
         if(wordReadIndex <= previouslyWordReadIndex + maxWordJump) {
@@ -343,6 +344,8 @@
         // for(let highlightIndex = wordNumber - highlightOffset; highlightIndex <= wordNumber + highlightOffset; highlightIndex++) {
         //   $(word).css("background-color", "white");
         // }
+      } else {
+
       }
       // $(this).css("background-color", "yellow");
     });
@@ -396,6 +399,42 @@
       modal.style.display = "none";
     }
   }
+
+  var Timer = function(callback, delay) {
+    var timerId, start, remaining = delay;
+
+    this.pause = function() {
+      window.clearTimeout(timerId);
+      timerId = null;
+      remaining -= Date.now() - start;
+    };
+
+    this.resume = function() {
+      if (timerId) {
+        return;
+      }
+
+      start = Date.now();
+      timerId = window.setTimeout(callback, remaining);
+    };
+
+    this.resume();
+  };
+
+
+  function printHi() {
+    var name = window.prompt("Enter your name: ");
+    console.log("Hi " + name);
+    timer.resume();
+  }
+  var timer = new Timer(function() {
+    alert("Done!");
+  }, 1000);
+
+  timer.pause();
+  // Do some stuff...
+  printHi();
+  timer.resume();
 
   var opts = {
     angle: 0, // The span of the gauge arc
