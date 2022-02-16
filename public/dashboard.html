@@ -34,7 +34,9 @@
   <a class="nav-link text-danger" href="signin.html">My Account</a>
 </nav>
 <!--Page up bar-->
-<div id="pageUpBarDiv" onmouseover="previousPage()"></div>
+<div id="pageUpBarDiv" onmouseover="previousPage()">
+  <p class="text-light" style="font-size: 50px; width: 0%; margin: auto"><< </p>
+</div>
 <!-- Trigger/Open The Modal -->
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -49,9 +51,20 @@
         <!--input file-->
         <input type="file" id="file-id" name="file_name" onchange="ExtractText();"> <br><br>
         <b>Choose Mode</b> <br>
-        <select id="mySelect" size="4">
+        <select id="selectMode" size="4">
           <option>Rapid Serial Visual Presentation</option>
           <option>Paragraph Mode</option>
+        </select>
+        <br>Would you like to do the quiz every <emo>n</emo> amount of words?<br>
+        <select id="selectQuizOnOrOff">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+        <br>Number of words to read before a quiz:<br>
+        <select id="selectQuizNumberOfWords">
+          <option>10</option>
+          <option>100</option>
+          <option>200</option>
         </select>
       </form>
       <button onclick="selectOption()">Save Options</button>
@@ -72,7 +85,9 @@
 
 
 <!--Page down bar-->
-<div id="pageDownBarDiv" onmouseover="nextPage()"></div>
+<div id="pageDownBarDiv" onmouseover="nextPage()">
+  <p class="text-light" style="font-size: 50px; width: 0%; margin: auto">>> </p>
+</div>
 <script>
   var words = [];
   PDFJS.workerSrc = '';
@@ -89,6 +104,10 @@
   let maxWordJump = 20;
   let numberOfWordsCurrentlyDisplayed = 0;
   let numberOfWordsToHighlight = 3;
+  let quizOn = false;
+  let numberOfWordsForQuiz = 10;
+  let numberOfWordsRequiredForQuiz = numberOfWordsForQuiz;
+  let totalWordsRead = 0;
 
   //Get pointers to parts of the DOM after the page has loaded.
   function init() {
@@ -99,10 +118,11 @@
    * When options in the modal are submitted.
    */
   function selectOption() {
-    var optionsElement = document.getElementById("mySelect").options;
-    var selectedOptionIndex = optionsElement.selectedIndex;
-    var chosen = optionsElement[selectedOptionIndex].text;
-    if(chosen == "Paragraph Mode") {
+    //get mode
+    let modeOptionsElement = document.getElementById("selectMode").options;
+    let selectedModeIndex = modeOptionsElement.selectedIndex;
+    let chosenMode = modeOptionsElement[selectedModeIndex].text;
+    if(chosenMode == "Paragraph Mode") {
       paragraphMode = true;
       rsvp = false;
     } else {
@@ -111,7 +131,25 @@
       paragraphMode = false;
       loadNextPage();
     }
-    document.getElementById("demo").innerHTML = "Selected " + chosen + " Click out of this popup to resume.";
+
+    //get quiz on or off
+    let quizOnOrOffOptionsElement = document.getElementById("selectQuizOnOrOff").options;
+    let selectedOnOrOffIndex = quizOnOrOffOptionsElement.selectedIndex;
+    let chosenOnOrOff = quizOnOrOffOptionsElement[selectedOnOrOffIndex].text;
+
+    if(chosenOnOrOff == "Yes") {
+      quizOn = true;
+      //get number of words before a quiz
+      let quizNumberOfWordsElement = document.getElementById("selectQuizNumberOfWords").options;
+      let selectedNumberOfWordsIndex = quizNumberOfWordsElement.selectedIndex;
+      let chosenNumberOfWords = quizNumberOfWordsElement[selectedNumberOfWordsIndex].text;
+      console.log(chosenNumberOfWords);
+    } else {
+      quizOn = false;
+    }
+
+
+    document.getElementById("demo").innerHTML = "Selected " + chosenMode + " Click out of this popup to resume.";
     hideModal();
   }
 
@@ -277,7 +315,6 @@
    * Puts next page into div element of website
    */
   function loadNextPage() {
-    // document.getElementById("output").innerHTML = pageContent;
     addHighlightingToWords();
   }
 
@@ -303,6 +340,7 @@
     let count = 1;
     if(0 <= wordNumber && wordNumber < words.length) {
       for (let i = 0; i < words.length; i++) {
+        totalWordsRead++;
         //wrap each wordDiv in a span tag
         let wordDiv = $('<span/>').text(words[wordNumber] + " ");
         let word = wordDiv.text();
@@ -318,6 +356,7 @@
             wordDiv.appendTo("#output");
           }
         }
+        numberOfWordsRequiredForQuiz = totalWordsRead + 10;
         previouslyWordReadIndex = 0;
         wordNumber++;
       }
@@ -333,7 +372,13 @@
             addHighlightingToWords();
             return;
           }
+          totalWordsRead += wordReadIndex - previouslyWordReadIndex;
           previouslyWordReadIndex = wordReadIndex;
+          console.log(totalWordsRead + " " + numberOfWordsRequiredForQuiz);
+          if(totalWordsRead >= numberOfWordsRequiredForQuiz) {
+            console.log("QUIZ TIME!");
+            numberOfWordsRequiredForQuiz = totalWordsRead + numberOfWordsForQuiz; // resets number of words left for next quiz
+          }
           $('span').each(function (i, word) { //ensures words read are highlighted
             let iteratedWordIndex = parseInt($(word).attr("class"));
             if (iteratedWordIndex <= (previouslyWordReadIndex + numberOfWordsToHighlight)) {
@@ -399,43 +444,6 @@
       modal.style.display = "none";
     }
   }
-
-  var Timer = function(callback, delay) {
-    var timerId, start, remaining = delay;
-
-    this.pause = function() {
-      window.clearTimeout(timerId);
-      timerId = null;
-      remaining -= Date.now() - start;
-    };
-
-    this.resume = function() {
-      if (timerId) {
-        return;
-      }
-
-      start = Date.now();
-      timerId = window.setTimeout(callback, remaining);
-    };
-
-    this.resume();
-  };
-
-
-  function printHi() {
-    var name = window.prompt("Enter your name: ");
-    console.log("Hi " + name);
-    timer.resume();
-  }
-  var timer = new Timer(function() {
-    alert("Done!");
-  }, 1000);
-
-  timer.pause();
-  // Do some stuff...
-  printHi();
-  timer.resume();
-
   var opts = {
     angle: 0, // The span of the gauge arc
     lineWidth: 0.7, // The line thickness
