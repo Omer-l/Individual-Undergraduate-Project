@@ -12,10 +12,6 @@
 
 [comment]: <> (<img src="README_Images/Proposal/ProjectProposalPage5.png">)
 
-## **Faculty of Science and Technology**
-
-### Department of Computer Science
-
 # LITERATURE REVIEW
 
 # EYE TRACKING PDF READER
@@ -32,17 +28,17 @@ CAMPUS: HENDON
 
 # Contents
 
-**[1 Introduction ](#_Toc93092654)**
+**[1 Introduction ]()**
 
-**[2 Literature review ](#_Toc93092655)**
+**[2 Literature review ]()**
 
-**[2.1 Psychology on Reading ](#_Toc93092656)**
+**[2.1 Psychology on Reading ]()**
 
 **[2.1.1 Rapid Serial Visual Presentation (RSVP)]()**
 
 **[2.1.2 Speed Reading Courses ]()**
 
-**[2.2 Reading Skill Improvement Applications ](#_Toc93092659)**
+**[2.2 Reading Skill Improvement Applications ]()**
 
 **[2.2.1 ReaderPro - Speed Reading and Brain Development ]()**
 
@@ -66,7 +62,7 @@ CAMPUS: HENDON
 
 **[2.4.3 EyeWriter ]()**
 
-**[2.5 Eye Tracking Technology ](#_Toc93092671)**
+**[2.5 Eye Tracking Technology ]()**
 
 **[2.5.1 Outline ]()**
 
@@ -82,17 +78,17 @@ CAMPUS: HENDON
 
 **[2.5.7 Summary]()**
 
-**[3 References](#_Toc93092685)**
+**[3 References]()**
 
-**[4 Interim Progress Report](#_Toc93092686)**
+**[4 Interim Progress Report]()**
 
-**[4.1 Picture of the Eye Tracker](#_Toc93092688)**
+**[4.1 Picture of the Eye Tracker]()**
 
-**[4.2 Website and Current reader](#_Toc93092689)**
+**[4.2 Website and Current reader]()**
 
-**[4.3 Database Design](#_Toc93092690)**
+**[4.3 Database Design]()**
 
-**[4.4 Literature Review and Research](#_Toc93092691)**
+**[4.4 Literature Review and Research]()**
 
 # 1 Introduction
 
