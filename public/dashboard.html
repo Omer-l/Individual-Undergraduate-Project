@@ -95,7 +95,6 @@
   window.onload = init;
   var startTime;
   var wordsPerMinute = 0;
-  var wordsReadSoFar = 0;
   let rsvp = false;
   let paragraphMode = false;
   let pageNumber = 0;
@@ -108,6 +107,8 @@
   let numberOfWordsForQuiz = 10;
   let numberOfWordsRequiredForQuiz = numberOfWordsForQuiz;
   let totalWordsRead = 0;
+  let currentWordIndex = 0;
+  let firstPagePassed = false;
 
   //Get pointers to parts of the DOM after the page has loaded.
   function init() {
@@ -340,7 +341,7 @@
     let count = 1;
     if(0 <= wordNumber && wordNumber < words.length) {
       for (let i = 0; i < words.length; i++) {
-        totalWordsRead++;
+        currentWordIndex++;
         //wrap each wordDiv in a span tag
         let wordDiv = $('<span/>').text(words[wordNumber] + " ");
         let word = wordDiv.text();
@@ -356,10 +357,16 @@
             wordDiv.appendTo("#output");
           }
         }
-        numberOfWordsRequiredForQuiz = totalWordsRead + 10;
-        previouslyWordReadIndex = 0;
+
         wordNumber++;
       }
+      if(firstPagePassed == true) { //no words are read if first page processed.
+        totalWordsRead += currentWordIndex;
+      } else {
+        firstPagePassed = true;
+      }
+      numberOfWordsRequiredForQuiz = totalWordsRead + 10;
+      previouslyWordReadIndex = 0;
     }
     $("#output").on("mouseover", 'span', function () {
 //highlight a word when hovered
@@ -374,9 +381,10 @@
           }
           totalWordsRead += wordReadIndex - previouslyWordReadIndex;
           previouslyWordReadIndex = wordReadIndex;
-          console.log(totalWordsRead + " " + numberOfWordsRequiredForQuiz);
+          console.log("TOT WORDS READ: " + totalWordsRead + " , NO OF WORDS REQ FOR QUIZ: " + numberOfWordsRequiredForQuiz);
           if(totalWordsRead >= numberOfWordsRequiredForQuiz) {
             console.log("QUIZ TIME!");
+            quizTime();
             numberOfWordsRequiredForQuiz = totalWordsRead + numberOfWordsForQuiz; // resets number of words left for next quiz
           }
           $('span').each(function (i, word) { //ensures words read are highlighted
@@ -417,6 +425,22 @@
     });
     numberOfWordsCurrentlyDisplayed = $("#output span").length;
     console.log("NO OF WORDS: " + numberOfWordsCurrentlyDisplayed);
+  }
+
+  /**
+   * Activates quiz based on words read.l
+   */
+  function quizTime() {
+    let wordsForQuiz = "";
+    let wordIndex = (numberOfWordsRequiredForQuiz - numberOfWordsForQuiz);
+    let wordLimitForQuiz = totalWordsRead;
+    console.log("FROM wordIndex: " + wordIndex + " TO WORDLIMIT: " + wordLimitForQuiz);
+        while(wordIndex < wordLimitForQuiz) {
+          let currentWord = words[wordIndex++];
+          console.log("WORD: " + currentWord)
+          wordsForQuiz += " " + currentWord;
+        }
+    console.log("WORDS READ FOR QUIZ: " + wordsForQuiz);
   }
 
   // Get the modal
