@@ -23,7 +23,8 @@ let todoArray = [];
 // app.get('/todo/*', handleGetRequest);//Returns task with specified ID
 // app.get('/todo', handleGetRequest);//Returns all tasks
 // to get registration form
-app.get('/signin', signInUser);
+// app.get('/signin', signInUser);
+app.get('/comprehend', generateQuiz);
 app.post('/signup', signUpUser);
 //set up application to handle DELETE requests sent to the task path
 // app.delete('/todo', handleDeleteRequest);
@@ -95,5 +96,17 @@ function signUpUser(request, response) {
             console.log(JSON.stringify(result));
         }
     });
+
+}
+
+
+//Handles GET requests to the web service
+function generateQuiz(request, response) {
+    //Output the data sent to the server
+    let details = request.body;
+    console.log("Data received: " + JSON.stringify(details));
+    //Finish off the interaction.
+    response.send("Words taken successfully.");
+
 
 }

@@ -441,6 +441,32 @@
           wordsForQuiz += " " + currentWord;
         }
     console.log("WORDS READ FOR QUIZ: " + wordsForQuiz);
+
+  }
+
+  function getQuizQuestions(wordsForQuiz) {
+    //Set up XMLHttpRequest
+    let xhttp = new XMLHttpRequest();
+    //Create object with task data
+    let quizObj = {
+      words: wordsForQuiz
+    };
+    console.log("USER OBJ: " + JSON.stringify(quizObj));
+    //Set up function that is called when reply received from server
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        //Convert JSON to a JavaScript object
+        console.log(xhttp.responseText);
+      }
+      else {
+        document.getElementById('outputDiv').innerHTML += "<span style='color: red'>Error adding user</span>.";
+      }
+
+    };
+    //Send new words server
+    xhttp.open("GET", "/comprehend");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(quizObj));
   }
 
   // Get the modal
