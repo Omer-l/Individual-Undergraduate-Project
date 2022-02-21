@@ -3,8 +3,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const url = require('url');
+require('dotenv').config(); //for keys
+let keys = process.env//keys
 const AWS = require('aws-sdk');
 const comprehend = AWS.Comprehend;
+
+AWS.config.update({
+    region: "us-east-1",
+    endpoint: "https://dynamodb.us-east-1.amazonaws.com",
+    accessKeyId: keys.AWS_ACCESS_ID,
+    secretAccessKey: keys.SECRET_ACCESS_KEY,
+    sessionToken: keys.SESSION_TOKEN
+});
 
 //Create express app and configure it with body-parser
 const app = express();
@@ -107,6 +117,4 @@ function generateQuiz(request, response) {
     console.log("Data received: " + JSON.stringify(details));
     //Finish off the interaction.
     response.send("Words taken successfully.");
-
-
 }
