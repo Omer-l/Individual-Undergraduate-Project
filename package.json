@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Omer-l/Individual-Undergraduate-Project#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "mongoose": "^6.2.4",
