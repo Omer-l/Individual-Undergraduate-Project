@@ -2,6 +2,8 @@
 const express = require('express');
 // Create Express app
 const app = express();
+//BodyParsing
+app.use(express.urlencoded({extended: false}));
 // API Keys
 const dotenv = require('dotenv');
 //MongoDB
