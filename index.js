@@ -1,26 +1,155 @@
-// app.js
+//Import the express, body-parser and express-session modules
 const express = require('express');
-// Create Express app
+const bodyParser = require('body-parser');
+const expressSession = require('express-session');
+const mysql = require('mysql');
+
+//Create express app and configure it with body-parser
 const app = express();
-//BodyParsing
-app.use(express.urlencoded({extended: false}));
-// API Keys
-const dotenv = require('dotenv');
-//MongoDB
-const mongoose = require("mongoose");
-dotenv.config();
+app.use(bodyParser.json());
+//to use public folder
+app.use(express.static('public')); //public folder to load files
+//Configure express to use express-session
+app.use(
+    expressSession({
+        secret: 'cst2120 secret',
+        cookie: { maxAge: 60000 },
+        resave: false,
+        saveUninitialized: true
+    })
+);
 
-const database = process.env.MONGOLAB_URI;
-mongoose.connect(database, {useUnifiedTopology: true, useNewUrlParser: true })
-    .then(() => console.log('e don connect'))
-    .catch(err => console.log(err));
+//Array that will store data about the users.
+//This is only an example - a database would be used for this in real code
+let userArray = [];
 
-app.set('view engine', 'ejs');
-//Routes
-app.use('/', require('./routes/login'));
-// A sample route
-app.get('/', (req, res) => res.send('Hello World!'));
+//Set up application to handle GET requests
+app.get('/users', getUsers);//Returns all users
+app.get('/checklogin', checklogin);//Checks to see if user is logged in.
+app.get('/logout', logout);//Logs user out
 
-// Start the Express server
-const PORT = 8080;
-app.listen(PORT, () => console.log('Server running on port ' + PORT));
+//Set up application to handle POST requests
+app.post('/login', login);//Logs the user in
+app.post('/register', register);//Register a new user
+
+//Start the app listening on port 8080
+app.listen(8080);
+console.log("Listening on port 8080");
+
+//Create a connection pool with the task details
+const connectionPool = mysql.createPool({
+    connectionLimit: 1,
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "password",
+    database: "fyp",
+    debug: false
+});
+
+// GET /users. Returns all the users.
+function getUsers(request, response){
+    response.send(userArray);
+}
+
+// GET /checklogin. Checks to see if the user has logged in
+function checklogin(request, response){
+    if(!("username" in request.session))
+        response.send('{"login": false}');
+    else{
+        response.send('{"login":true, "username": "' +
+            request.session.username + '" }');
+    }
+}
+
+// GET /logout. Logs the user out.
+function logout(request, response){
+    //Destroy session.
+    request.session.destroy( err => {
+        if(err)
+            response.send('{"error": '+ JSON.stringify(err) + '}');
+        else
+            response.send('{"login":false}');
+    });
+}
+
+/* POST /login. Checks the user's name and password. Logs them in if they match
+    Expects a JavaScript object in the body:
+    {name: "user name", password: "user password"} */
+function login(request, response){
+    let usrlogin = request.body;
+    console.log("Data received: " + JSON.stringify(usrlogin));
+    let name = usrlogin.name;
+    let password = usrlogin.password;
+    console.log("Name: " + name + " password: " + password);
+    console.log("Name: " + usrlogin.name + " password: " + usrlogin.password);
+
+    let sql = "SELECT * FROM users WHERE " +
+        "name=\"" + name + "\" " +
+        "AND password=\"" + password + "\";";
+    console.log(sql);
+    // Execute query and output results
+    connectionPool.query(sql, (err, result) => {
+        if (err) {//Check for errors
+            console.error("Error executing query: " + JSON.stringify(err));
+        } else {
+            console.log(JSON.stringify(result));
+
+            //Look to see if we have a matching user
+            let userFound = result.length > 0;
+
+            if(userFound) {
+                //Store details of logged in user
+                request.session.username = name;
+                //Send back appropriate response
+                response.send('{"login":true}');
+            }
+            else {
+                    response.send('{"login": false, "message":"Username or password incorrect."}');
+            }
+        }
+    });
+}
+
+//Handles POST requests to our web service
+function register(request, response) {
+
+    //Extract details
+    let details = request.body
+    let name = details.name;
+    let password = details.password;
+    let preferences = details.preferences;
+    //Output the data sent to the server
+    console.log("Data received: " + JSON.stringify(details));
+
+    //Build query
+    let sqlAddUserQuery = "INSERT INTO users (name, password, preferences)  VALUES ("
+        + "\"" + name + "\","
+        + "\"" + password + "\","
+        + "\"" + preferences + "\""
+        + ")";
+    let sqlCheckUserExistsQuery = "SELECT * from users where name=\"" + name + "\";";
+
+    //Ensures duplicate user is not added
+    connectionPool.query(sqlCheckUserExistsQuery, (err, result) => {
+        if (err) {//Check for errors
+            console.error("Error executing query: " + JSON.stringify(err));
+        } else {
+            if (result.length > 0) {
+                console.log("User " + name + " already exists");
+                //Finish off the interaction.
+                response.send('{"registration": false, "message":"Username or password incorrect."}');
+            } else {
+                // Execute query and output results
+                connectionPool.query(sqlAddUserQuery, (errAddUser, addUserResult) => {
+                    if (errAddUser) {//Check for errors
+                        console.error("Error executing query: " + JSON.stringify(errAddUser));
+                    } else {
+                        //Finish off the interaction.
+                        response.send('{"registration": true, "message":"Successfully registered ' + name + '."}');
+                    }
+                });
+            }
+        }
+    });
+}
