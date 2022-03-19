@@ -177,7 +177,9 @@ function uploadPdf(request, response) {
     let myFile = files.myFile;
 
 //    Checks that it is a PDF file, not any other
-//     if(file.name)?
+    let notAPdfFile = !myFile.name.includes('.pdf') && myFile.name.split('.').length > 1 && myFile.name.split('.')[1].toLowerCase() != "pdf";
+    if(notAPdfFile)
+        return response.status(400).send('{"upload": false, "error": "Not a PDF file"}');
 
     //gets user's directory, if it even exists
     let username = request.session.username;

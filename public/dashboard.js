@@ -1,5 +1,5 @@
 let userDetails = {
-    name: 'omer',
+    name: '',
     preferences: '',
 };
 
