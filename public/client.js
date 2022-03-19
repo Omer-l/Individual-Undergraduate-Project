@@ -187,7 +187,25 @@ function loadPdf(pdfName) {
     const xhttp = new XMLHttpRequest();
     let serverResponse = $('#ServerResponse');
     serverResponse.text("YOU CLICKED: " + pdfName);
-    console.log(pdfName);
+    let pdfDetails = {
+        pdfName: pdfName
+    };
+    let stringifiedpdfDetails = JSON.stringify(pdfDetails);
+    console.log(stringifiedpdfDetails);
+    xhttp.onreadystatechange = () => {//Called when pdf data returns from server
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          let response = JSON.parse(xhttp.responseText);
+          console.log(response)
+          serverResponse.text("FOUND: " + response.pdfName);
+      }
+      // else {//could not load PDF
+      //     // serverResponse.text("Unable to load PDF, either try again/sign in again/try a different PDF'");
+      // }
+    };
+    //Send new user data to server
+    xhttp.open("POST", "/loadpdf", true);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.send(stringifiedpdfDetails);
 }
 
 //GETs a list of the user's uploaded PDFs

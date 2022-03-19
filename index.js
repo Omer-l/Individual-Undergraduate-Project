@@ -31,12 +31,13 @@ let userArray = [];
 app.get('/users', getUsers);//Returns all users
 app.get('/checklogin', checklogin);//Checks to see if user is logged in.
 app.get('/logout', logout);//Logs user out
-app.get('/userpdfs', getUserPdfs)//Getting user PDFs
+app.get('/userpdfs', getUserPdfs);//Getting all of a user PDF names
 
 //Set up application to handle POST requests
 app.post('/login', login);//Logs the user in
 app.post('/register', register);//Register a new user
 app.post('/upload', uploadPdf);//For file uploading
+app.post('/loadpdf', loadPdf); //loads PDF to front end
 
 
 //Start the app listening on port 8080
@@ -211,9 +212,24 @@ function getUserPdfs(request, response) {
     //for finding user's PDFs
     const username = request.session.username;
     const testFolder = './uploads/' + username;
-    const fs = require('fs');
     //Reads all file names in user's PDF list
     fs.readdir(testFolder, (err, files) => {
         response.send(files);
     });
+}
+
+//Sends PDF text to front end
+function loadPdf(request, response) {
+    console.log("BOD: " + request.body.pdfName);
+    if(request.session.username == undefined) { //ensures a session is active, a user is logged in
+        return response.status(500).send('{"upload": false, "error": "User not logged in"}');
+    }
+
+    //for finding user's PDFs
+    const username = request.session.username;
+    const pdfName = request.body.pdfName;
+    const pdflocation = './uploads/' + username + "/" + pdfName;
+    console.log("PATH TO PDF: " + pdflocation);
+    //Reads all file names in user's PDF list
+    response.send("{\"message\": \"file found..?\"}");
 }
