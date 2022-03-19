@@ -182,6 +182,14 @@ function uploadFile() {
     httpReq.send(formData);
 }
 
+//gets a user's clicked PDF
+function loadPdf(pdfName) {
+    const xhttp = new XMLHttpRequest();
+    let serverResponse = $('#ServerResponse');
+    serverResponse.text("YOU CLICKED: " + pdfName);
+    console.log(pdfName);
+}
+
 //GETs a list of the user's uploaded PDFs
 function getUserPdfs() {
     let xhttp = new XMLHttpRequest();
@@ -198,7 +206,7 @@ function getUserPdfs() {
             let pdfListLinks = "";
             for(let fileNumber = 0; fileNumber < fileList.length; fileNumber++) {
                 let fileName = fileList[fileNumber];
-                pdfListLinks += "<button>" + fileName + "</button>"
+                pdfListLinks += "<button class=\"btn btn-lg btn-primary\" href=\"javascript:void(0)\" onclick=\"loadPdf(\'" + fileName + "\');\">" + fileName + "</button>"
             }
             serverResponse.innerHTML = pdfListLinks;
         }
