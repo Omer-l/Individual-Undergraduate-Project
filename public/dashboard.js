@@ -1,3 +1,8 @@
+let userDetails = {
+    name: 'omer',
+    preferences: '',
+};
+
 function outputDashboard() {
     document.getElementById("CheckLoginDiv").innerHTML =
         '<input type="file" id="FileInput">' +

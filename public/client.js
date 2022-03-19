@@ -160,7 +160,7 @@ function uploadFile() {
         serverResponse.text("Please select file to upload.");
         return;
     }
-//    Wrap file inside FormData object
+//    Wrap file inside message object
     const formData = new FormData();
     formData.append('myFile', fileArray[0]);
 //    Sets up HTTP req to send file and receive message of confirmation

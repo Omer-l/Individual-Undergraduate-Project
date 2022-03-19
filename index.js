@@ -4,6 +4,7 @@ const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const mysql = require('mysql');
+const fs = require('fs');
 
 //Create express app and configure it with body-parser
 const app = express();
@@ -163,6 +164,9 @@ function register(request, response) {
 
 //Uploads file to /upload folder
 function uploadPdf(request, response) {
+    if(request.session.username == undefined) {
+        return response.status(500).send('{"upload": false, "error": "User not logged in"}');
+    }
     let files = request.files;
 
 //    Check to see if a file has been submitted to this path
@@ -175,7 +179,18 @@ function uploadPdf(request, response) {
 //    Checks that it is a PDF file, not any other
 //     if(file.name)?
 
-    myFile.mv('./uploads/' + myFile.name, function(err) {
+    //gets user's directory, if it even exists
+    let username = request.session.username;
+
+    //Directory to add PDF to
+    const directoryToUploadFileTo = './uploads/' + username;
+    //ensures directory for this user exists
+    if (!fs.existsSync(directoryToUploadFileTo)){
+        fs.mkdirSync(directoryToUploadFileTo, { recursive: true });
+    }
+
+    //moves PDF into the directory assigned for user
+    myFile.mv(directoryToUploadFileTo + "/" + myFile.name, function(err) {
        if(err)
            return response.status(500).send('{"filename": "' +
                myFile.name + '", "upload": false, "error": "' +
