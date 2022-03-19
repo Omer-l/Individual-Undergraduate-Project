@@ -32,6 +32,7 @@ app.get('/logout', logout);//Logs user out
 app.post('/login', login);//Logs the user in
 app.post('/register', register);//Register a new user
 
+
 //Start the app listening on port 8080
 app.listen(8080);
 console.log("Listening on port 8080");
@@ -115,7 +116,7 @@ function login(request, response){
 function register(request, response) {
 
     //Extract details
-    let details = request.body
+    let details = request.body;
     let name = details.name;
     let password = details.password;
     let preferences = details.preferences;
@@ -135,10 +136,10 @@ function register(request, response) {
         if (err) {//Check for errors
             console.error("Error executing query: " + JSON.stringify(err));
         } else {
-            if (result.length > 0) {
-                console.log("User " + name + " already exists");
+            console.log(result);
+            if (result.length > 0) { // user found
                 //Finish off the interaction.
-                response.send('{"registration": false, "message":"Username or password incorrect."}');
+                response.send('{"registration": false, "message":"Username or password incorrect.", "name":"' + name + '"}');
             } else {
                 // Execute query and output results
                 connectionPool.query(sqlAddUserQuery, (errAddUser, addUserResult) => {
@@ -146,7 +147,7 @@ function register(request, response) {
                         console.error("Error executing query: " + JSON.stringify(errAddUser));
                     } else {
                         //Finish off the interaction.
-                        response.send('{"registration": true, "message":"Successfully registered ' + name + '."}');
+                        response.send('{"registration": true, "message":"Successfully registered.", "name":"' + name + '"}');
                     }
                 });
             }

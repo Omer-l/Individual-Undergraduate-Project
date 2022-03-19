@@ -27,8 +27,10 @@
 <script>
     userLoggedIn();
     function outputPage(sessionActive) {
-        if(!sessionActive)
+        if(!sessionActive) {
+            parsePageURL();
             outputLoginRegistrationToPage();
+        }
         else
             outputDashboard();
     }

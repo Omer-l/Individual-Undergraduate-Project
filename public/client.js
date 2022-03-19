@@ -63,16 +63,21 @@ function addUser() {
     //Set up function that is called when reply received from server
     xhttp.onreadystatechange = function() {
         if(xhttp.responseText.length > 0) {
-            //Convert JSON to a JavaScript object
-            console.log(xhttp.responseText);
-            let registrationSuccessful = JSON.parse(xhttp.responseText).registration;
-            console.log(registrationSuccessful);
-            if (this.readyState == 4 && this.status == 200 && registrationSuccessful) {
-                document.getElementById("CheckLoginDiv").innerHTML += "User added successfully";
-                //TODO refresh to login page, sending user's name
+            if (this.readyState == 4 && this.status == 200) {
+                //Convert JSON to a JavaScript object
+                let details = JSON.parse(xhttp.responseText);
+                let registrationSuccessful = details.registration;
+                let page = "http://localhost:8080/index.html?register";
+                let name = details.name;
+                if(registrationSuccessful) {
+                    console.log(name);
+                    page = "http://localhost:8080/index.html?login=" + name;
+                } else {
+                    page = "http://localhost:8080/index.html?register=" + name;
+                }
+                location.href = page;
             } else {
-                document.getElementById("CheckLoginDiv").innerHTML += "<span style='color: red'>Error adding user</span>.";
-                //TODO refresh to signup page again with same user details
+                console.log("Error adding user");
             }
         }
     };
@@ -84,29 +89,34 @@ function addUser() {
 }
 
 /* Posts a user to the server and logs them in if valid details. */
-function loginUser() {
+function loginUser(name, password) {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
 
-    //Extract user data
-    // let usrName = document.getElementById("NameInput").value;
-    // let usrEmail = document.getElementById("PasswordInput").value;
-    let usrName = "o";
-    let usrEmail = "k";
-
     //Create object with user data
     let usrObj = {
-        name: usrName,
-        password: usrEmail,
+        name: name,
+        password: password,
     };
 
     //Set up function that is called when reply received from server
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("CheckLoginDiv").innerHTML = "User found successfully";
+            //Convert JSON to a JavaScript object
+            let details = JSON.parse(xhttp.responseText);
+            let loginSuccessful = details.login;
+            let page = "http://localhost:8080/index.html";
+            let name = details.name;
+            if(loginSuccessful) {
+                console.log(name);
+                page = "http://localhost:8080/index.html";
+            } else {
+                page += "?login=" + name;
+            }
+            location.href = page;
         }
         else{
-            document.getElementById("CheckLoginDiv").innerHTML = "<span style='color: red'>Error finding user</span>.";
+            console.log("Error logging in user");
         }
     };
 
@@ -137,4 +147,3 @@ function userLoggedIn() {
     xhttp.open("GET", "/checklogin", true);
     xhttp.send();
 }
- 

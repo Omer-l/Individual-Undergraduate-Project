@@ -1,4 +1,25 @@
-// Tabbed Menu
+let loginPrompt = false;
+let name = '';
+//Ensures fields are filled in or the right tab is shown
+function parsePageURL() {
+    //get URL
+    const url = window.location.href;
+    const search = url.split('?')[1];
+    if(search != null && search.includes("login"))
+        loginPrompt = true;
+    const urlSearchParams = new URLSearchParams(search);
+    const searchParams = Object.fromEntries(urlSearchParams.entries());
+    // name = searchParams.login
+    if(searchParams.length != 0) {
+        if(searchParams.login != null) {
+            name = searchParams.login;
+        } else if(searchParams.register != null) {
+            name = searchParams.register;
+        }
+    }
+}
+
+// Tabbed Menu switching
 function openMenu(event, buttonName) {
     let i, x, tablinks;
     $('#LoginDiv').hide();
@@ -9,40 +30,42 @@ function openMenu(event, buttonName) {
 }
 
 //When preference is selected
-function preferenceSelected() {
-    var preference = document.getElementById('PreferenceSelector');
+function preferenceSelected(preferenceName) {
+    let preferenceSelectorId = preferenceName + 'PreferenceSelector';
+    let preferenceDivId = '#' + preferenceName + 'PreferencesDiv';
+    let preference = document.getElementById(preferenceSelectorId);
     if (preference) {
         if (preference.selectedIndex == 1) {
 //    show preferences
-            $('#PreferencesDiv').show();
+            $(preferenceDivId).show();
         } else {
-            $('#PreferencesDiv').hide();
+            $(preferenceDivId).hide();
         }
     }
 }
 
+//ensures registration or login buttons' are not activated until inputs are made
+function activateButton(formName) {
+    let userNameId = '#' + formName + "Username";
+    let passwordId = '#' + formName + "Password";
+    let name = $(userNameId).val();
+    let password = $(passwordId).val();
 
-//When quiz mode is selected
-function quizModeSelected() {
-    var preference = document.getElementById('QuizPreferenceSelector');
-    if (preference) {
-        if (preference.selectedIndex == 1) {
-//    shows quiz preferences
-            $('#QuizPreferencesDiv').show();
-        } else {
-            $('#QuizPreferencesDiv').hide();
-        }
-    }
-}
-
-function activateRegistrationButton() {
-    let username = $("#RegistrationUsername").val();
-    let password = $("#RegistrationPassword").val();
-
-    if(username.length > 0 && password.length > 0)
-        document.getElementById("RegisterButton").disabled = false;
+    if(name.length > 0 && password.length > 0)
+        document.getElementById(formName + "Button").disabled = false;
     else
-        document.getElementById("RegisterButton").disabled = true;
+        document.getElementById(formName + "Button").disabled = true;
+}
+
+//disables a given button id
+function disableButton(buttonId) {
+    document.getElementById(buttonId + "Button").disabled = true;
+}
+
+function signInUser() {
+    let name = $('#LoginUsername').val();
+    let password = $('#LoginPassword').val();
+    loginUser(name, password);
 }
 
 //Outputs login and registration prompt to HTML
@@ -56,27 +79,39 @@ function outputLoginRegistrationToPage() {
         '            <h1><span class="w3-tag w3-wide">EyeDoc</span></h1>\n' +
         '        </div>\n' +
         '        <div class="w3-row w3-center w3-card w3-padding">\n' +
-        '            <button class="btn btn-lg btn-primary" href="javascript:void(0)" onclick="openMenu(event, \'LoginDiv\');" id="LoginButton">\n' +
+        '            <button class="btn btn-lg btn-primary" href="javascript:void(0)" onclick="openMenu(event, \'LoginDiv\');" id="LoginTabButton">\n' +
         '                <div class="w3-col tablink">LOGIN</div>\n' +
         '            </button>\n' +
-        '            <button class="btn btn-lg btn-primary" href="javascript:void(0)" onclick="openMenu(event, \'RegisterDiv\');">\n' +
+        '            <button class="btn btn-lg btn-primary" href="javascript:void(0)" onclick="openMenu(event, \'RegisterDiv\');" id="RegistrationTabButton">\n' +
         '                <div class="w3-col tablink">REGISTER</div>\n' +
         '            </button>\n' +
         '        </div>\n' +
         '\n' +
-        '        <div id="LoginDiv" class="w3-container menu w3-padding-48 w3-card">\n' +
+        '        <div id="LoginDiv" class="w3-container menu w3-padding-48 w3-card ">\n' +
+        '            <form>\n' +
+        '                <div class="form-group">\n' +
+        '                    <label for="LoginUsername">Username</label>\n' +
+        '                    <input type="username" class="form-control" id="LoginUsername" onkeyup="activateButton(\'Login\')">\n' +
+        '                </div>\n' +
+        '                <div class="form-group">\n' +
+        '                    <label for="LoginPassword">Password</label>\n' +
+        '                    <input type="password" class="form-control" id="LoginPassword" onkeyup="activateButton(\'Login\')">\n' +
+        '                </div>\n' +
+        '                <button type="button" class="btn btn-primary mb-2" id="LoginButton">Login</button>\n' +
+        '        </div>\n' +
+        '        <div id="RegisterDiv" class="w3-container menu w3-padding-48 w3-card">\n' +
         '            <form>\n' +
         '                <div class="form-group">\n' +
         '                    <label for="RegistrationUsername">Username</label>\n' +
-        '                    <input type="username" class="form-control" id="RegistrationUsername" onkeyup="activateRegistrationButton()">\n' +
+        '                    <input type="username" class="form-control" id="RegistrationUsername" onkeyup="activateButton(\'Registration\')">\n' +
         '                </div>\n' +
         '                <div class="form-group">\n' +
         '                    <label for="RegistrationPassword">Password</label>\n' +
-        '                    <input type="password" class="form-control" id="RegistrationPassword" onkeyup="activateRegistrationButton()">\n' +
+        '                    <input type="password" class="form-control" id="RegistrationPassword" onkeyup="activateButton(\'Registration\')">\n' +
         '                </div>\n' +
         '                <div class="form-group">\n' +
         '                    <label for="PreferenceSelector">Preferences</label>\n' +
-        '                    <select class="form-control" id="PreferenceSelector" onchange="preferenceSelected()">\n' +
+        '                    <select class="form-control" id="PreferenceSelector" onchange="preferenceSelected(\'\')">\n' +
         '                        <option>Default</option>\n' +
         '                        <option>Custom</option>\n' +
         '                    </select>\n' +
@@ -92,12 +127,11 @@ function outputLoginRegistrationToPage() {
         '\n' +
         '                    <div class="form-group">\n' +
         '                        <label for="QuizPreferenceSelector">Quiz Mode</label>\n' +
-        '                        <select class="form-control" id="QuizPreferenceSelector" onchange="quizModeSelected()">\n' +
+        '                        <select class="form-control" id="QuizPreferenceSelector" onchange="preferenceSelected(\'Quiz\')">\n' +
         '                            <option>Off</option>\n' +
         '                            <option>On</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
-        '\n' +
         '\n' +
         '                    <div class="form-group" id="QuizPreferencesDiv">\n' +
         '                        <label for="QuizPreferenceSelector">Words Before Quiz</label>\n' +
@@ -112,31 +146,37 @@ function outputLoginRegistrationToPage() {
         '                        </select>\n' +
         '                    </div>\n' +
         '                </div>\n' +
-        '                <button type="button" class="btn btn-primary mb-2" id="RegisterButton">Register</button>\n' +
+        '                <button type="button" class="btn btn-primary mb-2" id="RegistrationButton">Register</button>\n' +
         '            </form>\n' +
         '        </div>\n' +
         '\n' +
-        '        <div id="RegisterDiv" class="w3-container menu w3-padding-48 w3-card ">\n' +
-        '            Register\n' +
-        '        </div>\n' +
         '    </div>\n' +
         '</div>\n' +
         '    <p id="AddUserResult"></p><!-- Feedback about add new user -->';
 
-    // Show only login
-    document.getElementById("LoginButton").click();
+    // Show tab depending on query
+    if(loginPrompt) {
+        document.getElementById("LoginTabButton").click();
+        // document.getElementById("Logi")
+    }
+    else {
+        document.getElementById("RegistrationTabButton").click();
+        let registrationInputField = $('#RegistrationUsername');
+        registrationInputField.val(name);
+    }
 //    hide preferences
     $('#PreferencesDiv').hide();
     $('#QuizPreferencesDiv').hide();
 //    Ensures fields are entered
-    document.getElementById("RegisterButton").disabled = true;
+    disableButton('Registration');
+    disableButton('Login');
     // to handle sign in button
-    $("#RegisterButton").click(function () {
+    $("#RegistrationButton").click(function () {
         addUser();
     });
 
     // to handle sign up button
-    $("#SignInButton").click(function () {
-        // signUpUser();
+    $("#LoginButton").click(function () {
+        signInUser();
     });
 }
