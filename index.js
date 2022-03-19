@@ -1,5 +1,6 @@
 //Import the express, body-parser and express-session modules
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const mysql = require('mysql');
@@ -7,6 +8,8 @@ const mysql = require('mysql');
 //Create express app and configure it with body-parser
 const app = express();
 app.use(bodyParser.json());
+//to use the file upload module
+app.use(fileUpload());
 //to use public folder
 app.use(express.static('public')); //public folder to load files
 //Configure express to use express-session
@@ -31,6 +34,9 @@ app.get('/logout', logout);//Logs user out
 //Set up application to handle POST requests
 app.post('/login', login);//Logs the user in
 app.post('/register', register);//Register a new user
+
+//For file uploading
+app.post('/upload', uploadPdf);
 
 
 //Start the app listening on port 8080
@@ -152,5 +158,30 @@ function register(request, response) {
                 });
             }
         }
+    });
+}
+
+//Uploads file to /upload folder
+function uploadPdf(request, response) {
+    let files = request.files;
+
+//    Check to see if a file has been submitted to this path
+    if(!files || Object.keys(files).length === 0)
+        return response.status(400).send('{"upload": false, "error": "Files missing"}');
+
+//    name of the input field (i.e. "myFile") is used to retrieve the uploaded file
+    let myFile = files.myFile;
+
+//    Checks that it is a PDF file, not any other
+//     if(file.name)?
+
+    myFile.mv('./uploads/' + myFile.name, function(err) {
+       if(err)
+           return response.status(500).send('{"filename": "' +
+               myFile.name + '", "upload": false, "error": "' +
+               JSON.stringify(err) + '"}');
+       else //   Sends back confirmation of the upload file
+           response.send('{"filename": "' + myFile.name +
+               '", "upload": true}');
     });
 }
