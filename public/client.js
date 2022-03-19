@@ -88,7 +88,7 @@ function addUser() {
     xhttp.send( JSON.stringify(usrObj) );
 }
 
-/* Posts a user to the server and logs them in if valid details. */
+/* GETs a user from the server and logs them in if valid details. */
 function loginUser(name, password) {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
@@ -126,6 +126,7 @@ function loginUser(name, password) {
     xhttp.send( JSON.stringify(usrObj) );
 }
 
+//Checks Express sessions if user is logged in
 function userLoggedIn() {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
@@ -170,11 +171,39 @@ function uploadFile() {
         let response = JSON.parse(httpReq.responseText);
         if("error" in response) //pdf could not be uploaded
             serverResponse.text(response.error);
-        else //success
+        else { //success
             serverResponse.text("File uploaded successfully");
+            getUserPdfs();
+        }
     };
 
 //    Sends off message to upload file
     httpReq.open("POST", '/upload');
     httpReq.send(formData);
+}
+
+//GETs a list of the user's uploaded PDFs
+function getUserPdfs() {
+    let xhttp = new XMLHttpRequest();
+    let serverResponse = document.getElementById("UserPdfsList");
+    serverResponse.innerHTML = "<h1>Loading PDFs</h1>";
+
+    xhttp.onload = () => {
+
+        let response = JSON.parse(xhttp.responseText);
+        if("error" in response) //could not get pdf from directory
+            serverResponse.innerHTML = "<h1>Could not get any PDFs.</h1>";
+        else { //files have returned
+            let fileList = response;
+            let pdfListLinks = "";
+            for(let fileNumber = 0; fileNumber < fileList.length; fileNumber++) {
+                let fileName = fileList[fileNumber];
+                pdfListLinks += "<button>" + fileName + "</button>"
+            }
+            serverResponse.innerHTML = pdfListLinks;
+        }
+    };
+
+    xhttp.open("GET", "/userpdfs");
+    xhttp.send();
 }
