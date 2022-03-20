@@ -106,10 +106,12 @@ function login(request, response){
 
             //Look to see if we have a matching user
             let userFound = result.length > 0;
-
+            let username = result[0].name;
+            let userId = result[0].id;
             if(userFound) {
                 //Store details of logged in user
-                request.session.username = name;
+                request.session.username = username;
+                request.session.userId = userId;
                 //Send back appropriate response
                 response.send('{"login":true}');
             }
@@ -191,6 +193,16 @@ function uploadPdf(request, response) {
     if (!fs.existsSync(directoryToUploadFileTo)){
         fs.mkdirSync(directoryToUploadFileTo, { recursive: true });
     }
+//    Adds book name etc to database
+    let userId = request.session.userId;
+    let sql = "INSERT INTO documents (filename, user_id)  VALUES ("
+        + "\"" + myFile.name + "\","
+        + "\"" + userId + "\""
+        + ")";
+    connectionPool.query(sql, (error, result) => {
+        if(error) //ensures document is not added to user directory.
+            return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
+    });
 
     //moves PDF into the directory assigned for user
     myFile.mv(directoryToUploadFileTo + "/" + myFile.name, function(err) {
@@ -198,9 +210,10 @@ function uploadPdf(request, response) {
            return response.status(500).send('{"filename": "' +
                myFile.name + '", "upload": false, "error": "' +
                JSON.stringify(err) + '"}');
-       else //   Sends back confirmation of the upload file
+       else {//   Sends back confirmation of the upload file
            response.send('{"filename": "' + myFile.name +
                '", "upload": true}');
+       }
     });
 }
 
