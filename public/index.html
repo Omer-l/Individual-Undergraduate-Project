@@ -1,46 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Simple Web Application</title>
+    <!--    Styles-->
+    <!--    login registration styles-->
+    <link href="mystyles.css" type="text/css" rel="stylesheet">
+    <!--   W3Schools CSS-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--    JavaScript-->
+    <!--    jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--    Client-->
+    <script src="client.js"></script>
+    <!--    login registration js-->
+    <script src="loginregistration.js"></script>
+    <!--    dashboard js-->
+    <script src="dashboard.js"></script>
 </head>
 <body>
-<!-- Scripts and necessary libraries-->
-<link href="styles.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Ensures only an active session is shown the dashboard, otherwise, a login and registration is shown-->
+<div id="CheckLoginDiv"></div>
 
-<!-- Navigation Bar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="index.html"><img href="index.html" src="EyeDoc.png" width="30" height="30"></a>
-    <a class="navbar-brand" href="index.html">EyeDoc</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Scores <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Files</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="signin.html">Sign in</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="col-lg-8 col-md-7" id="uploadFileDiv">
-<!--    <img src="uploadfiles.png" width="610px" height="300px">-->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a type="button" class="btn btn-outline-light text-dark" href="dashboard.html">Go To Application</a>
-
-</div>
-
+<script>
+    userLoggedIn();
+    function outputPage(sessionActive) {
+        if(!sessionActive) {
+            parsePageURL();
+            outputLoginRegistrationToPage();
+        }
+        else
+            outputDashboard();
+    }
+</script>
 </body>
 </html>
+
