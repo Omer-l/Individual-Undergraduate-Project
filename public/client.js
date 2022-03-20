@@ -208,6 +208,25 @@ function loadPdf(pdfName) {
     xhttp.send(stringifiedpdfDetails);
 }
 
+//removes user's clicked pdf
+function removePdf(pdfName) {
+    let serverResponse = document.getElementById("ServerResponse");
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = () => {
+        if(xhttp.readyState == 4 && xhttp.status == 200) {
+            let response = JSON.parse(xhttp.responseText);
+            console.log(response);
+            serverResponse.innerHTML = "Removed " + response.pdfName;
+            getUserPdfs();
+        }
+    }
+
+    xhttp.open("POST", "/removepdf");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send("{ \"pdfName\": \"" + pdfName +"\" }")
+}
+
 //GETs a list of the user's uploaded PDFs
 function getUserPdfs() {
     let xhttp = new XMLHttpRequest();
@@ -224,7 +243,8 @@ function getUserPdfs() {
             let pdfListLinks = "";
             for(let fileNumber = 0; fileNumber < fileList.length; fileNumber++) {
                 let fileName = fileList[fileNumber];
-                pdfListLinks += "<button class=\"btn btn-lg btn-primary\" href=\"javascript:void(0)\" onclick=\"loadPdf(\'" + fileName + "\');\">" + fileName + "</button>"
+                pdfListLinks += "<div class='container-fluid'><button class=\"btn btn-lg btn-primary\" href=\"javascript:void(0)\" onclick=\"loadPdf(\'" + fileName + "\');\">" + fileName + "</button>"
+                pdfListLinks += "<button class=\"btn btn-lg btn-warning\" href=\"javascript:void(0)\" onclick=\"removePdf(\'" + fileName + "\');\">Remove</button></div>"
             }
             serverResponse.innerHTML = pdfListLinks;
         }
