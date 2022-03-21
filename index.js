@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const mysql = require('mysql');
 const fs = require('fs');
+const path = require('path');
+const __rootdir = path.resolve("./"); //
+
 
 //Create express app and configure it with body-parser
 const app = express();
@@ -39,6 +42,7 @@ app.post('/register', register);//Register a new user
 app.post('/upload', uploadPdf);//For file uploading
 app.post('/loadpdf', loadPdf); //loads PDF content to front end
 app.post('/removepdf', removePdf); //Removes PDF from signed in user's assigned directory
+
 
 
 //Start the app listening on port 8080
@@ -106,9 +110,9 @@ function login(request, response){
 
             //Look to see if we have a matching user
             let userFound = result.length > 0;
-            let username = result[0].name;
-            let userId = result[0].id;
             if(userFound) {
+                let username = result[0].name;
+                let userId = result[0].id;
                 //Store details of logged in user
                 request.session.username = username;
                 request.session.userId = userId;
@@ -180,7 +184,7 @@ function uploadPdf(request, response) {
     let myFile = files.myFile;
 
 //    Checks that it is a PDF file, not any other
-    let notAPdfFile = !myFile.name.includes('.pdf') && myFile.name.split('.').length > 1 && myFile.name.split('.')[1].toLowerCase() != "pdf";
+    let notAPdfFile = !myFile.name.includes('.myPdf') && myFile.name.split('.').length > 1 && myFile.name.split('.')[1].toLowerCase() != "pdf";
     if(notAPdfFile)
         return response.status(400).send('{"upload": false, "error": "Not a PDF file"}');
 
@@ -240,9 +244,10 @@ function loadPdf(request, response) {
     //for finding user's PDFs
     const username = request.session.username;
     const pdfName = request.body.pdfName;
-    const pdflocation = './uploads/' + username + "/" + pdfName;
+    const pdflocation = __rootdir + '/uploads/' + username + "/" + pdfName;
+    console.log(pdflocation);
     //Reads all file names in user's PDF list
-    response.send("{\"message\": \"file found..?\"}");
+    response.sendFile(pdflocation);
 }
 
 //Removes a given Pdf
@@ -256,7 +261,7 @@ function removePdf(request, response) {
     const pdfLocation = "./uploads/" + username + "/" + pdfName;
     console.log(pdfLocation);
 
-    //Removes pdf
+    //Removes myPdf
     fs.rm(pdfLocation, (err) => {
         if(err)
             response.send("{\"message\": \"" + err +"\"}");
