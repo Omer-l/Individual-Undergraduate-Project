@@ -8,7 +8,6 @@ const fs = require('fs');
 const path = require('path');
 const __rootdir = path.resolve("./"); //
 
-
 //Create express app and configure it with body-parser
 const app = express();
 app.use(bodyParser.json());

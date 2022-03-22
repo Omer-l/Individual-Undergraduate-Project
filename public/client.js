@@ -6,7 +6,7 @@ let addUserResultDiv;
 window.onload = init;
 
 //Get pointers to parts of the DOM after the page has loaded.
-function init(){
+function init() {
     userDiv = document.getElementById("UserDiv");
     addUserResultDiv = document.getElementById("AddUserResult");
     loadUsers();
@@ -45,47 +45,50 @@ function loadUsers() {
 
 /* Posts a new user to the server. */
 function addUser() {
-    //Set up XMLHttpRequest
-    let xhttp = new XMLHttpRequest();
 
-    //Extract user data
-    let usrName = document.getElementById("RegistrationUsername").value;
-    let usrEmail = document.getElementById("RegistrationPassword").value;
-    let userPreferences = "12345";
+    // //Set up XMLHttpRequest
+    // let xhttp = new XMLHttpRequest();
+    //
+    // //Extract user data
+    // let usrName = document.getElementById("RegistrationUsername").value;
+    // let usrEmail = document.getElementById("RegistrationPassword").value;
 
-    //Create object with user data
-    let usrObj = {
-        name: usrName,
-        password: usrEmail,
-        preferences: userPreferences
-    };
-    
-    //Set up function that is called when reply received from server
-    xhttp.onreadystatechange = function() {
-        if(xhttp.responseText.length > 0) {
-            if (this.readyState == 4 && this.status == 200) {
-                //Convert JSON to a JavaScript object
-                let details = JSON.parse(xhttp.responseText);
-                let registrationSuccessful = details.registration;
-                let page = "http://localhost:8080/index.html?register";
-                let name = details.name;
-                if(registrationSuccessful) {
-                    console.log(name);
-                    page = "http://localhost:8080/index.html?login=" + name;
-                } else {
-                    page = "http://localhost:8080/index.html?register=" + name;
-                }
-                location.href = page;
-            } else {
-                console.log("Error adding user");
-            }
-        }
-    };
+    //the user's chosen preferences
+    let userPreferences = readingMode + "-" + quizMode + "-" + numberOfWordsBeforeQuiz;
+    console.log("PREFS: " + userPreferences);
+    // //Create object with user data
+    // let usrObj = {
+    //     name: usrName,
+    //     password: usrEmail,
+    //     preferences: userPreferences
+    // };
+    //
+    // //Set up function that is called when reply received from server
+    // xhttp.onreadystatechange = function() {
+    //     if(xhttp.responseText.length > 0) {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             //Convert JSON to a JavaScript object
+    //             let details = JSON.parse(xhttp.responseText);
+    //             let registrationSuccessful = details.registration;
+    //             let page = "http://localhost:8080/index.html?register";
+    //             let name = details.name;
+    //             if(registrationSuccessful) {
+    //                 console.log(name);
+    //                 page = "http://localhost:8080/index.html?login=" + name;
+    //             } else {
+    //                 page = "http://localhost:8080/index.html?register=" + name;
+    //             }
+    //             location.href = page;
+    //         } else {
+    //             console.log("Error adding user");
+    //         }
+    //     }
+    // };
 
-    //Send new user data to server
-    xhttp.open("POST", "/register", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send( JSON.stringify(usrObj) );
+    // //Send new user data to server
+    // xhttp.open("POST", "/register", true);
+    // xhttp.setRequestHeader("Content-type", "application/json");
+    // xhttp.send( JSON.stringify(usrObj) );
 }
 
 /* GETs a user from the server and logs them in if valid details. */
@@ -194,7 +197,7 @@ function loadPdf(pdfName) {
     console.log(stringifiedpdfDetails);
     xhttp.onreadystatechange = () => {//Called when pdf data returns from server
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-          let response = JSON.parse(xhttp.responseText);
+          let response = JSON.stringify(xhttp.responseText);
           console.log(response)
           serverResponse.text("FOUND: " + response.pdfName);
       }

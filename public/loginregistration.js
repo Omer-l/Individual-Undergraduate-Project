@@ -1,5 +1,8 @@
 let loginPrompt = false;
 let name = '';
+let readingMode = 0;
+let quizMode = 1;
+let numberOfWordsBeforeQuiz = 10;
 //Ensures fields are filled in or the right tab is shown
 function parsePageURL() {
     //get URL
@@ -36,13 +39,54 @@ function preferenceSelected(preferenceName) {
     let preference = document.getElementById(preferenceSelectorId);
     if (preference) {
         if (preference.selectedIndex == 1) {
+            if(preferenceName == 'Quiz') quizMode = 1;
 //    show preferences
             $(preferenceDivId).show();
         } else {
+            if(preferenceName == 'Quiz') quizMode = 0;
             $(preferenceDivId).hide();
         }
     }
 }
+
+//When reading mode is selected
+function readingModeSelected() {
+    let preferenceSelectorId = 'ModeSelector';
+    let preference = document.getElementById(preferenceSelectorId);
+    if (preference) {
+        if (preference.selectedIndex == 0) {
+            readingMode = 0;
+        } else {
+            readingMode = 1;
+        }
+    }
+}
+
+//When number of words before quiz is selected
+function numberOfWordsBeforeQuizSelected() {
+    console.log("BDOING");
+    let preferenceSelectorId = 'NumberOfWordsSelector';
+    let preference = document.getElementById(preferenceSelectorId);
+    if (preference) {
+        let selected = preference.selectedIndex;
+        if (selected == 0) {
+            numberOfWordsBeforeQuiz = 10;
+        } else if(selected == 1){
+            numberOfWordsBeforeQuiz = 50;
+        } else if(selected == 2){
+            numberOfWordsBeforeQuiz = 100;
+        } else if(selected == 3){
+            numberOfWordsBeforeQuiz = 300;
+        } else if(selected == 4){
+            numberOfWordsBeforeQuiz = 600;
+        } else if(selected == 5){
+            numberOfWordsBeforeQuiz = 1000;
+        } else if(selected == 6){
+            numberOfWordsBeforeQuiz = 3000;
+        }
+    }
+}
+
 
 //ensures registration or login buttons' are not activated until inputs are made
 function activateButton(formName) {
@@ -118,8 +162,8 @@ function outputLoginRegistrationToPage() {
         '                </div>\n' +
         '                <div id="PreferencesDiv">\n' +
         '                    <div class="form-group">\n' +
-        '                        <label for="rand">Choose Mode</label>\n' +
-        '                        <select class="form-control" id="rand">\n' +
+        '                        <label for="ModeSelector">Choose Mode</label>\n' +
+        '                        <select class="form-control" id="ModeSelector" onchange="readingModeSelected()">\n' +
         '                            <option>Paragraph</option>\n' +
         '                            <option>Rapid Serial Visual Presentation</option>\n' +
         '                        </select>\n' +
@@ -134,8 +178,8 @@ function outputLoginRegistrationToPage() {
         '                    </div>\n' +
         '\n' +
         '                    <div class="form-group" id="QuizPreferencesDiv">\n' +
-        '                        <label for="QuizPreferenceSelector">Words Before Quiz</label>\n' +
-        '                        <select class="form-control" id="rand">\n' +
+        '                        <label for="NumberOfWordsSelector">Words Before Quiz</label>\n' +
+        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="numberOfWordsBeforeQuizSelected()">\n' +
         '                            <option>10</option>\n' +
         '                            <option>50</option>\n' +
         '                            <option>100</option>\n' +
