@@ -146,10 +146,56 @@ function userLoggedIn() {
         }
     };
 
-    //Request data from all users
+    //Request data to check whether a user is actually logged in
     xhttp.open("GET", "/checklogin", true);
     xhttp.send();
 }
+
+/**
+ * Converts file to base64
+ * @param files the files to encode, only first one will be used
+ * @return      base64 encoded string of the file
+ */
+function convertFileToBase64andSendToServer(selectedFile) {
+    //Check File is not Empty
+    if (selectedFile.length > 0) {
+        // Select the very first file from list
+        var fileToLoad = selectedFile[0];
+        // FileReader function for read the file.
+        var fileReader = new FileReader();
+        var base64;
+        // Onload of file read the file content
+        fileReader.onload = function(fileLoadedEvent) {
+        // Wrap file inside message object
+            const formData = new FormData();
+            base64 = fileLoadedEvent.target.result;
+            // Print data in console
+            formData.append('myFile', base64);
+            // formData.append('myFile', fileArray[0]);
+            // Sets up HTTP req to send file and receive message of confirmation
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = () => { //response from server
+                if(xhttp.readyState == 4 && xhttp.status == 200) {
+                    console.log(xhttp.responseText);
+                    let response = JSON.parse(xhttp.responseText);
+                    if ("error" in response) //pdf could not be uploaded
+                        serverResponse.text(response.error);
+                    else { //success
+                        serverResponse.text("File uploaded successfully");
+                        getUserPdfs();
+                    }
+                }
+            };
+            console.log(formData);
+//    Sends off message to upload file
+            xhttp.open("POST", '/upload', true);
+            xhttp.send(formData);
+        };
+        // Convert data to base64
+        fileReader.readAsDataURL(fileToLoad);
+    }
+}
+
 //Uploads file to server side
 function uploadFile() {
 //        Reference to the div element for server responses
@@ -163,25 +209,7 @@ function uploadFile() {
         serverResponse.text("Please select file to upload.");
         return;
     }
-//    Wrap file inside message object
-    const formData = new FormData();
-    formData.append('myFile', fileArray[0]);
-//    Sets up HTTP req to send file and receive message of confirmation
-    let httpReq = new XMLHttpRequest();
-    httpReq.onload = () => {
-        console.log(httpReq.responseText);
-        let response = JSON.parse(httpReq.responseText);
-        if("error" in response) //pdf could not be uploaded
-            serverResponse.text(response.error);
-        else { //success
-            serverResponse.text("File uploaded successfully");
-            getUserPdfs();
-        }
-    };
-
-//    Sends off message to upload file
-    httpReq.open("POST", '/upload');
-    httpReq.send(formData);
+    convertFileToBase64andSendToServer(fileArray)
 }
 
 //gets a user's clicked PDF

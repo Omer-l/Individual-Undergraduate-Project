@@ -1,16 +1,18 @@
-const PDFJS = require('pdfjs');
+const PDFJS = require('pdfjs-dist');
 
-/**
- * Gets all text from the specified PDF file
- */
-function ExtractText() {
-    let input = document.getElementById("file-id");
-    let fReader = new FileReader();
-    fReader.readAsDataURL(input.files[0]);
-    fReader.onloadend = function (event) {
-        convertDataURIToBinary(event.target.result);
+module.exports = {
+    /**
+     * Gets all text from the specified PDF file
+     */
+    extractText: () => {
+        let input = document.getElementById("file-id");
+        let fReader = new FileReader();
+        fReader.readAsDataURL(input.files[0]);
+        fReader.onloadend = function (event) {
+            convertDataURIToBinary(event.target.result);
+        }
     }
-}
+};
 
 let BASE64_MARKER = ';base64,';
 
@@ -31,6 +33,7 @@ function convertDataURIToBinary(dataURI) {
     pdfAsArray(array)
 
 }
+
 /**
  * Turns PDF into an array of pages
  * @param pdfAsArray
