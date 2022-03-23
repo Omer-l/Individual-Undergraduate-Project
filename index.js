@@ -170,9 +170,9 @@ function register(request, response) {
 
 //Uploads file to /upload folder
 function uploadPdf(request, response) {
-    if(request.session.username == undefined) { //ensures a session is active, a user is logged in
+    if(request.session.username == undefined)  //ensures a session is active, a user is logged in
         return response.status(500).send('{"upload": false, "error": "User not logged in"}');
-    }
+    //Else, user is logged in, attempt to upload PDF
     let files = request.files;
 
 //    Check to see if a file has been submitted to this path
@@ -200,7 +200,8 @@ function uploadPdf(request, response) {
     let userId = request.session.userId;
     let sql = "INSERT INTO documents (filename, user_id)  VALUES ("
         + "\"" + myFile.name + "\","
-        + "\"" + userId + "\""
+        + "\"" + userId + "\","
+        + "\"" + 0 + "\","
         + ")";
     connectionPool.query(sql, (error, result) => {
         if(error) //ensures document is not added to user directory.

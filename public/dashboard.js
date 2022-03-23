@@ -37,7 +37,7 @@ function renderPDF(url, canvasContainer, options) {
 function outputDashboard() {
     document.getElementById("CheckLoginDiv").innerHTML =
         '<input type="file" id="FileInput">' +
-        '<button onclick="uploadFile()">Upload PDF</button>' +
+        '<button class="btn btn-lg btn-dark"  onclick="uploadFile()">Upload PDF</button>' +
         '<div id="ServerResponse"></div>' +
         '<h1>Your PDFs</h1>' +
         '<div id="UserPdfsList"></div>' +

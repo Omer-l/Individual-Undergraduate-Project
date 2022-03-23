@@ -45,50 +45,49 @@ function loadUsers() {
 
 /* Posts a new user to the server. */
 function addUser() {
+    //Set up XMLHttpRequest
+    let xhttp = new XMLHttpRequest();
 
-    // //Set up XMLHttpRequest
-    // let xhttp = new XMLHttpRequest();
-    //
-    // //Extract user data
-    // let usrName = document.getElementById("RegistrationUsername").value;
-    // let usrEmail = document.getElementById("RegistrationPassword").value;
+    //Extract user data
+    let usrName = document.getElementById("RegistrationUsername").value;
+    let usrEmail = document.getElementById("RegistrationPassword").value;
 
     //the user's chosen preferences
     let userPreferences = readingMode + "-" + quizMode + "-" + numberOfWordsBeforeQuiz;
     console.log("PREFS: " + userPreferences);
-    // //Create object with user data
-    // let usrObj = {
-    //     name: usrName,
-    //     password: usrEmail,
-    //     preferences: userPreferences
-    // };
-    //
-    // //Set up function that is called when reply received from server
-    // xhttp.onreadystatechange = function() {
-    //     if(xhttp.responseText.length > 0) {
-    //         if (this.readyState == 4 && this.status == 200) {
-    //             //Convert JSON to a JavaScript object
-    //             let details = JSON.parse(xhttp.responseText);
-    //             let registrationSuccessful = details.registration;
-    //             let page = "http://localhost:8080/index.html?register";
-    //             let name = details.name;
-    //             if(registrationSuccessful) {
-    //                 console.log(name);
-    //                 page = "http://localhost:8080/index.html?login=" + name;
-    //             } else {
-    //                 page = "http://localhost:8080/index.html?register=" + name;
-    //             }
-    //             location.href = page;
-    //         } else {
-    //             console.log("Error adding user");
-    //         }
-    //     }
-    // };
+    //Create object with user data
+    let usrObj = {
+        name: usrName,
+        password: usrEmail,
+        preferences: userPreferences
+    };
 
-    // //Send new user data to server
-    // xhttp.open("POST", "/register", true);
-    // xhttp.setRequestHeader("Content-type", "application/json");
-    // xhttp.send( JSON.stringify(usrObj) );
+    //Set up function that is called when reply received from server
+    xhttp.onreadystatechange = function() {
+        if(xhttp.responseText.length > 0) {
+            if (this.readyState == 4 && this.status == 200) {
+                //Convert JSON to a JavaScript object
+                let details = JSON.parse(xhttp.responseText);
+                let registrationSuccessful = details.registration;
+                let page = "http://localhost:8080/index.html?register";
+                let name = details.name;
+                if(registrationSuccessful) {
+                    console.log(name);
+                    page = "http://localhost:8080/index.html?login=" + name;
+                } else {
+                    page = "http://localhost:8080/index.html?register=" + name;
+                }
+                location.href = page;
+            } else {
+                console.log("Error adding user");
+            }
+        }
+    };
+
+    //Send new user data to server
+    xhttp.open("POST", "/register", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send( JSON.stringify(usrObj) );
 }
 
 /* GETs a user from the server and logs them in if valid details. */

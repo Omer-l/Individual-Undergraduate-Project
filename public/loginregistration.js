@@ -201,7 +201,8 @@ function outputLoginRegistrationToPage() {
     // Show tab depending on query
     if(loginPrompt) {
         document.getElementById("LoginTabButton").click();
-        // document.getElementById("Logi")
+        let loginInputField = $('#LoginUsername');
+        loginInputField.val(name);
     }
     else {
         document.getElementById("RegistrationTabButton").click();
