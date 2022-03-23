@@ -28,77 +28,77 @@ CAMPUS: HENDON
 
 # Contents
 
-**[1 Introduction ]()**
+**[1 Introduction ](#Introduction)**
 
-**[2 Literature review ]()**
+**[2 Literature review ](#LiteratureReview)**
 
-**[2.1 Psychology on Reading ]()**
+**[2.1 Psychology on Reading ](#PsychologyOnReading)**
 
-**[2.1.1 Rapid Serial Visual Presentation (RSVP)]()**
+**[2.1.1 Rapid Serial Visual Presentation (RSVP)](#RSVP)**
 
-**[2.1.2 Speed Reading Courses ]()**
+**[2.1.2 Speed Reading Courses ](#SpeedReadingCourses)**
 
-**[2.2 Reading Skill Improvement Applications ]()**
+**[2.2 Reading Skill Improvement Applications ](#ReadingSkillImprovementApplications)**
 
-**[2.2.1 ReaderPro - Speed Reading and Brain Development ]()**
+**[2.2.1 ReaderPro - Speed Reading and Brain Development ](#ReaderPro)**
 
-**[2.2.2 Speed Reading – Brain Training ]()**
+**[2.2.2 Speed Reading – Brain Training ](#SpeedReading)**
 
-**[2.2.3 eyeBook ]()**
+**[2.2.3 eyeBook ](#eyeBook)**
 
-**[2.2.4 RSVP on the Go ]()**
+**[2.2.4 RSVP on the Go ](#RSVPOnTheGo)**
 
-**[2.3 Accessibility with Eye Tracking]()**
+**[2.3 Accessibility with Eye Tracking](#AccessibilityWithEyeTracking)**
 
-**[2.3.1 Tobii Dynavox ]()**
+**[2.3.1 Tobii Dynavox ](#TobiiDynavox)**
 
-**[2.3.2 Tobii EdTech ]()**
+**[2.3.2 Tobii EdTech ](#TobiiEdTech)**
 
-**[2.4 Eye Tracking Without a Dedicated Eye Tracking Device ]()**
+**[2.4 Eye Tracking Without a Dedicated Eye Tracking Device ](#EyeTrackingWithoutADedicatedEyeTrackingDevice)**
 
-**[2.4.1 SeeSo ]()**
+**[2.4.1 SeeSo ](#SeeSo)**
 
-**[2.4.2 GazeRecorder ]()**
+**[2.4.2 GazeRecorder ](#GazeRecorder)**
 
-**[2.4.3 EyeWriter ]()**
+**[2.4.3 EyeWriter ](#EyeWriter)**
 
-**[2.5 Eye Tracking Technology ]()**
+**[2.5 Eye Tracking Technology ](#EyeTrackingTechnology)**
 
-**[2.5.1 Outline ]()**
+**[2.5.1 Outline ](#Outline)**
 
-**[2.5.2 Glasses ]()**
+**[2.5.2 Glasses ](#Glasses)**
 
-**[2.5.3 Monitor and Eye Tracker Unit ]()**
+**[2.5.3 Monitor and Eye Tracker Unit ](#MonitorAndEyeTrackerUnit)**
 
-**[2.5.4 Camera ]()**
+**[2.5.4 Camera ](#Camera)**
 
-**[2.5.5 DIY Eye Tracker]()**
+**[2.5.5 DIY Eye Tracker](#DIYEyeTracker)**
 
-**[2.5.6 Tobii Eye Tracker 5]()**
+**[2.5.6 Tobii Eye Tracker 5](#TobiiEyeTracker5)**
 
-**[2.5.7 Summary]()**
+**[2.5.7 Summary](#TobiiSummary)**
 
-**[3 References]()**
+**[3 References](#References)**
 
-**[4 Interim Progress Report]()**
+**[4 Interim Progress Report](#InterimProgressReport)**
 
-**[4.1 Picture of the Eye Tracker]()**
+**[4.1 Picture of the Eye Tracker](#PictureOfTheEyeTracker)**
 
-**[4.2 Website and Current reader]()**
+**[4.2 Website and Current reader](#WebsiteAndCurrentReader)**
 
-**[4.3 Database Design]()**
+**[4.3 Database Design](#DatabaseDesign)**
 
-**[4.4 Literature Review and Research]()**
+**[4.4 Literature Review and Research](#LiteratureReviewAndResearch)**
 
-# 1 Introduction
+# <a name="Introduction">1 Introduction</a>
 
 Learners who read slowly are typically (1) fixating frequently, (2) spending a long time on each fixation, and (3) looking back frequently at what they have already read (Nation, 2005). Speed reading practice can be a way of overcoming these obstacles to reading fluency (Mihwa Chung, 2006). A speed-reading book provides methods to read faster, apps let one learn speed reading methods interactively, and eye tracking devices are available to aid in reading. Based on both reading speed and comprehension assessments, readers read an average of 200 words per minute (wpm) with good comprehension, and this can be significantly improved with simple assistive devices, books, and applications. While there are assistive eye tracking applications for reading, they primarily focus on highlighting or page turning and do not offer much speed-reading support for maximising speed reading and comprehension simultaneously. Now, technology for eye tracking has progressed rapidly in recent years and eye tracking devices can precisely determine where the user&#39;s eye is looking. Eye tracking today can be done using numerous devices such as a web camera, or from a small device to fix to your computer that are unobtrusive. In this way, eye gaze data allows for new kinds of applications. Several researchers and commercial groups have also worked&#39; on this technology, and there is an increasing demand for such devices on the market. To address the slow reading speed of users, eye tracking technology will be used since it can track the user&#39;s gaze and provides functionality that won&#39;t obstruct the user while reading. There is a literature review in the next section, in which, a variety of research methods, reading assistance devices and eye tracking technology will be discussed.
 
-# 2 Literature review
+# <a name="LiteratureReview">2 Literature review</a>
 
-## 2.1 Psychology on Reading
+## <a name="PsychologyOnReading">2.1 Psychology on Reading</a>
 
-### 2.1.1 Rapid Serial Visual Presentation (RSVP)
+### <a name="RSVP">2.1.1 Rapid Serial Visual Presentation (RSVP)</a>
 
 The RSVP method allows a reader to maintain fixation at a specific location on the screen as words are presented in quick succession, eliminating the need for eye movements ( (Forster, 1970), (Potter, 1993)). The RSVP method uses a series of words presented over a hundred milliseconds (this duration varies across studies). (Potter, 1980) Found that participants were more capable at this task when the words were related compared to when the words were unrelated or scrambled.
 
@@ -106,23 +106,23 @@ For instance, (Masson, 1986) presented the final word of each sentence in upperc
 
 While RSVP readers can properly comprehend shorter texts, this does not necessarily mean that they can comprehend longer ones. An article in a newspaper or a book chapter, for instance, requires the reader not only to understand individual sentences, but also to construct a mental model of the entire document.
 
-### 2.1.2 Speed Reading Courses
+### <a name="SpeedReadingCourses">2.1.2 Speed Reading Courses</a>
 
 When reading English, forward saccades last an average of 20 to 35 milliseconds and cover seven letters (Rayner, 2016). There is a strong correlation between the distance travelled and the variation in fixation durations rather than with cognitive and linguistic variables. In about 30% of the cases, readers skip the next word and move on to the next (Rayner.K, 2009). The possibility of skips increases with the word&#39;s shortness, frequency, and predictability from the previous context. The word _the_ has these characteristics and is skipped around 50% of the time (Angele, 2013). Nevertheless, even though a word might have been skipped, it does not necessarily mean that it was not processed(Rayner, 2016).
 
 Since Evelyn Wood introduced Reading Dynamics training in 1959, in which she introduced ways of multiplying the reading speed of users, speed reading has been around for decades. Speed Reading has recently increased in popularity, with speed-reading apps and technologies being introduced for smartphones and digital devices (Rayner, 2016). Prior to and after speed-reading classes, participants are often tested on their comprehension. For instance, reading at 2,000 words per minute and scoring 60% on the comprehension test would result in a Reading Efficiency Index (RE Index) of 1,200 words per minute (2,000 times 0.60). An individual who reads at 5,000 words per minute but understands nothing (i.e., answers the comprehension questions at only 10%) would receive an RE Index score of 500 words per minute (Carver, 1990).
 
-## 2.2 Reading Skill Improvement Applications
+## <a name="ReadingSkillImprovementApplications">2.2 Reading Skill Improvement Applications</a>
 
-### 2.2.1 ReaderPro - Speed Reading and Brain Development
+### <a name="ReaderPro">2.2.1 ReaderPro - Speed Reading and Brain Development</a>
 
 ReaderPro is an application available on the Google Play Store. Users can choose from a wide range of reading materials available on the app. The user is given a reading time that can range from 5 to 60 minutes depending on the user&#39;s reading ability, and an assessment of reading comprehension and a score follows the reading. As a result of ReaderPro, users can train their reading speed to overcome their lack of interest in reading (Hayatun, 2019).
 
-### 2.2.2 Speed Reading – Brain Training
+### <a name="SpeedReading">2.2.2 Speed Reading – Brain Training</a>
 
 Using this application users can learn how to speed read any text successfully. For example, methods to save time when reading any text, to identify the most valuable information in a text, to develop memory and attention skills and expand one&#39;s vocabulary.
 
-### 2.2.3 eyeBook
+### <a name="eyeBook">2.2.3 eyeBook</a>
 
 The eyeBook was designed to create an interactive and entertaining reading experience. Using the fact that knowledge workers use the computer a lot, eyeBook uses online reading detection based on eye tracking data for augmented reading that can assist readers (Biedert, 2010). As the user reads text parts on the screen, the system recognises the parts and plays appropriate effects, such as visual effects, sounds, or changing colours.
 
@@ -132,7 +132,7 @@ _Figure 1(Biedert, 2010)_
 
 As illustrated in Figure 1, the eyeBook interface provides an entertaining way to tell stories, and the technology may be used for information assistance.
 
-### 2.2.4 RSVP on the Go
+### <a name="RSVPOnTheGo">2.2.4 RSVP on the Go</a>
 
 By utilising the RSVP method mentioned at Section 2.1.1 and based on an open source framework2, developed an Android Wear RSVP application for the Motorola Moto 360 smartwatch to conduct a research study (Dingler, 2016). Moto 360 runs Android (version 6.0.1) and has a 46 mm thick, 1.56-inch touchscreen display. The repeated-measures design had RSVP control mode as the independent variable, leading to two conditions: 1) manual control, tapped, and 2) implicit control, eye gazed (Dingler, 2016).
 
@@ -146,27 +146,27 @@ _Table 1(Dingler, 2016)_
 
 According to Table 1, the median comprehension score for the eye gaze (implicit) interaction (Md = 18) exceeded the median comprehension score for the tap (explicit) interaction (Md = 16) (Dingler, 2016). Participants therefore demonstrated better comprehension when the device was implicitly controlled. It seems that eye gaze interaction is less distracting than an explicit touch interaction since comprehension was higher when implicit interaction was used. This confirms that the eye tracker controlling the device by indirect intention is successful. Be that as it may, those participants who read with implicit control, spent 55 more seconds on the task, which may explain the additional comprehension that they received from the read text.
 
-## 2.3 Accessibility with Eye Tracking
+## <a name="AccessibilityWithEyeTracking">2.3 Accessibility with Eye Tracking</a>
 
-### 2.3.1 Tobii Dynavox
+### <a name="TobiiDynavox">2.3.1 Tobii Dynavox</a>
 
 Tobii Dynavox helps people with communication and mobility challenges live richer and more meaningful lives. Whether it is an assistive technology device, a communication application, eye gaze control of your computer, materials of low technology or tailored solutions to customer&#39;s needs, Tobii Dynavox is committed to developing top-quality products.
 
 Using Dynavox, individuals who are unable to speak or use a hand or body part in a controlled manner can write messages with only their eyes and have the computer read them aloud (Gosmanova, 2017). Also, it is possible to control appliances such as TVs, air conditioners, and even doors with the help of infrared remote controls for those with limited mobility. People who have trouble moving, such as those with Parkinson&#39;s disease, can operate appliances with their gaze. A teacher, parent or assistant can use an eye tracker and App like Gaze Viewer to find out where someone is looking, or is not looking, on a screen and start conversation based on that.
 
-### 2.3.2 Tobii EdTech
+### <a name="TobiiEdTech">2.3.2 Tobii EdTech</a>
 
 EdTech designs and builds devices that are integrated into computers and provide features such as tracking screen time and posture with accuracy. An education PC designed to enable computers to sense and understand the user through its integrated hardware by tracking head placement and attention to identify issues such as poor body posture and excessive screen time(Henderek, 2021). Hence, if the user becomes focused on work for too long, Tobii&#39;s Artificial Intelligence (AI) will tell them it is time to relax and take breaks. If the user does not take enough breaks, which will cause fatigue and headaches, Tobii will let them know. With every device, EdTech aims to optimise the user experience based on a deep understanding of student attention and intent (Nilsson Benfatto, 2016).
 
-## 2.4 Eye Tracking Without a Dedicated Eye Tracking Device
+## <a name="EyeTrackingWithoutADedicatedEyeTrackingDevice">2.4 Eye Tracking Without a Dedicated Eye Tracking Device</a>
 
-### 2.4.1 SeeSo
+### <a name="SeeSo">2.4.1 SeeSo</a>
 
 SeeSo captures data from front-facing cameras of mobile devices, tablets, and webcams. Data collection of eye-tracking data will improve their services on their products in which ADHD, Autism, and Dementia sufferers can benefit. With SeeSo, users can click and scroll just by moving their eyes.
 
 Visual Camp is responsible for the Software Development Kit of SeeSo, an artificial intelligence-powered eye-tracking system. SeeSo has a 30-day trial free for developers. Also, developers can extend their trial period anytime, and so, SeeSo reaches a much broader audience.
 
-### 2.4.2 GazeRecorder
+### <a name="GazeRecorder">2.4.2 GazeRecorder</a>
 
 Using a webcam, GazeRecorder records a video of the user&#39;s eye movements. The eye movements of the user are displayed as heatmap data in the video frames during the recording, indicating their eye movements as they perform a specific task on their laptop or PC.
 
@@ -176,7 +176,7 @@ _Figure 3(Y. Othman, 2020 )_
 
 Figure 3 is a heatmap that shows gaze data as colours on the screen. Presently, heatmaps can be created using webcams and eye-tracking software. For acquiring the eye-gaze locations, the gaze coordinates found in every frame of the heatmap will be needed (Y. Othman, 2020 ).
 
-### 2.4.3 EyeWriter
+### <a name="EyeWriter">2.4.3 EyeWriter</a>
 
 EyeWriter is led by AutoDesk. The system uses a low-cost eye-tracking apparatus and custom software that enables paralysed graffiti writers to draw with only their eyes. The user can also move their head slightly when using the system making it more reliable in situations. Commercial eye trackers cost between $200 and $20,000. With a price tag of $200, the EyeWriter product is affordable, allowing it to reach a larger audience (Anderson, 2013).
 
@@ -192,9 +192,9 @@ _Figure 5 (Watson, 2010)_
 
 In Figure 5, AutoDesk shows that the EyeWriter even has a robotic arm attached so that it can draw what people see with their eyes.
 
-## 2.5 Eye Tracking Technology
+## <a name="EyeTrackingTechnology">2.5 Eye Tracking Technology</a>
 
-### 2.5.1 Outline
+### <a name="Outline">2.5.1 Outline</a>
 
 For accurate gaze direction measurement, an infrared light source is essential along with a detection mechanism (i.e., camera) to distinguish the pupil and to detect corneal reflection. Using regular light sources (with a web camera/ mobile phone cameras etc) is difficult because the contrast of parts of the eye are not differentiated well enough. Consequently, the task of precisely measuring the user&#39;s gaze becomes more challenging.
 
@@ -204,7 +204,7 @@ The eyes are used for perceiving and understanding the world, our nature prevent
 
 This section of the literature review will cover eye tracking dedicated devices. The Eye Tracking Devices from Tobii will be used as a demonstration of the devices eye tracking has to offer. Towards the end of this section, there is a DIY eye tracker example followed by the eye tracker used for this project and a conclusion.
 
-### 2.5.2 Glasses
+### <a name="Glasses">2.5.2 Glasses
 
 ![](./README_Images/Final_Report/tobiiGlasses.png)
 
@@ -212,7 +212,7 @@ _Figure 6 (Tobii, n.d)_
 
 Figure 6 is the Tobii Pro Glasses 3 and features a discreet, lightweight design and therefore looks like regular eyewear. The cost of this product is over $10,000 (Farnsworth, 2019).These glasses contain a camera for each eye and infra-red illuminators as well as a microphone. It is possible to use the glasses with any Windows/Mac OS or Android device, meaning more people will have an opportunity to learn about the product. Using the slippage compensation technology and consistent calibration, precise and consistent gaze tracking data is maintained throughout recordings, regardless of whether the glasses are taken off and on or moving on the participant&#39;s head. In other words, several algorithms and technologies are used to ensure that the glasses work without worry for the user.Additionally, these glasses can be synchronized with other devices, such as motion capture systems, heart rate, and respiration rate monitors. This opens possibilities for a larger range of subjects such as psychology, health.
 
-### 2.5.3 Monitor and Eye Tracker Unit
+### <a name="MonitorAndEyeTrackerUnit">2.5.3 Monitor and Eye Tracker Unit
 
 ![](./README_Images/Final_Report/tobiiMonitorAndCamera.png)
 
@@ -220,7 +220,7 @@ _Figure 7 (Tobii, n.d)_
 
 Figure 7 is the Tobii Pro Spectrum. There is a display component and an eye tracker component in this device that can be used together or separately. The cost of this product is over $10,000 (Farnsworth, 2019). The eye tracker unit will be the subject of focus. The eye tracker unit is larger than the glasses previously mentioned. Due to its superior, more accurate eye tracking software, infrared sensors, a camera with a frame rate of 1200 frames per second, the eye tracker unit is far more capable system. Hence, among the many applications are psychology, developmental studies, neuroscience, reading research, and ophthalmology.
 
-### 2.5.4 Camera
+### <a name="Camera">2.5.4 Camera
 
 ![](./README_Images/Final_Report/tobiiCamera.png)
 
@@ -228,7 +228,7 @@ _Figure 8 (Tobii, n.d)_
 
 Figure 8 is the Tobii Pro Fusion, a screen-based tracker. Easy to install, the Tobii Pro Fusion connects to a computer and synchronises with the monitor. The cost of this product is over $10,000 (Farnsworth, 2019).With infrared lights and a camera to translate gaze accurately into display locations. The device&#39;s design is discrete and thus unnoticeable, meaning it can be ideal for disciplines such as psychology and neuroscience, when the devices are not to be touched by patients (i.e., children or those diagnosed with autism or schizophrenia). Another application for this device can be seen in consumer applications, such as for gamers, readers, and people who wish to use their devices with their eyes. Thus, Tobii Pro Fusion is very versatile **.**
 
-### 2.5.5 DIY Eye Tracker
+### <a name="DIYEyeTracker">2.5.5 DIY Eye Tracker
 
 ![](./README_Images/Final_Report/diyEyeTracker2.png)
 
@@ -244,7 +244,7 @@ Figure 10A is an image captured by a regular web camera. Figure 10B shows the ca
 
 Upon assembly, the eye tracker can be connected to any computer and run with eye tracking software that utilises the camera. In this way, an eye tracker can be built within a thirty pounds budget.
 
-### 2.5.6 Tobii Eye Tracker 5
+### <a name="TobiiEyeTracker5">2.5.6 Tobii Eye Tracker 5
 
 ![](./README_Images/Final_Report/tobiiEyeTracker5.png)
 
@@ -252,11 +252,11 @@ _Figure 11 (Tobii, 2020)_
 
 Figure 11 shows an eye tracking camera that is ideal for computer use. The product is non-intrusive and easy to connect to Microsoft Windows computers. The Tobii Stream Engine provides a free platform development kit to build applications with the Tobii Eye Tracker 5, making it available to a wide audience of developers. Considering that Eye Tracker 5 costs £229, it is affordable, and it can both be used for gaming and productivity.
 
-### 2.5.7 Summary
+### <a name="TobiiSummary">2.5.7 Summary
 
 Since the release of eye gaze tracking devices, a vast number of innovative applications have been possible. These devices can lead to unprecedented possibilities in many fields. Among the fields are gaming, accessibility, psychology, developmental studies, neuroscience, reading research, and ophthalmology. There are many ways to use eye gaze tracking in assistive technologies. Eye tracking devices can be used by consumers as well as professionals.
 
-# 3 References
+# <a name="References">3 References
 
 Anderson, D. P. E. B. J. S. M. a. C. R., 2013. The EyeWriter.. p. 1.
 
@@ -308,26 +308,26 @@ Available at: http://fffff.at/eyewriter-2-0-robot-arm-livewriter/
 
 Y. Othman, M. K. A. R. A. S. R. A. a. N. S., 2020 . Eye-To-Eye: Towards Visualizing Eye Gaze Data. _International Conference Information Visualisation,_ IV(24), p. 733.
 
-# 4 Interim Progress Report
+# <a name="InterimProgressReport">4 Interim Progress Report
 
-## 4.1 Picture of the Eye Tracker
+## <a name="PictureOfTheEyeTracker">4.1 Picture of the Eye Tracker
 
 ![](./README_Images/Final_Report/eyeTrackerAndLaptop.jpg)
 
 Using the infrared lights and cameras, the eye tracker detects where the eye is looking on the computer screen using an image of the eye tracker.
 
-## 4.2 Website and Current reader
+## <a name="WebsiteAndCurrentReader">4.2 Website and Current reader
 
 ![](./README_Images/Final_Report/applicationEarlyStage.png)
 
 Above is a screenshot of the application in action, where the eye tracker is dragging the mouse and highlighting portions of the text as the user reads. Using the speed metric meter on the top right, the user can see their reading speed. In addition, the user can register and log in to receive their reading speed score.
 
-## 4.3 Database Design
+## <a name="DatabaseDesign">4.3 Database Design
 
 ![Shape2](./README_Images/Final_Report/databaseDesign.png)
 
 Above is the database design. The table includes a reading speed column to ensure that the user&#39;s progress is saved onto the database. The username is the primary key because there was no need to complicate the database with a &#39;user_id&#39;. To categorise users based on their reading speed, a separate table could be created.
 
-## 4.4 Literature Review and Research
+## <a name="LiteratureReviewAndResearch">4.4 Literature Review and Research
 
 It allowed me to learn a great deal about eye tracking technology (both its current and future applications) and comprehension testing methods.
