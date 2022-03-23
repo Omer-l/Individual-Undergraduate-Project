@@ -5,7 +5,8 @@
     "express-session": "^1.17.2",
     "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pdfjs": "^2.4.7"
   },
   "scripts": {
     "move-static": "cp -a ./node_modules/@pdftron/pdfjs-express/public/. ./dist/public/pdfjsexpress",
