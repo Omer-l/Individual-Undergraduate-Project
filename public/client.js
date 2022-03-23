@@ -236,19 +236,22 @@ function getUserPdfs() {
     serverResponse.innerHTML = "<h1>Loading PDFs</h1>";
 
     xhttp.onload = () => {
-
-        let response = JSON.parse(xhttp.responseText);
-        if("error" in response) //could not get pdf from directory
-            serverResponse.innerHTML = "<h1>Could not get any PDFs.</h1>";
-        else { //files have returned
-            let fileList = response;
-            let pdfListLinks = "";
-            for(let fileNumber = 0; fileNumber < fileList.length; fileNumber++) {
-                let fileName = fileList[fileNumber];
-                pdfListLinks += "<div class='container-fluid'><button class=\"btn btn-lg btn-primary\" href=\"javascript:void(0)\" onclick=\"loadPdf(\'" + fileName + "\');\">" + fileName + "</button>"
-                pdfListLinks += "<button class=\"btn btn-lg btn-warning\" href=\"javascript:void(0)\" onclick=\"removePdf(\'" + fileName + "\');\">Remove</button></div>"
+        if(xhttp.responseText.length == 0)
+            serverResponse.innerHTML = "<h1>Upload PDFs!</h1>";
+        else { //PDFs have been found
+            let response = JSON.parse(xhttp.responseText);
+            if ("error" in response) //could not get pdf from directory
+                serverResponse.innerHTML = "<h1>Could not get any PDFs.</h1>";
+            else { //files have returned
+                let fileList = response;
+                let pdfListLinks = "";
+                for (let fileNumber = 0; fileNumber < fileList.length; fileNumber++) {
+                    let fileName = fileList[fileNumber];
+                    pdfListLinks += "<div class='container-fluid'><button class=\"btn btn-lg btn-primary\" href=\"javascript:void(0)\" onclick=\"loadPdf(\'" + fileName + "\');\">" + fileName + "</button>"
+                    pdfListLinks += "<button class=\"btn btn-lg btn-warning\" href=\"javascript:void(0)\" onclick=\"removePdf(\'" + fileName + "\');\">Remove</button></div>"
+                }
+                serverResponse.innerHTML = pdfListLinks;
             }
-            serverResponse.innerHTML = pdfListLinks;
         }
     };
 
