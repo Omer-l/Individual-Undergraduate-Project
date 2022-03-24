@@ -205,7 +205,6 @@ function uploadPdf(request, response) {
         + "" + 0 + ","
         + "\"" + myFile.name + "\""
         + ")";
-    console.log(sql);
     connectionPool.query(sql, (error, result) => {
         if(error) //ensures document is not added to user directory.
             return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
@@ -224,7 +223,7 @@ function uploadPdf(request, response) {
     });
 }
 
-//Gets a given user's PDFs
+/** Gets a given user's PDFs */
 function getUserPdfs(request, response) {
     if(request.session.username == undefined) { //ensures a session is active, a user is logged in
         return response.status(500).send('{"upload": false, "error": "User not logged in"}');
@@ -253,17 +252,24 @@ function loadPdf(request, response) {
     response.sendFile(pdflocation);
 }
 
-//Removes a given Pdf
+/** Removes a given Pdf */
 function removePdf(request, response) {
     if(request.session.username == undefined) //Ensures a session is active
-        return response.status(500).send('{"upload": false, "error": "User not logged in"}');
+        return response.status(500).send('{"delete": false, "error": "User not logged in"}');
     console.log(JSON.stringify(request.body));
     //For finding the PDF location
     const username = request.session.username;
     const pdfName = request.body.pdfName;
     const pdfLocation = "./uploads/" + username + "/" + pdfName;
-    console.log(pdfLocation);
-
+    const userId = request.session.userId;
+    //Remove from database
+    let sql = "DELETE FROM documents where " +
+        "user_id = " + userId + " AND " +
+        "file_name = \"" + pdfName + "\";" ;
+    connectionPool.query(sql, (error, result) => {
+        if(error) //ensures document is not removed from user directory if it can't be removed from database
+            return response.status(500).send('{"delete": false, "error": "Unable to send document to database"}');
+    });
     //Removes myPdf
     fs.rm(pdfLocation, (err) => {
         if(err)
