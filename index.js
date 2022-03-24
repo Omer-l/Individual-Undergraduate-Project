@@ -197,12 +197,15 @@ function uploadPdf(request, response) {
         fs.mkdirSync(directoryToUploadFileTo, { recursive: true });
     }
 //    Adds book name etc to database
+    let html = "<span id=0>temporary</span>";
     let userId = request.session.userId;
-    let sql = "INSERT INTO documents (filename, user_id)  VALUES ("
-        + "\"" + myFile.name + "\","
-        + "\"" + userId + "\","
-        + "\"" + 0 + "\","
+    let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
+        + "\'" + html + "\',"
+        + "" + userId + ","
+        + "" + 0 + ","
+        + "\"" + myFile.name + "\""
         + ")";
+    console.log(sql);
     connectionPool.query(sql, (error, result) => {
         if(error) //ensures document is not added to user directory.
             return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
