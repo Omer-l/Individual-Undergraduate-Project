@@ -188,7 +188,6 @@ function uploadFile() {
 function loadPdf(pdfName) {
     const xhttp = new XMLHttpRequest();
     let serverResponse = $('#ServerResponse');
-    serverResponse.text("YOU CLICKED: " + pdfName);
     let pdfDetails = {
         pdfName: pdfName
     };
@@ -196,9 +195,10 @@ function loadPdf(pdfName) {
     console.log(stringifiedpdfDetails);
     xhttp.onreadystatechange = () => {//Called when pdf data returns from server
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let response = JSON.stringify(xhttp.responseText);
-            console.log(response)
-            serverResponse.text("FOUND: " + response.pdfName);
+            let response = JSON.parse(xhttp.responseText);
+            let html = response.html;
+            serverResponse.text("Displaying " + pdfName);
+            document.getElementById("holder").innerHTML = html;
         }
         // else {//could not load PDF
         //     // serverResponse.text("Unable to load PDF, either try again/sign in again/try a different PDF'");

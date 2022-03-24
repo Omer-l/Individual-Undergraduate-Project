@@ -263,10 +263,18 @@ function loadPdf(request, response) {
     //for finding user's PDFs
     const username = request.session.username;
     const pdfName = request.body.pdfName;
-    const pdflocation = __rootdir + '/uploads/' + username + "/" + pdfName;
-    console.log(pdflocation);
-    //Reads all file names in user's PDF list
-    response.sendFile(pdflocation);
+    const userId = request.session.userId;
+    let sql = "SELECT html, read_position, date_last_accessed, file_name FROM documents WHERE " +
+        "file_name = \"" + pdfName + "\" AND " +
+        "user_id = " + userId + ";";
+    connectionPool.query(sql, (error, result) => {
+       if(error) //Ensures query is fulfilled
+           return response.status(500).send('{"upload": false, "error": "unable to read documents from the database"}');
+        else {
+            let pdfDetails = result[0];
+            response.send(JSON.stringify(pdfDetails));
+       }
+    });
 }
 
 /** Removes a given Pdf */
@@ -303,7 +311,7 @@ function createHtml(words) {
         let word = words[wordNumber];
         if(word.length > 0) //Ensures empty strings are not created.
             //add on span tag of new word
-            htmlCode += "<span id=\"" + wordNumber + "\">" + word.trim() +"</span>";
+            htmlCode += "<span id=\"" + wordNumber + "\">" + word.trim() +" </span>";
     }
 
     return htmlCode;
