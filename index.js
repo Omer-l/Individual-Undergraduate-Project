@@ -119,7 +119,7 @@ function login(request, response){
                 response.send('{"login":true}');
             }
             else {
-                    response.send('{"login": false, "message":"Username or password incorrect."}');
+                response.send('{"login": false, "message":"Username or password incorrect."}');
             }
         }
     });
@@ -172,54 +172,53 @@ function register(request, response) {
 function uploadPdf(request, response) {
     if(request.session.username == undefined)  //ensures a session is active, a user is logged in
         return response.status(500).send('{"upload": false, "error": "User not logged in"}');
-    // Else, user is logged in, attempt to upload PDF
-    let file = request.body.myFile;
-    console.log(file);
+    //Else, user is logged in, attempt to upload PDF
+    let files = request.files;
 
 //    Check to see if a file has been submitted to this path
-    if(!file || Object.keys(file).length === 0)
+    if(!files || Object.keys(files).length === 0)
         return response.status(400).send('{"upload": false, "error": "Files missing"}');
 
 //    name of the input field (i.e. "myFile") is used to retrieve the uploaded file
-    let myFile = file.myFile;
+    let myFile = files.myFile;
 
-// //    Checks that it is a PDF file, not any other
-//     let notAPdfFile = !myFile.name.includes('.myPdf') && myFile.name.split('.').length > 1 && myFile.name.split('.')[1].toLowerCase() != "pdf";
-//     if(notAPdfFile)
-//         return response.status(400).send('{"upload": false, "error": "Not a PDF file"}');
-//
-//     //gets user's directory, if it even exists
-//     let username = request.session.username;
-//
-//     //Directory to add PDF to
-//     const directoryToUploadFileTo = './uploads/' + username;
-//     //ensures directory for this user exists
-//     if (!fs.existsSync(directoryToUploadFileTo)){
-//         fs.mkdirSync(directoryToUploadFileTo, { recursive: true });
-//     }
-// //    Adds book name etc to database
-//     let userId = request.session.userId;
-//     let sql = "INSERT INTO documents (filename, user_id)  VALUES ("
-//         + "\"" + myFile.name + "\","
-//         + "\"" + userId + "\","
-//         + "\"" + 0 + "\","
-//         + ")";
-//     connectionPool.query(sql, (error, result) => {
-//         if(error) //ensures document is not added to user directory.
-//             return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
-//     });
-//
-//     //moves PDF into the directory assigned for user
-//     myFile.mv(directoryToUploadFileTo + "/" + myFile.name, function(err) {
-//        if(err)
-//            return response.status(500).send('{"filename": "' +
-//                myFile.name + '", "upload": false, "error": "' +
-//                JSON.stringify(err) + '"}');
-//        else {//   Sends back confirmation of the upload file
-//            response.send('{"filename": "' + myFile.name +
-//                '", "upload": true}');
-//        }
-//     });
+//    Checks that it is a PDF file, not any other
+    let notAPdfFile = !myFile.name.includes('.myPdf') && myFile.name.split('.').length > 1 && myFile.name.split('.')[1].toLowerCase() != "pdf";
+    if(notAPdfFile)
+        return response.status(400).send('{"upload": false, "error": "Not a PDF file"}');
+
+    //gets user's directory, if it even exists
+    let username = request.session.username;
+
+    //Directory to add PDF to
+    const directoryToUploadFileTo = './uploads/' + username;
+    //ensures directory for this user exists
+    if (!fs.existsSync(directoryToUploadFileTo)){
+        fs.mkdirSync(directoryToUploadFileTo, { recursive: true });
+    }
+//    Adds book name etc to database
+    let userId = request.session.userId;
+    let sql = "INSERT INTO documents (filename, user_id)  VALUES ("
+        + "\"" + myFile.name + "\","
+        + "\"" + userId + "\","
+        + "\"" + 0 + "\","
+        + ")";
+    connectionPool.query(sql, (error, result) => {
+        if(error) //ensures document is not added to user directory.
+            return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
+    });
+
+    //moves PDF into the directory assigned for user
+    myFile.mv(directoryToUploadFileTo + "/" + myFile.name, function(err) {
+        if(err)
+            return response.status(500).send('{"filename": "' +
+                myFile.name + '", "upload": false, "error": "' +
+                JSON.stringify(err) + '"}');
+        else {//   Sends back confirmation of the upload file
+            response.send('{"filename": "' + myFile.name +
+                '", "upload": true}');
+        }
+    });
 }
 
 //Gets a given user's PDFs

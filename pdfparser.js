@@ -1,16 +1,25 @@
 const PDFJS = require('pdfjs-dist');
-
+const words = [];
 module.exports = {
     /**
      * Gets all text from the specified PDF file
      */
-    extractText: () => {
-        let input = document.getElementById("file-id");
-        let fReader = new FileReader();
-        fReader.readAsDataURL(input.files[0]);
-        fReader.onloadend = function (event) {
-            convertDataURIToBinary(event.target.result);
-        }
+    extractText: (dataURI) => {
+        // let input = document.getElementById("file-id");
+        // let fReader = new FileReader();
+        // fReader.readAsDataURL(input.files[0]);
+        // fReader.onloadend = function (event) {
+        //     convertDataURIToBinary(dataURI);
+        // }
+        var filePath = path.join(__dirname, 'uploads/data/multipage.pdf')
+        var extract = require('pdf-text-extract')
+        extract(filePath, { splitPages: false }, function (err, text) {
+            if (err) {
+                console.dir(err)
+                return
+            }
+            console.dir(text)
+        })
     }
 };
 
@@ -23,7 +32,7 @@ function convertDataURIToBinary(dataURI) {
 
     let base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
     let base64 = dataURI.substring(base64Index);
-    let raw = window.atob(base64);
+    let raw = atob(base64);
     let rawLength = raw.length;
     let array = new Uint8Array(new ArrayBuffer(rawLength));
 
@@ -68,6 +77,7 @@ function pdfAsArray(pdfAsArray) {
                     }
                 }
             }
+            console.log("WORH: " + words);
             this.words = words; //save all the pages from the promise.
         });
 

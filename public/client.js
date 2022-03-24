@@ -5,14 +5,14 @@ let addUserResultDiv;
 //Set up page when window has loaded
 window.onload = init;
 
-//Get pointers to parts of the DOM after the page has loaded.
+/** Get pointers to parts of the DOM after the page has loaded. */
 function init() {
     userDiv = document.getElementById("UserDiv");
     addUserResultDiv = document.getElementById("AddUserResult");
     loadUsers();
 }
 
-/* Loads current users and adds them to the page. */
+/** Loads current users and adds them to the page. */
 function loadUsers() {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
@@ -43,7 +43,7 @@ function loadUsers() {
 }
 
 
-/* Posts a new user to the server. */
+/** Posts a new user to the server. */
 function addUser() {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
@@ -90,7 +90,7 @@ function addUser() {
     xhttp.send( JSON.stringify(usrObj) );
 }
 
-/* GETs a user from the server and logs them in if valid details. */
+/** GETs a user from the server and logs them in if valid details. */
 function loginUser(name, password) {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
@@ -128,7 +128,7 @@ function loginUser(name, password) {
     xhttp.send( JSON.stringify(usrObj) );
 }
 
-//Checks Express sessions if user is logged in
+/** Checks Express sessions if user is logged in */
 function userLoggedIn() {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
@@ -146,57 +146,11 @@ function userLoggedIn() {
         }
     };
 
-    //Request data to check whether a user is actually logged in
+    //Request data from all users
     xhttp.open("GET", "/checklogin", true);
     xhttp.send();
 }
-
-/**
- * Converts file to base64
- * @param files the files to encode, only first one will be used
- * @return      base64 encoded string of the file
- */
-function convertFileToBase64andSendToServer(selectedFile) {
-    //Check File is not Empty
-    if (selectedFile.length > 0) {
-        // Select the very first file from list
-        var fileToLoad = selectedFile[0];
-        // FileReader function for read the file.
-        var fileReader = new FileReader();
-        var base64;
-        // Onload of file read the file content
-        fileReader.onload = function(fileLoadedEvent) {
-        // Wrap file inside message object
-            const formData = new FormData();
-            base64 = fileLoadedEvent.target.result;
-            // Print data in console
-            formData.append('myFile', base64);
-            // formData.append('myFile', fileArray[0]);
-            // Sets up HTTP req to send file and receive message of confirmation
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = () => { //response from server
-                if(xhttp.readyState == 4 && xhttp.status == 200) {
-                    console.log(xhttp.responseText);
-                    let response = JSON.parse(xhttp.responseText);
-                    if ("error" in response) //pdf could not be uploaded
-                        serverResponse.text(response.error);
-                    else { //success
-                        serverResponse.text("File uploaded successfully");
-                        getUserPdfs();
-                    }
-                }
-            };
-            console.log(formData);
-//    Sends off message to upload file
-            xhttp.open("POST", '/upload', true);
-            xhttp.send(formData);
-        };
-        // Convert data to base64
-        fileReader.readAsDataURL(fileToLoad);
-    }
-}
-
-//Uploads file to server side
+/** Uploads file to server side */
 function uploadFile() {
 //        Reference to the div element for server responses
     let serverResponse = $('#ServerResponse');
@@ -209,10 +163,28 @@ function uploadFile() {
         serverResponse.text("Please select file to upload.");
         return;
     }
-    convertFileToBase64andSendToServer(fileArray)
+//    Wrap file inside message object
+    const formData = new FormData();
+    formData.append('myFile', fileArray[0]);
+//    Sets up HTTP req to send file and receive message of confirmation
+    let httpReq = new XMLHttpRequest();
+    httpReq.onload = () => {
+        console.log(httpReq.responseText);
+        let response = JSON.parse(httpReq.responseText);
+        if("error" in response) //pdf could not be uploaded
+            serverResponse.text(response.error);
+        else { //success
+            serverResponse.text("File uploaded successfully");
+            getUserPdfs();
+        }
+    };
+
+//    Sends off message to upload file
+    httpReq.open("POST", '/upload');
+    httpReq.send(formData);
 }
 
-//gets a user's clicked PDF
+/** gets a user's clicked PDF */
 function loadPdf(pdfName) {
     const xhttp = new XMLHttpRequest();
     let serverResponse = $('#ServerResponse');
@@ -224,13 +196,13 @@ function loadPdf(pdfName) {
     console.log(stringifiedpdfDetails);
     xhttp.onreadystatechange = () => {//Called when pdf data returns from server
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-          let response = JSON.stringify(xhttp.responseText);
-          console.log(response)
-          serverResponse.text("FOUND: " + response.pdfName);
-      }
-      // else {//could not load PDF
-      //     // serverResponse.text("Unable to load PDF, either try again/sign in again/try a different PDF'");
-      // }
+            let response = JSON.stringify(xhttp.responseText);
+            console.log(response)
+            serverResponse.text("FOUND: " + response.pdfName);
+        }
+        // else {//could not load PDF
+        //     // serverResponse.text("Unable to load PDF, either try again/sign in again/try a different PDF'");
+        // }
     };
     //Send new user data to server
     xhttp.open("POST", "/loadpdf", true);
@@ -238,7 +210,7 @@ function loadPdf(pdfName) {
     xhttp.send(stringifiedpdfDetails);
 }
 
-//removes user's clicked pdf
+/** removes user's clicked pdf */
 function removePdf(pdfName) {
     let serverResponse = document.getElementById("ServerResponse");
     let xhttp = new XMLHttpRequest();
@@ -257,7 +229,7 @@ function removePdf(pdfName) {
     xhttp.send("{ \"pdfName\": \"" + pdfName +"\" }")
 }
 
-//GETs a list of the user's uploaded PDFs
+/** GETs a list of the user's uploaded PDFs */
 function getUserPdfs() {
     let xhttp = new XMLHttpRequest();
     let serverResponse = document.getElementById("UserPdfsList");
