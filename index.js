@@ -6,7 +6,8 @@ const expressSession = require('express-session');
 const mysql = require('mysql');
 const fs = require('fs');
 const path = require('path');
-const __rootdir = path.resolve("./"); //
+const __rootdir = path.resolve("./");
+const pdfUtil = require('pdf-to-text');
 
 //Create express app and configure it with body-parser
 const app = express();
@@ -191,24 +192,11 @@ function uploadPdf(request, response) {
     let username = request.session.username;
 
     //Directory to add PDF to
-    const directoryToUploadFileTo = './uploads/' + username;
+    const directoryToUploadFileTo = __rootdir + '/uploads/' + username;
     //ensures directory for this user exists
     if (!fs.existsSync(directoryToUploadFileTo)){
         fs.mkdirSync(directoryToUploadFileTo, { recursive: true });
     }
-//    Adds book name etc to database
-    let html = "<span id=0>temporary</span>";
-    let userId = request.session.userId;
-    let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
-        + "\'" + html + "\',"
-        + "" + userId + ","
-        + "" + 0 + ","
-        + "\"" + myFile.name + "\""
-        + ")";
-    connectionPool.query(sql, (error, result) => {
-        if(error) //ensures document is not added to user directory.
-            return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
-    });
 
     //moves PDF into the directory assigned for user
     myFile.mv(directoryToUploadFileTo + "/" + myFile.name, function(err) {
@@ -217,10 +205,39 @@ function uploadPdf(request, response) {
                 myFile.name + '", "upload": false, "error": "' +
                 JSON.stringify(err) + '"}');
         else {//   Sends back confirmation of the upload file
-            response.send('{"filename": "' + myFile.name +
-                '", "upload": true}');
+            /** Send pdf to database*/
+            //    Path including PDF file in its directory
+            const absolutePdfPath = directoryToUploadFileTo + "/" + myFile.name + "";
+            //    Extract PDF words
+            /** Reads PDF file and returns an array of split words by the delimiter space ' ' */
+            pdfUtil.pdfToText(absolutePdfPath, function (error, data) {
+                if (error)
+                    throw(error);
+                else {
+                    //Gets the words and put separates them by spaces and new lines in an array
+                    let words = data.replace( /\n/g, " " ).split( " " );
+                    // Put words into span tags
+                    let pdfToHtml = createHtml(words);
+                    //    Adds book name etc to database
+                    let userId = request.session.userId;
+                    let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
+                        + "\'" + pdfToHtml + "\',"
+                        + "" + userId + ","
+                        + "" + 0 + ","
+                        + "\"" + myFile.name + "\""
+                        + ")";
+                    connectionPool.query(sql, (error, result) => {
+                        if(error) //ensures document is not added to user directory.
+                            return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
+                    });
+                    // PDF successfully parse and sent to database
+                    return response.send('{"filename": "' + myFile.name +
+                        '", "upload": true}');
+                }
+            });
         }
     });
+
 }
 
 /** Gets a given user's PDFs */
@@ -277,4 +294,17 @@ function removePdf(request, response) {
         else
             response.send("{\"message\": \"Found and removed PDF\"}");
     });
+}
+
+/** Turns split words into span elements */
+function createHtml(words) {
+    let htmlCode = "";
+    for(let wordNumber = 0; wordNumber < words.length; wordNumber++) {
+        let word = words[wordNumber];
+        if(word.length > 0) //Ensures empty strings are not created.
+            //add on span tag of new word
+            htmlCode += "<span id=\"" + wordNumber + "\">" + word.trim() +"</span>";
+    }
+
+    return htmlCode;
 }
