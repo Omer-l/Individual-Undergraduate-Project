@@ -59,12 +59,12 @@ const connectionPool = mysql.createPool({
     debug: false
 });
 
-// GET /users. Returns all the users.
+/** GET /users. Returns all the users. */
 function getUsers(request, response){
     response.send(userArray);
 }
 
-// GET /checklogin. Checks to see if the user has logged in
+/** GET /checklogin. Checks to see if the user has logged in */
 function checklogin(request, response){
     if(!("username" in request.session))
         response.send('{"login": false}');
@@ -74,7 +74,7 @@ function checklogin(request, response){
     }
 }
 
-// GET /logout. Logs the user out.
+/** GET /logout. Logs the user out. */
 function logout(request, response){
     //Destroy session.
     request.session.destroy( err => {
@@ -85,7 +85,7 @@ function logout(request, response){
     });
 }
 
-/* POST /login. Checks the user's name and password. Logs them in if they match
+/** POST /login. Checks the user's name and password. Logs them in if they match
     Expects a JavaScript object in the body:
     {name: "user name", password: "user password"} */
 function login(request, response){
@@ -125,7 +125,7 @@ function login(request, response){
     });
 }
 
-//Handles POST requests to our web service
+/** Handles POST requests to our web service */
 function register(request, response) {
 
     //Extract details
@@ -168,7 +168,7 @@ function register(request, response) {
     });
 }
 
-//Uploads file to /upload folder
+/** Uploads file to /upload folder */
 function uploadPdf(request, response) {
     if(request.session.username == undefined)  //ensures a session is active, a user is logged in
         return response.status(500).send('{"upload": false, "error": "User not logged in"}');
@@ -238,7 +238,7 @@ function getUserPdfs(request, response) {
     });
 }
 
-//Sends PDF text to front end
+/** Sends PDF text to front end */
 function loadPdf(request, response) {
     if(request.session.username == undefined) { //ensures a session is active, a user is logged in
         return response.status(500).send('{"upload": false, "error": "User not logged in"}');
