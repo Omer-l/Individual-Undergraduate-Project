@@ -12,4 +12,7 @@ td {
 body {
     background-color:wheat;
 }
+span {
+    display: inline-block;
+}
 
