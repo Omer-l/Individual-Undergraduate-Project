@@ -337,7 +337,7 @@ function createHtml(words) {
         let word = words[wordNumber];
         if (word.length > 0) //Ensures empty strings are not created.
             //add on span tag of new word
-            htmlCode += "<span id=\"" + wordNumber + "\">" + word.trim() + " </span>";
+            htmlCode += "<span id=\"w" + wordNumber + "\" onmouseover=\"highlight(this)\" onmouseout=\"unhighlight(this)\">" + word.trim() + " </span>";
     }
 
     return htmlCode;

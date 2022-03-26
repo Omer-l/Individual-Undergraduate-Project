@@ -5,14 +5,19 @@ let backgroundColor = ""; //For completely removing of all highlighting
 let readMode = ""; //RSVP or paragraph mode
 let wordsBeforeQuiz = ""; //for quiz menu
 let fieldOfView = 0; //how much the user can read in field of view
-let wordIdPrefix = "w"; //Prefix of word's DOM element ID
+const wordIdPrefix = "w"; //Prefix of word's DOM element ID
 let previouslyReadWordIndex = 0; //For highlighting the words correctly, to prevent accidental jumps in reading
-let fieldOfViewError = fieldOfView + 1; //Room for error in reading accident jumps
+let fieldOfViewError = 0; //Room for error in reading accident jumps
 
 /** Gets word number from an id i.e., w4 would return 4*/
 function getWordNumber(word) {
     word = word.id.substring(1);
     return parseInt(word);
+}
+
+/** Determines whether a word is already highlighted */
+function highlighted(word, color) {
+    return word.style.backgroundColor == color;
 }
 
 /** Highlights words in the field of view */
@@ -37,21 +42,25 @@ function unhighlight(word) {
     for(let unhighlightIndex = startOfFieldOfView; unhighlightIndex <= endOfFieldOfView; unhighlightIndex++) {
         let wordId = wordIdPrefix + unhighlightIndex;
         let wordInFieldOfView = document.getElementById(wordId);
-        wordInFieldOfView.style.backgroundColor = backgroundColor;
+        if(unhighlightIndex > previouslyReadWordIndex)
+            wordInFieldOfView.style.backgroundColor = backgroundColor;
+        else
+            wordInFieldOfView.style.backgroundColor = unhighlightColor;
     }
     //Unhighlights all previous words
-    let readingAtCorrectPace = idOfWordBeingLookedAt <= previouslyReadWordIndex + fieldOfViewError;
+    let readingAtCorrectPace = idOfWordBeingLookedAt <= previouslyReadWordIndex + fieldOfViewError &&
+                                idOfWordBeingLookedAt >= previouslyReadWordIndex;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
     if(readingAtCorrectPace) { //ensures reader is not jumping text
-        previouslyReadWordIndex = idOfWordBeingLookedAt;
         console.log(readingAtCorrectPace);
         //highlights words not currently being read
-        for(let highlightIndex = previouslyReadWordIndex - 1; highlightIndex <= endOfFieldOfView; highlightIndex++) {
+        for(let highlightIndex = previouslyReadWordIndex; highlightIndex <= endOfFieldOfView; highlightIndex++) {
             let wordId = wordIdPrefix + highlightIndex;
             let wordInFieldOfView = document.getElementById(wordId);
-            let highlighted = wordInFieldOfView.style == unhighlightColor;
-            if(!highlighted)
+            let alreadyUnhighlighted = highlighted(wordInFieldOfView, unhighlightColor);
+            if(!alreadyUnhighlighted)
                 wordInFieldOfView.style.backgroundColor = unhighlightColor;
         }
+        previouslyReadWordIndex = idOfWordBeingLookedAt;
     }
 }

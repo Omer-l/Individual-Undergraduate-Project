@@ -187,6 +187,7 @@ function loadPdf(pdfName) {
             let html = response.html;
             serverResponse.text("Displaying " + pdfName);
             document.getElementById("holder").innerHTML = html;
+            console.log(html);
         }
         // else {//could not load PDF
         //     // serverResponse.text("Unable to load PDF, either try again/sign in again/try a different PDF'");
