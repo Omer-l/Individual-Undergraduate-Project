@@ -10,37 +10,6 @@ function init() {
 
 }
 
-/** Loads current users and adds them to the page. */
-function loadUsers() {
-    //Set up XMLHttpRequest
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = () => {//Called when data returns from server
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            //Convert JSON to a JavaScript object
-            let usrArr = JSON.parse(xhttp.responseText);
-
-            //Return if no users
-            if(usrArr.length === 0)
-                return;
-
-            //Build string with user data
-            let htmlStr = "<table><tr><th>ID</th><th>Name</th><th>Email</th><th>Age</th></tr>";
-            for(let key in usrArr){
-                htmlStr += ("<tr><td>" + key + "</td><td>" + usrArr[key].name + "</td>");
-                htmlStr += ("<td>" + usrArr[key].email + "</td><td>" + usrArr[key].age + "</td></tr>");
-            }
-            //Add users to page.
-            htmlStr += "</table>";
-            userDiv.innerHTML = htmlStr;
-        }
-    };
-
-    //Request data from all users
-    xhttp.open("GET", "/users", true);
-    xhttp.send();
-}
-
-
 /** Posts a new user to the server. */
 function addUser() {
     //Set up XMLHttpRequest
