@@ -70,18 +70,20 @@ function numberOfWordsBeforeQuizSelected() {
     if (preference) {
         let selected = preference.selectedIndex;
         if (selected == 0) {
-            numberOfWordsBeforeQuiz = 10;
+            numberOfWordsBeforeQuiz = 0;
         } else if(selected == 1){
-            numberOfWordsBeforeQuiz = 50;
+            numberOfWordsBeforeQuiz = 10;
         } else if(selected == 2){
-            numberOfWordsBeforeQuiz = 100;
+            numberOfWordsBeforeQuiz = 50;
         } else if(selected == 3){
-            numberOfWordsBeforeQuiz = 300;
+            numberOfWordsBeforeQuiz = 100;
         } else if(selected == 4){
-            numberOfWordsBeforeQuiz = 600;
+            numberOfWordsBeforeQuiz = 300;
         } else if(selected == 5){
-            numberOfWordsBeforeQuiz = 1000;
+            numberOfWordsBeforeQuiz = 600;
         } else if(selected == 6){
+            numberOfWordsBeforeQuiz = 1000;
+        } else if(selected == 7){
             numberOfWordsBeforeQuiz = 3000;
         }
     }
@@ -180,6 +182,7 @@ function outputLoginRegistrationToPage() {
         '                    <div class="form-group" id="QuizPreferencesDiv">\n' +
         '                        <label for="NumberOfWordsSelector">Words Before Quiz</label>\n' +
         '                        <select class="form-control" id="NumberOfWordsSelector" onchange="numberOfWordsBeforeQuizSelected()">\n' +
+        '                            <option>Off</option>\n' +
         '                            <option>10</option>\n' +
         '                            <option>50</option>\n' +
         '                            <option>100</option>\n' +

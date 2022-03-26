@@ -7,9 +7,7 @@ window.onload = init;
 
 /** Get pointers to parts of the DOM after the page has loaded. */
 function init() {
-    userDiv = document.getElementById("UserDiv");
-    addUserResultDiv = document.getElementById("AddUserResult");
-    loadUsers();
+
 }
 
 /** Loads current users and adds them to the page. */
@@ -52,14 +50,18 @@ function addUser() {
     let usrName = document.getElementById("RegistrationUsername").value;
     let usrEmail = document.getElementById("RegistrationPassword").value;
 
-    //the user's chosen preferences
-    let userPreferences = readingMode + "-" + quizMode + "-" + numberOfWordsBeforeQuiz;
-    console.log("PREFS: " + userPreferences);
     //Create object with user data
     let usrObj = {
         name: usrName,
         password: usrEmail,
-        preferences: userPreferences
+        //the user's chosen preferences, some are default when signing up
+        preferences: {
+            readingMode: (readingMode == 0 ? "Paragraph" : "Rapid Serial Visual Presentation"),
+            wordsBeforeQuiz: numberOfWordsBeforeQuiz,
+            highlightColor: "yellow",
+            unhighlightColor: "lightblue",
+            backgroundColor: "white",
+        },
     };
 
     //Set up function that is called when reply received from server

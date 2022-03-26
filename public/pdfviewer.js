@@ -1,6 +1,6 @@
 let highlightColor = "yellow"; //Word currently being read
 let unhighlightColor = "lightblue"; //already read words
-let backgroundColor = "white";
+let backgroundColor = "white"; //For completely removing of all highlighting
 let fieldOfView = 1; //how much the user can read in field of view
 let wordIdPrefix = "w"; //Prefix of word's DOM element ID
 let previouslyReadWordIndex = 0; //For highlighting the words correctly, to prevent accidental jumps in reading
