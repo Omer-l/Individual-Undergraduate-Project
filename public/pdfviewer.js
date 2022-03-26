@@ -1,13 +1,14 @@
-let pdfPreferences = {};
+let pdfPreferences = {}; //Holds all of user's preferences
 let highlightColor = ""; //Word currently being read
 let unhighlightColor = ""; //already read words
 let backgroundColor = ""; //For completely removing of all highlighting
 let readMode = ""; //RSVP or paragraph mode
 let wordsBeforeQuiz = ""; //for quiz menu
 let fieldOfView = 0; //how much the user can read in field of view
-const wordIdPrefix = "w"; //Prefix of word's DOM element ID
 let previouslyReadWordIndex = 0; //For highlighting the words correctly, to prevent accidental jumps in reading
 let fieldOfViewError = 0; //Room for error in reading accident jumps
+const wordIdPrefix = "w"; //Prefix of word's DOM element ID
+const fieldOfViewErrorCounter = 0; //for counting the number of times user reads ahead
 
 /** Gets word number from an id i.e., w4 would return 4*/
 function getWordNumber(word) {

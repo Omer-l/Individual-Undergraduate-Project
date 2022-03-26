@@ -172,6 +172,36 @@ function uploadFile() {
     httpReq.send(formData);
 }
 
+/**
+ * Hides elements, given the boolean parameter
+ * @param pdf   is a boolean to determine whether to hide the PDF.
+ */
+function hideContent(pdf) {
+    if(!pdf) {
+        //to show
+        $("#Holder").show();
+        //to hide
+        $("#ServerResponse").hide();
+        $("#UploadFileButton").hide();
+        $("#FileInput").hide();
+        $("#UserPdfsList").hide();
+    } else {
+        //to show
+        $("#ServerResponse").show();
+        $("#UploadFileButton").show();
+        $("#FileInput").show();
+        $("#UserPdfsList").show();
+        //to hide
+        $("#Holder").hide();
+    }
+}
+
+/** Outputs PDF as HTML*/
+function outputPdfToPage(pdfName, html) {
+    hideContent(false);
+    document.getElementById("Holder").innerHTML = html;
+}
+
 /** gets a user's clicked PDF */
 function loadPdf(pdfName) {
     const xhttp = new XMLHttpRequest();
@@ -186,8 +216,7 @@ function loadPdf(pdfName) {
             let response = JSON.parse(xhttp.responseText);
             let html = response.html;
             serverResponse.text("Displaying " + pdfName);
-            document.getElementById("holder").innerHTML = html;
-            console.log(html);
+            outputPdfToPage(pdfName, html);
         }
         // else {//could not load PDF
         //     // serverResponse.text("Unable to load PDF, either try again/sign in again/try a different PDF'");
