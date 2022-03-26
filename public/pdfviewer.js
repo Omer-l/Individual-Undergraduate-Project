@@ -7,9 +7,9 @@ let wordsBeforeQuiz = ""; //for quiz menu
 let fieldOfView = 0; //how much the user can read in field of view
 let previouslyReadWordIndex = 0; //For highlighting the words correctly, to prevent accidental jumps in reading
 let fieldOfViewError = 0; //Room for error in reading accident jumps
+let fieldOfViewErrorCounter = 0; //for counting the number of times user reads ahead mistakenly
 const wordIdPrefix = "w"; //Prefix of word's DOM element ID
-const fieldOfViewErrorCounter = 0; //for counting the number of times user reads ahead
-
+const maximumFieldOfViewError = 5; //maximum times user can read ahead by accident
 /** Gets word number from an id i.e., w4 would return 4*/
 function getWordNumber(word) {
     word = word.id.substring(1);
@@ -18,7 +18,10 @@ function getWordNumber(word) {
 
 /** Determines whether a word is already highlighted */
 function highlighted(word, color) {
-    return word.style.backgroundColor == color;
+    if(word != null)
+        return word.style.backgroundColor == color;
+    else
+        return false;
 }
 
 /** Highlights words in the field of view */
@@ -52,16 +55,18 @@ function unhighlight(word) {
     let readingAtCorrectPace = idOfWordBeingLookedAt <= previouslyReadWordIndex + fieldOfViewError &&
                                 idOfWordBeingLookedAt >= previouslyReadWordIndex;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
-    if(readingAtCorrectPace) { //ensures reader is not jumping text
+    if(readingAtCorrectPace || fieldOfViewErrorCounter == maximumFieldOfViewError) { //ensures reader is not jumping text
         console.log(readingAtCorrectPace);
         //highlights words not currently being read
         for(let highlightIndex = previouslyReadWordIndex; highlightIndex <= endOfFieldOfView; highlightIndex++) {
             let wordId = wordIdPrefix + highlightIndex;
             let wordInFieldOfView = document.getElementById(wordId);
             let alreadyUnhighlighted = highlighted(wordInFieldOfView, unhighlightColor);
-            if(!alreadyUnhighlighted)
+            if(!alreadyUnhighlighted && wordInFieldOfView != null)
                 wordInFieldOfView.style.backgroundColor = unhighlightColor;
         }
         previouslyReadWordIndex = idOfWordBeingLookedAt;
-    }
+        fieldOfViewErrorCounter = 0;
+    } else
+        fieldOfViewErrorCounter++;
 }
