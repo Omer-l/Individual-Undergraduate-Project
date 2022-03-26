@@ -1,7 +1,10 @@
-let highlightColor = "yellow"; //Word currently being read
-let unhighlightColor = "lightblue"; //already read words
-let backgroundColor = "white"; //For completely removing of all highlighting
-let fieldOfView = 1; //how much the user can read in field of view
+let pdfPreferences = {};
+let highlightColor = ""; //Word currently being read
+let unhighlightColor = ""; //already read words
+let backgroundColor = ""; //For completely removing of all highlighting
+let readMode = ""; //RSVP or paragraph mode
+let wordsBeforeQuiz = ""; //for quiz menu
+let fieldOfView = 0; //how much the user can read in field of view
 let wordIdPrefix = "w"; //Prefix of word's DOM element ID
 let previouslyReadWordIndex = 0; //For highlighting the words correctly, to prevent accidental jumps in reading
 let fieldOfViewError = fieldOfView + 1; //Room for error in reading accident jumps
@@ -51,5 +54,4 @@ function unhighlight(word) {
                 wordInFieldOfView.style.backgroundColor = unhighlightColor;
         }
     }
-
 }

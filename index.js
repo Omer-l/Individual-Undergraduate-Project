@@ -69,8 +69,10 @@ function checklogin(request, response) {
     if (!("username" in request.session))
         response.send('{"login": false}');
     else {
-        response.send('{"login":true, "username": "' +
-            request.session.username + '" }');
+        let username = request.session.username;
+        let preferences = JSON.stringify(request.session.preferences);
+        let message = '{"login":true, "username":"' + username + '", "preferences":' + preferences + '}';
+        response.send(message);
     }
 }
 
@@ -112,13 +114,26 @@ function login(request, response) {
             if (userFound) {
                 let username = result[0].name;
                 let userId = result[0].id;
-                //Store details of logged in user
-                request.session.username = username;
-                request.session.userId = userId;
-                //Send back appropriate response
-                response.send('{"login":true}');
+                //get user preferences
+                let sqlGetUserPreferences = "SELECT * FROM preferences WHERE id=" + userId + ";";
+                connectionPool.query(sqlGetUserPreferences, (errorGettingPreferences, preferencesResult) => {
+                    if(errorGettingPreferences)
+                        console.error("Error executing query: " + JSON.stringify(errorGettingPreferences));
+                    else if(preferencesResult.length > 0) {
+                        let preferences = preferencesResult[0];
+                        //Store details of logged in user
+                        request.session.preferences = preferences;
+                        request.session.username = username;
+                        request.session.userId = userId;
+                        //Send back appropriate response
+                        let message = '{"login":true}';
+                        return response.send(message);
+                    } else {
+                        return response.send('{"login": false, "message":"Preferences incorrect."}');
+                    }
+                });
             } else {
-                response.send('{"login": false, "message":"Username or password incorrect."}');
+                return response.send('{"login": false, "message":"Username or password incorrect."}');
             }
         }
     });
@@ -158,12 +173,13 @@ function register(request, response) {
                         console.error("Error executing query: " + JSON.stringify(errAddUser));
                     } else {
                         //Query to add user details to preferences table
-                        let sqlAddUserPreferencesQuery = "INSERT INTO preferences (reading_mode, words_before_quiz, highlight_color, unhighlight_color, background_color)  VALUES ("
+                        let sqlAddUserPreferencesQuery = "INSERT INTO preferences (reading_mode, words_before_quiz, highlight_color, unhighlight_color, background_color, field_of_view)  VALUES ("
                             + "\"" + preferences.readingMode + "\","
                             + preferences.wordsBeforeQuiz + ","
                             + "\"" + preferences.highlightColor + "\","
                             + "\"" + preferences.unhighlightColor + "\","
-                            + "\"" + preferences.backgroundColor + "\""
+                            + "\"" + preferences.backgroundColor + "\","
+                            + "\"" + preferences.fieldOfView + "\""
                             + ")";
                         connectionPool.query(sqlAddUserPreferencesQuery, (errorAddPreferences, addPreferencesResult) => {
                             if(errorAddPreferences)

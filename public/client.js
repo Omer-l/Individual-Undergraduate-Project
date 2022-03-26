@@ -1,13 +1,50 @@
 //Points to a div element where user combo will be inserted.
-let userDiv;
-let addUserResultDiv;
+let userDetails = {
+    name: "",
+    preferences: {
+        reading_mode: "",
+        words_before_quiz: 0,
+        highlight_color: "",
+        unhighlight_color: "",
+        background_color: "",
+        field_of_view: 0,
+    }
+};
 
 //Set up page when window has loaded
 window.onload = init;
 
 /** Get pointers to parts of the DOM after the page has loaded. */
 function init() {
+}
 
+/** Checks Express sessions if user is logged in */
+function userLoggedIn() {
+    //Set up XMLHttpRequest
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = () => {//Called when data returns from server
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            //Convert JSON to a JavaScript object
+            let response = JSON.parse(xhttp.responseText);
+            let userLoggedIn = response.login;
+            let userInfo = {
+                name: response.username,
+                preferences: response.preferences
+            };
+            let sessionActive = true;
+            if(!userLoggedIn)
+                sessionActive = false;
+            else {
+                sessionActive = true;
+                userDetails = userInfo;
+            }
+            outputPage(sessionActive);
+        }
+    };
+
+    //Request data from all users
+    xhttp.open("GET", "/checklogin", true);
+    xhttp.send();
 }
 
 /** Posts a new user to the server. */
@@ -27,9 +64,10 @@ function addUser() {
         preferences: {
             readingMode: (readingMode == 0 ? "Paragraph" : "Rapid Serial Visual Presentation"),
             wordsBeforeQuiz: numberOfWordsBeforeQuiz,
-            highlightColor: "yellow",
-            unhighlightColor: "lightblue",
-            backgroundColor: "white",
+            highlightColor: "yellow", //default
+            unhighlightColor: "lightblue", //default
+            backgroundColor: "white", //default
+            fieldOfView: 1, //default
         },
     };
 
@@ -80,6 +118,7 @@ function loginUser(name, password) {
             let loginSuccessful = details.login;
             let page = "http://localhost:8080/index.html";
             let name = details.name;
+            console.log(details);
             if(loginSuccessful) {
                 console.log(name);
                 page = "http://localhost:8080/index.html";
@@ -99,28 +138,6 @@ function loginUser(name, password) {
     xhttp.send( JSON.stringify(usrObj) );
 }
 
-/** Checks Express sessions if user is logged in */
-function userLoggedIn() {
-    //Set up XMLHttpRequest
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = () => {//Called when data returns from server
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            //Convert JSON to a JavaScript object
-            let userLoggedIn = JSON.parse(xhttp.responseText).login;
-            let sessionActive = true;
-            if(!userLoggedIn)
-                sessionActive = false;
-            else
-                sessionActive = true;
-
-            outputPage(sessionActive);
-        }
-    };
-
-    //Request data from all users
-    xhttp.open("GET", "/checklogin", true);
-    xhttp.send();
-}
 /** Uploads file to server side */
 function uploadFile() {
 //        Reference to the div element for server responses
