@@ -3,14 +3,14 @@ let highlightColor = ""; //Word currently being read
 let unhighlightColor = ""; //already read words
 let backgroundColor = ""; //For completely removing of all highlighting
 let readMode = ""; //RSVP or paragraph mode
-let wordsBeforeQuiz = ""; //for quiz menu
+let wordsBeforeQuiz = ""; //For quiz menu
 let fieldOfView = 0; //how much the user can read in field of view
-let previouslyReadWordIndex = 0; //For highlighting the words correctly, to prevent accidental jumps in reading
 let fieldOfViewError = 0; //Room for error in reading accident jumps
-let fieldOfViewErrorCounter = 0; //for counting the number of times user reads ahead mistakenly
+let fieldOfViewErrorCounter = 0; //For counting the number of times user reads ahead mistakenly
 const wordIdPrefix = "w"; //Prefix of word's DOM element ID
-const maximumFieldOfViewError = 5; //maximum times user can read ahead by accident
-/** Gets word number from an id i.e., w4 would return 4*/
+const maximumFieldOfViewError = 5; //Maximum times user can read ahead by accident
+
+/** Gets number from an id i.e., id='w4' would return 4*/
 function getWordNumber(word) {
     word = word.id.substring(1);
     return parseInt(word);
@@ -54,8 +54,9 @@ function unhighlight(word) {
     //Unhighlights all previous words
     let readingAtCorrectPace = idOfWordBeingLookedAt <= previouslyReadWordIndex + fieldOfViewError &&
                                 idOfWordBeingLookedAt >= previouslyReadWordIndex;
+    let tooManyErrors = fieldOfViewErrorCounter == maximumFieldOfViewError;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
-    if(readingAtCorrectPace || fieldOfViewErrorCounter == maximumFieldOfViewError) { //ensures reader is not jumping text
+    if(readingAtCorrectPace || tooManyErrors) { //ensures reader is not jumping text
         console.log(readingAtCorrectPace);
         //highlights words not currently being read
         for(let highlightIndex = previouslyReadWordIndex; highlightIndex <= endOfFieldOfView; highlightIndex++) {

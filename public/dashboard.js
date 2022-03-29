@@ -18,8 +18,7 @@ function outputDashboard() {
         '<button class="btn btn-lg btn-dark"  onclick="uploadFile()" id="UploadFileButton">Upload PDF</button>' +
         '<div id="ServerResponse"></div>' +
         '<div id="UserPdfsList"><h1>Your PDFs</h1><br></div>' +
-    '<button' +
-        '<div id="Holder"></div>';
+        '<button'
     //Output list of logged in user's pdfs
     getUserPdfs();
 }

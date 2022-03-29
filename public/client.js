@@ -10,6 +10,10 @@ let userDetails = {
         field_of_view: 0,
     }
 };
+//Holds all the words in PDF
+let pdfWords = [];
+//For highlighting the words correctly, to prevent accidental jumps in reading
+let previouslyReadWordIndex = 0;
 
 //Set up page when window has loaded
 window.onload = init;
@@ -177,9 +181,12 @@ function uploadFile() {
  * @param pdf   is a boolean to determine whether to hide the PDF.
  */
 function hideContent(pdf) {
-    if(!pdf) {
+    if (pdf) {
         //to show
+        $("#HolderDiv").show();
         $("#Holder").show();
+        $("#pageDownBarDiv").show();
+        $("#pageUpBarDiv").show();
         //to hide
         $("#ServerResponse").hide();
         $("#UploadFileButton").hide();
@@ -192,14 +199,39 @@ function hideContent(pdf) {
         $("#FileInput").show();
         $("#UserPdfsList").show();
         //to hide
+        $("#HolderDiv").hide();
         $("#Holder").hide();
+        $("#pageDownBarDiv").hide();
+        $("#pageUpBarDiv").hide();
     }
+}
+
+/**
+ * True if element is overflowing its parent element
+ */
+function pageFullOfWords(elem) {
+    const elemWidth = elem.getBoundingClientRect().height;
+    console.log(elem.parentElement);
+    const parentWidth = elem.parentElement.getBoundingClientRect().height
+    console.log("BOOL : " + elemWidth + " > " + parentWidth);
+    return elemWidth > parentWidth;
 }
 
 /** Outputs PDF as HTML*/
 function outputPdfToPage(pdfName, html) {
-    hideContent(false);
-    document.getElementById("Holder").innerHTML = html;
+    hideContent(true);
+    let pdfHolderId = "Holder"; //holds PDF words
+    //put words into div element
+    let pdfHolderElement = document.getElementById(pdfHolderId);
+    pdfHolderElement.innerHTML = html;
+    //places words into an array to not overfill the page
+    pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
+    pdfHolderElement.innerHTML = ""; //clear PDF view
+    for(let wordNumber = previouslyReadWordIndex; wordNumber < pdfWords.length && !pageFullOfWords(pdfHolderElement); wordNumber++) {
+        let word = pdfWords[wordNumber].outerHTML;
+        pdfHolderElement.innerHTML += word;
+
+    }
 }
 
 /** gets a user's clicked PDF */

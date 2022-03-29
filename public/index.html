@@ -30,7 +30,15 @@
 <!--Ensures only an active session is shown the dashboard, otherwise, a login and registration is shown-->
 <div id="CheckLoginDiv"></div>
 
+<!--Page up bar-->
+<div id="pageUpBarDiv" onmouseover="previousPage()"></div><br>
+<div id="HolderDiv"><br>
+    <div id="Holder"></div>
+    <!--Page down bar-->
+    </div>
+<div id="pageDownBarDiv" onmouseover="nextPage()"></div>
 <script>
+    hideContent(false);
     userLoggedIn();
     function outputPage(sessionActive) {
         if(!sessionActive) {
