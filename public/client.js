@@ -1,3 +1,17 @@
+let pdfPreferences = {}; //Holds all of user's preferences
+let highlightColor = ""; //Word currently being read
+let unhighlightColor = ""; //already read words
+let backgroundColor = ""; //For completely removing of all highlighting
+let readMode = ""; //RSVP or paragraph mode
+let wordsBeforeQuiz = ""; //For quiz menu
+let fieldOfView = 0; //how much the user can read in field of view
+let fieldOfViewError = 0; //Room for error in reading accident jumps
+let fieldOfViewErrorCounter = 0; //For counting the number of times user reads ahead mistakenly
+let pdfWords = [];//Holds all the words in PDF
+let previouslyReadWordIndex = 0;//For highlighting the words correctly, to prevent accidental jumps in reading
+const wordIdPrefix = "w"; //Prefix of word's DOM element ID
+const maximumFieldOfViewError = 5; //Maximum times user can read ahead by accident
+
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -10,10 +24,6 @@ let userDetails = {
         field_of_view: 0,
     }
 };
-//Holds all the words in PDF
-let pdfWords = [];
-//For highlighting the words correctly, to prevent accidental jumps in reading
-let previouslyReadWordIndex = 0;
 
 //Set up page when window has loaded
 window.onload = init;
@@ -173,70 +183,6 @@ function uploadFile() {
 //    Sends off message to upload file
     httpReq.open("POST", '/upload');
     httpReq.send(formData);
-}
-
-/** Hides given elements, given an array of their ids */
-function showElementsByIds(elementIds) {
-    for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
-        let elementId = elementIds[elementIndex];
-        $(elementId).show();
-    }
-}
-
-/** Hides given elements, given an array of their ids */
-function hideElementsByIds(elementIds) {
-    for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
-        let elementId = elementIds[elementIndex];
-        $(elementId).hide();
-    }
-}
-
-/**
- * Hides elements, given the boolean parameter
- * @param pdfElementsOn   is a boolean to determine whether to hide the PDF.
- */
-function hideContent(pdfElementsOn) {
-    let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
-    let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList"];
-    if (pdfElementsOn) {
-        //to show
-        showElementsByIds(pdfContent);
-        //to hide
-        hideElementsByIds(dashboardContent);
-    } else {
-        //to show
-        showElementsByIds(dashboardContent);
-        //to hide
-        hideElementsByIds(pdfContent);
-    }
-}
-
-/**
- * True if element is overflowing its parent element
- */
-function pageFullOfWords(elem) {
-    const elemWidth = elem.getBoundingClientRect().height;
-    console.log(elem.parentElement);
-    const parentWidth = elem.parentElement.getBoundingClientRect().height
-    console.log("BOOL : " + elemWidth + " > " + parentWidth);
-    return elemWidth > parentWidth;
-}
-
-/** Outputs PDF as HTML*/
-function outputPdfToPage(pdfName, html) {
-    hideContent(true);
-    let pdfHolderId = "Holder"; //holds PDF words
-    //put words into div element
-    let pdfHolderElement = document.getElementById(pdfHolderId);
-    pdfHolderElement.innerHTML = html;
-    //places words into an array to not overfill the page
-    pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
-    pdfHolderElement.innerHTML = ""; //clear PDF view
-    for (let wordNumber = previouslyReadWordIndex; wordNumber < pdfWords.length && !pageFullOfWords(pdfHolderElement); wordNumber++) {
-        let word = pdfWords[wordNumber].outerHTML;
-        pdfHolderElement.innerHTML += word;
-
-    }
 }
 
 /** gets a user's clicked PDF */

@@ -1,15 +1,3 @@
-let pdfPreferences = {}; //Holds all of user's preferences
-let highlightColor = ""; //Word currently being read
-let unhighlightColor = ""; //already read words
-let backgroundColor = ""; //For completely removing of all highlighting
-let readMode = ""; //RSVP or paragraph mode
-let wordsBeforeQuiz = ""; //For quiz menu
-let fieldOfView = 0; //how much the user can read in field of view
-let fieldOfViewError = 0; //Room for error in reading accident jumps
-let fieldOfViewErrorCounter = 0; //For counting the number of times user reads ahead mistakenly
-const wordIdPrefix = "w"; //Prefix of word's DOM element ID
-const maximumFieldOfViewError = 5; //Maximum times user can read ahead by accident
-
 /** Gets number from an id i.e., id='w4' would return 4*/
 function getWordNumber(word) {
     word = word.id.substring(1);
