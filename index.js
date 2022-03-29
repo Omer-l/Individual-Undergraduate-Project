@@ -255,10 +255,10 @@ function uploadPdf(request, response) {
                     connectionPool.query(sql, (error, result) => {
                         if (error) //ensures document is not added to user directory.
                             return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
+                        else // PDF successfully parse and sent to database
+                            return response.send('{"filename": "' + myFile.name +
+                                '", "upload": true}');
                     });
-                    // PDF successfully parse and sent to database
-                    return response.send('{"filename": "' + myFile.name +
-                        '", "upload": true}');
                 }
             });
         }

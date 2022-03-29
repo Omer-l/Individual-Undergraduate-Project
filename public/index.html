@@ -39,8 +39,52 @@
     <!--Page down bar-->
     </div>
 <div id="pageDownBarDiv" onmouseover="nextPage()"></div>
+
+<link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="osahan-account-page-left shadow-sm bg-white h-100">
+                <div class="border-bottom p-4">
+                    <div class="osahan-user text-center">
+                        <div class="osahan-user-media">
+                            <img class="mb-3 rounded-pill shadow-sm mt-1" src="pdfIcon.png" alt="PDF" width="200" height="200">
+                            <div class="osahan-user-media-body">
+                                <h6 class="mb-2" id="NameHolder"></h6>
+                                <p style="display: inline" id="NumberOfPdfsHolder"></p>
+                                <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <h3> <i class="icofont-location-pin"></i> Preferences</h3>
+                        <div id="PreferencesHolder">
+                            <p id="ReadingModeHolder">Reading mode: </p>
+                            <p id="WordsBeforeQuizHolder">Words before quiz: </p>
+                            <p id="HighlightColorHolder">Highlight color: </p>
+                            <p id="UnhighlightColorHolder">Unhighlight color: </p>
+                            <p id="BackgroundColorHolder">Background color: </p>
+                            <p id="FieldOfViewHolder">Field of view: </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade  active show"  id="PdfList" role="tabpanel" aria-labelledby="addresses-tab">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
-    hideContent(false);
+    switchContent(false);
     userLoggedIn();
     function outputPage(sessionActive) {
         if(!sessionActive) {
