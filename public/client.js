@@ -176,7 +176,7 @@ function uploadFile() {
 }
 
 /** Hides given elements, given an array of their ids */
-function showElements(elementIds) {
+function showElementsByIds(elementIds) {
     for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
         let elementId = elementIds[elementIndex];
         $(elementId).show();
@@ -184,7 +184,7 @@ function showElements(elementIds) {
 }
 
 /** Hides given elements, given an array of their ids */
-function hideElements(elementIds) {
+function hideElementsByIds(elementIds) {
     for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
         let elementId = elementIds[elementIndex];
         $(elementId).hide();
@@ -200,14 +200,14 @@ function hideContent(pdfElementsOn) {
     let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList"];
     if (pdfElementsOn) {
         //to show
-        showElements(pdfContent);
+        showElementsByIds(pdfContent);
         //to hide
-        hideElements(dashboardContent);
+        hideElementsByIds(dashboardContent);
     } else {
         //to show
-        showElements(dashboardContent);
+        showElementsByIds(dashboardContent);
         //to hide
-        hideElements(pdfContent);
+        hideElementsByIds(pdfContent);
     }
 }
 
