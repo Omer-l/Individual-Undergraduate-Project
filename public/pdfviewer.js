@@ -71,3 +71,8 @@ function unhighlight(word) {
     } else
         fieldOfViewErrorCounter++;
 }
+
+/** Displays the next set of words */
+function nextPage() {
+
+}

@@ -36,7 +36,7 @@ function userLoggedIn() {
                 preferences: response.preferences
             };
             let sessionActive = true;
-            if(!userLoggedIn)
+            if (!userLoggedIn)
                 sessionActive = false;
             else {
                 sessionActive = true;
@@ -76,15 +76,15 @@ function addUser() {
     };
 
     //Set up function that is called when reply received from server
-    xhttp.onreadystatechange = function() {
-        if(xhttp.responseText.length > 0) {
+    xhttp.onreadystatechange = function () {
+        if (xhttp.responseText.length > 0) {
             if (this.readyState == 4 && this.status == 200) {
                 //Convert JSON to a JavaScript object
                 let details = JSON.parse(xhttp.responseText);
                 let registrationSuccessful = details.registration;
                 let page = "http://localhost:8080/index.html?register";
                 let name = details.name;
-                if(registrationSuccessful) {
+                if (registrationSuccessful) {
                     console.log(name);
                     page = "http://localhost:8080/index.html?login=" + name;
                 } else {
@@ -100,7 +100,7 @@ function addUser() {
     //Send new user data to server
     xhttp.open("POST", "/register", true);
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send( JSON.stringify(usrObj) );
+    xhttp.send(JSON.stringify(usrObj));
 }
 
 /** GETs a user from the server and logs them in if valid details. */
@@ -115,7 +115,7 @@ function loginUser(name, password) {
     };
 
     //Set up function that is called when reply received from server
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             //Convert JSON to a JavaScript object
             let details = JSON.parse(xhttp.responseText);
@@ -123,15 +123,14 @@ function loginUser(name, password) {
             let page = "http://localhost:8080/index.html";
             let name = details.name;
             console.log(details);
-            if(loginSuccessful) {
+            if (loginSuccessful) {
                 console.log(name);
                 page = "http://localhost:8080/index.html";
             } else {
                 page += "?login=" + name;
             }
             location.href = page;
-        }
-        else{
+        } else {
             console.log("Error logging in user");
         }
     };
@@ -139,7 +138,7 @@ function loginUser(name, password) {
     //Send new user data to server
     xhttp.open("POST", "/login", true);
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send( JSON.stringify(usrObj) );
+    xhttp.send(JSON.stringify(usrObj));
 }
 
 /** Uploads file to server side */
@@ -151,7 +150,7 @@ function uploadFile() {
 //    Gets the file to send and upload to server-side
     let fileArray = document.getElementById("FileInput").files;
 //    Ensures file is selected
-    if(fileArray.length !== 1) {
+    if (fileArray.length !== 1) {
         serverResponse.text("Please select file to upload.");
         return;
     }
@@ -163,7 +162,7 @@ function uploadFile() {
     httpReq.onload = () => {
         console.log(httpReq.responseText);
         let response = JSON.parse(httpReq.responseText);
-        if("error" in response) //pdf could not be uploaded
+        if ("error" in response) //pdf could not be uploaded
             serverResponse.text(response.error);
         else { //success
             serverResponse.text("File uploaded successfully");
@@ -176,33 +175,39 @@ function uploadFile() {
     httpReq.send(formData);
 }
 
+/** Hides given elements, given an array of their ids */
+function showElements(elementIds) {
+    for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
+        let elementId = elementIds[elementIndex];
+        $(elementId).show();
+    }
+}
+
+/** Hides given elements, given an array of their ids */
+function hideElements(elementIds) {
+    for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
+        let elementId = elementIds[elementIndex];
+        $(elementId).hide();
+    }
+}
+
 /**
  * Hides elements, given the boolean parameter
- * @param pdf   is a boolean to determine whether to hide the PDF.
+ * @param pdfElementsOn   is a boolean to determine whether to hide the PDF.
  */
-function hideContent(pdf) {
-    if (pdf) {
+function hideContent(pdfElementsOn) {
+    let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
+    let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList"];
+    if (pdfElementsOn) {
         //to show
-        $("#HolderDiv").show();
-        $("#Holder").show();
-        $("#pageDownBarDiv").show();
-        $("#pageUpBarDiv").show();
+        showElements(pdfContent);
         //to hide
-        $("#ServerResponse").hide();
-        $("#UploadFileButton").hide();
-        $("#FileInput").hide();
-        $("#UserPdfsList").hide();
+        hideElements(dashboardContent);
     } else {
         //to show
-        $("#ServerResponse").show();
-        $("#UploadFileButton").show();
-        $("#FileInput").show();
-        $("#UserPdfsList").show();
+        showElements(dashboardContent);
         //to hide
-        $("#HolderDiv").hide();
-        $("#Holder").hide();
-        $("#pageDownBarDiv").hide();
-        $("#pageUpBarDiv").hide();
+        hideElements(pdfContent);
     }
 }
 
@@ -227,7 +232,7 @@ function outputPdfToPage(pdfName, html) {
     //places words into an array to not overfill the page
     pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
     pdfHolderElement.innerHTML = ""; //clear PDF view
-    for(let wordNumber = previouslyReadWordIndex; wordNumber < pdfWords.length && !pageFullOfWords(pdfHolderElement); wordNumber++) {
+    for (let wordNumber = previouslyReadWordIndex; wordNumber < pdfWords.length && !pageFullOfWords(pdfHolderElement); wordNumber++) {
         let word = pdfWords[wordNumber].outerHTML;
         pdfHolderElement.innerHTML += word;
 
@@ -266,7 +271,7 @@ function removePdf(pdfName) {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = () => {
-        if(xhttp.readyState == 4 && xhttp.status == 200) {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
             console.log(response);
             serverResponse.innerHTML = "Removed " + response.pdfName;
@@ -276,7 +281,7 @@ function removePdf(pdfName) {
 
     xhttp.open("POST", "/removepdf");
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send("{ \"pdfName\": \"" + pdfName +"\" }")
+    xhttp.send("{ \"pdfName\": \"" + pdfName + "\" }")
 }
 
 /** GETs a list of the user's uploaded PDFs */
@@ -286,7 +291,7 @@ function getUserPdfs() {
     serverResponse.innerHTML = "<h1>Loading PDFs</h1>";
 
     xhttp.onload = () => {
-        if(xhttp.responseText.length == 0)
+        if (xhttp.responseText.length == 0)
             serverResponse.innerHTML = "<h1>Upload PDFs!</h1>";
         else { //PDFs have been found
             let response = JSON.parse(xhttp.responseText);
