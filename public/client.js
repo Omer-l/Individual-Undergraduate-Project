@@ -237,7 +237,7 @@ function getUserPdfs() {
                             '<h6 class="mb-1 text-secondary">PDF</h6>' +
                             '<p class="text-black">' + fileName +
                             '</p>' +
-                            '<p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#add-address-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a> <button class="text-danger" onclick="removePdf(\'' + fileName + '\')"><i class="icofont-ui-delete"></i> DELETE</button></p>' +
+                            '<p class="mb-0 text-black font-weight-bold">' + '<button class="text-danger" onclick="loadPdf(\'' + fileName + '\')"><i class="icofont-ui-delete"></i> READ</button></p>' + '<button class="text-danger" onclick="removePdf(\'' + fileName + '\')"><i class="icofont-ui-delete"></i> DELETE</button></p>' +
                             '</div>' +
                             '</div>' +
                             '</div>' +

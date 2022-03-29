@@ -52,7 +52,7 @@ function hideElementsByIds(elementIds) {
  */
 function switchContent(pdfElementsOn) {
     let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
-    let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList"];
+    let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"];
     if (pdfElementsOn) {
         //to show
         showElementsByIds(pdfContent);
