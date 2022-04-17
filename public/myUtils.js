@@ -5,7 +5,6 @@ let highlightColor = ""; //Word currently being read
 let unhighlightColor = ""; //already read words
 let userBackgroundColor = "white"; //For completely removing of all highlighting
 let readMode = ""; //RSVP or paragraph mode
-let wordsBeforeQuiz = ""; //For quiz menu
 let fieldOfView = 0; //how much the user can read in field of view
 let fieldOfViewError = 0; //Room for error in reading accident jumps
 let fieldOfViewErrorCounter = 0; //For counting the number of times user reads ahead mistakenly
@@ -13,10 +12,13 @@ let pdfWords = [];//Holds all the words in PDF
 let wordsOnPage = []; //Words currently on the page
 let previouslyReadWordIndex = 0;//For highlighting the words correctly, to prevent accidental jumps in reading
 const wordIdPrefix = "w"; //Prefix of word's DOM element ID
-const maximumFieldOfViewError = 5; //Maximum times user can read ahead by accident
+const maximumFieldOfViewError = 10; //Maximum times user can read ahead by accident
 let startingIdOnPage = 0; //first word on page
 let endingIdOnPage = 0; //last word on page
-
+let wordCount = 0; //for quiz popups
+let nameOfPdf = ""; //PDF currently being read
+let wordsBeforeQuiz = 0; //For quizzing
+let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -101,11 +103,38 @@ function outputPdfToPage() {
     //places words into an array to not overfill the page
     pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
     pdfHolderElement.innerHTML = ""; //clear PDF view
-    for (previouslyReadWordIndex = 0; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
+    for (; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
         let word = pdfWords[previouslyReadWordIndex].outerHTML;
         console.log(word);
         pdfHolderElement.innerHTML += word;
     }
+
+    if(pdfHolderElement.innerHTML == "") {
+        pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
+    }
+
     wordsOnPage = $("#" + pdfHolderId).find("span");
     // updateWordVariables();
+}
+
+/** Sets read position back to 0 and reloads PDF */
+function restartPdf() {
+    uploadReadPosition(0);
+    previouslyReadWordIndex = 0;
+    maxWordsForQuiz = wordsBeforeQuiz;
+    outputPdfToPage();
+}
+
+/** Assigns HTML strings as objects */
+function getWordStartingIndexInPdfWordsArray(idOfWord) {
+    let index = 0;
+    for(let elementIndex = 0; elementIndex < pdfWords.length; elementIndex++) {
+        let element = pdfWords[elementIndex];
+        let elementId = $(element).attr('id');
+        if(elementId == idOfWord) {
+            index = elementIndex;
+            break;
+        }
+    }
+    return index;
 }

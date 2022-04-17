@@ -42,6 +42,7 @@ app.post('/register', register);//Register a new user
 app.post('/upload', uploadPdf);//For file uploading
 app.post('/loadpdf', loadPdf); //loads PDF content to front end
 app.post('/removepdf', removePdf); //Removes PDF from signed in user's assigned directory
+app.post('/updatereadposition', updateReadPosition);
 
 
 //Start the app listening on port 8080
@@ -341,4 +342,28 @@ function createHtml(words) {
     }
 
     return htmlCode;
+}
+
+/** Updates given PDF read position for a user */
+function updateReadPosition(request, response){
+
+    if (request.session.username == undefined) //Ensures a session is active
+        return response.status(500).send('{"delete": false, "error": "User not logged in"}');
+    console.log(JSON.stringify(request.body));
+    //For finding the PDF location
+    const readPosition = request.body.readPosition;
+    const pdfName = request.body.pdfName;
+    const userId = request.session.userId;
+    //update read position in database
+    let sql = "UPDATE documents" +
+        " SET read_position = " + readPosition +
+        " WHERE file_name = '" + pdfName + "'" +
+        " AND user_id = " + userId;
+    console.log(sql);
+    connectionPool.query(sql, (error, result) => {
+        if (error) //ensures document is not removed from user directory if it can't be removed from database
+            return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
+        else
+            return response.status(500).send('{"readPositionUpdated": true}');
+    });
 }

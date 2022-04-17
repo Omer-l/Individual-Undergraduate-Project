@@ -24,6 +24,7 @@ function userLoggedIn() {
             else {
                 sessionActive = true;
                 userDetails = userInfo;
+                wordsBeforeQuiz = userDetails.preferences.words_before_quiz;
                 document.getElementById("NameHolder").innerHTML = userDetails.name;
             }
             outputPage(sessionActive);
@@ -123,6 +124,24 @@ function loginUser(name, password) {
     xhttp.open("POST", "/login", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(usrObj));
+
+}/** GETs a user from the server and logs them in if valid details. */
+function logoutUser(name, password) {
+    //Set up XMLHttpRequest
+    let xhttp = new XMLHttpRequest();
+
+    //Set up function that is called when reply received from server
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            location.reload();
+        } else {
+            console.log("Error logging out user");
+        }
+    };
+
+    //Send new user data to server
+    xhttp.open("GET", "/logout", true);
+    xhttp.send();
 }
 
 /** Uploads file to server side */
@@ -161,6 +180,7 @@ function uploadFile() {
 
 /** gets a user's clicked PDF */
 function loadPdf(pdfName) {
+    nameOfPdf = pdfName; //update name of pdf
     const xhttp = new XMLHttpRequest();
     let serverResponse = $('#ServerResponse');
     let pdfDetails = {
@@ -172,6 +192,8 @@ function loadPdf(pdfName) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
             html = response.html;
+            previouslyReadWordIndex = response.read_position;
+            maxWordsForQuiz = previouslyReadWordIndex + wordsBeforeQuiz;
             serverResponse.text("Displaying " + pdfName);
             outputPdfToPage();
         }
@@ -256,4 +278,28 @@ function getUserPdfs() {
 
     xhttp.open("GET", "/userpdfs");
     xhttp.send();
+}
+
+/** update's read position in PDF for loading it next time it is opened */
+function uploadReadPosition(wordPosition) {
+    let serverResponse = document.getElementById("ServerResponse");
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let response = JSON.parse(xhttp.responseText);
+            console.log(response);
+            serverResponse.innerHTML = "Removed " + response.pdfName;
+            getUserPdfs();
+        }
+    }
+
+    let pdfObjectToPost = JSON.stringify({
+        pdfName: nameOfPdf,
+        readPosition: wordPosition
+    });
+
+    xhttp.open("POST", "/updatereadposition");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(pdfObjectToPost)
 }

@@ -1,5 +1,3 @@
-
-
 /** Determines whether a word is already highlighted */
 function highlighted(word, color) {
     if(word != null)
@@ -41,16 +39,28 @@ function unhighlight(word) {
     let tooManyReadingJumpErrors = fieldOfViewErrorCounter == maximumFieldOfViewError;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
     if(readingAtCorrectPace || tooManyReadingJumpErrors) { //ensures reader is not jumping text
-        console.log(readingAtCorrectPace);
         //highlights words not currently being read
         for(let highlightIndex = previouslyReadWordIndex; highlightIndex <= endOfFieldOfView; highlightIndex++) {
             let wordId = wordIdPrefix + highlightIndex;
             let wordInFieldOfView = document.getElementById(wordId);
             let alreadyUnhighlighted = highlighted(wordInFieldOfView, unhighlightColor);
-            if(!alreadyUnhighlighted && wordInFieldOfView != null)
+            if(!alreadyUnhighlighted && wordInFieldOfView != null) {
                 wordInFieldOfView.style.backgroundColor = unhighlightColor;
+                wordCount++;
+            }
         }
         previouslyReadWordIndex = idOfWordBeingLookedAt;
+        let numberOfWordsForQuiz = userDetails.preferences.words_before_quiz;
+        if(idOfWordBeingLookedAt >= wordsBeforeQuiz) {
+            wordsBeforeQuiz = idOfWordBeingLookedAt + userDetails.preferences.words_before_quiz;
+            let wordsForQuiz = [];
+            let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz;
+            for(let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < numberOfWordsForQuiz; pdfWordsIndex++, quizWordCounter++) {
+                let word = pdfWords[pdfWordsIndex];
+                wordsForQuiz.push($(word).text());
+            }
+            console.log("WORDS FOR QUIZ: " + wordsForQuiz);
+        }
         fieldOfViewErrorCounter = 0;
     } else
         fieldOfViewErrorCounter++;
@@ -63,9 +73,12 @@ function nextPage() {
     for(; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
         let word = pdfWords[previouslyReadWordIndex].outerHTML;
         pdfHolderElement.innerHTML += word;
-        wordsOnPage.push(word);
+    }
+    if(pdfHolderElement.innerHTML == "") {
+        pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
     }
     fieldOfViewErrorCounter = 0; //reset error counter
     wordsOnPage = $("#" + pdfHolderId).find("span");
     // updateWordVariables()
+    uploadReadPosition(previouslyReadWordIndex);
 }

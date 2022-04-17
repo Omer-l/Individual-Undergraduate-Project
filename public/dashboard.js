@@ -23,6 +23,7 @@ function outputDashboard() {
         '<input type="file" id="FileInput">' +
         '<button class="btn btn-lg btn-dark"  onclick="uploadFile()" id="UploadFileButton">Upload PDF</button>' +
         '<div id="ServerResponse"></div>' +
+        '<button type="button" class="btn btn-primary" onclick="logoutUser()">Logout</button>' +
         '<div id="UserPdfsList"><h1>Your PDFs</h1><br></div>' +
         '<button';
     //Output list of logged in user's pdfs

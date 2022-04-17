@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.worker.min.js"></script>
     <!--    jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--    My Utilties, contains basic functions -->
+    <!--    My Utilities, contains basic functions -->
     <script src="myUtils.js"></script>
     <!--    Client-->
     <script src="client.js"></script>
@@ -33,7 +33,9 @@
 <div id="CheckLoginDiv"></div>
 
 <!--Page up bar-->
-<div id="pageUpBarDiv" onmouseover="previousPage()"></div><br>
+<div id="pageUpBarDiv" onmouseover="previousPage()">
+    <button type="button" class="btn btn-lg btn-primary" onclick="switchContent(false)">Dashboard</button>
+</div><br>
 <div id="HolderDiv"><br>
     <div id="Holder"></div>
     <!--Page down bar-->

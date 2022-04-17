@@ -2,7 +2,6 @@ let loginPrompt = false;
 let name = '';
 let readingMode = 0;
 let quizMode = 1;
-let numberOfWordsBeforeQuiz = 10;
 //Ensures fields are filled in or the right tab is shown
 function parsePageURL() {
     //get URL
@@ -116,6 +115,7 @@ function signInUser() {
 
 //Outputs login and registration prompt to HTML
 function outputLoginRegistrationToPage() {
+    $("#UserDetailsHolder").hide();
     document.getElementById("CheckLoginDiv").innerHTML =
         '<!-- Menu Container -->\n' +
         '<div class="w3-container" id="menu">\n' +
