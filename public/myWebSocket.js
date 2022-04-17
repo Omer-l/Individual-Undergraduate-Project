@@ -20,9 +20,9 @@ function getQuiz(words) {
         sendData: "analyseText",
         data: "words"
     }
-    //Send message
-    connection.send(JSON.stringify(messageObject));
-
-    //Log result
-    console.log("Message sent: " + JSON.stringify(messageObject));
+    // //Send message TODO
+    // connection.send(JSON.stringify(messageObject));
+    //
+    // //Log result
+    // console.log("Message sent: " + JSON.stringify(messageObject));
 }

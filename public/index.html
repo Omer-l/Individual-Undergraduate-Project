@@ -18,8 +18,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--    My Utilities, contains basic functions -->
     <script src="myUtils.js"></script>
-    <!--    Websocket connection -->
-    <script src="myWebSocket.js"></script>
     <!--    Client-->
     <script src="client.js"></script>
     <!--    login registration js-->
@@ -38,9 +36,21 @@
     <button type="button" class="btn btn-lg btn-primary" onclick="switchContent(false)">Dashboard</button>
 </div><br>
 <div id="HolderDiv"><br>
+<!--    PDF HOLDER -->
     <div id="Holder"></div>
-    <!--Page down bar-->
+<!--    QUIZ HOLDER-->
+    <div id="quizHolder">
+        <h1>Quiz on Important Facts</h1>
+        <div class="quiz-container">
+            <div id="quiz"></div>
+        </div>
+        <button id="previous">Previous Question</button>
+        <button id="next">Next Question</button>
+        <button id="submit">Submit Quiz</button>
+        <div id="results"></div>
     </div>
+</div>
+<!--Page down bar-->
 <div id="pageDownBarDiv" onmouseover="nextPage()"></div>
 
 <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
@@ -98,6 +108,10 @@
             outputDashboard();
     }
 </script>
+<!--    For Quizzing -->
+<script src="quizzer.js"></script>
+<!--    Websocket connection -->
+<script src="myWebSocket.js"></script>
 </body>
 </html>
 
