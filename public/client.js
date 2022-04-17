@@ -186,8 +186,7 @@ function loadPdf(pdfName) {
     let pdfDetails = {
         pdfName: pdfName
     };
-    let stringifiedpdfDetails = JSON.stringify(pdfDetails);
-    console.log(stringifiedpdfDetails);
+    //upon connection
     xhttp.onreadystatechange = () => {//Called when pdf data returns from server
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
