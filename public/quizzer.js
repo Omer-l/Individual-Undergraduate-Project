@@ -38,8 +38,9 @@ let myQuestions = [
         correctAnswer: "b"
     }
 ];
-
-(function(){
+// myQuestions = generateQuestions();
+runQuiz();
+function runQuiz(){
     // Functions
     function buildQuiz(){
         // variable to store the HTML output
@@ -163,4 +164,4 @@ let myQuestions = [
     submitButton.addEventListener('click', showResults);
     previousButton.addEventListener("click", showPreviousSlide);
     nextButton.addEventListener("click", showNextSlide);
-})();
+}

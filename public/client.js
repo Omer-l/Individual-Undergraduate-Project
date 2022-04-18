@@ -270,7 +270,7 @@ function getUserPdfs() {
                     pdfListLinks += '</div>';
                 }
                 document.getElementById("NumberOfPdfsHolder").innerHTML = "Total PDFs: " + fileList.length;
-                    pdfListDiv.innerHTML = "<h4 class=\"font-weight-bold mt-0 mb-4\">Manage Addresses</h4>" + pdfListLinks + "</div";
+                    pdfListDiv.innerHTML = "<h4 class=\"font-weight-bold mt-0 mb-4\">Manage PDFs</h4>" + pdfListLinks + "</div";
             }
         }
     };
@@ -303,6 +303,7 @@ function uploadReadPosition(wordPosition) {
     xhttp.send(pdfObjectToPost)
 }
 
+getSimilarWordsTo("Punjab");
 /** Gets similar words to a word, this helps with the quiz */
 function getSimilarWordsTo(word) {
     let serverResponse = document.getElementById("ServerResponse");

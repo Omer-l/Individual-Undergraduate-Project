@@ -7,7 +7,7 @@ connection.onerror = function (error) {
 
 connection.onopen = function(event) {
     console.log("Connected: " + JSON.stringify(event));
-    getQuiz(["HELLO", "DARKNESS", "MY",  "OLD", "FRIEND"]);
+    getQuiz(["HELLO", " DARKNESS", " MY",  " OLD", " FRIEND"]);
 }
 
 connection.onmessage = function(msg) {
@@ -16,13 +16,14 @@ connection.onmessage = function(msg) {
 }
 
 function getQuiz(words) {
+    wordsJoined = putWordsTogether(words);
     let messageObject = {
         sendData: "analyseText",
         data: "words"
     }
-    // //Send message TODO
-    // connection.send(JSON.stringify(messageObject));
-    //
-    // //Log result
-    // console.log("Message sent: " + JSON.stringify(messageObject));
+    //Send message TODO
+    connection.send(JSON.stringify(messageObject));
+
+    //Log result
+    console.log("Message sent: " + JSON.stringify(messageObject));
 }

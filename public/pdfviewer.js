@@ -59,7 +59,8 @@ function unhighlight(word) {
                 let word = pdfWords[pdfWordsIndex];
                 wordsForQuiz.push($(word).text());
             }
-            console.log("WORDS FOR QUIZ: " + wordsForQuiz);
+            let wordsJoined = putWordsTogether(wordsForQuiz);
+            let sentences = extractSentences(wordsJoined);
         }
         fieldOfViewErrorCounter = 0;
     } else

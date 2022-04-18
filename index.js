@@ -1,4 +1,3 @@
-//Import the express, body-parser and express-session modules
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
@@ -8,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const __rootdir = path.resolve("./");
 const pdfUtil = require('pdf-to-text');
+const { exec } = require("child_process");
 
 //Create express app and configure it with body-parser
 const app = express();
@@ -368,16 +368,45 @@ function updateReadPosition(request, response){
     });
 }
 
+/** Returns a random index of an array */
+function getRandomIndexOf(array) {
+    return Math.floor(Math.random() * array.length);
+}
+
+/** Prevents duplicate words in quiz */
+function wordAlreadyExists(words, word) {
+    for(let wordNumber = 0; wordNumber < words.length; wordNumber++) {
+        let currentWord = words[wordNumber];
+        if(word == currentWord)
+            return true;
+    }
+    return false;
+}
+
+/** Chooses a given number of words from an array */
+function randomlySelectWords(array, numberOfWords) {
+    let randomlySelectedWords = [];
+    let arraySize = array.length;
+    for(let wordNumber = 0; wordNumber < numberOfWords; wordNumber++) {
+        let randomIndex = getRandomIndexOf(array);
+        let randomlySelectedWord = array[randomIndex];
+        while(wordAlreadyExists(randomlySelectedWords, randomlySelectedWord)) {
+            randomIndex = getRandomIndexOf(array);
+            randomlySelectedWord = array[randomIndex];
+        }
+        randomlySelectedWords.push(randomlySelectedWord);
+    }
+    return randomlySelectedWords;
+}
+
 /** Sends similar words in response to the word posted to server */
 function similarWords(request, response) {
     if (request.session.username == undefined) //Ensures a session is active
         return response.status(500).send('{"delete": false, "error": "User not logged in"}');
 
-    const rootDir = path.resolve("..");
-
     console.log(JSON.stringify(request.body));
     const word = request.body.word;
-    exec(rootDir + "/node_modules/.bin/wantwords " + word, (error, stdout, stderr) => {
+    exec(__rootdir + "/node_modules/.bin/wantwords " + word, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -387,7 +416,30 @@ function similarWords(request, response) {
             return;
         }
         let similarWords = stdout.split(/(\s+)/);
-        console.log(similarWords);
+        if(similarWords.length == 0) //ensures words exist if none were similar to given word
+            similarWords = ["cloud","successful","dog","blank","pitch","mark",
+                "get","acres","plant","education","fewer","animal",
+                "am","headed","split","author","lose","shoulder",
+                "soap","became","locate","military","studying","heat",
+                "beneath","congress","hurt","bark","protection","poetry",
+                "your","beyond","never","south","hair","spread",
+                "supper","part","son","cattle","telephone","new"];
+        let parsedSimilarWords = [];
+        //only get the words, ignore whitespaces
+        for(let similarWordIndex = 0; similarWordIndex < similarWords.length; similarWordIndex++) {
+            let similarWord = similarWords[similarWordIndex].trim();
+            let postfixOrPrefix = similarWord.charAt(0) == '-' || similarWord.charAt(similarWord.length - 1) == '-'
+            let emptySimilarWord = similarWord.length == 0;
+            if(!emptySimilarWord && !postfixOrPrefix)
+                parsedSimilarWords.push(similarWord);
+        }
+        //randomly selects 3 words for quiz
+        let words = randomlySelectWords(parsedSimilarWords, 3);
+        let firstLetterInDesiredWordCapital = word.charAt(0) == word.charAt(0).toUpperCase();
+        if(firstLetterInDesiredWordCapital)
+            for (let wordNumber = 0; wordNumber < words.length; wordNumber++)
+                words[wordNumber] = words[wordNumber].charAt(0).toUpperCase() + words[wordNumber].slice(1);
+        console.log(words);
     });
 
 }

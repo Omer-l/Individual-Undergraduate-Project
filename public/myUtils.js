@@ -19,6 +19,9 @@ let wordCount = 0; //for quiz popups
 let nameOfPdf = ""; //PDF currently being read
 let wordsBeforeQuiz = 0; //For quizzing
 let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
+let sentencesForQuizzing = []; //sentences for quizzing
+let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
+
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -138,3 +141,24 @@ function getWordStartingIndexInPdfWordsArray(idOfWord) {
     }
     return index;
 }
+
+/** Joins an array of words into a string */
+function putWordsTogether(words) {
+    let wordsJoined = "";
+    for(let wordIndex = 0; wordIndex < words.length; wordIndex++) {
+        let word = words[wordIndex];
+        wordsJoined += word;
+    }
+    return wordsJoined;
+}
+
+/** Evaluates and extracts sentences then places them into an array */
+function extractSentences(words) {
+    let splitWordsByFullStops = words.split(".");
+    return false;
+}
+
+let testString = "Gulls, or colloquially seagulls, are seabirds of the family Laridae in the suborder Lari. They are most closely related to the terns and only distantly related to auks, skimmers and even more distantly to waders.";
+let sentences = extractSentences(testString); //2
+
+// let
