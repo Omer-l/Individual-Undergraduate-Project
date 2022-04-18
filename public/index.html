@@ -18,6 +18,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--    My Utilities, contains basic functions -->
     <script src="myUtils.js"></script>
+    <!--    Websocket connection -->
+    <script src="myWebSocket.js"></script>
     <!--    Client-->
     <script src="client.js"></script>
     <!--    login registration js-->
@@ -40,12 +42,12 @@
     <div id="Holder"></div>
 <!--    QUIZ HOLDER-->
     <div id="quizHolder">
-        <div class="loader"></div>
-        <h1>Quiz on Important Facts</h1>
+<!--        <div class="loader"></div>-->
+<!--        <h1>Quiz on Important Facts</h1>-->
         <div class="quiz-container">
             <div id="quiz"></div>
         </div>
-        <button id="previous">Previous Question</button>
+        <br><br><button id="previous">Previous Question</button>
         <button id="next">Next Question</button>
         <button id="submit">Submit Quiz</button>
         <div id="results"></div>
@@ -111,8 +113,6 @@
 </script>
 <!--    For Quizzing -->
 <script src="quizzer.js"></script>
-<!--    Websocket connection -->
-<script src="myWebSocket.js"></script>
 </body>
 </html>
 

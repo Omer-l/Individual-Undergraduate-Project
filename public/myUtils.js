@@ -21,7 +21,7 @@ let wordsBeforeQuiz = 0; //For quizzing
 let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
 let sentencesForQuizzing = []; //sentences for quizzing
 let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
-
+let myQuestions = [];
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -34,7 +34,14 @@ let userDetails = {
         field_of_view: 0,
     }
 };
-
+class Answer {
+    constructor(a, b, c, d) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+    }
+}
 /** For quizzing */
 class Question {
     constructor(question, answers, correctAnswer) {
@@ -251,7 +258,7 @@ function generateQuiz(sentencesSyntaxAnalysis) {
 
         let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
         correctAnswer = findBestMissingWord(sentenceAnalysis);
-        question = generateQuestion(sentenceAnalysis, correctAnswer, '?');
+        question = generateQuestion(sentenceAnalysis, correctAnswer, '_');
         answers = getSimilarWordsTo(correctAnswer, question, correctAnswer);
     }
 }

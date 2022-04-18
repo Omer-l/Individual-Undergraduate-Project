@@ -1,45 +1,43 @@
-let myQuestions = [
-    {
-        question: "Who invented JavaScript?",
-        answers: {
-            a: "Douglas Crockford",
-            b: "Sheryl Sandberg",
-            c: "Brendan Eich"
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: "Which one of these is a JavaScript package manager?",
-        answers: {
-            a: "Node.js",
-            b: "TypeScript",
-            c: "npm"
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: "Which tool can you use to ensure code quality?",
-        answers: {
-            a: "Angular",
-            b: "jQuery",
-            c: "RequireJS",
-            d: "ESLint"
-        },
-        correctAnswer: "d"
-    },
-    {
-        question: "What is my name?",
-        answers: {
-            a: "Jas",
-            b: "Omer",
-            c: "Peter",
-            d: "Tony"
-        },
-        correctAnswer: "b"
-    }
-];
-// myQuestions = generateQuestions();
-runQuiz();
+//  myQuestions = [
+//     {
+//         question: "Who invented JavaScript?",
+//         answers: {
+//             a: "Douglas Crockford",
+//             b: "Sheryl Sandberg",
+//             c: "Brendan Eich"
+//         },
+//         correctAnswer: "c"
+//     },
+//     {
+//         question: "Which one of these is a JavaScript package manager?",
+//         answers: {
+//             a: "Node.js",
+//             b: "TypeScript",
+//             c: "npm"
+//         },
+//         correctAnswer: "c"
+//     },
+//     {
+//         question: "Which tool can you use to ensure code quality?",
+//         answers: {
+//             a: "Angular",
+//             b: "jQuery",
+//             c: "RequireJS",
+//             d: "ESLint"
+//         },
+//         correctAnswer: "d"
+//     },
+//     {
+//         question: "What is my name?",
+//         answers: {
+//             a: "Jas",
+//             b: "Omer",
+//             c: "Peter",
+//             d: "Tony"
+//         },
+//         correctAnswer: "b"
+//     }
+// ];
 function runQuiz(){
     // Functions
     function buildQuiz(){
@@ -49,7 +47,7 @@ function runQuiz(){
         // for each question...
         myQuestions.forEach(
             (currentQuestion, questionNumber) => {
-
+                console.log("CUR: " + JSON.stringify(currentQuestion));
                 // variable to store the list of possible answers
                 const answers = [];
 

@@ -312,8 +312,22 @@ function getSimilarWordsTo(word, question, correctAnswer) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
             let answers = response;
-            myQuestions.push( new Question(question, answers, correctAnswer))
-            console.log(myQuestions);
+            let correctAnswerIndex = answers.indexOf(correctAnswer);
+            let correctAnswerLetter = 'a';
+            switch(correctAnswerIndex) {
+                case 0: correctAnswerLetter = "a"; break;
+                case 1: correctAnswerLetter = "b"; break;
+                case 2: correctAnswerLetter = "c"; break;
+                case 3: correctAnswerLetter = "d"; break;
+            }
+            answers = new Answer(answers[0], answers[1], answers[2], answers[3]);
+            myQuestions.push( new Question(question, answers, correctAnswerLetter));
+            // myQuestions.push( {question: question, answers: {a: answers[0], b: answers[1], c: answers[2], d: answers[3]}, correctAnswer: correctAnswerLetter});
+            console.log(myQuestions.length + "... EXPECTED: " + sentencesForQuizzing.length);
+            if(myQuestions.length == sentencesForQuizzing.length) {
+                console.log(myQuestions);
+                runQuiz();
+            }
         }
     }
 
