@@ -204,7 +204,7 @@ function findBestMissingWord(sentenceAnalysis) {
     let otherIndex = wordTypeExists(sentenceAnalysis, "O");
     let determinerIndex = wordTypeExists(sentenceAnalysis, "DET");
     let auxiliaryIndex = wordTypeExists(sentenceAnalysis, "AUX");
-    let sconjIndex = wordTypeExists(sentenceAnalysis, "SCONJ");
+    let suboardinateConjunctionIndex = wordTypeExists(sentenceAnalysis, "SCONJ");
     let adpositionIndex = wordTypeExists(sentenceAnalysis, "ADP");
     let interjectionIndex = wordTypeExists(sentenceAnalysis, "INTJ");
     let partIndex = wordTypeExists(sentenceAnalysis, "PART");
@@ -212,7 +212,7 @@ function findBestMissingWord(sentenceAnalysis) {
     let conjunctionIndex = wordTypeExists(sentenceAnalysis, "CONJ");
     let coordinatingConjunctionIndex = wordTypeExists(sentenceAnalysis, "CCONJ");
     let punctuationIndex = wordTypeExists(sentenceAnalysis, "PUNCT");
-    let wordTypesIndexes = [properNounIndex, pronounIndex, numberNounIndex, nounIndex, adjectiveIndex, verbIndex, adverbIndex, otherIndex, determinerIndex, auxiliaryIndex, sconjIndex, adpositionIndex, interjectionIndex, partIndex, symbolIndex, conjunctionIndex, coordinatingConjunctionIndex, punctuationIndex];
+    let wordTypesIndexes = [properNounIndex, pronounIndex, numberNounIndex, nounIndex, adjectiveIndex, verbIndex, adverbIndex, otherIndex, determinerIndex, auxiliaryIndex, suboardinateConjunctionIndex, adpositionIndex, interjectionIndex, partIndex, symbolIndex, conjunctionIndex, coordinatingConjunctionIndex, punctuationIndex];
     //choose first word type with an index
     console.log(wordTypesIndexes);
     for(let wordTypesIndex = 0; wordTypesIndex < wordTypesIndexes.length; wordTypesIndex++) {
@@ -224,16 +224,35 @@ function findBestMissingWord(sentenceAnalysis) {
     return bestMissingWord;
 }
 
-/** Generates questions given an array of syntax analysis of AWS Comprehend */
-function generateQuestions(sentencesSyntaxAnalysis) {
+/** Fills desired words with underscores */
+function generateQuestion(sentenceAnalysis, word, characterToFill) {
+    //turns analysis into a sentence
+    let sentence = "";
+    for(let wordIndex = 0; wordIndex < sentenceAnalysis.length; wordIndex++) {
+        let word = sentenceAnalysis[wordIndex].Text;
+        sentence += word + " ";
+    }
+    //for missing word in sentence, a filling
+    let filling = "";
+    for(let fillIndex = 0; fillIndex < word.length; fillIndex++)
+        filling += characterToFill;
+
+    //Replaces missing word with filling
+    return sentence.replaceAll(word, filling);
+}
+
+/** Generates quiz given an array of syntax analysis of sentences by AWS Comprehend */
+function generateQuiz(sentencesSyntaxAnalysis) {
     console.log("ANALYSIS: " + sentencesSyntaxAnalysis[0].SyntaxTokens);
     for (let sentenceAnalysisIndex = 0; sentenceAnalysisIndex < sentencesSyntaxAnalysis.length; sentenceAnalysisIndex++) {
-        let questions = []; //The sentence
+        let question = ""; //The sentence
         let answers = []; //The missing word in sentence AKA possibilities
         let correctAnswer = ""; //The correct missing word
 
         let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
         correctAnswer = findBestMissingWord(sentenceAnalysis);
-        console.log("BEST MISSING WORD: " + correctAnswer);
+        question = generateQuestion(sentenceAnalysis, correctAnswer, '?');
+        answers = getSimilarWordsTo(correctAnswer);
+        console.log(question);
     }
 }

@@ -399,6 +399,16 @@ function randomlySelectWords(array, numberOfWords) {
     return randomlySelectedWords;
 }
 
+/** Randomize array in-place using Durstenfeld shuffle algorithm, for shuffling of quiz words */
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 /** Sends similar words in response to the word posted to server */
 function similarWords(request, response) {
     if (request.session.username == undefined) //Ensures a session is active
@@ -435,6 +445,8 @@ function similarWords(request, response) {
         }
         //randomly selects 3 words for quiz
         let words = randomlySelectWords(parsedSimilarWords, 3);
+        words.push(word);
+        shuffleArray(words);
         let firstLetterInDesiredWordCapital = word.charAt(0) == word.charAt(0).toUpperCase();
         if(firstLetterInDesiredWordCapital)
             for (let wordNumber = 0; wordNumber < words.length; wordNumber++)

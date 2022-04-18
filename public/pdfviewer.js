@@ -61,7 +61,7 @@ function unhighlight(word) {
             }
             let wordsJoined = putWordsTogether(wordsForQuiz);
             let sentences = extractSentences(wordsJoined);
-            myQuestions = generateQuestions(sentences);
+            myQuestions = generateQuiz(sentences);
         }
         fieldOfViewErrorCounter = 0;
     } else
