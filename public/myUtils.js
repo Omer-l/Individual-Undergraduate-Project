@@ -37,8 +37,8 @@ let userDetails = {
 
 /** For quizzing */
 class Question {
-    constructor(questions, answers, correctAnswer) {
-        this.questions = questions;
+    constructor(question, answers, correctAnswer) {
+        this.question = question;
         this.answers = answers;
         this.correctAnswer = correctAnswer;
     }
@@ -252,7 +252,6 @@ function generateQuiz(sentencesSyntaxAnalysis) {
         let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
         correctAnswer = findBestMissingWord(sentenceAnalysis);
         question = generateQuestion(sentenceAnalysis, correctAnswer, '?');
-        answers = getSimilarWordsTo(correctAnswer);
-        console.log(question);
+        answers = getSimilarWordsTo(correctAnswer, question, correctAnswer);
     }
 }

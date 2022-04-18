@@ -304,16 +304,16 @@ function uploadReadPosition(wordPosition) {
 }
 
 /** Gets similar words to a word, this helps with the quiz */
-function getSimilarWordsTo(word) {
+function getSimilarWordsTo(word, question, correctAnswer) {
     let serverResponse = document.getElementById("ServerResponse");
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
-            console.log(response);
-            serverResponse.innerHTML = "Removed " + response.pdfName;
-            getUserPdfs();
+            let answers = response;
+            myQuestions.push( new Question(question, answers, correctAnswer))
+            console.log(myQuestions);
         }
     }
 

@@ -411,8 +411,8 @@ function shuffleArray(array) {
 
 /** Sends similar words in response to the word posted to server */
 function similarWords(request, response) {
-    if (request.session.username == undefined) //Ensures a session is active
-        return response.status(500).send('{"delete": false, "error": "User not logged in"}');
+    // if (request.session.username == undefined) //Ensures a session is active TODO UNCOMMENT THIS
+    //     return response.status(500).send('{"delete": false, "error": "User not logged in"}');
 
     console.log(JSON.stringify(request.body));
     const word = request.body.word;
@@ -451,7 +451,9 @@ function similarWords(request, response) {
         if(firstLetterInDesiredWordCapital)
             for (let wordNumber = 0; wordNumber < words.length; wordNumber++)
                 words[wordNumber] = words[wordNumber].charAt(0).toUpperCase() + words[wordNumber].slice(1);
+
         console.log(words);
+        response.send(JSON.stringify(words));
     });
 
 }
