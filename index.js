@@ -43,7 +43,7 @@ app.post('/upload', uploadPdf);//For file uploading
 app.post('/loadpdf', loadPdf); //loads PDF content to front end
 app.post('/removepdf', removePdf); //Removes PDF from signed in user's assigned directory
 app.post('/updatereadposition', updateReadPosition);
-
+app.post('/similarwords', similarWords);
 
 //Start the app listening on port 8080
 app.listen(8080);
@@ -366,4 +366,28 @@ function updateReadPosition(request, response){
         else
             return response.status(500).send('{"readPositionUpdated": true}');
     });
+}
+
+/** Sends similar words in response to the word posted to server */
+function similarWords(request, response) {
+    if (request.session.username == undefined) //Ensures a session is active
+        return response.status(500).send('{"delete": false, "error": "User not logged in"}');
+
+    const rootDir = path.resolve("..");
+
+    console.log(JSON.stringify(request.body));
+    const word = request.body.word;
+    exec(rootDir + "/node_modules/.bin/wantwords " + word, (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        let similarWords = stdout.split(/(\s+)/);
+        console.log(similarWords);
+    });
+
 }

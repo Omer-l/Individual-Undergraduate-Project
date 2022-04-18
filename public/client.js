@@ -302,3 +302,26 @@ function uploadReadPosition(wordPosition) {
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(pdfObjectToPost)
 }
+
+/** Gets similar words to a word, this helps with the quiz */
+function getSimilarWordsTo(word) {
+    let serverResponse = document.getElementById("ServerResponse");
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let response = JSON.parse(xhttp.responseText);
+            console.log(response);
+            serverResponse.innerHTML = "Removed " + response.pdfName;
+            getUserPdfs();
+        }
+    }
+
+    let pdfObjectToPost = JSON.stringify({
+        word: word,
+    });
+
+    xhttp.open("POST", "/similarwords");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(pdfObjectToPost)
+}
