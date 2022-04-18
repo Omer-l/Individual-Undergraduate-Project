@@ -303,7 +303,6 @@ function uploadReadPosition(wordPosition) {
     xhttp.send(pdfObjectToPost)
 }
 
-getSimilarWordsTo("Punjab");
 /** Gets similar words to a word, this helps with the quiz */
 function getSimilarWordsTo(word) {
     let serverResponse = document.getElementById("ServerResponse");

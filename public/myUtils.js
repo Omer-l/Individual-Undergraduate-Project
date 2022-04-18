@@ -35,6 +35,15 @@ let userDetails = {
     }
 };
 
+/** For quizzing */
+class Question {
+    constructor(questions, answers, correctAnswer) {
+        this.questions = questions;
+        this.answers = answers;
+        this.correctAnswer = correctAnswer;
+    }
+}
+
 /** Hides given elements, given an array of their ids */
 function showElementsByIds(elementIds) {
     for (let elementIndex = 0; elementIndex < elementIds.length; elementIndex++) {
@@ -112,7 +121,7 @@ function outputPdfToPage() {
         pdfHolderElement.innerHTML += word;
     }
 
-    if(pdfHolderElement.innerHTML == "") {
+    if (pdfHolderElement.innerHTML == "") {
         pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
     }
 
@@ -131,10 +140,10 @@ function restartPdf() {
 /** Assigns HTML strings as objects */
 function getWordStartingIndexInPdfWordsArray(idOfWord) {
     let index = 0;
-    for(let elementIndex = 0; elementIndex < pdfWords.length; elementIndex++) {
+    for (let elementIndex = 0; elementIndex < pdfWords.length; elementIndex++) {
         let element = pdfWords[elementIndex];
         let elementId = $(element).attr('id');
-        if(elementId == idOfWord) {
+        if (elementId == idOfWord) {
             index = elementIndex;
             break;
         }
@@ -145,7 +154,7 @@ function getWordStartingIndexInPdfWordsArray(idOfWord) {
 /** Joins an array of words into a string */
 function putWordsTogether(words) {
     let wordsJoined = "";
-    for(let wordIndex = 0; wordIndex < words.length; wordIndex++) {
+    for (let wordIndex = 0; wordIndex < words.length; wordIndex++) {
         let word = words[wordIndex];
         wordsJoined += word;
     }
@@ -155,10 +164,76 @@ function putWordsTogether(words) {
 /** Evaluates and extracts sentences then places them into an array */
 function extractSentences(words) {
     let splitWordsByFullStops = words.split(".");
-    return false;
+    let sentences = [];
+    for (let splitWordIndex = 0; splitWordIndex < splitWordsByFullStops.length; splitWordIndex++) {
+        let sentence = splitWordsByFullStops[splitWordIndex];
+        if (sentence.length > 0)
+            sentences.push(sentence)
+    }
+    return sentences;
 }
 
-let testString = "Gulls, or colloquially seagulls, are seabirds of the family Laridae in the suborder Lari. They are most closely related to the terns and only distantly related to auks, skimmers and even more distantly to waders.";
-let sentences = extractSentences(testString); //2
+/** Searched array for the given word type and returns its index */
+function wordTypeExists(sentenceAnalysis, desiredWordType) {
+    let indexOfWordType = -1;
 
-// let
+    for (let currentWordIndex = 0; currentWordIndex < sentenceAnalysis.length; currentWordIndex++) {
+        let currentWordAnalysis = sentenceAnalysis[currentWordIndex];
+        let currentWordType = currentWordAnalysis.PartOfSpeech.Tag;
+        if (currentWordType == desiredWordType) {
+            indexOfWordType = currentWordIndex;
+            break;
+        }
+    }
+    return indexOfWordType;
+}
+
+/** Chooses the best word based on its type, the hierarchy being: TAG/NICKNAME (TAG) > PROPER NOUN (PROPN) >
+ *  PRONOUN (PRON) > NOUN (NOUN) >
+ */
+function findBestMissingWord(sentenceAnalysis) {
+    let bestMissingWord = sentenceAnalysis[0].Text;
+    //hiearchy of word types and their indexes (in the array wordTypeIndex), first one that is not -1 along the array is nominated
+    let properNounIndex = wordTypeExists(sentenceAnalysis, "PROPN");
+    let pronounIndex = wordTypeExists(sentenceAnalysis, "PRON");
+    let numberNounIndex = wordTypeExists(sentenceAnalysis, "NUM");
+    let nounIndex = wordTypeExists(sentenceAnalysis, "NOUN");
+    let adjectiveIndex = wordTypeExists(sentenceAnalysis, "ADJ");
+    let verbIndex = wordTypeExists(sentenceAnalysis, "VERB");
+    let adverbIndex = wordTypeExists(sentenceAnalysis, "ADVERB");
+    let otherIndex = wordTypeExists(sentenceAnalysis, "O");
+    let determinerIndex = wordTypeExists(sentenceAnalysis, "DET");
+    let auxiliaryIndex = wordTypeExists(sentenceAnalysis, "AUX");
+    let sconjIndex = wordTypeExists(sentenceAnalysis, "SCONJ");
+    let adpositionIndex = wordTypeExists(sentenceAnalysis, "ADP");
+    let interjectionIndex = wordTypeExists(sentenceAnalysis, "INTJ");
+    let partIndex = wordTypeExists(sentenceAnalysis, "PART");
+    let symbolIndex = wordTypeExists(sentenceAnalysis, "SYM");
+    let conjunctionIndex = wordTypeExists(sentenceAnalysis, "CONJ");
+    let coordinatingConjunctionIndex = wordTypeExists(sentenceAnalysis, "CCONJ");
+    let punctuationIndex = wordTypeExists(sentenceAnalysis, "PUNCT");
+    let wordTypesIndexes = [properNounIndex, pronounIndex, numberNounIndex, nounIndex, adjectiveIndex, verbIndex, adverbIndex, otherIndex, determinerIndex, auxiliaryIndex, sconjIndex, adpositionIndex, interjectionIndex, partIndex, symbolIndex, conjunctionIndex, coordinatingConjunctionIndex, punctuationIndex];
+    //choose first word type with an index
+    console.log(wordTypesIndexes);
+    for(let wordTypesIndex = 0; wordTypesIndex < wordTypesIndexes.length; wordTypesIndex++) {
+        if(wordTypesIndexes[wordTypesIndex] > -1)
+            return sentenceAnalysis[wordTypesIndexes[wordTypesIndex]].Text;
+
+    }
+
+    return bestMissingWord;
+}
+
+/** Generates questions given an array of syntax analysis of AWS Comprehend */
+function generateQuestions(sentencesSyntaxAnalysis) {
+    console.log("ANALYSIS: " + sentencesSyntaxAnalysis[0].SyntaxTokens);
+    for (let sentenceAnalysisIndex = 0; sentenceAnalysisIndex < sentencesSyntaxAnalysis.length; sentenceAnalysisIndex++) {
+        let questions = []; //The sentence
+        let answers = []; //The missing word in sentence AKA possibilities
+        let correctAnswer = ""; //The correct missing word
+
+        let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
+        correctAnswer = findBestMissingWord(sentenceAnalysis);
+        console.log("BEST MISSING WORD: " + correctAnswer);
+    }
+}
