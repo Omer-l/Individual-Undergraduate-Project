@@ -196,6 +196,23 @@ function register(request, response) {
     });
 }
 
+
+/** Allows special characters in sql column*/
+function mysqlEscape(stringToEscape){
+    if(stringToEscape == '') {
+        return stringToEscape;
+    }
+
+    return stringToEscape
+        .replace(/\\/g, "\\\\")
+        .replace(/\'/g, "\\\'")
+        .replace(/\"/g, "\\\"")
+        .replace(/\n/g, "\\\n")
+        .replace(/\r/g, "\\\r")
+        .replace(/\x00/g, "\\\x00")
+        .replace(/\x1a/g, "\\\x1a");
+}
+
 /** Uploads file to /upload folder */
 function uploadPdf(request, response) {
     if (request.session.username == undefined)  //ensures a session is active, a user is logged in
@@ -244,7 +261,7 @@ function uploadPdf(request, response) {
                     //Gets the words and put separates them by spaces and new lines in an array
                     let words = data.replace(/\n/g, " ").split(" ");
                     // Put words into span tags
-                    let pdfToHtml = createHtml(words);
+                    let pdfToHtml = mysqlEscape(createHtml(words));
                     //    Adds book name etc to database
                     let userId = request.session.userId;
                     let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
@@ -255,7 +272,7 @@ function uploadPdf(request, response) {
                         + ")";
                     connectionPool.query(sql, (error, result) => {
                         if (error) //ensures document is not added to user directory.
-                            return response.status(500).send('{"upload": false, "error": "Unable to send document to database"}');
+                            return response.status(500).send('{"upload": false, "error": "Unable to send document to database: ' + error + '"}');
                         else // PDF successfully parse and sent to database
                             return response.send('{"filename": "' + myFile.name +
                                 '", "upload": true}');

@@ -61,8 +61,9 @@ function unhighlight(word) {
             }
             let wordsJoined = putWordsTogether(wordsForQuiz);
             let sentences = extractSentences(wordsJoined);
+            console.log(wordsJoined);
             sentencesForQuizzing = sentences;
-            myQuestions = generateQuiz(sentences);
+            generateQuiz(sentences);
         }
         fieldOfViewErrorCounter = 0;
     } else

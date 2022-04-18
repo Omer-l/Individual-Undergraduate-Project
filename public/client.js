@@ -304,7 +304,7 @@ function uploadReadPosition(wordPosition) {
 }
 
 /** Gets similar words to a word, this helps with the quiz */
-function getSimilarWordsTo(word, question, correctAnswer) {
+function getSimilarAnswersAndShowQuiz(word, question, correctAnswer) {
     let serverResponse = document.getElementById("ServerResponse");
     let xhttp = new XMLHttpRequest();
 

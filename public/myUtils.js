@@ -21,7 +21,11 @@ let wordsBeforeQuiz = 0; //For quizzing
 let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
 let sentencesForQuizzing = []; //sentences for quizzing
 let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
-let myQuestions = [];
+let myQuestions = []; //for quiz generating
+let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
+let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"];
+let loadingScreenContent = ['#loader'];
+let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results'];
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -72,8 +76,6 @@ function hideElementsByIds(elementIds) {
  * @param pdfElementsOn   is a boolean to determine whether to hide the PDF.
  */
 function switchContent(pdfElementsOn) {
-    let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
-    let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"];
     if (pdfElementsOn) {
         //to show
         showElementsByIds(pdfContent);
@@ -84,6 +86,17 @@ function switchContent(pdfElementsOn) {
         showElementsByIds(dashboardContent);
         //to hide
         hideElementsByIds(pdfContent);
+    }
+}
+
+/** Enables loading screen for quizzing */
+function loadingScreen(on) {
+    if(on) {
+        hideElementsByIds(pdfContent);
+        showElementsByIds(loadingScreenContent);
+    } else {
+        hideElementsByIds(loadingScreenContent);
+        showElementsByIds(pdfContent);
     }
 }
 
@@ -250,6 +263,7 @@ function generateQuestion(sentenceAnalysis, word, characterToFill) {
 
 /** Generates quiz given an array of syntax analysis of sentences by AWS Comprehend */
 function generateQuiz(sentencesSyntaxAnalysis) {
+    loadingScreen(true);
     console.log("ANALYSIS: " + sentencesSyntaxAnalysis[0].SyntaxTokens);
     for (let sentenceAnalysisIndex = 0; sentenceAnalysisIndex < sentencesSyntaxAnalysis.length; sentenceAnalysisIndex++) {
         let question = ""; //The sentence
@@ -259,6 +273,6 @@ function generateQuiz(sentencesSyntaxAnalysis) {
         let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
         correctAnswer = findBestMissingWord(sentenceAnalysis);
         question = generateQuestion(sentenceAnalysis, correctAnswer, '_');
-        answers = getSimilarWordsTo(correctAnswer, question, correctAnswer);
+        answers = getSimilarAnswersAndShowQuiz(correctAnswer, question, correctAnswer);
     }
 }
