@@ -24,7 +24,7 @@ let temporarySentence = ""; //in case user reaches word count and the sentence i
 let myQuestions = []; //for quiz generating
 let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
 let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"];
-let loadingScreenContent = ['#loader'];
+let loadingScreenContent = ['#LoadingScreen'];
 let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results'];
 //Points to a div element where user combo will be inserted.
 let userDetails = {
@@ -263,8 +263,7 @@ function generateQuestion(sentenceAnalysis, word, characterToFill) {
 
 /** Generates quiz given an array of syntax analysis of sentences by AWS Comprehend */
 function generateQuiz(sentencesSyntaxAnalysis) {
-    loadingScreen(true);
-    console.log("ANALYSIS: " + sentencesSyntaxAnalysis[0].SyntaxTokens);
+    showElementsByIds(loadingScreenContent);
     for (let sentenceAnalysisIndex = 0; sentenceAnalysisIndex < sentencesSyntaxAnalysis.length; sentenceAnalysisIndex++) {
         let question = ""; //The sentence
         let answers = []; //The missing word in sentence AKA possibilities
@@ -272,6 +271,7 @@ function generateQuiz(sentencesSyntaxAnalysis) {
 
         let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
         correctAnswer = findBestMissingWord(sentenceAnalysis);
+        console.log(correctAnswer + " q: " + question);
         question = generateQuestion(sentenceAnalysis, correctAnswer, '_');
         answers = getSimilarAnswersAndShowQuiz(correctAnswer, question, correctAnswer);
     }

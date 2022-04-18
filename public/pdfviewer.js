@@ -63,7 +63,7 @@ function unhighlight(word) {
             let sentences = extractSentences(wordsJoined);
             console.log(wordsJoined);
             sentencesForQuizzing = sentences;
-            generateQuiz(sentences);
+            getQuiz(sentences);
         }
         fieldOfViewErrorCounter = 0;
     } else

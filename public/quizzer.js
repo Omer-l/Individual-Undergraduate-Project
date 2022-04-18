@@ -39,6 +39,8 @@
 //     }
 // ];
 function runQuiz(){
+    showElementsByIds(quizContent);
+    hideElementsByIds(loadingScreenContent);
     // Functions
     function buildQuiz(){
         // variable to store the HTML output
@@ -79,7 +81,7 @@ function runQuiz(){
     }
 
     function showResults(){
-
+        hideElementsByIds(loadingScreenContent);
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll('.answers');
 
