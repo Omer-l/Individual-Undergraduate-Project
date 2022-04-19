@@ -44,6 +44,7 @@ app.post('/loadpdf', loadPdf); //loads PDF content to front end
 app.post('/removepdf', removePdf); //Removes PDF from signed in user's assigned directory
 app.post('/updatereadposition', updateReadPosition);
 app.post('/similarwords', similarWords);
+app.post('/testresults', updateTestResults);
 
 //Start the app listening on port 8080
 app.listen(8080);
@@ -366,7 +367,6 @@ function updateReadPosition(request, response){
 
     if (request.session.username == undefined) //Ensures a session is active
         return response.status(500).send('{"delete": false, "error": "User not logged in"}');
-    console.log(JSON.stringify(request.body));
     //For finding the PDF location
     const readPosition = request.body.readPosition;
     const pdfName = request.body.pdfName;
@@ -430,7 +430,7 @@ function shuffleArray(array) {
 function similarWords(request, response) {
     // if (request.session.username == undefined) //Ensures a session is active TODO UNCOMMENT THIS
     //     return response.status(500).send('{"delete": false, "error": "User not logged in"}');
-
+    const numberOfSimilarWords = 3;
     console.log(JSON.stringify(request.body));
     const word = request.body.word;
     exec(__rootdir + "/node_modules/.bin/wantwords " + word, (error, stdout, stderr) => {
@@ -443,7 +443,7 @@ function similarWords(request, response) {
             return;
         }
         let similarWords = stdout.split(/(\s+)/);
-        if(similarWords.length == 0) //ensures words exist if none were similar to given word
+        if(similarWords.length  < numberOfSimilarWords) //ensures words exist if none were similar to given word
             similarWords = ["cloud","successful","dog","blank","pitch","mark",
                 "get","acres","plant","education","fewer","animal",
                 "am","headed","split","author","lose","shoulder",
@@ -461,7 +461,7 @@ function similarWords(request, response) {
                 parsedSimilarWords.push(similarWord);
         }
         //randomly selects 3 words for quiz
-        let words = randomlySelectWords(parsedSimilarWords, 3);
+        let words = randomlySelectWords(parsedSimilarWords, numberOfSimilarWords);
         words.push(word);
         shuffleArray(words);
         let firstLetterInDesiredWordCapital = word.charAt(0) == word.charAt(0).toUpperCase();
@@ -473,4 +473,32 @@ function similarWords(request, response) {
         response.send(JSON.stringify(words));
     });
 
+}
+
+/** Updates the users' Reading Efficiency Index of given PDF*/
+function updateTestResults(request, response) {
+    if (request.session.username == undefined) //Ensures a session is active
+        return response.status(500).send('{"delete": false, "error": "User not logged in"}');
+    //For finding the PDF location
+    const pdfName = request.body.pdfName;
+    const numberOfCorrect = request.body.numberOfCorrect;
+    const totalQuestions = request.body.totalQuestions;
+    const userId = request.session.userId;
+    //Get row's currency avg RE and tot quiz
+
+    //Do some calcs https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
+
+    //modify row to the new results.
+    //update read position in database
+    let sql = "UPDATE documents" +
+        " SET read_position = " + readPosition +
+        " WHERE file_name = '" + pdfName + "'" +
+        " AND user_id = " + userId;
+    console.log(sql);
+    connectionPool.query(sql, (error, result) => {
+        if (error) //ensures document is not removed from user directory if it can't be removed from database
+            return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
+        else
+            return response.status(500).send('{"readPositionUpdated": true}');
+    });
 }

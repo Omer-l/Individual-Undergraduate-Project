@@ -40,7 +40,6 @@
 // ];
 function runQuiz(){
     showElementsByIds(quizContent);
-    hideElementsByIds(loadingScreenContent);
     // Functions
     function buildQuiz(){
         // variable to store the HTML output
@@ -81,7 +80,6 @@ function runQuiz(){
     }
 
     function showResults(){
-        hideElementsByIds(loadingScreenContent);
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll('.answers');
 
@@ -112,7 +110,8 @@ function runQuiz(){
         });
 
         // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}, Taking you back to the PDF...`;
+        uploadTestResults(numCorrect);
     }
 
     function showSlide(n) {

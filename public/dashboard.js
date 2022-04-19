@@ -27,7 +27,6 @@ function outputDashboard() {
         '<div id="UserPdfsList"><h1>Total PDFs</h1><br></div>' +
         '<button';
     hideElementsByIds(quizContent);
-    hideElementsByIds(loadingScreenContent);
     //Output list of logged in user's pdfs
     getUserPdfs();
 }

@@ -263,7 +263,6 @@ function generateQuestion(sentenceAnalysis, word, characterToFill) {
 
 /** Generates quiz given an array of syntax analysis of sentences by AWS Comprehend */
 function generateQuiz(sentencesSyntaxAnalysis) {
-    showElementsByIds(loadingScreenContent);
     for (let sentenceAnalysisIndex = 0; sentenceAnalysisIndex < sentencesSyntaxAnalysis.length; sentenceAnalysisIndex++) {
         let question = ""; //The sentence
         let answers = []; //The missing word in sentence AKA possibilities

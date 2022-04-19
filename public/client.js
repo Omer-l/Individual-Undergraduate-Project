@@ -126,7 +126,7 @@ function loginUser(name, password) {
     xhttp.send(JSON.stringify(usrObj));
 
 }/** GETs a user from the server and logs them in if valid details. */
-function logoutUser(name, password) {
+function logoutUser() {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
 
@@ -229,7 +229,7 @@ function removePdf(pdfName) {
 function getUserPdfs() {
     let xhttp = new XMLHttpRequest();
     let serverResponse = document.getElementById("UserPdfsList");
-    serverResponse.innerHTML = "<h1>Loading PDFs</h1>";
+    serverResponse.innerHTML = "<h1>EyeDoc</h1>";
     let pdfListDiv = document.getElementById("PdfList");
     xhttp.onload = () => {
         if (xhttp.responseText.length == 0)
@@ -336,6 +336,31 @@ function getSimilarAnswersAndShowQuiz(word, question, correctAnswer) {
     });
 
     xhttp.open("POST", "/similarwords");
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(pdfObjectToPost)
+}
+
+/** Uploads user's results to database */
+function uploadTestResults(numberOfCorrect) {
+    let serverResponse = document.getElementById("ServerResponse");
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let response = JSON.parse(xhttp.responseText);
+            let
+        } else {
+            console.log("Could not update test scores for PDF")
+        }
+    }
+
+    let pdfObjectToPost = JSON.stringify({
+        pdfName: nameOfPdf,
+        numberOfCorrect: numberOfCorrect,
+        totalQuestions: myQuestions.length
+    });
+
+    xhttp.open("POST", "/testresults");
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(pdfObjectToPost)
 }
