@@ -512,21 +512,35 @@ function updateTestResults(request, response) {
     const numberOfCorrect = request.body.numberOfCorrect;
     const totalQuestions = request.body.totalQuestions;
     const userId = request.session.userId;
-    //Get row's currency avg RE and tot quiz
-
-    //Do some calcs https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
-
-    //modify row to the new results.
-    //update read position in database
-    let sql = "UPDATE documents" +
-        " SET read_position = " + readPosition +
-        " WHERE file_name = '" + pdfName + "'" +
-        " AND user_id = " + userId;
-    console.log(sql);
-    connectionPool.query(sql, (error, result) => {
+    //Get row's currenct avg RE and tot quiz
+    let sqlGetCurrentAverageQuery = "SELECT number_of_quizzes_completed, average_reading_efficiency, read_position from documents " +
+        "WHERE file_name = \"" + pdfName + "\" AND " +
+        "user_id = " + userId + ";";
+    console.log(sqlGetCurrentAverageQuery);
+    connectionPool.query(sqlGetCurrentAverageQuery, (error, result) => {
         if (error) //ensures document is not removed from user directory if it can't be removed from database
-            return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
-        else
-            return response.status(500).send('{"readPositionUpdated": true}');
+            return response.status(500).send('{"testResultUpdated": false, "error": "Unable to update document on database"}');
+        else {
+            let pdfFound = result.length > 0;
+            if (pdfFound) {
+                let sizeNew = result[0].number_of_quizzes_completed + 1; //total quizzes completed + 1 with the new quiz
+                let averageOld = result[0].average_reading_efficiency; //average RE index so far
+                let readPosition = result[0].read_position;
+                let averageNew = (averageOld + ( (numberOfCorrect / totalQuestions) / sizeNew)); // https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
+                // modify row to the new results.
+                // update read position in database
+                let sql = "UPDATE documents SET number_of_quizzes_completed = " + sizeNew + ", " +
+                    "average_reading_efficiency = " + averageNew + " " +
+                    "WHERE file_name = \"" + pdfName + "\" AND " +
+                    "user_id = " + userId;
+                console.log(sql);
+                connectionPool.query(sql, (error, result) => {
+                    if (error) //ensures document is not removed from user directory if it can't be removed from database
+                        return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
+                    else
+                        return response.status(500).send('{"readPositionUpdated": true}');
+                });
+            }
+        }
     });
 }
