@@ -8,6 +8,7 @@ const path = require('path');
 const __rootdir = path.resolve("./");
 const pdfUtil = require('pdf-to-text');
 const { exec } = require("child_process");
+const pdf = require("pdf-parse");
 
 //Create express app and configure it with body-parser
 const app = express();
@@ -56,7 +57,7 @@ const connectionPool = mysql.createPool({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "password",
+    password: "root",
     database: "fyp",
     debug: false
 });
@@ -253,32 +254,59 @@ function uploadPdf(request, response) {
             /** Send pdf to database*/
                 //    Path including PDF file in its directory
             const absolutePdfPath = directoryToUploadFileTo + "/" + myFile.name + "";
-            //    Extract PDF words
+            //    Extract PDF words //TODO commented below is possibly the solution for MacOS users, but pdfparser could work
             /** Reads PDF file and returns an array of split words by the delimiter space ' ' */
-            pdfUtil.pdfToText(absolutePdfPath, function (error, data) {
-                if (error)
-                    throw(error);
-                else {
-                    //Gets the words and put separates them by spaces and new lines in an array
-                    let words = data.replace(/\n/g, " ").split(" ");
-                    // Put words into span tags
-                    let pdfToHtml = mysqlEscape(createHtml(words));
-                    //    Adds book name etc to database
-                    let userId = request.session.userId;
-                    let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
-                        + "\'" + pdfToHtml + "\',"
-                        + "" + userId + ","
-                        + "" + 0 + ","
-                        + "\"" + myFile.name + "\""
-                        + ")";
-                    connectionPool.query(sql, (error, result) => {
-                        if (error) //ensures document is not added to user directory.
-                            return response.status(500).send('{"upload": false, "error": "Unable to send document to database: ' + error + '"}');
-                        else // PDF successfully parse and sent to database
-                            return response.send('{"filename": "' + myFile.name +
-                                '", "upload": true}');
-                    });
-                }
+            // pdfUtil.pdfToText(absolutePdfPath, function (error, data) {
+            //     if (error)
+            //         throw(error);
+            //     else {
+            //         //Gets the words and put separates them by spaces and new lines in an array
+            //         let words = data.replace(/\n/g, " ").split(" ");
+            //         // Put words into span tags
+            //         let pdfToHtml = mysqlEscape(createHtml(words));
+            //         //    Adds book name etc to database
+            //         let userId = request.session.userId;
+            //         let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
+            //             + "\'" + pdfToHtml + "\',"
+            //             + "" + userId + ","
+            //             + "" + 0 + ","
+            //             + "\"" + myFile.name + "\""
+            //             + ")";
+            //         connectionPool.query(sql, (error, result) => {
+            //             if (error) //ensures document is not added to user directory.
+            //                 return response.status(500).send('{"upload": false, "error": "Unable to send document to database: ' + error + '"}');
+            //             else // PDF successfully parse and sent to database
+            //                 return response.send('{"filename": "' + myFile.name +
+            //                     '", "upload": true}');
+            //         });
+            //     }
+            // });
+
+            let dataBuffer = fs.readFileSync('C:\\Users\\omerk\\Downloads\\TheStoryofAnHour.PDF');
+
+            pdf(dataBuffer).then(function(data) {
+                // PDF text
+                console.log(data.text);
+                //Gets the words and put separates them by spaces and new lines in an array
+                let words = data.text.replace(/\n/g, " ").split(" ");
+                // Put words into span tags
+                let pdfToHtml = mysqlEscape(createHtml(words));
+                //    Adds book name etc to database
+                let userId = request.session.userId;
+                let sql = "INSERT INTO documents (html, user_id, read_position, file_name)  VALUES ("
+                    + "\'" + pdfToHtml + "\',"
+                    + "" + userId + ","
+                    + "" + 0 + ","
+                    + "\"" + myFile.name + "\""
+                    + ")";
+                connectionPool.query(sql, (error, result) => {
+                    if (error) //ensures document is not added to user directory.
+                        return response.status(500).send('{"upload": false, "error": "Unable to send document to database: ' + error + '"}');
+                    else // PDF successfully parse and sent to database
+                        return response.send('{"filename": "' + myFile.name +
+                            '", "upload": true}');
+                });
+
             });
         }
     });
