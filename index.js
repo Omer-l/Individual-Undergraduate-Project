@@ -337,7 +337,7 @@ function loadPdf(request, response) {
     const username = request.session.username;
     const pdfName = request.body.pdfName;
     const userId = request.session.userId;
-    let sql = "SELECT html, read_position, date_last_accessed, file_name FROM documents WHERE " +
+    let sql = "SELECT html, read_position, date_last_accessed, file_name, reading_efficiency_index FROM documents WHERE " +
         "file_name = \"" + pdfName + "\" AND " +
         "user_id = " + userId + ";";
     connectionPool.query(sql, (error, result) => {
@@ -462,23 +462,25 @@ function similarWords(request, response) {
     console.log(JSON.stringify(request.body));
     const word = request.body.word;
     exec(__rootdir + "/node_modules/.bin/wantwords " + word, (error, stdout, stderr) => {
+        let similarWords = [];
+        let defaultWords = ["cloud","successful","dog","blank","pitch","mark",
+            "get","acres","plant","education","fewer","animal",
+            "am","headed","split","author","lose","shoulder",
+            "soap","became","locate","military","studying","heat",
+            "beneath","congress","hurt","bark","protection","poetry",
+            "your","beyond","never","south","hair","spread",
+            "supper","part","son","cattle","telephone","new"];
         if (error) {
+            similarWords = defaultWords;
             console.log(`error: ${error.message}`);
-            return;
         }
         if (stderr) {
+            similarWords = defaultWords;
             console.log(`stderr: ${stderr}`);
-            return;
         }
-        let similarWords = stdout.split(/(\s+)/);
+        similarWords = stdout.split(/(\s+)/);
         if(similarWords.length  < numberOfSimilarWords) //ensures words exist if none were similar to given word
-            similarWords = ["cloud","successful","dog","blank","pitch","mark",
-                "get","acres","plant","education","fewer","animal",
-                "am","headed","split","author","lose","shoulder",
-                "soap","became","locate","military","studying","heat",
-                "beneath","congress","hurt","bark","protection","poetry",
-                "your","beyond","never","south","hair","spread",
-                "supper","part","son","cattle","telephone","new"];
+            similarWords = defaultWords;
         let parsedSimilarWords = [];
         //only get the words, ignore whitespaces
         for(let similarWordIndex = 0; similarWordIndex < similarWords.length; similarWordIndex++) {
@@ -500,7 +502,6 @@ function similarWords(request, response) {
         console.log(words);
         response.send(JSON.stringify(words));
     });
-
 }
 
 /** Updates the users' Reading Efficiency Index of given PDF*/
@@ -511,9 +512,10 @@ function updateTestResults(request, response) {
     const pdfName = request.body.pdfName;
     const numberOfCorrect = request.body.numberOfCorrect;
     const totalQuestions = request.body.totalQuestions;
+    const readPosition = request.body.readPosition;
     const userId = request.session.userId;
     //Get row's currenct avg RE and tot quiz
-    let sqlGetCurrentAverageQuery = "SELECT number_of_quizzes_completed, average_reading_efficiency, read_position from documents " +
+    let sqlGetCurrentAverageQuery = "SELECT number_of_quizzes_completed, average_quiz_score, reading_efficiency_index, read_position from documents " +
         "WHERE file_name = \"" + pdfName + "\" AND " +
         "user_id = " + userId + ";";
     console.log(sqlGetCurrentAverageQuery);
@@ -524,21 +526,35 @@ function updateTestResults(request, response) {
             let pdfFound = result.length > 0;
             if (pdfFound) {
                 let sizeNew = result[0].number_of_quizzes_completed + 1; //total quizzes completed + 1 with the new quiz
-                let averageOld = result[0].average_reading_efficiency; //average RE index so far
-                let readPosition = result[0].read_position;
-                let averageNew = (averageOld + ( (numberOfCorrect / totalQuestions) / sizeNew)); // https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
+                let averageOld = result[0].average_quiz_score; //average RE index so far
+                let readPositionDb = result[0].read_position;
+                let readingEfficiencyIndex = result[0].reading_efficiency_index;
+                let averageNew = (averageOld + ( ((numberOfCorrect / totalQuestions) - averageOld) / sizeNew)); // https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
                 // modify row to the new results.
                 // update read position in database
                 let sql = "UPDATE documents SET number_of_quizzes_completed = " + sizeNew + ", " +
-                    "average_reading_efficiency = " + averageNew + " " +
-                    "WHERE file_name = \"" + pdfName + "\" AND " +
+                    "average_quiz_score = " + averageNew + " ";
+                console.log(averageOld + " " +  "( ((" + numberOfCorrect + "  / " + totalQuestions + ") - " + averageOld + ") / " + sizeNew);
+                if(readPosition > readPositionDb)
+                    readPositionDb = readPosition;
+
+                sql += ", read_position = " + readPositionDb + ", " +
+                    "reading_efficiency_index = " + Math.round(readPositionDb * averageNew);
+
+                sql += " WHERE file_name = \"" + pdfName + "\" AND " +
                     "user_id = " + userId;
-                console.log(sql);
+
                 connectionPool.query(sql, (error, result) => {
                     if (error) //ensures document is not removed from user directory if it can't be removed from database
                         return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
-                    else
-                        return response.status(500).send('{"readPositionUpdated": true}');
+                    else {
+                        let newStats = {
+                            readPositionUpdated: true,
+                            readPosition: readPositionDb,
+                            readingEfficiencyIndex: readingEfficiencyIndex,
+                        };
+                        return response.send(JSON.stringify(newStats));
+                    }
                 });
             }
         }
