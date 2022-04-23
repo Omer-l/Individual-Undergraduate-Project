@@ -48,7 +48,7 @@
     <div class="quiz-container">
         <div id="quiz"></div>
     </div>
-    <br><br><button id="previous">Previous Question</button>
+    <br><br><br><br><br><br><button id="previous">Previous Question</button>
     <button id="next">Next Question</button>
     <button id="submit">Submit Quiz</button>
     <div id="results"></div>
@@ -101,6 +101,7 @@
 </div>
 <script>
     switchContent(false);
+    hideElementsByIds(quizContent);
     userLoggedIn();
     function outputPage(sessionActive) {
         if(!sessionActive) {

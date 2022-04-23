@@ -192,7 +192,8 @@ function loadPdf(pdfName) {
             let response = JSON.parse(xhttp.responseText);
             html = response.html;
             previouslyReadWordIndex = response.read_position;
-            maxWordsForQuiz = previouslyReadWordIndex + wordsBeforeQuiz;
+            wordsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.words_before_quiz;
+            readingEfficiencyIndex = pdfDetails.readingEfficiencyIndex;
             serverResponse.text("Displaying " + pdfName);
             outputPdfToPage();
         }
@@ -346,9 +347,19 @@ function uploadTestResults(numberOfCorrect) {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = () => {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let response = JSON.parse(xhttp.responseText);
-            let
+        let response = JSON.parse(xhttp.responseText);
+        let readPositionUpdated = response.readPositionUpdated;
+        if (readPositionUpdated) {
+            previouslyReadWordIndex = response.readPosition;
+            wordsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.words_before_quiz;
+            readingEfficiencyIndex = response.readingEfficiencyIndex;
+            hideElementsByIds(quizContent);
+            showElementsByIds(pdfContent);
+            myQuestions = [];
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = "";
+            const comprehensionScoreHolder = document.getElementById('ComprehensionScoreHolder');
+            comprehensionScoreHolder.innerHtml += readingEfficiencyIndex;
         } else {
             console.log("Could not update test scores for PDF")
         }
@@ -357,7 +368,8 @@ function uploadTestResults(numberOfCorrect) {
     let pdfObjectToPost = JSON.stringify({
         pdfName: nameOfPdf,
         numberOfCorrect: numberOfCorrect,
-        totalQuestions: myQuestions.length
+        totalQuestions: myQuestions.length,
+        readPosition: previouslyReadWordIndex,
     });
 
     xhttp.open("POST", "/testresults");

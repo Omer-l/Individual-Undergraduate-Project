@@ -7,8 +7,9 @@
     "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
+    "pdf-parse": "^1.1.1",
     "pdf-to-text": "^0.0.7",
     "wantwords": "^1.0.1"
   },
-  "scripts": {},
+  "scripts": {}
 }
