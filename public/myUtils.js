@@ -27,6 +27,8 @@ let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
 let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"];
 let loadingScreenContent = ['#LoadingScreen'];
 let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results'];
+const TIME_BEFORE_QUIZ = 3000;
+
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -125,13 +127,34 @@ function updateWordVariables() {
     endingIdOnPage = getWordNumber(lastWordId);
 }
 
+/** Collects all the words read and then gets the quiz (sends to websocket, outputs quiz) */
+function getWordsReadAndQuiz() {
+        wordsBeforeQuiz = idOfWordBeingLookedAt + userDetails.preferences.words_before_quiz;
+        let wordsForQuiz = [];
+        let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz;
+        for(let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < numberOfWordsForQuiz; pdfWordsIndex++, quizWordCounter++) {
+            let word = pdfWords[pdfWordsIndex];
+            wordsForQuiz.push($(word).text());
+        }
+        let wordsJoined = putWordsTogether(wordsForQuiz);
+        let sentences = extractSentences(wordsJoined);
+        console.log(wordsJoined);
+        sentencesForQuizzing = sentences;
+        getQuiz(sentences);
+}
+
+/** Begins the timer for a quiz */
+function beginTimerBeforeQuiz(timeInMs) {
+    setTimeout(getWordsReadAndQuiz, timeInMs);
+}
+
 /** Outputs PDF as HTML */
 function outputPdfToPage() {
     let pdfHolderElement = document.getElementById(pdfHolderId);// div element
     //set pdf background color
     pdfHolderElement.style.backgroundColor = userBackgroundColor;
     //hide dashboard
-    switchContent(true);
+    switchContent   (true);
     pdfHolderElement.innerHTML = html;
     //places words into an array to not overfill the page
     pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
@@ -146,7 +169,7 @@ function outputPdfToPage() {
     }
 
     wordsOnPage = $("#" + pdfHolderId).find("span");
-    // updateWordVariables();
+    beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
 }
 
 /** Sets read position back to 0 and reloads PDF */
