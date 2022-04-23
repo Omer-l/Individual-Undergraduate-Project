@@ -137,7 +137,6 @@ function outputPdfToPage() {
     pdfHolderElement.innerHTML = ""; //clear PDF view
     for (; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
         let word = pdfWords[previouslyReadWordIndex].outerHTML;
-        console.log(word);
         pdfHolderElement.innerHTML += word;
     }
 

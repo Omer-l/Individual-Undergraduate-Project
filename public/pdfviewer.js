@@ -51,20 +51,21 @@ function unhighlight(word) {
         }
         previouslyReadWordIndex = idOfWordBeingLookedAt;
         let numberOfWordsForQuiz = userDetails.preferences.words_before_quiz;
-        if(idOfWordBeingLookedAt >= wordsBeforeQuiz) {
-            wordsBeforeQuiz = idOfWordBeingLookedAt + userDetails.preferences.words_before_quiz;
-            let wordsForQuiz = [];
-            let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz;
-            for(let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < numberOfWordsForQuiz; pdfWordsIndex++, quizWordCounter++) {
-                let word = pdfWords[pdfWordsIndex];
-                wordsForQuiz.push($(word).text());
-            }
-            let wordsJoined = putWordsTogether(wordsForQuiz);
-            let sentences = extractSentences(wordsJoined);
-            console.log(wordsJoined);
-            sentencesForQuizzing = sentences;
-            getQuiz(sentences);
-        }
+        // if(idOfWordBeingLookedAt >= wordsBeforeQuiz) {
+        //     wordsBeforeQuiz = idOfWordBeingLookedAt + userDetails.preferences.words_before_quiz;
+        //     let wordsForQuiz = [];
+        //     let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz;
+        //     for(let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < numberOfWordsForQuiz; pdfWordsIndex++, quizWordCounter++) {
+        //         let word = pdfWords[pdfWordsIndex];
+        //         wordsForQuiz.push($(word).text());
+        //     }
+        //     let wordsJoined = putWordsTogether(wordsForQuiz);
+        //     let sentences = extractSentences(wordsJoined);
+        //     console.log(wordsJoined);
+        //     sentencesForQuizzing = sentences;
+        //     getQuiz(sentences);
+        // }
+
         fieldOfViewErrorCounter = 0;
     } else
         fieldOfViewErrorCounter++;
