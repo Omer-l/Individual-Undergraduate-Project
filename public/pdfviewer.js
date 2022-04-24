@@ -40,8 +40,9 @@ function unhighlight(word) {
     let tooManyReadingJumpErrors = fieldOfViewErrorCounter == maximumFieldOfViewError;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
     if(readingAtCorrectPace || tooManyReadingJumpErrors) { //ensures reader is not jumping text
-        if(tooManyReadingJumpErrors && idOfWordBeingLookedAt < previouslyReadWordIndex)
-            wordCount = idOfWordBeingLookedAt;
+        let previouslyReadWord = idOfWordBeingLookedAt < previouslyReadWordIndex;
+        if(tooManyReadingJumpErrors && previouslyReadWord)
+            wordCount = 0;
 
         //highlights words not currently being read
         for(let highlightIndex = previouslyReadWordIndex; highlightIndex <= endOfFieldOfView; highlightIndex++) {
@@ -54,7 +55,6 @@ function unhighlight(word) {
                 console.log(wordCount);
             }
         }
-        wordCount--;
         previouslyReadWordIndex = idOfWordBeingLookedAt;
         // if(idOfWordBeingLookedAt >= wordsBeforeQuiz) {
         //     wordsBeforeQuiz = idOfWordBeingLookedAt + userDetails.preferences.words_before_quiz;

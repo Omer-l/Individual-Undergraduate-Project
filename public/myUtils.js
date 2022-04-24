@@ -137,8 +137,8 @@ function getWordsReadAndQuiz() {
         let numberOfWordsForQuiz = userDetails.preferences.words_before_quiz;
         let wordsForQuiz = [];
         let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount;
-        for (let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < wordCount; pdfWordsIndex++, quizWordCounter++) {
-            let word = pdfWords[pdfWordsIndex];
+        for (let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < wordCount;quizWordCounter++) {
+            let word = pdfWords[pdfWordsIndex++];
             wordsForQuiz.push($(word).text());
         }
         let wordsJoined = putWordsTogether(wordsForQuiz);
