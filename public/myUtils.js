@@ -22,13 +22,14 @@ let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
 let sentencesForQuizzing = []; //sentences for quizzing
 let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
 let myQuestions = []; //for quiz generating
-let readingEfficiencyIndex = 0;
-let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv'];
-let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"];
-let loadingScreenContent = ['#LoadingScreen'];
-let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results'];
-const TIME_BEFORE_QUIZ = 3000;
-
+let readingEfficiencyIndex = 0; //For showing the reader their current comprehension
+let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv']; //pdf elements by Id
+let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"]; //dashboard elements by Id
+let loadingScreenContent = ['#LoadingScreen']; //loading screen elements by Id
+let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results']; //quiz elements by Id
+const TIME_BEFORE_QUIZ = 3000; //time before quiz shows
+let idOfWordBeingLookedAt = 0; //word user is looking at
+const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -41,6 +42,7 @@ let userDetails = {
         field_of_view: 0,
     }
 };
+
 class Answer {
     constructor(a, b, c, d) {
         this.a = a;
@@ -49,6 +51,7 @@ class Answer {
         this.d = d;
     }
 }
+
 /** For quizzing */
 class Question {
     constructor(question, answers, correctAnswer) {
@@ -94,7 +97,7 @@ function switchContent(pdfElementsOn) {
 
 /** Enables loading screen for quizzing */
 function loadingScreen(on) {
-    if(on) {
+    if (on) {
         hideElementsByIds(pdfContent);
         showElementsByIds(loadingScreenContent);
     } else {
@@ -129,18 +132,23 @@ function updateWordVariables() {
 
 /** Collects all the words read and then gets the quiz (sends to websocket, outputs quiz) */
 function getWordsReadAndQuiz() {
-        wordsBeforeQuiz = idOfWordBeingLookedAt + userDetails.preferences.words_before_quiz;
+    console.log("QUIZZING!");
+    if(wordCount > MINIMUM_NUMBER_OF_WORDS_TO_READ) {
+        let numberOfWordsForQuiz = userDetails.preferences.words_before_quiz;
         let wordsForQuiz = [];
-        let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - numberOfWordsForQuiz;
-        for(let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < numberOfWordsForQuiz; pdfWordsIndex++, quizWordCounter++) {
+        let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount;
+        for (let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < wordCount; pdfWordsIndex++, quizWordCounter++) {
             let word = pdfWords[pdfWordsIndex];
             wordsForQuiz.push($(word).text());
         }
         let wordsJoined = putWordsTogether(wordsForQuiz);
         let sentences = extractSentences(wordsJoined);
-        console.log(wordsJoined);
-        sentencesForQuizzing = sentences;
-        getQuiz(sentences);
+        console.log(wordsJoined);// TODO DELETE THIS
+        wordCount = 0; //DEL?
+        previouslyReadWordIndex = idOfWordBeingLookedAt
+        // getQuiz(sentences); TODO uncomment this
+    }
+    beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
 }
 
 /** Begins the timer for a quiz */
@@ -154,7 +162,7 @@ function outputPdfToPage() {
     //set pdf background color
     pdfHolderElement.style.backgroundColor = userBackgroundColor;
     //hide dashboard
-    switchContent   (true);
+    switchContent(true);
     pdfHolderElement.innerHTML = html;
     //places words into an array to not overfill the page
     pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
@@ -258,8 +266,8 @@ function findBestMissingWord(sentenceAnalysis) {
     let wordTypesIndexes = [properNounIndex, pronounIndex, numberNounIndex, nounIndex, adjectiveIndex, verbIndex, adverbIndex, otherIndex, determinerIndex, auxiliaryIndex, suboardinateConjunctionIndex, adpositionIndex, interjectionIndex, partIndex, symbolIndex, conjunctionIndex, coordinatingConjunctionIndex, punctuationIndex];
     //choose first word type with an index
     console.log(wordTypesIndexes);
-    for(let wordTypesIndex = 0; wordTypesIndex < wordTypesIndexes.length; wordTypesIndex++) {
-        if(wordTypesIndexes[wordTypesIndex] > -1)
+    for (let wordTypesIndex = 0; wordTypesIndex < wordTypesIndexes.length; wordTypesIndex++) {
+        if (wordTypesIndexes[wordTypesIndex] > -1)
             return sentenceAnalysis[wordTypesIndexes[wordTypesIndex]].Text;
 
     }
@@ -271,13 +279,13 @@ function findBestMissingWord(sentenceAnalysis) {
 function generateQuestion(sentenceAnalysis, word, characterToFill) {
     //turns analysis into a sentence
     let sentence = "";
-    for(let wordIndex = 0; wordIndex < sentenceAnalysis.length; wordIndex++) {
+    for (let wordIndex = 0; wordIndex < sentenceAnalysis.length; wordIndex++) {
         let word = sentenceAnalysis[wordIndex].Text;
         sentence += word + " ";
     }
     //for missing word in sentence, a filling
     let filling = "";
-    for(let fillIndex = 0; fillIndex < word.length; fillIndex++)
+    for (let fillIndex = 0; fillIndex < word.length; fillIndex++)
         filling += characterToFill;
 
     //Replaces missing word with filling
@@ -286,6 +294,7 @@ function generateQuestion(sentenceAnalysis, word, characterToFill) {
 
 /** Generates quiz given an array of syntax analysis of sentences by AWS Comprehend */
 function generateQuiz(sentencesSyntaxAnalysis) {
+    sentencesForQuizzing = sentencesSyntaxAnalysis.length;
     for (let sentenceAnalysisIndex = 0; sentenceAnalysisIndex < sentencesSyntaxAnalysis.length; sentenceAnalysisIndex++) {
         let question = ""; //The sentence
         let answers = []; //The missing word in sentence AKA possibilities

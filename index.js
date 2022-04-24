@@ -57,7 +57,8 @@ const connectionPool = mysql.createPool({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "root",
+    // password: "root", //Windows
+    password: "password", //MacOS
     database: "fyp",
     debug: false
 });
@@ -282,7 +283,7 @@ function uploadPdf(request, response) {
             //     }
             // });
 
-            let dataBuffer = fs.readFileSync('C:\\Users\\omerk\\Downloads\\TheStoryofAnHour.PDF');
+            let dataBuffer = fs.readFileSync(directoryToUploadFileTo + "/" + myFile.name);
 
             pdf(dataBuffer).then(function(data) {
                 // PDF text
@@ -409,7 +410,7 @@ function updateReadPosition(request, response){
         if (error) //ensures document is not removed from user directory if it can't be removed from database
             return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
         else
-            return response.status(500).send('{"readPositionUpdated": true}');
+            return response.send('{"readPositionUpdated": true}');
     });
 }
 
@@ -432,7 +433,7 @@ function wordAlreadyExists(words, word) {
 function randomlySelectWords(array, numberOfWords) {
     let randomlySelectedWords = [];
     let arraySize = array.length;
-    for(let wordNumber = 0; wordNumber < numberOfWords; wordNumber++) {
+    for (let wordNumber = 0; wordNumber < numberOfWords; wordNumber++) {
         let randomIndex = getRandomIndexOf(array);
         let randomlySelectedWord = array[randomIndex];
         while(wordAlreadyExists(randomlySelectedWords, randomlySelectedWord)) {
@@ -514,7 +515,7 @@ function updateTestResults(request, response) {
     const totalQuestions = request.body.totalQuestions;
     const readPosition = request.body.readPosition;
     const userId = request.session.userId;
-    //Get row's currenct avg RE and tot quiz
+    //Get row's current avg RE and tot quiz
     let sqlGetCurrentAverageQuery = "SELECT number_of_quizzes_completed, average_quiz_score, reading_efficiency_index, read_position from documents " +
         "WHERE file_name = \"" + pdfName + "\" AND " +
         "user_id = " + userId + ";";
@@ -553,6 +554,7 @@ function updateTestResults(request, response) {
                             readPosition: readPositionDb,
                             readingEfficiencyIndex: readingEfficiencyIndex,
                         };
+                        console.log(JSON.stringify(newStats));
                         return response.send(JSON.stringify(newStats));
                     }
                 });

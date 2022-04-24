@@ -325,9 +325,17 @@ function getSimilarAnswersAndShowQuiz(word, question, correctAnswer) {
             myQuestions.push( new Question(question, answers, correctAnswerLetter));
             // myQuestions.push( {question: question, answers: {a: answers[0], b: answers[1], c: answers[2], d: answers[3]}, correctAnswer: correctAnswerLetter});
             console.log(myQuestions.length + "... EXPECTED: " + sentencesForQuizzing.length);
-            if(myQuestions.length == sentencesForQuizzing.length) {
+            if(myQuestions.length >= sentencesForQuizzing) {
                 console.log(myQuestions);
-                runQuiz();
+                for(let popNumber = 0; popNumber > myQuestions.length - sentencesForQuizzing && myQuestions.length - sentencesForQuizzing > 0; popNumber--) {
+                    myQuestions.pop();
+                }
+                if(myQuestions.length > 0)
+                    runQuiz();
+                else {
+                    myQuestions = [];
+                    sentencesForQuizzing = [];
+                }
             }
         }
     }
@@ -347,26 +355,30 @@ function uploadTestResults(numberOfCorrect) {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = () => {
-        let response = JSON.parse(xhttp.responseText);
-        let readPositionUpdated = response.readPositionUpdated;
-        if (readPositionUpdated) {
-            previouslyReadWordIndex = response.readPosition;
-            wordsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.words_before_quiz;
-            readingEfficiencyIndex = response.readingEfficiencyIndex;
-            hideElementsByIds(quizContent);
-            showElementsByIds(pdfContent);
-            myQuestions = [];
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = "";
-            const comprehensionScoreHolder = document.getElementById('ComprehensionScoreHolder');
-            comprehensionScoreHolder.innerHtml += readingEfficiencyIndex;
-        } else {
-            console.log("Could not update test scores for PDF")
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let response = JSON.parse(xhttp.responseText);
+            let readPositionUpdated = response.readPositionUpdated;
+            if (readPositionUpdated) {
+                previouslyReadWordIndex = response.readPosition;
+                wordsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.words_before_quiz;
+                readingEfficiencyIndex = response.readingEfficiencyIndex;
+                hideElementsByIds(quizContent);
+                showElementsByIds(pdfContent);
+                myQuestions = [];
+                const resultsContainer = document.getElementById('results');
+                resultsContainer.innerHTML = "";
+                const comprehensionScoreHolder = document.getElementById('ComprehensionScoreHolder');
+                comprehensionScoreHolder.innerHtml += readingEfficiencyIndex;
+                beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+            } else {
+                console.log("Could not update test scores for PDF")
+            }
         }
     }
 
     let pdfObjectToPost = JSON.stringify({
         pdfName: nameOfPdf,
+        time: TIME_BEFORE_QUIZ,
         numberOfCorrect: numberOfCorrect,
         totalQuestions: myQuestions.length,
         readPosition: previouslyReadWordIndex,
