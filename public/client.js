@@ -324,7 +324,7 @@ function getSimilarAnswersAndShowQuiz(word, question, correctAnswer) {
             answers = new Answer(answers[0], answers[1], answers[2], answers[3]);
             myQuestions.push( new Question(question, answers, correctAnswerLetter));
             // myQuestions.push( {question: question, answers: {a: answers[0], b: answers[1], c: answers[2], d: answers[3]}, correctAnswer: correctAnswerLetter});
-            console.log(myQuestions.length + "... EXPECTED: " + sentencesForQuizzing.length);
+            console.log(myQuestions.length + " ... EXPECTED: " + sentencesForQuizzing.length);
             if(myQuestions.length >= sentencesForQuizzing) {
                 console.log(myQuestions);
                 for(let popNumber = 0; popNumber > myQuestions.length - sentencesForQuizzing && myQuestions.length - sentencesForQuizzing > 0; popNumber--) {
@@ -334,7 +334,7 @@ function getSimilarAnswersAndShowQuiz(word, question, correctAnswer) {
                     runQuiz();
                 else {
                     myQuestions = [];
-                    sentencesForQuizzing = [];
+                    sentencesForQuizzing = 0;
                 }
             }
         }
@@ -378,7 +378,7 @@ function uploadTestResults(numberOfCorrect) {
 
     let pdfObjectToPost = JSON.stringify({
         pdfName: nameOfPdf,
-        time: TIME_BEFORE_QUIZ,
+        time: start,
         numberOfCorrect: numberOfCorrect,
         totalQuestions: myQuestions.length,
         readPosition: previouslyReadWordIndex,

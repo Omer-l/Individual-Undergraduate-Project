@@ -19,7 +19,7 @@ let wordCount = 0; //for quiz popups
 let nameOfPdf = ""; //PDF currently being read
 let wordsBeforeQuiz = 0; //For quizzing
 let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
-let sentencesForQuizzing = []; //sentences for quizzing
+let sentencesForQuizzing = 0; //sentences for quizzing
 let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
 let myQuestions = []; //for quiz generating
 let readingEfficiencyIndex = 0; //For showing the reader their current comprehension
@@ -30,6 +30,8 @@ let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#nex
 const TIME_BEFORE_QUIZ = 3000; //time before quiz shows
 let idOfWordBeingLookedAt = 0; //word user is looking at
 const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
+let start; //time before quiz shows
+
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -144,16 +146,35 @@ function getWordsReadAndQuiz() {
         let wordsJoined = putWordsTogether(wordsForQuiz);
         let sentences = extractSentences(wordsJoined);
         console.log(wordsJoined);// TODO DELETE THIS
-        wordCount = 0; //DEL?
+        wordCount = 0;
         previouslyReadWordIndex = idOfWordBeingLookedAt
-        // getQuiz(sentences); TODO uncomment this
+        getQuiz(sentences);
+    } else {
+        beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
     }
-    beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+}
+
+/** Begins timer before a quiz shows */
+function startTimer() {
+    setInterval(function() {
+        let delta = Date.now() - start; // milliseconds elapsed since start
+        start = Math.floor(delta / 1000); // in seconds
+    }, 1000); // update about every second
+}
+
+/** Resets timer before a quiz shows*/
+function resetTimer() {
+    start = 0;
 }
 
 /** Begins the timer for a quiz */
 function beginTimerBeforeQuiz(timeInMs) {
-    setTimeout(getWordsReadAndQuiz, timeInMs);
+    timerForQuiz = setTimeout(getWordsReadAndQuiz, timeInMs);
+}
+
+/** Stops the timer when quizzing taking place. */
+function stopTimerDuringQuiz() {
+    clearTimeout(timerForQuiz);
 }
 
 /** Outputs PDF as HTML */
@@ -178,6 +199,7 @@ function outputPdfToPage() {
 
     wordsOnPage = $("#" + pdfHolderId).find("span");
     beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+    startTimer();
 }
 
 /** Sets read position back to 0 and reloads PDF */
@@ -246,11 +268,11 @@ function findBestMissingWord(sentenceAnalysis) {
     let bestMissingWord = sentenceAnalysis[0].Text;
     //hiearchy of word types and their indexes (in the array wordTypeIndex), first one that is not -1 along the array is nominated
     let properNounIndex = wordTypeExists(sentenceAnalysis, "PROPN");
-    let pronounIndex = wordTypeExists(sentenceAnalysis, "PRON");
     let numberNounIndex = wordTypeExists(sentenceAnalysis, "NUM");
     let nounIndex = wordTypeExists(sentenceAnalysis, "NOUN");
     let adjectiveIndex = wordTypeExists(sentenceAnalysis, "ADJ");
     let verbIndex = wordTypeExists(sentenceAnalysis, "VERB");
+    let pronounIndex = wordTypeExists(sentenceAnalysis, "PRON");
     let adverbIndex = wordTypeExists(sentenceAnalysis, "ADVERB");
     let otherIndex = wordTypeExists(sentenceAnalysis, "O");
     let determinerIndex = wordTypeExists(sentenceAnalysis, "DET");
@@ -263,7 +285,7 @@ function findBestMissingWord(sentenceAnalysis) {
     let conjunctionIndex = wordTypeExists(sentenceAnalysis, "CONJ");
     let coordinatingConjunctionIndex = wordTypeExists(sentenceAnalysis, "CCONJ");
     let punctuationIndex = wordTypeExists(sentenceAnalysis, "PUNCT");
-    let wordTypesIndexes = [properNounIndex, pronounIndex, numberNounIndex, nounIndex, adjectiveIndex, verbIndex, adverbIndex, otherIndex, determinerIndex, auxiliaryIndex, suboardinateConjunctionIndex, adpositionIndex, interjectionIndex, partIndex, symbolIndex, conjunctionIndex, coordinatingConjunctionIndex, punctuationIndex];
+    let wordTypesIndexes = [properNounIndex, numberNounIndex, nounIndex, adjectiveIndex, pronounIndex, verbIndex, adverbIndex, otherIndex, determinerIndex, auxiliaryIndex, suboardinateConjunctionIndex, adpositionIndex, interjectionIndex, partIndex, symbolIndex, conjunctionIndex, coordinatingConjunctionIndex, punctuationIndex];
     //choose first word type with an index
     console.log(wordTypesIndexes);
     for (let wordTypesIndex = 0; wordTypesIndex < wordTypesIndexes.length; wordTypesIndex++) {

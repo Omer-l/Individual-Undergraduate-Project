@@ -39,7 +39,7 @@
 //     }
 // ];
 function runQuiz(){
-    sentencesForQuizzing = [];
+    sentencesForQuizzing = 0;
     showElementsByIds(quizContent);
     // Functions
     function buildQuiz(){
