@@ -515,7 +515,10 @@ function updateTestResults(request, response) {
     const totalQuestions = request.body.totalQuestions;
     const readPosition = request.body.readPosition;
     const userId = request.session.userId;
-    //Get row's current avg RE and tot quiz
+    const elapsedTime = request.body.time;
+    const numberOfWordsRead = request.body.wordCount;
+    console.log("ELAPSED: " + elapsedTime);
+//Get row's current avg RE and tot quiz
     let sqlGetCurrentAverageQuery = "SELECT number_of_quizzes_completed, average_quiz_score, reading_efficiency_index, read_position from documents " +
         "WHERE file_name = \"" + pdfName + "\" AND " +
         "user_id = " + userId + ";";
@@ -526,25 +529,30 @@ function updateTestResults(request, response) {
         else {
             let pdfFound = result.length > 0;
             if (pdfFound) {
-                let sizeNew = result[0].number_of_quizzes_completed + 1; //total quizzes completed + 1 with the new quiz
-                let averageOld = result[0].average_quiz_score; //average RE index so far
+                const sizeNew = result[0].number_of_quizzes_completed + 1; //total quizzes completed + 1 with the new quiz
+                const averageOld = result[0].average_quiz_score; //average quiz score so far
+                const averageOldRE = result[0].reading_efficiency_index;
                 let readPositionDb = result[0].read_position;
-                let readingEfficiencyIndex = result[0].reading_efficiency_index;
-                let averageNew = (averageOld + ( ((numberOfCorrect / totalQuestions) - averageOld) / sizeNew)); // https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
+                const quizScore = numberOfCorrect / totalQuestions;
+                let newRE = ((numberOfWordsRead * quizScore) /  elapsedTime) * 60;
+                console.log(numberOfWordsRead + " * " + quizScore + ") / " + elapsedTime + ") * " + 60);
+                console.log("NEW RE: " + newRE);
+                const averageNew = (averageOld != null) ? (averageOld + ( (quizScore - averageOld) / sizeNew)) : quizScore; // https://math.stackexchange.com/questions/22348/how-to-add-and-subtract-values-from-an-average
                 // modify row to the new results.
                 // update read position in database
-                let sql = "UPDATE documents SET number_of_quizzes_completed = " + sizeNew + ", " +
+                let sql = "UPDATE documents SET " +
+                    "number_of_quizzes_completed = " + sizeNew + ", " +
                     "average_quiz_score = " + averageNew + " ";
-                console.log(averageOld + " " +  "( ((" + numberOfCorrect + "  / " + totalQuestions + ") - " + averageOld + ") / " + sizeNew);
+                console.log(averageOld + " " +  "( ((" + numberOfCorrect + "  / " + totalQuestions + ") - " + averageOld + ") / " + sizeNew);;
                 if(readPosition > readPositionDb)
                     readPositionDb = readPosition;
 
                 sql += ", read_position = " + readPositionDb + ", " +
-                    "reading_efficiency_index = " + Math.round(readPositionDb * averageNew);
+                    "reading_efficiency_index = " + Math.round(newRE);
 
                 sql += " WHERE file_name = \"" + pdfName + "\" AND " +
                     "user_id = " + userId;
-
+                console.log(sql);
                 connectionPool.query(sql, (error, result) => {
                     if (error) //ensures document is not removed from user directory if it can't be removed from database
                         return response.status(500).send('{"readPositionUpdated": false, "error": "Unable to update document on database"}');
@@ -552,7 +560,7 @@ function updateTestResults(request, response) {
                         let newStats = {
                             readPositionUpdated: true,
                             readPosition: readPositionDb,
-                            readingEfficiencyIndex: readingEfficiencyIndex,
+                            readingEfficiencyIndex: newRE,
                         };
                         console.log(JSON.stringify(newStats));
                         return response.send(JSON.stringify(newStats));

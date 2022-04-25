@@ -370,15 +370,18 @@ function uploadTestResults(numberOfCorrect) {
                 const comprehensionScoreHolder = document.getElementById('ComprehensionScoreHolder');
                 comprehensionScoreHolder.innerHtml += readingEfficiencyIndex;
                 beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+                wordCount = 0;
+                startTimer();
             } else {
                 console.log("Could not update test scores for PDF")
             }
         }
     }
-
+    console.log("START: " + start + " wordCount: " + wordCount);
     let pdfObjectToPost = JSON.stringify({
         pdfName: nameOfPdf,
         time: start,
+        wordCount: wordCount,
         numberOfCorrect: numberOfCorrect,
         totalQuestions: myQuestions.length,
         readPosition: previouslyReadWordIndex,

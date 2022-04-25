@@ -30,8 +30,8 @@ let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#nex
 const TIME_BEFORE_QUIZ = 3000; //time before quiz shows
 let idOfWordBeingLookedAt = 0; //word user is looking at
 const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
-let start; //time before quiz shows
-
+let start = 0; //time before quiz shows
+let elapsedTimerInterval;
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
@@ -146,8 +146,8 @@ function getWordsReadAndQuiz() {
         let wordsJoined = putWordsTogether(wordsForQuiz);
         let sentences = extractSentences(wordsJoined);
         console.log(wordsJoined);// TODO DELETE THIS
-        wordCount = 0;
-        previouslyReadWordIndex = idOfWordBeingLookedAt
+        previouslyReadWordIndex = idOfWordBeingLookedAt;
+        stopTimer();
         getQuiz(sentences);
     } else {
         beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
@@ -156,15 +156,16 @@ function getWordsReadAndQuiz() {
 
 /** Begins timer before a quiz shows */
 function startTimer() {
-    setInterval(function() {
-        let delta = Date.now() - start; // milliseconds elapsed since start
-        start = Math.floor(delta / 1000); // in seconds
+    start = 1;
+    stopTimer();
+    elapsedTimerInterval = setInterval(function() {
+        start++; // in seconds
     }, 1000); // update about every second
 }
 
 /** Resets timer before a quiz shows*/
-function resetTimer() {
-    start = 0;
+function stopTimer() {
+    clearInterval(elapsedTimerInterval);
 }
 
 /** Begins the timer for a quiz */

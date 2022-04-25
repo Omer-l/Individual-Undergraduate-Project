@@ -40,8 +40,8 @@ function unhighlight(word) {
     let tooManyReadingJumpErrors = fieldOfViewErrorCounter == maximumFieldOfViewError;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
     if(readingAtCorrectPace || tooManyReadingJumpErrors) { //ensures reader is not jumping text
-        let previouslyReadWord = idOfWordBeingLookedAt < previouslyReadWordIndex;
-        if(tooManyReadingJumpErrors && previouslyReadWord)
+        // let previouslyReadWord = idOfWordBeingLookedAt < previouslyReadWordIndex;
+        if(tooManyReadingJumpErrors)
             wordCount = 0;
 
         //highlights words not currently being read
