@@ -17,7 +17,7 @@ let startingIdOnPage = 0; //first word on page
 let endingIdOnPage = 0; //last word on page
 let wordCount = 0; //for quiz popups
 let nameOfPdf = ""; //PDF currently being read
-let wordsBeforeQuiz = 0; //For quizzing
+let secondsBeforeQuiz = 0; //For quizzing
 let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
 let sentencesForQuizzing = 0; //sentences for quizzing
 let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
@@ -27,7 +27,7 @@ let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv']; 
 let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"]; //dashboard elements by Id
 let loadingScreenContent = ['#LoadingScreen']; //loading screen elements by Id
 let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results']; //quiz elements by Id
-const TIME_BEFORE_QUIZ = 3000; //time before quiz shows
+let timeBeforeQuiz; //time before quiz shows
 let idOfWordBeingLookedAt = 0; //word user is looking at
 const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 let start = 0; //time before quiz shows
@@ -136,7 +136,7 @@ function updateWordVariables() {
 function getWordsReadAndQuiz() {
     console.log("QUIZZING!");
     if(wordCount > MINIMUM_NUMBER_OF_WORDS_TO_READ) {
-        let numberOfWordsForQuiz = userDetails.preferences.words_before_quiz;
+        let numberOfWordsForQuiz = userDetails.preferences.seconds_before_quiz;
         let wordsForQuiz = [];
         let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount;
         for (let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < wordCount;quizWordCounter++) {
@@ -150,7 +150,7 @@ function getWordsReadAndQuiz() {
         stopTimer();
         getQuiz(sentences);
     } else {
-        beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+        beginTimerBeforeQuiz(timeBeforeQuiz);
     }
 }
 
@@ -199,7 +199,7 @@ function outputPdfToPage() {
     }
 
     wordsOnPage = $("#" + pdfHolderId).find("span");
-    beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+    beginTimerBeforeQuiz(timeBeforeQuiz);
     startTimer();
 }
 
@@ -207,7 +207,7 @@ function outputPdfToPage() {
 function restartPdf() {
     uploadReadPosition(0);
     previouslyReadWordIndex = 0;
-    maxWordsForQuiz = wordsBeforeQuiz;
+    maxWordsForQuiz = secondsBeforeQuiz;
     outputPdfToPage();
 }
 

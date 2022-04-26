@@ -24,7 +24,7 @@ function userLoggedIn() {
             else {
                 sessionActive = true;
                 userDetails = userInfo;
-                wordsBeforeQuiz = userDetails.preferences.words_before_quiz;
+                secondsBeforeQuiz = userDetails.preferences.seconds_before_quiz;
                 document.getElementById("NameHolder").innerHTML = userDetails.name;
             }
             outputPage(sessionActive);
@@ -52,13 +52,14 @@ function addUser() {
         //the user's chosen preferences, some are default when signing up
         preferences: {
             readingMode: (readingMode == 0 ? "Paragraph" : "Rapid Serial Visual Presentation"),
-            wordsBeforeQuiz: numberOfWordsBeforeQuiz,
+            secondsBeforeQuiz: secondsBeforeQuiz,
             highlightColor: "yellow", //default
             unhighlightColor: "lightblue", //default
             backgroundColor: "white", //default
             fieldOfView: 1, //default
         },
     };
+    console.log(usrObj);
 
     //Set up function that is called when reply received from server
     xhttp.onreadystatechange = function () {
@@ -98,7 +99,7 @@ function loginUser(name, password) {
         name: name,
         password: password,
     };
-
+    console.log(usrObj);
     //Set up function that is called when reply received from server
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -192,7 +193,7 @@ function loadPdf(pdfName) {
             let response = JSON.parse(xhttp.responseText);
             html = response.html;
             previouslyReadWordIndex = response.read_position;
-            wordsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.words_before_quiz;
+            secondsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.seconds_before_quiz;
             readingEfficiencyIndex = pdfDetails.readingEfficiencyIndex;
             serverResponse.text("Displaying " + pdfName);
             outputPdfToPage();
@@ -360,7 +361,7 @@ function uploadTestResults(numberOfCorrect) {
             let readPositionUpdated = response.readPositionUpdated;
             if (readPositionUpdated) {
                 previouslyReadWordIndex = response.readPosition;
-                wordsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.words_before_quiz;
+                secondsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.seconds_before_quiz;
                 readingEfficiencyIndex = response.readingEfficiencyIndex;
                 hideElementsByIds(quizContent);
                 showElementsByIds(pdfContent);
@@ -369,7 +370,7 @@ function uploadTestResults(numberOfCorrect) {
                 resultsContainer.innerHTML = "";
                 const comprehensionScoreHolder = document.getElementById('ComprehensionScoreHolder');
                 comprehensionScoreHolder.innerHtml += readingEfficiencyIndex;
-                beginTimerBeforeQuiz(TIME_BEFORE_QUIZ);
+                beginTimerBeforeQuiz(timeBeforeQuiz);
                 wordCount = 0;
                 startTimer();
             } else {

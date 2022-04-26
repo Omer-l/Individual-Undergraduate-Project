@@ -62,28 +62,28 @@ function readingModeSelected() {
 }
 
 //When number of words before quiz is selected
-function numberOfWordsBeforeQuizSelected() {
+function secondsBeforeQuizSelected() {
     console.log("BDOING");
     let preferenceSelectorId = 'NumberOfWordsSelector';
     let preference = document.getElementById(preferenceSelectorId);
     if (preference) {
         let selected = preference.selectedIndex;
         if (selected == 0) {
-            numberOfWordsBeforeQuiz = 0;
+            secondsBeforeQuiz = 0;
         } else if(selected == 1){
-            numberOfWordsBeforeQuiz = 10;
+            secondsBeforeQuiz = 10;
         } else if(selected == 2){
-            numberOfWordsBeforeQuiz = 50;
+            secondsBeforeQuiz = 20;
         } else if(selected == 3){
-            numberOfWordsBeforeQuiz = 100;
+            secondsBeforeQuiz = 30;
         } else if(selected == 4){
-            numberOfWordsBeforeQuiz = 300;
+            secondsBeforeQuiz = 40;
         } else if(selected == 5){
-            numberOfWordsBeforeQuiz = 600;
+            secondsBeforeQuiz = 50;
         } else if(selected == 6){
-            numberOfWordsBeforeQuiz = 1000;
+            secondsBeforeQuiz = 60;
         } else if(selected == 7){
-            numberOfWordsBeforeQuiz = 3000;
+            secondsBeforeQuiz = 90;
         }
     }
 }
@@ -170,29 +170,21 @@ function outputLoginRegistrationToPage() {
         '                            <option>Rapid Serial Visual Presentation</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
-        '\n' +
-        '                    <div class="form-group">\n' +
-        '                        <label for="QuizPreferenceSelector">Quiz Mode</label>\n' +
-        '                        <select class="form-control" id="QuizPreferenceSelector" onchange="preferenceSelected(\'Quiz\')">\n' +
-        '                            <option>Off</option>\n' +
-        '                            <option>On</option>\n' +
-        '                        </select>\n' +
-        '                    </div>\n' +
-        '\n' +
         '                    <div class="form-group" id="QuizPreferencesDiv">\n' +
-        '                        <label for="NumberOfWordsSelector">Words Before Quiz</label>\n' +
-        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="numberOfWordsBeforeQuizSelected()">\n' +
+        '                        <label for="NumberOfWordsSelector">Seconds Before Quiz</label>\n' +
+        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="secondsBeforeQuizSelected()">\n' +
         '                            <option>Off</option>\n' +
         '                            <option>10</option>\n' +
+        '                            <option>20</option>\n' +
+        '                            <option>30</option>\n' +
+        '                            <option>40</option>\n' +
         '                            <option>50</option>\n' +
-        '                            <option>100</option>\n' +
-        '                            <option>300</option>\n' +
-        '                            <option>600</option>\n' +
-        '                            <option>1000</option>\n' +
-        '                            <option>3000</option>\n' +
+        '                            <option>60</option>\n' +
+        '                            <option>90</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
         '                </div>\n' +
+
         '                <button type="button" class="btn btn-primary mb-2" id="RegistrationButton">Register</button>\n' +
         '            </form>\n' +
         '        </div>\n' +
@@ -214,7 +206,6 @@ function outputLoginRegistrationToPage() {
     }
 //    hide preferences
     $('#PreferencesDiv').hide();
-    $('#QuizPreferencesDiv').hide();
 //    Ensures fields are entered
     disableButton('Registration');
     disableButton('Login');

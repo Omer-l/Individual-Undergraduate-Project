@@ -177,9 +177,9 @@ function register(request, response) {
                         console.error("Error executing query: " + JSON.stringify(errAddUser));
                     } else {
                         //Query to add user details to preferences table
-                        let sqlAddUserPreferencesQuery = "INSERT INTO preferences (reading_mode, words_before_quiz, highlight_color, unhighlight_color, background_color, field_of_view)  VALUES ("
+                        let sqlAddUserPreferencesQuery = "INSERT INTO preferences (reading_mode, seconds_before_quiz, highlight_color, unhighlight_color, background_color, field_of_view)  VALUES ("
                             + "\"" + preferences.readingMode + "\","
-                            + preferences.wordsBeforeQuiz + ","
+                            + preferences.secondsBeforeQuiz + ","
                             + "\"" + preferences.highlightColor + "\","
                             + "\"" + preferences.unhighlightColor + "\","
                             + "\"" + preferences.backgroundColor + "\","

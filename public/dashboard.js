@@ -1,15 +1,16 @@
 /** Due to asynchronous functions, this function intialises user preferences after promises */
 function initialisePreferences() {
+    const SECONDS_TO_MS_MULTIPLIER = 1000;
     pdfPreferences = userDetails.preferences;
     highlightColor = pdfPreferences.highlight_color; //Word currently being read
     unhighlightColor = pdfPreferences.unhighlight_color; //already read words
     backgroundColor = pdfPreferences.background_color; //For completely removing of all highlighting
     readMode = pdfPreferences.reading_mode; //RSVP or paragraph mode
-    wordsBeforeQuiz = pdfPreferences.words_before_quiz; //for quiz menu
+    timeBeforeQuiz = pdfPreferences.seconds_before_quiz * SECONDS_TO_MS_MULTIPLIER; //for quiz menu
     fieldOfView = pdfPreferences.field_of_view; //how much the user can read in field of view
     fieldOfViewError = fieldOfView + 5; //Room for error in reading accident jumps
     document.getElementById("ReadingModeHolder").innerHTML += readMode;
-    document.getElementById("WordsBeforeQuizHolder").innerHTML += wordsBeforeQuiz;
+    document.getElementById("SecondsBeforeQuizHolder").innerHTML += secondsBeforeQuiz;
     document.getElementById("HighlightColorHolder").innerHTML += highlightColor;
     document.getElementById("UnhighlightColorHolder").innerHTML += unhighlightColor;
     document.getElementById("BackgroundColorHolder").innerHTML += backgroundColor;
