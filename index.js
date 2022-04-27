@@ -573,3 +573,9 @@ function updateTestResults(request, response) {
         }
     });
 }
+
+app.get('/', function (req, res) {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send('hello world')
+})

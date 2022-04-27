@@ -41,13 +41,16 @@
 
 <!--Page up bar-->
 <div id="pageUpBarDiv" onmouseover="previousPage()">
-    <div id="ArrowUp1"/>
-    <button id="DashboardButton" type="button" class="btn btn-lg btn-primary" onclick="switchContent(false)">Dashboard</button>
+    <div id="ArrowUp1"></div>
+    <button type="button" class="btn btn-lg btn-primary" onclick="switchContent(false)">Dashboard</button>
 </div>
 <br>
-<div id="HolderDiv"><br>
-    <!--    PDF HOLDER -->
-    <div id="Holder"></div>
+<div class="float-container">
+    <div class="float-child" id="Scores"/>Time until quiz <br> Comp score: </div>
+    <div class="float-child" id="HolderDiv"><br>
+        <!--    PDF HOLDER -->
+        <div id="Holder"></div>
+    </div>
 </div>
 <!--    QUIZ HOLDER-->
 <div id="quizHolder">
@@ -63,9 +66,7 @@
     <div id="results"></div>
 </div>
 <!--Page down bar-->
-<div id="pageDownBarDiv" onmouseover="nextPage()">
-    <div id="ArrowDown1"/>
-</div>
+<div id="pageDownBarDiv" onmouseover="nextPage()"><span id="ArrowDown1"/></div>
 
 <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
       integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
@@ -129,7 +130,6 @@
         } else
             outputDashboard();
     }
-    switchContent(true); //TODO DELETE THIS
 </script>
 <!--    For Quizzing -->
 <script src="quizzer.js"></script>

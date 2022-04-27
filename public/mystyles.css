@@ -40,19 +40,31 @@ span {
 #HolderDiv {
     width: 80%;
     height: 75%;
-    text-align: center;
-    justify-content: center;
+    /*text-align: center;*/
+    /*justify-content: center;*/
     margin: auto;
     position: fixed;
+    left: 100px;
 }
 
 #Holder {
     font-size: 45px;
     /*width: 50%;*/
     /*height: 70%;*/
-    text-align: center;
-    justify-content: center;
-    margin: auto;
+    text-align: justify;
+    /*justify-content: center;*/
+    /*margin: auto;*/
+}
+
+#Scores {
+    width: 300px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
 }
 
 /* Loading screen */

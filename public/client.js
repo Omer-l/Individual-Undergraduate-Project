@@ -222,7 +222,6 @@ function removePdf(pdfName) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
             console.log(response);
-            serverResponse.innerHTML = "Removed " + response.pdfName;
             getUserPdfs();
         }
     }
