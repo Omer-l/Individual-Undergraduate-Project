@@ -16,7 +16,8 @@ function highlight(word) {
         let wordId = wordIdPrefix + highlightIndex;
         let wordInFieldOfView = document.getElementById(wordId);
         if(wordInFieldOfView != null)
-            wordInFieldOfView.style.backgroundColor = highlightColor;
+            if(HIGHLIGHTING)
+                wordInFieldOfView.style.backgroundColor = highlightColor;
     }
 }
 
@@ -30,9 +31,11 @@ function unhighlight(word) {
         let wordId = wordIdPrefix + unhighlightIndex;
         let wordInFieldOfView = document.getElementById(wordId);
         if(unhighlightIndex > previouslyReadWordIndex && wordInFieldOfView != null)
-            wordInFieldOfView.style.backgroundColor = backgroundColor;
+            if(HIGHLIGHTING)
+                wordInFieldOfView.style.backgroundColor = backgroundColor;
         else if(wordInFieldOfView != null)
-            wordInFieldOfView.style.backgroundColor = unhighlightColor;
+                if(HIGHLIGHTING)
+                wordInFieldOfView.style.backgroundColor = unhighlightColor;
     }
     //Unhighlights all previous words
     let readingAtCorrectPace = idOfWordBeingLookedAt <= previouslyReadWordIndex + fieldOfViewError &&
@@ -50,7 +53,8 @@ function unhighlight(word) {
             let wordInFieldOfView = document.getElementById(wordId);
             let alreadyUnhighlighted = highlighted(wordInFieldOfView, unhighlightColor);
             if(!alreadyUnhighlighted && wordInFieldOfView != null) {
-                wordInFieldOfView.style.backgroundColor = unhighlightColor;
+                if(HIGHLIGHTING)
+                    wordInFieldOfView.style.backgroundColor = unhighlightColor;
                 wordCount++;
                 console.log(wordCount);
             }

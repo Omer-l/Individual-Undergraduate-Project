@@ -32,6 +32,8 @@ let idOfWordBeingLookedAt = 0; //word user is looking at
 const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 let start = 0; //time before quiz shows
 let elapsedTimerInterval;
+const HIGHLIGHTING = true;
+
 //Points to a div element where user combo will be inserted.
 let userDetails = {
     name: "",
