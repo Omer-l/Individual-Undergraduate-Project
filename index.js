@@ -345,6 +345,7 @@ function loadPdf(request, response) {
         if (error) //Ensures query is fulfilled
             return response.status(500).send('{"upload": false, "error": "unable to read documents from the database"}');
         else {
+            request.session.pdfREIndex = result[0].reading_efficiency_index;
             let pdfDetails = result[0];
             response.send(JSON.stringify(pdfDetails));
         }
@@ -518,6 +519,7 @@ function updateTestResults(request, response) {
     const elapsedTime = request.body.time;
     const numberOfWordsRead = request.body.wordCount;
     console.log("ELAPSED: " + elapsedTime);
+
 //Get row's current avg RE and tot quiz
     let sqlGetCurrentAverageQuery = "SELECT number_of_quizzes_completed, average_quiz_score, reading_efficiency_index, read_position from documents " +
         "WHERE file_name = \"" + pdfName + "\" AND " +
@@ -561,6 +563,7 @@ function updateTestResults(request, response) {
                             readPositionUpdated: true,
                             readPosition: readPositionDb,
                             readingEfficiencyIndex: newRE,
+                            secondsBeforeQuiz: request.session.preferences.seconds_before_quiz,
                         };
                         console.log(JSON.stringify(newStats));
                         return response.send(JSON.stringify(newStats));

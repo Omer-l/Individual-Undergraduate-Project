@@ -8,11 +8,14 @@
     <!--   W3Schools CSS-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--    JavaScript-->
     <!-- PDF.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.87/pdf.worker.min.js" integrity="sha512-LrSWivv1Yo93OJi0/tkrnlOtUgbfsYQjesymbzJc7lCswZ2QItytB4A2ZBhhopPPshtqMhCyfPj3P9APi11hpw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.87/pdf.worker.min.js"
+            integrity="sha512-LrSWivv1Yo93OJi0/tkrnlOtUgbfsYQjesymbzJc7lCswZ2QItytB4A2ZBhhopPPshtqMhCyfPj3P9APi11hpw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.worker.min.js"></script>
     <!--    jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,33 +33,42 @@
     <script src="dashboard.js"></script>
 </head>
 <body>
+<a href="index.html"><img href="index.html" src="EyeDoc.png" width="50" height="50"></a>
+<button type="button" class="btn btn-primary" onclick="logoutUser()" id="LogoutButton">Logout</button>
+<h1><span class="w3-tag w3-wide">EyeDoc</span></h1>
 <!--Ensures only an active session is shown the dashboard, otherwise, a login and registration is shown-->
 <div id="CheckLoginDiv"></div>
 
 <!--Page up bar-->
 <div id="pageUpBarDiv" onmouseover="previousPage()">
-    <button type="button" class="btn btn-lg btn-primary" onclick="switchContent(false)">Dashboard</button>
-</div><br>
+    <div id="ArrowUp1"/>
+    <button id="DashboardButton" type="button" class="btn btn-lg btn-primary" onclick="switchContent(false)">Dashboard</button>
+</div>
+<br>
 <div id="HolderDiv"><br>
-<!--    PDF HOLDER -->
+    <!--    PDF HOLDER -->
     <div id="Holder"></div>
 </div>
 <!--    QUIZ HOLDER-->
 <div id="quizHolder">
     <!--    LOADING SCREEN -->
-<!--    <div class="LoadingScreen"></div>  &lt;!&ndash; TODO fix this&ndash;&gt;-->
+    <!--    <div class="LoadingScreen"></div>  &lt;!&ndash; TODO fix this&ndash;&gt;-->
     <div class="quiz-container">
         <div id="quiz"></div>
     </div>
-    <br><br><br><br><br><br><button id="previous">Previous Question</button>
+    <br><br><br><br><br><br>
+    <button id="previous">Previous Question</button>
     <button id="next">Next Question</button>
     <button id="submit">Submit Quiz</button>
     <div id="results"></div>
 </div>
 <!--Page down bar-->
-<div id="pageDownBarDiv" onmouseover="nextPage()"></div>
+<div id="pageDownBarDiv" onmouseover="nextPage()">
+    <div id="ArrowDown1"/>
+</div>
 
-<link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+<link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
+      integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
 
 <div id="UserDetailsHolder" class="container">
     <div class="row">
@@ -65,18 +77,23 @@
                 <div class="border-bottom p-4">
                     <div class="osahan-user text-center">
                         <div class="osahan-user-media">
-                            <img class="mb-3 rounded-pill shadow-sm mt-1" src="pdfIcon.png" alt="PDF" width="200" height="200">
+                            <img class="mb-3 rounded-pill shadow-sm mt-1" src="pdfIcon.png" alt="PDF" width="200"
+                                 height="200">
                             <div class="osahan-user-media-body">
                                 <h6 class="mb-2" id="NameHolder"></h6>
                                 <p style="display: inline" id="NumberOfPdfsHolder"></p>
-                                <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                                <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3"
+                                                                               data-toggle="modal"
+                                                                               data-target="#edit-profile-modal"
+                                                                               href="#"><i
+                                        class="icofont-ui-edit"></i> EDIT</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <h3> <i class="icofont-location-pin"></i> Preferences</h3>
+                        <h3><i class="icofont-location-pin"></i> Preferences</h3>
                         <div id="PreferencesHolder">
                             <p id="ReadingModeHolder">Reading mode: </p>
                             <p id="SecondsBeforeQuizHolder">Seconds before quiz: </p>
@@ -92,7 +109,8 @@
         <div class="col-md-9">
             <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade  active show"  id="PdfList" role="tabpanel" aria-labelledby="addresses-tab">
+                    <div class="tab-pane fade  active show" id="PdfList" role="tabpanel"
+                         aria-labelledby="addresses-tab">
                     </div>
                 </div>
             </div>
@@ -103,14 +121,15 @@
     switchContent(false);
     hideElementsByIds(quizContent);
     userLoggedIn();
+
     function outputPage(sessionActive) {
-        if(!sessionActive) {
+        if (!sessionActive) {
             parsePageURL();
             outputLoginRegistrationToPage();
-        }
-        else
+        } else
             outputDashboard();
     }
+    switchContent(true); //TODO DELETE THIS
 </script>
 <!--    For Quizzing -->
 <script src="quizzer.js"></script>

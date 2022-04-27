@@ -24,7 +24,7 @@ let temporarySentence = ""; //in case user reaches word count and the sentence i
 let myQuestions = []; //for quiz generating
 let readingEfficiencyIndex = 0; //For showing the reader their current comprehension
 let pdfContent = ['#HolderDiv', '#Holder', '#pageDownBarDiv', '#pageUpBarDiv']; //pdf elements by Id
-let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder"]; //dashboard elements by Id
+let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#UserPdfsList", "#UserDetailsHolder", '#LogoutButton']; //dashboard elements by Id
 let loadingScreenContent = ['#LoadingScreen']; //loading screen elements by Id
 let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results']; //quiz elements by Id
 let timeBeforeQuiz; //time before quiz shows
@@ -93,6 +93,8 @@ function switchContent(pdfElementsOn) {
         //to show
         showElementsByIds(dashboardContent);
         //to hide
+        stopTimer();
+        stopTimerDuringQuiz();
         hideElementsByIds(pdfContent);
     }
 }
@@ -136,6 +138,7 @@ function updateWordVariables() {
 function getWordsReadAndQuiz() {
     console.log("QUIZZING!");
     if(wordCount > MINIMUM_NUMBER_OF_WORDS_TO_READ) {
+        stopTimerDuringQuiz();
         let numberOfWordsForQuiz = userDetails.preferences.seconds_before_quiz;
         let wordsForQuiz = [];
         let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount;
@@ -149,8 +152,6 @@ function getWordsReadAndQuiz() {
         previouslyReadWordIndex = idOfWordBeingLookedAt;
         stopTimer();
         getQuiz(sentences);
-    } else {
-        beginTimerBeforeQuiz(timeBeforeQuiz);
     }
 }
 
@@ -169,13 +170,18 @@ function stopTimer() {
 }
 
 /** Begins the timer for a quiz */
+// function beginTimerBeforeQuiz(timeInMs) {
+//     timeBeforeQuiz = setTimeout(getWordsReadAndQuiz, timeInMs);
+// }
 function beginTimerBeforeQuiz(timeInMs) {
-    timerForQuiz = setTimeout(getWordsReadAndQuiz, timeInMs);
+    stopTimerDuringQuiz();
+    timeBeforeQuiz = setInterval(getWordsReadAndQuiz, timeInMs); // update about every second
 }
+
 
 /** Stops the timer when quizzing taking place. */
 function stopTimerDuringQuiz() {
-    clearTimeout(timerForQuiz);
+    clearInterval(timeBeforeQuiz);
 }
 
 /** Outputs PDF as HTML */
@@ -324,9 +330,12 @@ function generateQuiz(sentencesSyntaxAnalysis) {
         let correctAnswer = ""; //The correct missing word
 
         let sentenceAnalysis = sentencesSyntaxAnalysis[sentenceAnalysisIndex].SyntaxTokens;
-        correctAnswer = findBestMissingWord(sentenceAnalysis);
-        console.log(correctAnswer + " q: " + question);
-        question = generateQuestion(sentenceAnalysis, correctAnswer, '_');
-        answers = getSimilarAnswersAndShowQuiz(correctAnswer, question, correctAnswer);
+
+        if(sentenceAnalysis[0].Text != undefined) {
+            correctAnswer = findBestMissingWord(sentenceAnalysis);
+            console.log(correctAnswer + " q: " + question);
+            question = generateQuestion(sentenceAnalysis, correctAnswer, '_');
+            answers = getSimilarAnswersAndShowQuiz(correctAnswer, question, correctAnswer);
+        }
     }
 }

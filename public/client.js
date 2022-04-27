@@ -179,6 +179,10 @@ function uploadFile() {
     httpReq.send(formData);
 }
 
+function updateComprehensionScore(score) {
+    $('#ComprehensionScoreHolder').text("Comprehension Score: " + score);
+}
+
 /** gets a user's clicked PDF */
 function loadPdf(pdfName) {
     nameOfPdf = pdfName; //update name of pdf
@@ -194,8 +198,9 @@ function loadPdf(pdfName) {
             html = response.html;
             previouslyReadWordIndex = response.read_position;
             secondsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.seconds_before_quiz;
-            readingEfficiencyIndex = pdfDetails.readingEfficiencyIndex;
+            readingEfficiencyIndex = response.reading_efficiency_index;
             serverResponse.text("Displaying " + pdfName);
+            updateComprehensionScore(readingEfficiencyIndex);
             outputPdfToPage();
         }
         // else {//could not load PDF
@@ -231,11 +236,10 @@ function removePdf(pdfName) {
 function getUserPdfs() {
     let xhttp = new XMLHttpRequest();
     let serverResponse = document.getElementById("UserPdfsList");
-    serverResponse.innerHTML = "<h1>EyeDoc</h1>";
     let pdfListDiv = document.getElementById("PdfList");
     xhttp.onload = () => {
         if (xhttp.responseText.length == 0)
-            serverResponse.innerHTML = "<h1>Upload PDFs!</h1>";
+            console.log("NO PDFs");
         else { //PDFs have been found
             let response = JSON.parse(xhttp.responseText);
             if ("error" in response) //could not get pdf from directory
@@ -290,7 +294,7 @@ function uploadReadPosition(wordPosition) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             let response = JSON.parse(xhttp.responseText);
             console.log(response);
-            serverResponse.innerHTML = "Removed " + response.pdfName;
+            // serverResponse.innerHTML = "Removed " + response.pdfName;
             getUserPdfs();
         }
     }
@@ -363,13 +367,14 @@ function uploadTestResults(numberOfCorrect) {
                 previouslyReadWordIndex = response.readPosition;
                 secondsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.seconds_before_quiz;
                 readingEfficiencyIndex = response.readingEfficiencyIndex;
+                let timeBeforeQuiz = response.secondsBeforeQuiz * 1000;
                 hideElementsByIds(quizContent);
                 showElementsByIds(pdfContent);
                 myQuestions = [];
                 const resultsContainer = document.getElementById('results');
                 resultsContainer.innerHTML = "";
-                const comprehensionScoreHolder = document.getElementById('ComprehensionScoreHolder');
-                comprehensionScoreHolder.innerHtml += readingEfficiencyIndex;
+                console.log("TIME BEFORE LA QUIZ: " + timeBeforeQuiz);
+                updateComprehensionScore(readingEfficiencyIndex);
                 beginTimerBeforeQuiz(timeBeforeQuiz);
                 wordCount = 0;
                 startTimer();
