@@ -25,7 +25,7 @@ function userLoggedIn() {
                 sessionActive = true;
                 userDetails = userInfo;
                 secondsBeforeQuiz = userDetails.preferences.seconds_before_quiz;
-                document.getElementById("NameHolder").innerHTML = userDetails.name;
+                document.getElementById("NameHolder").innerHTML = "Welcome " + userDetails.name;
             }
             outputPage(sessionActive);
         }

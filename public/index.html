@@ -33,8 +33,10 @@
     <script src="dashboard.js"></script>
 </head>
 <body>
-<a href="index.html"><img href="index.html" src="EyeDoc.png" width="50" height="50"></a>
-<button type="button" class="btn btn-primary" onclick="logoutUser()" id="LogoutButton">Logout</button>
+<div>
+    <a href="index.html"><img href="index.html" src="EyeDoc.png" width="50" height="50"></a>
+    <button type="button" class="btn btn-primary" onclick="logoutUser()" id="LogoutButton">Logout</button>
+</div>
 <h1><span class="w3-tag w3-wide">EyeDoc</span></h1>
 <!--Ensures only an active session is shown the dashboard, otherwise, a login and registration is shown-->
 <div id="CheckLoginDiv"></div>
@@ -46,7 +48,10 @@
 </div>
 <br>
 <div class="float-container">
-    <div class="float-child" id="Scores"/>Time until quiz <br> Comp score: </div>
+    <div class="float-child" id="Scores"/> <b>Time until quiz </b></b><br> 5 Seconds <br> <b>Words Per Minute:</b> <br>
+
+    <span id="some_element"/>
+</div>
     <div class="float-child" id="HolderDiv"><br>
         <!--    PDF HOLDER -->
         <div id="Holder"></div>
@@ -133,6 +138,8 @@
 </script>
 <!--    For Quizzing -->
 <script src="quizzer.js"></script>
+<!--    Speedometer-->
+<script src="pureknob.js" type="text/javascript"></script>
 </body>
 </html>
 
