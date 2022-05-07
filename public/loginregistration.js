@@ -115,6 +115,8 @@ function signInUser() {
 
 //Outputs login and registration prompt to HTML
 function outputLoginRegistrationToPage() {
+    $("#EyeDocLogo").hide();
+    $("#Logo").hide();
     $("#UserDetailsHolder").hide();
     document.getElementById("CheckLoginDiv").innerHTML =
         '<!-- Menu Container -->\n' +

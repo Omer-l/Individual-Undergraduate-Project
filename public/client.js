@@ -199,6 +199,7 @@ function loadPdf(pdfName) {
             previouslyReadWordIndex = response.read_position;
             secondsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.seconds_before_quiz;
             readingEfficiencyIndex = response.reading_efficiency_index;
+            knob.setValue(readingEfficiencyIndex);
             serverResponse.text("Displaying " + pdfName);
             updateComprehensionScore(readingEfficiencyIndex);
             outputPdfToPage();

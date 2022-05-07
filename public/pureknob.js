@@ -3,7 +3,7 @@
 			 */
 function demoKnob() {
 	// Create knob element, 300 x 300 px in size.
-	const knob = pureknob.createKnob(60, 60);
+	knob = pureknob.createKnob(60, 60);
 
 	// Set properties.
 	knob.setProperty('angleStart', -0.75 * Math.PI);
@@ -11,7 +11,7 @@ function demoKnob() {
 	knob.setProperty('colorFG', '#88ff88');
 	knob.setProperty('trackWidth', 0.4);
 	knob.setProperty('valMin', 0);
-	knob.setProperty('valMax', 100);
+	knob.setProperty('valMax', 1000);
 
 	// Set initial value.
 	knob.setValue(50);
@@ -83,7 +83,7 @@ function demoKnob() {
  */
 function ready() {
 	demoKnob();
-	demoBarGraph();
+	// demoBarGraph();
 }
 
 document.addEventListener('DOMContentLoaded', ready, false);

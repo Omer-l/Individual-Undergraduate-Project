@@ -21,6 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--    My Utilities, contains basic functions -->
     <script src="myUtils.js"></script>
+    <!--    Speedometer-->
+    <script src="pureknob.js" type="text/javascript"></script>
     <!--    Websocket connection -->
     <script src="myWebSocket.js"></script>
     <!--    Client-->
@@ -33,11 +35,11 @@
     <script src="dashboard.js"></script>
 </head>
 <body>
-<div>
+<div id="Logo">
     <a href="index.html"><img href="index.html" src="EyeDoc.png" width="50" height="50"></a>
     <button type="button" class="btn btn-primary" onclick="logoutUser()" id="LogoutButton">Logout</button>
 </div>
-<h1><span class="w3-tag w3-wide">EyeDoc</span></h1>
+<h1 id="EyeDocLogo"><span class="w3-tag w3-wide">EyeDoc</span></h1>
 <!--Ensures only an active session is shown the dashboard, otherwise, a login and registration is shown-->
 <div id="CheckLoginDiv"></div>
 
@@ -48,8 +50,7 @@
 </div>
 <br>
 <div class="float-container">
-    <div class="float-child" id="Scores"/> <b>Time until quiz </b></b><br> 5 Seconds <br> <b>Words Per Minute:</b> <br>
-
+    <div class="float-child" id="Scores"/> <b>Time until quiz </b></b><br> <p id="SecondsBeforeQuiz"> 5 Seconds </p> <br> <b>Words Per Minute:</b> <br>
     <span id="some_element"/>
 </div>
     <div class="float-child" id="HolderDiv"><br>
@@ -138,8 +139,6 @@
 </script>
 <!--    For Quizzing -->
 <script src="quizzer.js"></script>
-<!--    Speedometer-->
-<script src="pureknob.js" type="text/javascript"></script>
 </body>
 </html>
 

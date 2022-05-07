@@ -33,6 +33,7 @@ const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 let start = 0; //time before quiz shows
 let elapsedTimerInterval;
 const HIGHLIGHTING = true;
+let knob;
 
 //Points to a div element where user combo will be inserted.
 let userDetails = {
@@ -44,6 +45,7 @@ let userDetails = {
         unhighlight_color: "",
         background_color: "",
         field_of_view: 0,
+        seconds_before_quiz: 0,
     }
 };
 
@@ -160,9 +162,16 @@ function getWordsReadAndQuiz() {
 /** Begins timer before a quiz shows */
 function startTimer() {
     start = 1;
+    let difference = 1;
     stopTimer();
     elapsedTimerInterval = setInterval(function() {
+        let secondsBeforeQuiz = userDetails.preferences.seconds_before_quiz;
+        if (difference > secondsBeforeQuiz)
+            difference = 0;
+        console.log(secondsBeforeQuiz + " - " + start);
+        document.getElementById("SecondsBeforeQuiz").innerHTML = (secondsBeforeQuiz - difference) + " Seconds";
         start++; // in seconds
+        difference++;
     }, 1000); // update about every second
 }
 

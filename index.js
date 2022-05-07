@@ -57,8 +57,8 @@ const connectionPool = mysql.createPool({
     host: "localhost",
     port: 3306,
     user: "root",
-    // password: "root", //Windows
-    password: "password", //MacOS
+    password: "root", //Windows
+    // password: "password", //MacOS
     database: "fyp",
     debug: false
 });
