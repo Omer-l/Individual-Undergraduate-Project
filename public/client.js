@@ -202,6 +202,7 @@ function loadPdf(pdfName) {
             knob.setValue(readingEfficiencyIndex);
             serverResponse.text("Displaying " + pdfName);
             updateComprehensionScore(readingEfficiencyIndex);
+            knob.setValue(readingEfficiencyIndex);
             outputPdfToPage();
         }
         // else {//could not load PDF
@@ -367,6 +368,7 @@ function uploadTestResults(numberOfCorrect) {
                 previouslyReadWordIndex = response.readPosition;
                 secondsBeforeQuiz = previouslyReadWordIndex + userDetails.preferences.seconds_before_quiz;
                 readingEfficiencyIndex = response.readingEfficiencyIndex;
+                knob.setValue(readingEfficiencyIndex);
                 let timeBeforeQuiz = response.secondsBeforeQuiz * 1000;
                 hideElementsByIds(quizContent);
                 showElementsByIds(pdfContent);
