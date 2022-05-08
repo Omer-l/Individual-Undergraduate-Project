@@ -32,7 +32,6 @@ let idOfWordBeingLookedAt = 0; //word user is looking at
 const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 let start = 0; //time before quiz shows
 let elapsedTimerInterval;
-const HIGHLIGHTING = true;
 let knob;
 
 //Points to a div element where user combo will be inserted.
@@ -204,7 +203,7 @@ function outputPdfToPage() {
     switchContent(true);
     pdfHolderElement.innerHTML = html;
     //places words into an array to not overfill the page
-    pdfWords = $("#" + pdfHolderId).find("span"); //all words wrapped inside the span element
+    pdfWords = $("#" + pdfHolderId ).find("span"); //all words wrapped inside the span element
     pdfHolderElement.innerHTML = ""; //clear PDF view
     for (; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
         let word = pdfWords[previouslyReadWordIndex].outerHTML;

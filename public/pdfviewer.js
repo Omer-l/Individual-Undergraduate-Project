@@ -16,8 +16,7 @@ function highlight(word) {
         let wordId = wordIdPrefix + highlightIndex;
         let wordInFieldOfView = document.getElementById(wordId);
         if(wordInFieldOfView != null)
-            if(HIGHLIGHTING)
-                wordInFieldOfView.style.backgroundColor = highlightColor;
+            wordInFieldOfView.style.backgroundColor = highlightColor;
     }
 }
 
@@ -31,15 +30,13 @@ function unhighlight(word) {
         let wordId = wordIdPrefix + unhighlightIndex;
         let wordInFieldOfView = document.getElementById(wordId);
         if(unhighlightIndex > previouslyReadWordIndex && wordInFieldOfView != null)
-            if(HIGHLIGHTING)
-                wordInFieldOfView.style.backgroundColor = backgroundColor;
+            wordInFieldOfView.style.backgroundColor = backgroundColor;
         else if(wordInFieldOfView != null)
-                if(HIGHLIGHTING)
-                wordInFieldOfView.style.backgroundColor = unhighlightColor;
+            wordInFieldOfView.style.backgroundColor = unhighlightColor;
     }
     //Unhighlights all previous words
     let readingAtCorrectPace = idOfWordBeingLookedAt <= previouslyReadWordIndex + fieldOfViewError &&
-                                idOfWordBeingLookedAt >= previouslyReadWordIndex;
+        idOfWordBeingLookedAt >= previouslyReadWordIndex;
     let tooManyReadingJumpErrors = fieldOfViewErrorCounter == maximumFieldOfViewError;
     console.log(idOfWordBeingLookedAt + " COMP TO: " + (previouslyReadWordIndex + fieldOfViewError));
     if(readingAtCorrectPace || tooManyReadingJumpErrors) { //ensures reader is not jumping text
@@ -53,8 +50,7 @@ function unhighlight(word) {
             let wordInFieldOfView = document.getElementById(wordId);
             let alreadyUnhighlighted = highlighted(wordInFieldOfView, unhighlightColor);
             if(!alreadyUnhighlighted && wordInFieldOfView != null) {
-                if(HIGHLIGHTING)
-                    wordInFieldOfView.style.backgroundColor = unhighlightColor;
+                wordInFieldOfView.style.backgroundColor = unhighlightColor;
                 wordCount++;
                 console.log(wordCount);
             }
