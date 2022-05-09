@@ -15,8 +15,8 @@ connection.onopen = function(event) {
 
 connection.onmessage = function(msg) {
     // console.log("for TESTING: "  + msg.data);
-    let sentencesSyntaxAnalsis = JSON.parse(msg.data);
-    generateQuiz(sentencesSyntaxAnalsis.data);
+    let sentencesSyntaxAnalysis = JSON.parse(msg.data);
+    generateQuiz(sentencesSyntaxAnalysis.data);
 }
 
 function getQuiz(sentences) {

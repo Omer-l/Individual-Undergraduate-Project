@@ -28,7 +28,7 @@ let dashboardContent = ["#ServerResponse", "#UploadFileButton", "#FileInput", "#
 let loadingScreenContent = ['#LoadingScreen']; //loading screen elements by Id
 let quizContent = ['#quizHolder', '#quiz-container', '#quiz', '#previous', '#next', '#submit', '#results']; //quiz elements by Id
 let timeBeforeQuiz; //time before quiz shows
-let idOfWordBeingLookedAt = 0; //word user is looking at
+let indexInPdfWordsArray = 0; //word user is looking at
 const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 let start = 0; //time before quiz shows
 let elapsedTimerInterval;
@@ -144,7 +144,7 @@ function getWordsReadAndQuiz() {
         stopTimerDuringQuiz();
         let numberOfWordsForQuiz = userDetails.preferences.seconds_before_quiz;
         let wordsForQuiz = [];
-        let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + idOfWordBeingLookedAt) - wordCount;
+        let pdfWordsIndex = (getWordStartingIndexInPdfWordsArray("w" + indexInPdfWordsArray) - wordCount < 0) ? 0 : getWordStartingIndexInPdfWordsArray("w" + indexInPdfWordsArray) - wordCount;
         for (let quizWordCounter = 0; pdfWordsIndex < pdfWords.length && quizWordCounter < wordCount;quizWordCounter++) {
             let word = pdfWords[pdfWordsIndex++];
             wordsForQuiz.push($(word).text());
@@ -152,8 +152,9 @@ function getWordsReadAndQuiz() {
         let wordsJoined = putWordsTogether(wordsForQuiz);
         let sentences = extractSentences(wordsJoined);
         console.log(wordsJoined);// TODO DELETE THIS
-        previouslyReadWordIndex = idOfWordBeingLookedAt;
+        previouslyReadWordIndex = indexInPdfWordsArray;
         stopTimer();
+        getQuiz(sentences);
     }
 }
 
@@ -166,7 +167,6 @@ function startTimer() {
         let secondsBeforeQuiz = userDetails.preferences.seconds_before_quiz;
         if (difference > secondsBeforeQuiz)
             difference = 0;
-        console.log(secondsBeforeQuiz + " - " + start);
         document.getElementById("SecondsBeforeQuiz").innerHTML = (secondsBeforeQuiz - difference) + " Seconds";
         start++; // in seconds
         difference++;
@@ -193,6 +193,31 @@ function stopTimerDuringQuiz() {
     clearInterval(timeBeforeQuiz);
 }
 
+/** Displays the next set of words */
+function nextPage() {
+    let pdfHolderElement = document.getElementById(pdfHolderId);// div element
+    pdfHolderElement.innerHTML = ""; //clear page
+    let word = "";
+    for(let wordIndex = previouslyReadWordIndex; wordIndex < pdfWords.length; wordIndex++) {
+        let word = pdfWords[wordIndex].outerHTML;
+        pdfHolderElement.innerHTML += word;
+
+        if (pageFullOfWords(pdfHolderElement)) {
+            let extraWordLength = word.length;
+            let lengthOfPage =   pdfHolderElement.innerHTML.length - word.length;
+            pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
+            break;
+        }
+    }
+    if(pdfHolderElement.innerHTML == "") {
+        pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
+    }
+    fieldOfViewErrorCounter = 0; //reset error counter
+    wordsOnPage = $("#" + pdfHolderId).find("span");
+    // updateWordVariables()
+    uploadReadPosition(previouslyReadWordIndex);
+}
+
 /** Outputs PDF as HTML */
 function outputPdfToPage() {
     let pdfHolderElement = document.getElementById(pdfHolderId);// div element
@@ -203,24 +228,8 @@ function outputPdfToPage() {
     pdfHolderElement.innerHTML = html;
     //places words into an array to not overfill the page
     pdfWords = $("#" + pdfHolderId ).find("span"); //all words wrapped inside the span element
-    pdfHolderElement.innerHTML = ""; //clear PDF view
-    for (; previouslyReadWordIndex < pdfWords.length; previouslyReadWordIndex++) {
-        let word = pdfWords[previouslyReadWordIndex].outerHTML;
-        pdfHolderElement.innerHTML += word;
+    nextPage();
 
-        if (pageFullOfWords(pdfHolderElement)) {
-            let extraWordLength = word.length;
-            let lengthOfPage = pdfHolderElement.innerHTML.length - word.length;
-            pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
-            break;
-        }
-    }
-
-    if (pdfHolderElement.innerHTML == "") {
-        pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
-    }
-
-    wordsOnPage = $("#" + pdfHolderId).find("span");
     beginTimerBeforeQuiz(timeBeforeQuiz);
     startTimer();
 }
