@@ -154,7 +154,6 @@ function getWordsReadAndQuiz() {
         console.log(wordsJoined);// TODO DELETE THIS
         previouslyReadWordIndex = idOfWordBeingLookedAt;
         stopTimer();
-        getQuiz(sentences);
     }
 }
 
@@ -205,9 +204,16 @@ function outputPdfToPage() {
     //places words into an array to not overfill the page
     pdfWords = $("#" + pdfHolderId ).find("span"); //all words wrapped inside the span element
     pdfHolderElement.innerHTML = ""; //clear PDF view
-    for (; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
+    for (; previouslyReadWordIndex < pdfWords.length; previouslyReadWordIndex++) {
         let word = pdfWords[previouslyReadWordIndex].outerHTML;
         pdfHolderElement.innerHTML += word;
+
+        if (pageFullOfWords(pdfHolderElement)) {
+            let extraWordLength = word.length;
+            let lengthOfPage = pdfHolderElement.innerHTML.length - word.length;
+            pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
+            break;
+        }
     }
 
     if (pdfHolderElement.innerHTML == "") {

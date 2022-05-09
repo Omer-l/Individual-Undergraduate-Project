@@ -43,7 +43,7 @@ span {
 
 #HolderDiv {
     width: 80%;
-    height: 75%;
+    height: 550px;
     /*text-align: center;*/
     /*justify-content: center;*/
     margin: auto;
@@ -54,7 +54,7 @@ span {
 #Holder {
     font-size: 45px;
     /*width: 50%;*/
-    /*height: 70%;*/
+    /*height: 300%;*/
     text-align: justify;
     /*justify-content: center;*/
     /*margin: auto;*/

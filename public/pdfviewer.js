@@ -80,9 +80,17 @@ function unhighlight(word) {
 function nextPage() {
     let pdfHolderElement = document.getElementById(pdfHolderId);// div element
     pdfHolderElement.innerHTML = ""; //clear page
-    for(; previouslyReadWordIndex < pdfWords.length && !pageFullOfWords(pdfHolderElement); previouslyReadWordIndex++) {
+    let word = "";
+    for(; previouslyReadWordIndex < pdfWords.length; previouslyReadWordIndex++) {
         let word = pdfWords[previouslyReadWordIndex].outerHTML;
         pdfHolderElement.innerHTML += word;
+
+        if (pageFullOfWords(pdfHolderElement)) {
+            let extraWordLength = word.length;
+            let lengthOfPage = pdfHolderElement.innerHTML.length - word.length;
+            pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
+            break;
+        }
     }
     if(pdfHolderElement.innerHTML == "") {
         pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
