@@ -198,7 +198,11 @@ function nextPage() {
     let pdfHolderElement = document.getElementById(pdfHolderId);// div element
     pdfHolderElement.innerHTML = ""; //clear page
     let word = "";
-    for(let wordIndex = previouslyReadWordIndex; wordIndex < pdfWords.length; wordIndex++) {
+    console.log("LEN OF WORDS ON PG: " + wordsOnPage.length);
+    console.log("LAST WORD ON PAGE: ");
+    console.log(wordsOnPage);
+    let lastWordOnPageIndex = wordsOnPage.length == 0 ? previouslyReadWordIndex : getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1].id) + 1;
+    for(let wordIndex = lastWordOnPageIndex; wordIndex < pdfWords.length; wordIndex++) {
         let word = pdfWords[wordIndex].outerHTML;
         pdfHolderElement.innerHTML += word;
 
@@ -214,6 +218,9 @@ function nextPage() {
     }
     fieldOfViewErrorCounter = 0; //reset error counter
     wordsOnPage = $("#" + pdfHolderId).find("span");
+    console.log(pdfWords);
+    console.log(getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1 - 1].id) + " word: " + wordsOnPage[wordsOnPage.length - 1 - 1].outerText);
+    console.log("next up should be " + getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1].id) + " word: " + wordsOnPage[wordsOnPage.length - 1].outerText);
     // updateWordVariables()
     uploadReadPosition(previouslyReadWordIndex);
 }
