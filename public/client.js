@@ -1,3 +1,7 @@
+let userSelectedHighlightColor = "yellow";
+let userSelectedUnhighlightColor = "lightblue"; // Default
+let userSelectedBackgroundColor = "white"; // Default
+let userSelectedFieldOfView = 1; // Default
 //Set up page when window has loaded
 window.onload = init;
 
@@ -40,7 +44,6 @@ function userLoggedIn() {
 function addUser() {
     //Set up XMLHttpRequest
     let xhttp = new XMLHttpRequest();
-
     //Extract user data
     let usrName = document.getElementById("RegistrationUsername").value;
     let usrEmail = document.getElementById("RegistrationPassword").value;
@@ -53,10 +56,10 @@ function addUser() {
         preferences: {
             readingMode: (readingMode == 0 ? "Paragraph" : "Rapid Serial Visual Presentation"),
             secondsBeforeQuiz: secondsBeforeQuiz,
-            highlightColor: "yellow", //default
-            unhighlightColor: "lightblue", //default
-            backgroundColor: "white", //default
-            fieldOfView: 1, //default
+            highlightColor: userSelectedHighlightColor,
+            unhighlightColor: userSelectedUnhighlightColor,
+            backgroundColor: userSelectedBackgroundColor,
+            fieldOfView: userSelectedFieldOfView,
         },
     };
     console.log(usrObj);

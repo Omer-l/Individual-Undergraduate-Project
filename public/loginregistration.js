@@ -88,6 +88,56 @@ function secondsBeforeQuizSelected() {
     }
 }
 
+//When number of words before quiz is selected
+function highlightColorSelected() {
+    console.log("BDOING");
+    let preferenceSelectorId = 'NumberOfWordsSelector';
+    let preference = document.getElementById(preferenceSelectorId);
+    if (preference) {
+        let selected = preference.selectedIndex;
+        if (selected == 0) {
+            userSelectedHighlightColor = "Yellow";
+        } else if(selected == 1){
+            userSelectedHighlightColor = "LightSkyBlue";
+        } else if(selected == 2){
+            userSelectedHighlightColor = "LightGreen";
+        }
+    }
+}
+
+//When number of words before quiz is selected
+function unhighlightColorSelected() {
+    console.log("BDOING");
+    let preferenceSelectorId = 'NumberOfWordsSelector';
+    let preference = document.getElementById(preferenceSelectorId);
+    if (preference) {
+        let selected = preference.selectedIndex;
+        if (selected == 0) {
+            userSelectedUnhighlightColor = "Yellow";
+        } else if(selected == 1){
+            userSelectedUnhighlightColor = "LightSkyBlue";
+        } else if(selected == 2){
+            userSelectedUnhighlightColor = "LightGreen";
+        }
+    }
+}
+
+//When number of words before quiz is selected
+function backgroundColorSelected() {
+    console.log("BDOING");
+    let preferenceSelectorId = 'NumberOfWordsSelector';
+    let preference = document.getElementById(preferenceSelectorId);
+    if (preference) {
+        let selected = preference.selectedIndex;
+        if (selected == 0) {
+            userSelectedBackgroundColor = "White";
+        } else if(selected == 1){
+            userSelectedBackgroundColor = "RosyBrown";
+        } else if(selected == 2){
+            userSelectedBackgroundColor = "SkyBlue";
+        }
+    }
+}
 
 //ensures registration or login buttons' are not activated until inputs are made
 function activateButton(formName) {
@@ -183,6 +233,30 @@ function outputLoginRegistrationToPage() {
         '                            <option>50</option>\n' +
         '                            <option>60</option>\n' +
         '                            <option>90</option>\n' +
+        '                        </select>\n' +
+        '                    </div>\n' +
+        '                    <div class="form-group" id="backgroundPreferencesDiv">\n' +
+        '                        <label for="NumberOfWordsSelector">Background Color</label>\n' +
+        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="backgroundColorSelected()">\n' +
+        '                            <option>White</option>\n' +
+        '                            <option>Rosy Brown</option>\n' +
+        '                            <option>Sky Blue</option>\n' +
+        '                        </select>\n' +
+        '                    </div>\n' +
+        '                    <div class="form-group" id="highlightPreferencesDiv">\n' +
+        '                        <label for="NumberOfWordsSelector">Highlight Color</label>\n' +
+        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="highlightColorSelected()">\n' +
+        '                            <option>Yellow</option>\n' +
+        '                            <option>Light Sky Blue</option>\n' +
+        '                            <option>Light Green</option>\n' +
+        '                        </select>\n' +
+        '                    </div>\n' +
+        '                    <div class="form-group" id="unhighlightPreferencesDiv">\n' +
+        '                        <label for="NumberOfWordsSelector">Unhighlight Color</label>\n' +
+        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="unhighlightColorSelected()">\n' +
+        '                            <option>Yellow</option>\n' +
+        '                            <option>Light Sky Blue</option>\n' +
+        '                            <option>Light Green</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
         '                </div>\n' +

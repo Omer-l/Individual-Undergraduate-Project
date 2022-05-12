@@ -138,7 +138,7 @@ function updateWordVariables() {
 }
 
 /** Collects all the words read and then gets the quiz (sends to websocket, outputs quiz) */
-function getWordsReadAndQuiz() {
+function getWordsReadAndQuiz() { //quiz sentence bug could be to do with word count
     console.log("QUIZZING!");
     if(wordCount > MINIMUM_NUMBER_OF_WORDS_TO_READ) {
         stopTimerDuringQuiz();
