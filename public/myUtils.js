@@ -33,6 +33,7 @@ const MINIMUM_NUMBER_OF_WORDS_TO_READ = 5;
 let start = 0; //time before quiz shows
 let elapsedTimerInterval;
 let knob;
+let RSVP = false; // a sentence at a time.
 
 //Points to a div element where user combo will be inserted.
 let userDetails = {
@@ -202,25 +203,42 @@ function nextPage() {
     console.log("LAST WORD ON PAGE: ");
     console.log(wordsOnPage);
     let lastWordOnPageIndex = wordsOnPage.length == 0 ? previouslyReadWordIndex : getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1].id) + 1;
-    for(let wordIndex = lastWordOnPageIndex; wordIndex < pdfWords.length; wordIndex++) {
-        let word = pdfWords[wordIndex].outerHTML;
-        pdfHolderElement.innerHTML += word;
-
-        if (pageFullOfWords(pdfHolderElement)) {
-            let extraWordLength = word.length;
-            let lengthOfPage =   pdfHolderElement.innerHTML.length - word.length;
-            pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
-            break;
+    if(RSVP) {
+        for(let wordIndex = lastWordOnPageIndex; wordIndex < pdfWords.length; wordIndex++) {
+            if (RSVP && pdfWords[wordIndex].innerText.includes('.')) {
+                pdfWords[wordIndex].onmouseover(nextPage);
+                let word = pdfWords[wordIndex].outerHTML;
+                console.log(word);
+                pdfHolderElement.innerHTML += word;
+                document.getElementById(pdfWords[wordIndex].id).onmouseover = function() {nextPage()};
+                // let extraWordLength = word.length;
+                // let lengthOfPage = pdfHolderElement.innerHTML.length - word.length;
+                // pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
+                break;
+            } else {
+                let word = pdfWords[wordIndex].outerHTML;
+                pdfHolderElement.innerHTML += word;
+            }
         }
-    }
+    } else
+        for(let wordIndex = lastWordOnPageIndex; wordIndex < pdfWords.length; wordIndex++) {
+            let word = pdfWords[wordIndex].outerHTML;
+            pdfHolderElement.innerHTML += word;
+            if (pageFullOfWords(pdfHolderElement) ) {
+                let extraWordLength = word.length;
+                let lengthOfPage = pdfHolderElement.innerHTML.length - word.length;
+                pdfHolderElement.innerHTML = pdfHolderElement.innerHTML.substr(0, lengthOfPage);
+                break;
+            }
+        }
     if(pdfHolderElement.innerHTML == "") {
         pdfHolderElement.innerHTML = '<button type="button" class="btn btn-lg btn-primary" onclick="restartPdf()">Back to start</button>';
     }
     fieldOfViewErrorCounter = 0; //reset error counter
     wordsOnPage = $("#" + pdfHolderId).find("span");
-    console.log(pdfWords);
-    console.log(getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1 - 1].id) + " word: " + wordsOnPage[wordsOnPage.length - 1 - 1].outerText);
-    console.log("next up should be " + getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1].id) + " word: " + wordsOnPage[wordsOnPage.length - 1].outerText);
+    // console.log(pdfWords);
+    // console.log(getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1 - 1].id) + " word: " + wordsOnPage[wordsOnPage.length - 1 - 1].outerText);
+    // console.log("next up should be " + getWordStartingIndexInPdfWordsArray(wordsOnPage[wordsOnPage.length - 1].id) + " word: " + wordsOnPage[wordsOnPage.length - 1].outerText);
     // updateWordVariables()
     uploadReadPosition(previouslyReadWordIndex);
 }

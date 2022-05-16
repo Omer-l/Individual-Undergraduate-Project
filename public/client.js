@@ -28,6 +28,8 @@ function userLoggedIn() {
             else {
                 sessionActive = true;
                 userDetails = userInfo;
+                if(userDetails.preferences.reading_mode == "Rapid Serial Visual Presentation")
+                    RSVP = true;
                 secondsBeforeQuiz = userDetails.preferences.seconds_before_quiz;
                 document.getElementById("NameHolder").innerHTML = "Welcome " + userDetails.name;
             }

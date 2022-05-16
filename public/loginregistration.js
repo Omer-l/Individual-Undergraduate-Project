@@ -88,7 +88,7 @@ function secondsBeforeQuizSelected() {
     }
 }
 
-//When number of words before quiz is selected
+//When highlight color is selected
 function highlightColorSelected() {
     console.log("BDOING");
     let preferenceSelectorId = 'NumberOfWordsSelector';
@@ -105,10 +105,10 @@ function highlightColorSelected() {
     }
 }
 
-//When number of words before quiz is selected
+//When unhighlight color is selected
 function unhighlightColorSelected() {
     console.log("BDOING");
-    let preferenceSelectorId = 'NumberOfWordsSelector';
+    let preferenceSelectorId = 'UnhighlightColorSelector';
     let preference = document.getElementById(preferenceSelectorId);
     if (preference) {
         let selected = preference.selectedIndex;
@@ -122,10 +122,10 @@ function unhighlightColorSelected() {
     }
 }
 
-//When number of words before quiz is selected
+//When color of the background is selected
 function backgroundColorSelected() {
     console.log("BDOING");
-    let preferenceSelectorId = 'NumberOfWordsSelector';
+    let preferenceSelectorId = 'HighlightColorSelector';
     let preference = document.getElementById(preferenceSelectorId);
     if (preference) {
         let selected = preference.selectedIndex;
@@ -138,6 +138,23 @@ function backgroundColorSelected() {
         }
     }
 }
+
+//When field of view is selected
+function fieldOfViewSelected() {
+    let preferenceSelectorId = 'FieldOfViewSelector';
+    let preference = document.getElementById(preferenceSelectorId);
+    if (preference) {
+        let selected = preference.selectedIndex;
+        if (selected == 0) {
+            userSelectedFieldOfView = 1;
+        } else if(selected == 1){
+            userSelectedFieldOfView = 2;
+        } else if(selected == 2){
+            userSelectedFieldOfView = 3;
+        }
+    }
+}
+
 
 //ensures registration or login buttons' are not activated until inputs are made
 function activateButton(formName) {
@@ -236,27 +253,35 @@ function outputLoginRegistrationToPage() {
         '                        </select>\n' +
         '                    </div>\n' +
         '                    <div class="form-group" id="backgroundPreferencesDiv">\n' +
-        '                        <label for="NumberOfWordsSelector">Background Color</label>\n' +
-        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="backgroundColorSelected()">\n' +
+        '                        <label for="BackgroundColorSelector">Background Color</label>\n' +
+        '                        <select class="form-control" id="BackgroundColorSelector" onchange="backgroundColorSelected()">\n' +
         '                            <option>White</option>\n' +
         '                            <option>Rosy Brown</option>\n' +
         '                            <option>Sky Blue</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
         '                    <div class="form-group" id="highlightPreferencesDiv">\n' +
-        '                        <label for="NumberOfWordsSelector">Highlight Color</label>\n' +
-        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="highlightColorSelected()">\n' +
+        '                        <label for="HighlightColorSelector">Highlight Color</label>\n' +
+        '                        <select class="form-control" id="HighlightColorSelector" onchange="highlightColorSelected()">\n' +
         '                            <option>Yellow</option>\n' +
         '                            <option>Light Sky Blue</option>\n' +
         '                            <option>Light Green</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
         '                    <div class="form-group" id="unhighlightPreferencesDiv">\n' +
-        '                        <label for="NumberOfWordsSelector">Unhighlight Color</label>\n' +
-        '                        <select class="form-control" id="NumberOfWordsSelector" onchange="unhighlightColorSelected()">\n' +
+        '                        <label for="UnhighlightColorSelector">Unhighlight Color</label>\n' +
+        '                        <select class="form-control" id="UnhighlightColorSelector" onchange="unhighlightColorSelected()">\n' +
         '                            <option>Yellow</option>\n' +
         '                            <option>Light Sky Blue</option>\n' +
         '                            <option>Light Green</option>\n' +
+        '                        </select>\n' +
+        '                    </div>\n' +
+        '                    <div class="form-group" id="unhighlightPreferencesDiv">\n' +
+        '                        <label for="FieldOfViewSelector">Field Of View</label>\n' +
+        '                        <select class="form-control" id="FieldOfViewSelector" onchange="fieldOfViewSelected()">\n' +
+        '                            <option>1</option>\n' +
+        '                            <option>2</option>\n' +
+        '                            <option>3</option>\n' +
         '                        </select>\n' +
         '                    </div>\n' +
         '                </div>\n' +
