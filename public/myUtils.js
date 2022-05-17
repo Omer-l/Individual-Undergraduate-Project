@@ -17,7 +17,7 @@ let startingIdOnPage = 0; //first word on page
 let endingIdOnPage = 0; //last word on page
 let wordCount = 0; //for quiz popups
 let nameOfPdf = ""; //PDF currently being read
-let secondsBeforeQuiz = 0; //For quizzing
+let secondsBeforeQuiz = 10; //For quizzing
 let maxWordsForQuiz = 0; //Changes depending on user's current reading position.
 let sentencesForQuizzing = 0; //sentences for quizzing
 let temporarySentence = ""; //in case user reaches word count and the sentence is not complete
@@ -192,6 +192,44 @@ function beginTimerBeforeQuiz(timeInMs) {
 /** Stops the timer when quizzing taking place. */
 function stopTimerDuringQuiz() {
     clearInterval(timeBeforeQuiz);
+}
+
+function previousPage() {
+    let tmp = [];
+    let pdfHolderElement = document.getElementById(pdfHolderId);// div element
+    pdfHolderElement.innerHTML = ""; //clear page
+
+    let firstWordOnPageIndex = wordsOnPage.length == 0 ? previouslyReadWordIndex : getWordStartingIndexInPdfWordsArray(wordsOnPage[0].id) + 1;
+    console.log("FIRST WORD: ");
+    console.log(pdfWords[firstWordOnPageIndex] + " AT : " + firstWordOnPageIndex);
+    if(!RSVP) {
+        for(let wordIndex = firstWordOnPageIndex; wordIndex >= 0; wordIndex--) {
+            let word = pdfWords[wordIndex];
+            if(word != undefined) {
+                pdfHolderElement.innerHTML += word.outerHTML;
+                tmp.push(word);
+                if (pageFullOfWords(pdfHolderElement)) {
+                    tmp.pop();
+                    tmp.pop();
+                    break;
+                }
+            } else
+                break;
+        }
+        tmp = tmp.reverse();
+        pdfHolderElement.innerHTML = ""; //clear page
+        for(let wordIndex = 0; wordIndex < tmp.length; wordIndex++) {
+            let word = tmp[wordIndex].outerHTML;
+            pdfHolderElement.innerHTML += word;
+        }
+        console.log(pdfHolderElement.textContent);
+        fieldOfViewErrorCounter = 0; //reset error counter
+        wordsOnPage = $("#" + pdfHolderId).find("span");
+        console.log(wordsOnPage);
+        previouslyReadWordIndex = getWordStartingIndexInPdfWordsArray(wordsOnPage[0].id);
+        uploadReadPosition(previouslyReadWordIndex);
+        wordCount = 0;
+    }
 }
 
 /** Displays the next set of words */
